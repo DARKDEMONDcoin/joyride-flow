@@ -355,7 +355,21 @@ export default defineConfig({
         // into the entry graph. This is the fix for the "landing page loads
         // 3.9 MB of JS" regression.
         manualChunks(id) {
+          // Vite's dynamic-import preload helper is a virtual module. Left to
+          // Rollup it got parked inside a random async chunk (assistant-ui),
+          // which then had to be downloaded before first paint. Pin it next to
+          // the React runtime so the shell never drags a route chunk with it.
+          if (id.includes("vite/preload-helper")) return "react-vendor";
           if (!id.includes("node_modules")) return;
+          // Tiny runtime helpers shared by many packages. Left unpinned they
+          // land in whichever async chunk Rollup picks first, which forces the
+          // shell to download an unrelated route chunk at boot.
+          if (
+            id.includes("@babel/runtime") ||
+            /[\\/]node_modules[\\/]tslib[\\/]/.test(id)
+          ) {
+            return "react-vendor";
+          }
 
           // MUST come before the react-vendor rule below: the substring
           // "react-router" also matches `@tanstack/react-router`, which is a
@@ -433,11 +447,11 @@ export default defineConfig({
             return "lobehub-core";
           }
 
-          // lucide-react must stay in a shared "icons" chunk. Removing this
-          // rule causes routes with many icons (e.g. chat messages) to inline
-          // ~500 KB of icons into their own chunk. Shared chunk = downloaded
-          // once, cached across routes.
-          if (id.includes("lucide-react")) return "icons";
+          // lucide-react: do NOT force every icon into one shared chunk.
+          // The barrel pulls ~580 KB and, because the app shell imports a few
+          // icons, that whole chunk was downloaded before first paint. Letting
+          // Rollup split it means each route chunk carries only the handful of
+          // icon modules it actually renders.
 
 
           if (

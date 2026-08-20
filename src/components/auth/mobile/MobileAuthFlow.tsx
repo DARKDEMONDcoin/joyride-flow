@@ -196,13 +196,13 @@ export default function MobileAuthFlow(p: Props) {
                       disabled={p.isSubmitting || !p.email}
                       className={`w-full h-[52px] rounded-full flex items-center justify-center gap-2 active:scale-[0.985] transition-colors duration-300 disabled:opacity-50 ${
                         hasEmail
-                          ? "theme-fixed bg-white text-[#0b0d12] border border-white"
+                          ? "theme-fixed bg-white text-background border border-white"
                           : "bg-transparent text-foreground border border-foreground/30"
                       }`}
                       style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px" }}
                     >
                       {p.isSubmitting ? (
-                        <span className={`w-4 h-4 border-2 ${hasEmail ? "border-[#0b0d12]" : "border-white"} border-t-transparent rounded-full animate-spin`} />
+                        <span className={`w-4 h-4 border-2 ${hasEmail ? "border-background" : "border-white"} border-t-transparent rounded-full animate-spin`} />
                       ) : (
                         <>
                           {p.showPasswordField ? authT("signIn") : authT("continue")}

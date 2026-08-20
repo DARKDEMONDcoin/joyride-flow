@@ -482,7 +482,7 @@ const SectionCard = ({
       {image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <SmartImage src={image} loading="lazy" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#212121] via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
         </div>
       )}
       <div className="p-5 sm:p-8">
