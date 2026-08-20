@@ -71,7 +71,6 @@ export const DataCategoryPage = lazy(() => import("@/pages/settings/DataCategory
 export const SettingsPrivacyPage = lazy(() => import("@/pages/settings/SettingsPrivacyPage"));
 export const CapabilitiesPage = lazy(() => import("@/pages/settings/CapabilitiesPage"));
 export const SystemStatusPage = lazy(() => import("@/pages/settings/SystemStatusPage"));
-export const SwitchAccountPage = lazy(() => import("@/pages/settings/SwitchAccountPage"));
 export const SkillsSettingsPage = lazy(() => import("@/pages/settings/SkillsSettingsPage"));
 export const SkillsNewPage = lazy(() => import("@/pages/settings/SkillsNewPage"));
 export const SkillsLibraryPage = lazy(() => import("@/pages/settings/SkillsLibraryPage"));
