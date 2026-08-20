@@ -7,12 +7,12 @@
    ============================================================ */
 
 body.ms-theme {
-  --ms-bg: #000000;
-  --ms-bg-2: #0a0a0a;
-  --ms-accent: hsl(0 0% 100% / 0.18);
-  --ms-accent-2: hsl(0 0% 100% / 0.10);
-  --ms-text: #ffffff;
-  --ms-text-soft: #a1a1aa;
+  --ms-bg: hsl(var(--background));
+  --ms-bg-2: hsl(var(--card));
+  --ms-accent: hsl(var(--foreground) / 0.14);
+  --ms-accent-2: hsl(var(--foreground) / 0.08);
+  --ms-text: hsl(var(--foreground));
+  --ms-text-soft: hsl(var(--muted-foreground));
 
   background: var(--ms-bg) !important;
   background-attachment: fixed;

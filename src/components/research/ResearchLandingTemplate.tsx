@@ -163,7 +163,7 @@ const baseMd = {
   ),
   table: ({ node: _n, ...p }: any) => (
     <div className="my-6 -mx-2 overflow-x-auto sm:mx-0">
-      <div className="overflow-hidden rounded-xl border border-foreground/10 bg-[#1a1a1a]">
+      <div className="overflow-hidden rounded-xl border border-foreground/10 bg-background">
         <table
           className="min-w-full border-collapse text-[14.5px] [&_tbody_tr]:border-t [&_tbody_tr]:border-foreground/5"
           {...p}
@@ -195,7 +195,7 @@ const baseMd = {
       );
     }
     return (
-      <pre className="my-5 overflow-x-auto rounded-xl border border-foreground/10 bg-[#0a0a0a] p-4">
+      <pre className="my-5 overflow-x-auto rounded-xl border border-foreground/10 bg-background p-4">
         <code className={`font-mono text-[13px] leading-[1.65] text-gray-300 ${className || ""}`} {...p}>
           {children}
         </code>
@@ -351,7 +351,7 @@ const ResearchLandingTemplate = ({
             <section className="px-3 pb-10 sm:px-6 sm:pb-16 md:pb-20">
               <div
                 className="mx-auto max-w-5xl overflow-hidden rounded-2xl md:rounded-[2rem] px-5 py-10 sm:px-10 sm:py-14 md:px-14 md:py-16"
-                style={{ backgroundColor: "#101010" }}
+                style={{ backgroundColor: "hsl(var(--background))" }}
               >
                 <div
                   className="mb-5 text-[10px] font-bold uppercase tracking-[0.28em] sm:text-xs"
@@ -415,7 +415,7 @@ const ResearchLandingTemplate = ({
                         href={u}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-start gap-3 rounded-xl border border-foreground/10 bg-[#101010] p-3.5 transition hover:border-foreground/25 hover:bg-[#161616]"
+                        className="group flex items-start gap-3 rounded-xl border border-foreground/10 bg-background p-3.5 transition hover:border-foreground/25 hover:bg-background"
                       >
                         <span
                           className="mt-0.5 flex h-6 min-w-6 items-center justify-center rounded-md bg-foreground/5 font-mono text-[11px] font-bold"
@@ -477,7 +477,7 @@ const SectionCard = ({
       lang={"en"}
       dir={"ltr"}
       className="scroll-mt-24 overflow-hidden rounded-2xl md:rounded-[1.75rem]"
-      style={{ backgroundColor: "#212121" }}
+      style={{ backgroundColor: "hsl(var(--card))" }}
     >
       {image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">

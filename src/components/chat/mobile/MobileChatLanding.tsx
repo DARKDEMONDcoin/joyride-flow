@@ -736,7 +736,7 @@ const MobileChatLanding = ({
         <GlassSheetContent
           contentClassName="px-0 pt-2 bg-background"
           className="bg-background"
-          style={{ background: "#000", backdropFilter: "none", WebkitBackdropFilter: "none" }}
+          style={{ background: "hsl(var(--background))", backdropFilter: "none", WebkitBackdropFilter: "none" }}
         >
           <GlassSheetHeader className="px-5">
             <GlassSheetTitle>Connect apps</GlassSheetTitle>

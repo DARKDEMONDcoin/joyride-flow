@@ -136,7 +136,7 @@ export default function CapabilitiesPage() {
   );
 
   const Card = ({ children }: { children: React.ReactNode }) => (
-    <section className="rounded-[16px] bg-[#111112] border border-white/[0.06] overflow-hidden">
+    <section className="rounded-[16px] bg-background border border-white/[0.06] overflow-hidden">
       {children}
     </section>
   );

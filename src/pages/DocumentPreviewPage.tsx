@@ -153,7 +153,7 @@ const DocumentPreviewPage = () => {
           onClick={downloadPdf}
           disabled={!html || exporting}
           className="inline-flex h-10 items-center rounded-full px-5 text-[12px] font-semibold transition hover:opacity-90 disabled:opacity-45"
-          style={{ backgroundColor: "#000000", color: "#ffffff" }}
+          style={{ backgroundColor: "hsl(var(--background))", color: "#ffffff" }}
         >
           {exporting ? "Preparing…" : "Download as PDF"}
         </button>

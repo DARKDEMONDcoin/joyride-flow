@@ -544,7 +544,7 @@ const ReferralsPage = () => {
           <div
             className="relative w-full max-w-sm overflow-hidden rounded-2xl p-6 pf-noise-overlay"
             style={{
-              backgroundColor: "#0a0a0a",
+              backgroundColor: "hsl(var(--background))",
               border: "1px solid var(--overlay-white-08)",
             }}
             onClick={(e) => e.stopPropagation()}
@@ -874,7 +874,7 @@ const DesktopReferralsChrome = ({
       className="flex w-full overflow-hidden rtl:flex-row-reverse"
       style={{
         height: "100dvh",
-        backgroundColor: "#000000",
+        backgroundColor: "hsl(var(--background))",
         color: "#E8E6DD",
         fontFamily:
           'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
@@ -885,7 +885,7 @@ const DesktopReferralsChrome = ({
         data-chat-sidebar="true"
         style={{
           width: !sidebarCollapsed ? 280 : 60,
-          backgroundColor: "#000000",
+          backgroundColor: "hsl(var(--background))",
           borderInlineEndColor: "#1A1A1F",
         }}
         className="theme-fixed hidden md:flex shrink-0 overflow-hidden border-e transition-[width] duration-200 ease-out"
@@ -905,11 +905,11 @@ const DesktopReferralsChrome = ({
 
       <main
         className="flex-1 flex flex-col overflow-hidden min-w-0"
-        style={{ backgroundColor: "#000" }}
+        style={{ backgroundColor: "hsl(var(--background))" }}
       >
         <div
           className="flex-1 overflow-y-auto p-8 custom-ref-scrollbar"
-          style={{ backgroundColor: "#000" }}
+          style={{ backgroundColor: "hsl(var(--background))" }}
         >
           <div
             className="mx-auto w-full max-w-[1280px] flex flex-col gap-5"
