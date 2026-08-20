@@ -1,0 +1,46 @@
+/* Manus-style settings design tokens.
+   Dark is the default (matches the chat surface); light mirrors the
+   manus reference screenshots exactly (#f1f1f1 page, pure white cards). */
+:root {
+  --mn-bg: #1c1c1c;
+  --mn-card: #292929;
+  --mn-card-2: #303030;
+  --mn-fg: #e8e8e8;
+  --mn-fg-strong: #f4f4f4;
+  --mn-muted: #8f8f8f;
+  --mn-faint: #6f6f6f;
+  --mn-sep: rgba(255, 255, 255, 0.07);
+  --mn-cta-bg: #ffffff;
+  --mn-cta-fg: #111111;
+  --mn-seg: #131313;
+  --mn-seg-active: #2e2e2e;
+  --mn-seg-active-fg: #f4f4f4;
+  --mn-sheet: #1f1f1f;
+  --mn-input: #2b2b2b;
+  --mn-avatar: #7c5cd6;
+  --mn-danger: #f87171;
+  --mn-accent: #3b82f6;
+  --mn-press: rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="light"] {
+  --mn-bg: #f1f1f1;
+  --mn-card: #ffffff;
+  --mn-card-2: #f7f7f7;
+  --mn-fg: #1a1a1a;
+  --mn-fg-strong: #111111;
+  --mn-muted: #8e8e8e;
+  --mn-faint: #a3a3a3;
+  --mn-sep: rgba(0, 0, 0, 0.07);
+  --mn-cta-bg: #1c1c1c;
+  --mn-cta-fg: #ffffff;
+  --mn-seg: #e4e4e4;
+  --mn-seg-active: #ffffff;
+  --mn-seg-active-fg: #111111;
+  --mn-sheet: #f7f7f7;
+  --mn-input: #f0f0f0;
+  --mn-avatar: #8b5cf6;
+  --mn-danger: #ef4444;
+  --mn-accent: #2f6fed;
+  --mn-press: rgba(0, 0, 0, 0.04);
+}
