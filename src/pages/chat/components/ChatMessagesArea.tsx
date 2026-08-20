@@ -1,10 +1,33 @@
-import { AnimatePresence } from "framer-motion";
-import { forwardRef, type ReactNode, type RefObject } from "react";
-import { DesktopGreeting } from "./DesktopGreeting";
+import { forwardRef, lazy, Suspense, type ReactNode, type RefObject } from "react";
 import { MobileChatLandingMount } from "./MobileChatLandingMount";
-import { ChatMessagesList } from "./ChatMessagesList";
 import { ScrollToBottomButton } from "./ScrollToBottomButton";
 import type { Message, ChatMode } from "../chatConstants";
+
+/**
+ * The transcript renderer pulls in the whole markdown / syntax-highlight /
+ * message-bubble stack (~270 KB). A brand-new chat has zero messages, so we
+ * only download it once there is something to render — and warm it during
+ * idle time (see `prewarmTranscript`) so opening a conversation stays instant.
+ */
+const ChatMessagesList = lazy(() =>
+  import("./ChatMessagesList").then((m) => ({ default: m.ChatMessagesList })),
+);
+
+let warmed = false;
+/** Skip background warming on Save-Data / 2G so we never spend a user's data. */
+function canWarm(): boolean {
+  const c = (navigator as any).connection;
+  if (c?.saveData) return false;
+  return !/(^|-)2g$|slow-2g/i.test(c?.effectiveType || "");
+}
+
+/** Preload the transcript chunk during idle time after the chat shell paints. */
+export function prewarmTranscript(): void {
+  if (warmed || typeof window === "undefined" || !canWarm()) return;
+  warmed = true;
+  const ric: any = (window as any).requestIdleCallback ?? ((cb: any) => setTimeout(cb, 1200));
+  ric(() => void import("./ChatMessagesList").catch(() => undefined), { timeout: 3000 });
+}
 
 interface ChatMessagesAreaProps {
   // Loading + transcript
@@ -110,7 +133,9 @@ export const ChatMessagesArea = forwardRef<HTMLDivElement, ChatMessagesAreaProps
 
         ) : (
           <div className="relative z-[1]">
-            <ChatMessagesList ref={messagesEndRef} {...(messagesListProps as any)} />
+            <Suspense fallback={<div className="pt-20 pb-44" aria-hidden />}>
+              <ChatMessagesList ref={messagesEndRef} {...(messagesListProps as any)} />
+            </Suspense>
             {slotAfterMessages ? (
               <div className="max-w-3xl mx-auto px-4 md:px-6 pb-6">{slotAfterMessages}</div>
             ) : null}

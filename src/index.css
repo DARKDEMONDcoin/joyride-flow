@@ -1056,11 +1056,11 @@ html[data-theme="light"] .text-\[\#6b6b6b\] {
   color: hsl(var(--muted-foreground)) !important;
 }
 html[data-theme="light"] .bg-\[\#0d0d0d\],
-html[data-theme="light"] .bg-\[\hsl(var(--background))\],
-html[data-theme="light"] [class*="bg-\[\hsl(var(--background))\]\/"] {
+html[data-theme="light"] .bg-\[hsl\(var\(--background\)\)\],
+html[data-theme="light"] [class*="bg-\[hsl\(var\(--background\)\)\]\/"] {
   background-color: hsl(var(--card)) !important;
 }
-html[data-theme="light"] .border-\[\hsl(var(--background))\],
+html[data-theme="light"] .border-\[hsl\(var\(--background\)\)\],
 html[data-theme="light"] .border-\[\#333\] {
   border-color: hsl(var(--border)) !important;
 }
