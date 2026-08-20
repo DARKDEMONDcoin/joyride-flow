@@ -155,7 +155,7 @@ const ChatGlobalModals = lazy(() =>
 import { MobileChatHeaderMount } from "./components/MobileChatHeaderMount";
 import { DesktopChatHeader } from "./components/DesktopChatHeader";
 import { ChatArtifactsCanvas } from "./components/ChatArtifactsCanvas";
-import { ChatMessagesArea } from "./components/ChatMessagesArea";
+import { ChatMessagesArea, prewarmTranscript } from "./components/ChatMessagesArea";
 import { ChatComposerSection } from "./components/ChatComposerSection";
 const InlineCoderRun = lazy(() => import("@/components/coder/InlineCoderRun"));
 // Decorative aurora background + empty-state greeting are not needed for
@@ -2243,6 +2243,7 @@ const ChatPage = () => {
   // every later one (see prewarmSendPath docs).
   useEffect(() => {
     prewarmSendPath();
+    prewarmTranscript();
   }, []);
 
 
