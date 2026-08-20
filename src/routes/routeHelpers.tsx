@@ -322,17 +322,3 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-// Root route: every visitor (guest or signed-in) goes straight into the app.
-export const RootRoute = ({ authedElement }: { authedElement: React.ReactNode }) => {
-  bootstrapAuth();
-  void authedElement;
-  // Every visitor (guest or signed-in) lands in the app, so redirect
-  // immediately instead of holding a blank frame until the session resolves.
-  return <Navigate to="/chat" replace />;
-};
-
-
-
-
-
-

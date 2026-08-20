@@ -1,5 +1,5 @@
 import { Route, Navigate } from "react-router-dom";
-import { LegacyToolsRedirect, LegacyAiRedirect, ProtectedRoute, RootRoute } from "./routeHelpers";
+import { LegacyToolsRedirect, LegacyAiRedirect, ProtectedRoute } from "./routeHelpers";
 import { AnimatedShell } from "./AnimatedShell";
 import {
   // chat
@@ -73,7 +73,7 @@ const toPricing = <Navigate to="/pricing" replace />;
 export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) => (
   <>
     {/* ── Entry ──────────────────────────────────────────────── */}
-    <Route path="/" element={<RootRoute authedElement={<ChatPage key={currentUserId} />} />} />
+    <Route path="/" element={<ChatPage key={currentUserId} />} />
     <Route path="/chat" element={<ChatPage key={currentUserId} />} />
     <Route path="/index" element={<ChatPage key={currentUserId} />} />
     <Route path="/share/:shareId" element={<SharedChatPage />} />
