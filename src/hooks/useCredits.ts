@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useActiveWorkspaceId, WORKSPACE_CHANGED_EVENT } from "@/lib/activeWorkspace";
+import { getCachedUser } from "@/lib/cachedUser";
+import { getOwnProfile, invalidateOwnProfile } from "@/lib/ownProfile";
 
 export const CREDITS_CHANGED_EVENT = "credits-changed";
 
@@ -15,9 +17,7 @@ export function useCredits() {
 
   const fetchCredits = useCallback(async () => {
     setLoading(true);
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const user = await getCachedUser();
     if (!user) {
       setLoading(false);
       return;
@@ -37,11 +37,7 @@ export function useCredits() {
         setCredits(0);
       }
     } else {
-      const { data } = await supabase
-        .from("profiles")
-        .select("credits, plan")
-        .eq("id", user.id)
-        .single();
+      const data = await getOwnProfile(user.id);
       if (data) {
         setCredits(Number(data.credits));
         setPlan((data as any).plan || "free");
@@ -55,7 +51,11 @@ export function useCredits() {
   }, [fetchCredits]);
 
   useEffect(() => {
-    const onChange = () => fetchCredits();
+    const onChange = () => {
+      // Credit balance changed server-side — bypass the shared profile cache.
+      invalidateOwnProfile();
+      void fetchCredits();
+    };
     window.addEventListener(WORKSPACE_CHANGED_EVENT, onChange);
     window.addEventListener(CREDITS_CHANGED_EVENT, onChange);
     return () => {
