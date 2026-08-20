@@ -26,9 +26,5 @@
 html[data-theme="light"] {
   --mn-sep: hsl(var(--border));
   --mn-press: hsl(var(--foreground) / 0.05);
-  --mn-input: #f0f0f0;
   --mn-avatar: #8b5cf6;
-  --mn-danger: #ef4444;
-  --mn-accent: #2f6fed;
-  --mn-press: rgba(0, 0, 0, 0.04);
 }
