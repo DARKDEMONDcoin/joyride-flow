@@ -325,14 +325,14 @@ const ResearchLandingTemplate = ({
               style={{ color: CREAM_ALT }}
             >
               <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
-                {wordCount.toLocaleString()} {isRtl ? "كلمة" : "words"}
+                {wordCount.toLocaleString()} {"words"}
               </span>
               <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
-                {readMins} {isRtl ? "دقيقة قراءة" : "min read"}
+                {readMins} {"min read"}
               </span>
               {sources.length > 0 && (
                 <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
-                  {sources.length} {isRtl ? "مصدر" : "sources"}
+                  {sources.length} {"sources"}
                 </span>
               )}
             </motion.div>
@@ -342,7 +342,7 @@ const ResearchLandingTemplate = ({
 
       {reportEmpty ? (
         <div className="p-10 text-center text-sm text-gray-500">
-          {isRtl ? "التقرير قيد التحضير." : "Report is being prepared."}
+          {"Report is being prepared."}
         </div>
       ) : (
         <>
@@ -357,11 +357,11 @@ const ResearchLandingTemplate = ({
                   className="mb-5 text-[10px] font-bold uppercase tracking-[0.28em] sm:text-xs"
                   style={{ color: CREAM }}
                 >
-                  {isRtl ? "المقدمة" : "Overview"}
+                  {"Overview"}
                 </div>
                 <div
-                  dir={isRtl ? "rtl" : "ltr"}
-                  lang={isRtl ? "ar" : "en"}
+                  dir={"ltr"}
+                  lang={"en"}
                   className="[&>*:first-child]:mt-0"
                 >
                   <ReactMarkdown remarkPlugins={[remarkGfm]} components={md}>
@@ -403,7 +403,7 @@ const ResearchLandingTemplate = ({
               <div className="mx-auto max-w-6xl">
                 <div className="mb-6 flex items-baseline gap-3">
                   <div className="text-xs font-bold uppercase tracking-[0.28em]" style={{ color: CREAM }}>
-                    {isRtl ? "المصادر" : "Sources"}
+                    {"Sources"}
                   </div>
                   <div className="h-px flex-1 bg-white/10" />
                   <div className="text-xs text-gray-500">{sources.length}</div>
@@ -474,8 +474,8 @@ const SectionCard = ({
       initial={{ opacity: 0, scale: 0.96, y: 20 }}
       animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: (index % 4) * 0.12, ease: [0.22, 1, 0.36, 1] }}
-      lang={isRtl ? "ar" : "en"}
-      dir={isRtl ? "rtl" : "ltr"}
+      lang={"en"}
+      dir={"ltr"}
       className="scroll-mt-24 overflow-hidden rounded-2xl md:rounded-[1.75rem]"
       style={{ backgroundColor: "#212121" }}
     >

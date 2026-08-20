@@ -120,27 +120,27 @@ const ResearchJobBubble = ({ jobId, conversationId, turnIndex = 0, onRunningChan
       setBusy(true);
       try {
         await startResearchJob({ query: job.query });
-        toast.success(isRtl ? "تم بدء البحث من جديد" : "Research restarted");
+        toast.success("Research restarted");
       } catch (e: any) {
-        toast.error(e?.message || (isRtl ? "فشلت إعادة المحاولة" : "Retry failed"));
+        toast.error(e?.message || ("Retry failed"));
       } finally {
         setBusy(false);
       }
     };
     return (
       <ToolCard
-        dir={isRtl ? "rtl" : "ltr"}
-        title={isRtl ? "بحث عميق" : "Deep Research"}
-        trailing={<ToolStatusBadge status="error" errorLabel={isRtl ? "فشل" : "Failed"} />}
+        dir={"ltr"}
+        title={"Deep Research"}
+        trailing={<ToolStatusBadge status="error" errorLabel={"Failed"} />}
       >
-        <div className="text-sm text-foreground/90">{job.error || (isRtl ? "فشل البحث." : "Research failed.")}</div>
+        <div className="text-sm text-foreground/90">{job.error || ("Research failed.")}</div>
         <button
           type="button"
           onClick={handleRetry}
           disabled={busy}
           className="mt-3 inline-flex items-center gap-2 h-8 px-4 rounded-full text-xs font-semibold bg-foreground text-background hover:bg-foreground/90 disabled:opacity-50 transition"
         >
-          {busy ? (isRtl ? "جارٍ..." : "Retrying...") : isRtl ? "إعادة المحاولة" : "Retry"}
+          {busy ? ("Retrying...") : "Retry"}
         </button>
       </ToolCard>
     );
@@ -234,9 +234,9 @@ const ResearchJobBubble = ({ jobId, conversationId, turnIndex = 0, onRunningChan
   else phase = 0;
 
   const phases = [
-    { label: isRtl ? `يبحث في ${sourcesCount} مصدر` : `Searching ${sourcesCount} sources` },
-    { label: isRtl ? "يحلل النتائج" : "Analyzing results" },
-    { label: isRtl ? "يكتب التقرير الكامل" : "Writing the full report" },
+    { label: `Searching ${sourcesCount} sources` },
+    { label: "Analyzing results" },
+    { label: "Writing the full report" },
   ];
 
   const progress = Math.max(0, Math.min(100, Number(job.progress) || 0));
@@ -244,11 +244,11 @@ const ResearchJobBubble = ({ jobId, conversationId, turnIndex = 0, onRunningChan
 
   return (
     <ToolCard
-      dir={isRtl ? "rtl" : "ltr"}
+      dir={"ltr"}
       className="max-w-[440px]"
-      title={title || (isRtl ? "بحث عميق" : "Deep Research")}
+      title={title || ("Deep Research")}
       trailing={
-        <ToolStatusBadge status="running" runningLabel={isRtl ? "جارٍ" : "Running"} />
+        <ToolStatusBadge status="running" runningLabel={"Running"} />
       }
     >
 

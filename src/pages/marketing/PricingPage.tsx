@@ -77,7 +77,7 @@ function StaggeredFade({
         className={className}
         aria-label={translated}
         data-no-translate="true"
-        dir={isRTL ? "rtl" : "ltr"}
+        dir={"ltr"}
       >
         {words.map((w, i) => {
           if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;

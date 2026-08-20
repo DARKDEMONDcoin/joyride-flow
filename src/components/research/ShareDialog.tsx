@@ -79,7 +79,7 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
       color: "bg-[#0A66C2] text-foreground",
     },
     {
-      name: isRtl ? "Email" : "Email",
+      name: "Email",
       Icon: Mail,
       href: `mailto:?subject=${enc(title)}&body=${enc(`${title}\n\n${url}`)}`,
       color: "bg-muted text-foreground border border-foreground/10",
@@ -90,10 +90,10 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
-      toast.success(isRtl ? "Link copied" : "Link copied");
+      toast.success("Link copied");
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      toast.error(isRtl ? "Copy failed" : "Copy failed");
+      toast.error("Copy failed");
     }
   };
 
@@ -101,7 +101,7 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="bottom"
-        dir={isRtl ? "rtl" : "ltr"}
+        dir={"ltr"}
         className="!left-1/2 !right-auto w-[calc(100%-1rem)] max-w-[390px] !-translate-x-1/2 p-0 bg-[hsl(var(--background))] border border-foreground/10 rounded-ios-xl shadow-2xl max-h-[92vh] overflow-y-auto data-[state=open]:duration-300 sm:!top-1/2 sm:!bottom-auto sm:!-translate-y-1/2"
       >
         {/* Drag handle */}
@@ -116,7 +116,7 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
               className="text-3xl italic leading-tight text-foreground"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              {isRtl ? "Share report" : "Share report"}
+              {"Share report"}
             </SheetTitle>
             <SheetDescription className="text-sm text-muted-foreground leading-relaxed max-w-[280px] mx-auto line-clamp-3">
               {title}
@@ -146,7 +146,7 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
           {/* Link bar */}
           <div className="space-y-3 pb-[max(0px,env(safe-area-inset-bottom))]">
             <label className="block pl-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              {isRtl ? "Share link" : "Share link"}
+              {"Share link"}
             </label>
             <div className="flex items-center gap-2 p-2 rounded-2xl border border-foreground/10 bg-foreground/[0.04]">
               <div className="flex-1 px-3 overflow-hidden">
@@ -168,7 +168,7 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
                 }`}
               >
                 {copied ? <Check className="h-3.5 w-3.5" /> : null}
-                <span>{copied ? (isRtl ? "Done" : "Copied") : isRtl ? "Copy" : "Copy"}</span>
+                <span>{copied ? ("Copied") : "Copy"}</span>
               </button>
             </div>
           </div>

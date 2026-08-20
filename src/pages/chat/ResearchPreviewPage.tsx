@@ -408,7 +408,7 @@ const ResearchPreviewPage = () => {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-background text-foreground" dir={isRtl ? "rtl" : "ltr"}>
+    <div className="min-h-[100dvh] bg-background text-foreground" dir={"ltr"}>
       <ScrollProgress />
       <ResearchToc markdown={cleanReport} isRtl={isRtl} onActiveChange={setActiveTocId} />
 
@@ -427,7 +427,7 @@ const ResearchPreviewPage = () => {
             className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-white/15 dark:bg-background/80 dark:hover:bg-background/95"
             aria-label="Back to conversation"
           >
-            <ArrowLeft className={`h-[18px] w-[18px] ${isRtl ? "rotate-180" : ""}`} />
+            <ArrowLeft className={`h-[18px] w-[18px] ${""}`} />
           </button>
           <div className="flex-1" />
           {tocItems.length >= 2 && (
@@ -443,10 +443,10 @@ const ResearchPreviewPage = () => {
               <SheetContent
                 side="bottom"
                 className="mx-auto flex max-h-[62dvh] w-full max-w-[39rem] flex-col overflow-hidden rounded-t-[2rem] border border-white/40 bg-white/30 px-6 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-3 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)] sm:max-w-lg"
-                dir={isRtl ? "rtl" : "ltr"}
+                dir={"ltr"}
               >
                 <div className="mx-auto mb-6 h-1 w-11 shrink-0 rounded-full bg-foreground/25" />
-                <SheetHeader className={isRtl ? "text-right" : "text-left"}>
+                <SheetHeader className={"text-left"}>
                   <SheetTitle className="text-base font-medium">{"Content"}</SheetTitle>
                 </SheetHeader>
                 <ul className="mt-4 min-h-0 flex-1 space-y-2 overflow-y-auto overscroll-contain pb-8 [-webkit-overflow-scrolling:touch]">
@@ -472,7 +472,7 @@ const ResearchPreviewPage = () => {
                             ? "border-foreground/30 bg-foreground/[0.16] text-foreground shadow-[inset_0_1px_0_hsl(var(--foreground)_/_0.16)]"
                             : "border-foreground/10 bg-foreground/[0.05] text-foreground/85 hover:bg-foreground/[0.11] hover:border-foreground/20",
                           it.level === 3 ? "ps-6 text-sm" : "text-[15px] font-medium",
-                          isRtl ? "flex-row-reverse text-right" : "text-left"
+                          "text-left"
                         )}
                       >
                         <span className="min-w-0 flex-1 truncate">{it.text}</span>
@@ -493,7 +493,7 @@ const ResearchPreviewPage = () => {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              align={isRtl ? "start" : "end"}
+              align={"end"}
               sideOffset={10}
               className="w-60 overflow-hidden rounded-2xl border border-white/40 bg-white/30 p-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)]"
             >
