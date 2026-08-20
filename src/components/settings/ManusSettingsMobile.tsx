@@ -5,7 +5,6 @@ import {
   Bell,
   ChevronLeft,
   ChevronRight,
-  Clock,
   Lightbulb,
   Database,
   PanelBottom,
@@ -90,7 +89,6 @@ const ManusSettingsMobile = () => {
   };
 
   const mainRows: Row[] = [
-    { icon: Clock, label: "Scheduled tasks", path: "/settings/tasks" },
     { icon: Lightbulb, label: "Knowledge", path: "/settings/memory" },
     { icon: Bell, label: "Notifications", path: "/notifications" },
     { icon: Database, label: "Data controls", path: "/settings/data" },

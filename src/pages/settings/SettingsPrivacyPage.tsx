@@ -1,5 +1,5 @@
 /** @doc Privacy settings — mobile-first dark cards matching the native iOS privacy screen. */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Download } from "lucide-react";
@@ -11,22 +11,9 @@ import {
 } from "@/components/settings/SubShell";
 import { downloadUserData } from "@/lib/exportUserData";
 
-const TRAINING_OPT_OUT_KEY = "megsy_training_opt_out";
-
 export default function SettingsPrivacyPage() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
-  const [trainingOptOut, setTrainingOptOut] = useState(false);
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(TRAINING_OPT_OUT_KEY);
-      setTrainingOptOut(saved === "true");
-    } catch {
-      // localStorage unavailable — keep default
-    }
-  }, []);
-
   const [isExporting, setIsExporting] = useState(false);
 
   const handleExportData = async () => {
@@ -44,37 +31,6 @@ export default function SettingsPrivacyPage() {
       setIsExporting(false);
     }
   };
-
-  const toggleTraining = () => {
-    const next = !trainingOptOut;
-    setTrainingOptOut(next);
-    try {
-      localStorage.setItem(TRAINING_OPT_OUT_KEY, String(next));
-    } catch {
-      // localStorage unavailable
-    }
-  };
-
-  const PrivacyToggle = () => (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={trainingOptOut}
-      onClick={toggleTraining}
-      className={[
-        "relative inline-flex h-[28px] w-[48px] shrink-0 cursor-pointer rounded-full transition-colors duration-200",
-        trainingOptOut ? "bg-[#4C8BF5]" : "bg-card",
-      ].join(" ")}
-    >
-      <span
-        className={[
-          "inline-block h-[24px] w-[24px] transform rounded-full bg-white shadow-sm transition-transform duration-200",
-          trainingOptOut ? "translate-x-[22px]" : "translate-x-[2px]",
-        ].join(" ")}
-        style={{ marginTop: 2 }}
-      />
-    </button>
-  );
 
   const DataPrivacyCard = () => (
     <div className="rounded-[18px] bg-background border border-white/[0.07] p-4">
@@ -132,30 +88,6 @@ export default function SettingsPrivacyPage() {
     </div>
   );
 
-  const TrainingCard = () => (
-    <div className="rounded-[18px] bg-background border border-white/[0.07] p-4 flex items-start gap-3">
-      <div className="flex-1 min-w-0">
-        <h3 className="text-[17px] font-semibold text-foreground leading-tight">
-          Help improve our AI models
-        </h3>
-        <p className="mt-1.5 text-[13px] leading-[1.5] text-foreground/55">
-          Allow the use of your chats and coding sessions to train and improve Megsy AI models.{" "}
-          <a
-            href="/privacy"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/privacy");
-            }}
-            className="text-foreground underline underline-offset-2 decoration-[#EDE4D8]/30"
-          >
-            Learn More
-          </a>
-        </p>
-      </div>
-      <PrivacyToggle />
-    </div>
-  );
-
   if (!isMobile) {
     return (
       <SubShell
@@ -166,12 +98,6 @@ export default function SettingsPrivacyPage() {
         <SubSection title="Data privacy">
           <SubCard>
             <DataPrivacyCard />
-          </SubCard>
-        </SubSection>
-
-        <SubSection title="AI training">
-          <SubCard>
-            <TrainingCard />
           </SubCard>
         </SubSection>
 
@@ -201,8 +127,6 @@ export default function SettingsPrivacyPage() {
 
         <main className="privacy-main">
           <DataPrivacyCard />
-          <div className="h-4" />
-          <TrainingCard />
           <div className="h-4" />
           <ExportDataCard />
         </main>
