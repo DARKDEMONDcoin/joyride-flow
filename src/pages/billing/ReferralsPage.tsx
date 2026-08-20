@@ -875,7 +875,7 @@ const DesktopReferralsChrome = ({
       style={{
         height: "100dvh",
         backgroundColor: "hsl(var(--background))",
-        color: "#E8E6DD",
+        color: "hsl(var(--foreground))",
         fontFamily:
           'Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
       }}
@@ -886,7 +886,7 @@ const DesktopReferralsChrome = ({
         style={{
           width: !sidebarCollapsed ? 280 : 60,
           backgroundColor: "hsl(var(--background))",
-          borderInlineEndColor: "#1A1A1F",
+          borderInlineEndColor: "hsl(var(--border))",
         }}
         className="theme-fixed hidden md:flex shrink-0 overflow-hidden border-e transition-[width] duration-200 ease-out"
       >

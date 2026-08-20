@@ -387,8 +387,8 @@ const BillingPage = () => {
 const bpv2Css = `
 .bpv2-root {
   min-height: 100dvh;
-  background: #000000;
-  color: #e5e5e5;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground) / 0.9);
   font-family: "DM Sans", -apple-system, "SF Pro Text", Inter, sans-serif;
   display: flex; flex-direction: column; align-items: center;
 }
@@ -406,14 +406,14 @@ const bpv2Css = `
   display: inline-flex; align-items: center; justify-content: center;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
-  color: #e5e5e5; cursor: pointer;
+  color: hsl(var(--foreground) / 0.9); cursor: pointer;
   transition: background 160ms ease, transform 120ms ease;
 }
 .bpv2-back:active { transform: scale(0.94); background: rgba(255,255,255,0.10); }
 .bpv2-title {
   font-family: "Space Grotesk", -apple-system, "SF Pro Display", Inter, sans-serif;
   font-size: 17px; font-weight: 500; letter-spacing: -0.01em;
-  color: #ffffff; margin: 0;
+  color: hsl(var(--foreground)); margin: 0;
 }
 
 .bpv2-main {
@@ -426,7 +426,7 @@ const bpv2Css = `
   border: 1px solid rgba(255,255,255,0.08);
   background:
     radial-gradient(120% 90% at 0% 0%, rgba(255,255,255,0.06), transparent 60%),
-    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+    linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
   border-radius: 24px;
   padding: 20px;
   display: flex; flex-direction: column; gap: 14px;
@@ -437,7 +437,7 @@ const bpv2Css = `
 .bpv2-eyebrow {
   font-size: 11px; font-weight: 500;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: #8e8e93;
+  color: hsl(var(--muted-foreground));
 }
 .bpv2-plan-chip {
   font-family: "Space Grotesk", sans-serif;
@@ -445,7 +445,7 @@ const bpv2Css = `
   padding: 5px 10px; border-radius: 999px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.10);
-  color: #ffffff;
+  color: hsl(var(--foreground));
 }
 .bpv2-credits {
   display: flex; align-items: baseline; gap: 8px;
@@ -453,13 +453,13 @@ const bpv2Css = `
 }
 .bpv2-credits-num {
   font-size: 56px; font-weight: 500; letter-spacing: -0.03em;
-  color: #ffffff; line-height: 1;
+  color: hsl(var(--foreground)); line-height: 1;
 }
 .bpv2-credits-unit {
-  font-size: 16px; font-weight: 500; color: #8e8e93;
+  font-size: 16px; font-weight: 500; color: hsl(var(--muted-foreground));
 }
 .bpv2-hero-sub {
-  margin: 0; font-size: 13px; color: #8e8e93;
+  margin: 0; font-size: 13px; color: hsl(var(--muted-foreground));
 }
 .bpv2-hero-actions {
   display: flex; gap: 8px; margin-top: 4px;
@@ -475,13 +475,13 @@ const bpv2Css = `
 }
 .bpv2-btn:active { transform: scale(0.98); }
 .bpv2-btn-primary {
-  background: #ffffff; color: #000000;
+  background: hsl(var(--primary)); color: hsl(var(--primary-foreground));
 }
-.bpv2-btn-primary:hover { background: #e5e5e5; }
+.bpv2-btn-primary:hover { background: hsl(var(--primary) / 0.88); }
 .bpv2-btn-ghost {
   background: rgba(255,255,255,0.05);
   border-color: rgba(255,255,255,0.10);
-  color: #ffffff;
+  color: hsl(var(--foreground));
 }
 .bpv2-btn-ghost:hover { background: rgba(255,255,255,0.09); }
 
@@ -490,7 +490,7 @@ const bpv2Css = `
   font-family: "Space Grotesk", sans-serif;
   font-size: 11px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: #8e8e93;
+  color: hsl(var(--muted-foreground));
   margin: 0 4px;
 }
 .bpv2-card {
@@ -506,7 +506,7 @@ const bpv2Css = `
   display: flex; align-items: center; gap: 14px;
   padding: 14px 16px;
   background: transparent; border: 0;
-  color: #e5e5e5; text-align: left; cursor: default;
+  color: hsl(var(--foreground) / 0.9); text-align: left; cursor: default;
   font: inherit;
 }
 .bpv2-row-btn { cursor: pointer; transition: background 140ms ease; }
@@ -517,17 +517,17 @@ const bpv2Css = `
   border-radius: 10px;
   background: rgba(255,255,255,0.06);
   display: inline-flex; align-items: center; justify-content: center;
-  color: #e5e5e5;
+  color: hsl(var(--foreground) / 0.9);
 }
 .bpv2-row-body { flex: 1; min-width: 0; }
 .bpv2-row-label {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 15px; font-weight: 500; color: #ffffff; letter-spacing: -0.005em;
+  font-size: 15px; font-weight: 500; color: hsl(var(--foreground)); letter-spacing: -0.005em;
 }
-.bpv2-row-hint { font-size: 12.5px; color: #8e8e93; margin-top: 2px; }
-.bpv2-row-chev { color: #8e8e93; flex-shrink: 0; }
-.bpv2-row-danger .bpv2-row-label { color: #ff453a; }
-.bpv2-row-danger .bpv2-row-icon { color: #ff453a; background: rgba(255,69,58,0.10); }
+.bpv2-row-hint { font-size: 12.5px; color: hsl(var(--muted-foreground)); margin-top: 2px; }
+.bpv2-row-chev { color: hsl(var(--muted-foreground)); flex-shrink: 0; }
+.bpv2-row-danger .bpv2-row-label { color: hsl(var(--destructive)); }
+.bpv2-row-danger .bpv2-row-icon { color: hsl(var(--destructive)); background: rgba(255,69,58,0.10); }
 
 .bpv2-bottom-spacer { height: calc(env(safe-area-inset-bottom, 0px) + 32px); }
 `;
