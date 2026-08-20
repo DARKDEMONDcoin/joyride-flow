@@ -47,7 +47,7 @@ export default function MobilePricingScreen({
   const t = useMemo(
     () =>
       isAr
-        ? { pro: "Pro", max: "Max", monthly: "شهرياً", yearly: "سنوياً", month: "شهر", year: "سنة" }
+        ? { pro: "Pro", max: "Max", monthly: "Monthly", yearly: "Yearly", month: "month", year: "year" }
         : { pro: "Pro", max: "Max", monthly: "Monthly", yearly: "Yearly", month: "mo", year: "yr" },
     [isAr],
   );
@@ -55,8 +55,8 @@ export default function MobilePricingScreen({
   const features = useMemo(() => {
     if (isAr) {
       return plan === "pro"
-        ? ["محادثة غير محدودة مع أقوى النماذج", "بحث معمّق ومستندات وعروض", "Megsy Coder ونشر فوري", "٢٤٠ صورة وفيديو احترافي شهرياً", "أولوية في الاستجابة"]
-        : ["كل مزايا Pro بلا حدود", "صور احترافية غير محدودة", "٥٠٠ فيديو سينمائي شهرياً", "سرعة ×٣ وأولوية قصوى", "تكاملات ومهارات متقدمة"];
+        ? ["Unlimited chat with the strongest models", "Deep research, documents and slides", "Megsy Coder with instant deploy", "240 professional images and videos per month", "Priority response"]
+        : ["Everything in Pro, unlimited", "Unlimited professional images", "500 cinematic videos per month", "3x speed and top priority", "Advanced integrations and skills"];
     }
     return plan === "pro"
       ? ["Unlimited chat with flagship models", "Deep Research, Docs & Slides", "Megsy Coder with instant hosting", "240 pro images & videos monthly", "Priority responses"]

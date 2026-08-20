@@ -95,7 +95,7 @@ const DICT: Record<string, Entry> = {
   },
   couldNotCheckEmail: {
     en: "Could not check email",
-    ar: "تعذر التحقق من البريد الإلكتروني",
+    ar: "تعذر التحقق من Email",
     "ar-eg": "معرفناش نتأكد من الإيميل",
     es: "No se pudo verificar el correo",
     fr: "Impossible de vérifier l'e-mail",
@@ -151,7 +151,7 @@ const DICT: Record<string, Entry> = {
   },
   wrongPassword: {
     en: "Wrong password. Please try again or reset it.",
-    ar: "كلمة المرور غير صحيحة. حاول مرة أخرى أو أعد ضبطها.",
+    ar: "Password غير صحيحة. حاول مرة أخرى أو أعد ضبطها.",
     "ar-eg": "كلمة السر غلط. جرب تاني أو غيّرها.",
     es: "Contraseña incorrecta. Inténtalo de nuevo o restablécela.",
     fr: "Mot de passe incorrect. Réessayez ou réinitialisez-le.",
@@ -179,7 +179,7 @@ const DICT: Record<string, Entry> = {
   },
   loginFailed: {
     en: "Login failed",
-    ar: "فشل تسجيل الدخول",
+    ar: "فشل Sign in",
     "ar-eg": "الدخول فشل",
     es: "Error al iniciar sesión",
     fr: "Échec de la connexion",
@@ -207,7 +207,7 @@ const DICT: Record<string, Entry> = {
   },
   passwordMinLength: {
     en: "Password must be at least 8 characters",
-    ar: "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    ar: "يجب أن تكون Password 8 أحرف على الأقل",
     "ar-eg": "كلمة السر لازم تكون 8 حروف على الأقل",
     es: "La contraseña debe tener al menos 8 caracteres",
     fr: "Le mot de passe doit comporter au moins 8 caractères",
@@ -221,7 +221,7 @@ const DICT: Record<string, Entry> = {
   },
   emailExists: {
     en: "This email already has an account",
-    ar: "هذا البريد الإلكتروني لديه حساب بالفعل",
+    ar: "هذا Email لديه حساب بالفعل",
     "ar-eg": "الإيميل ده ليه حساب فعلاً",
     es: "Este correo ya tiene una cuenta",
     fr: "Cet e-mail a déjà un compte",
@@ -235,7 +235,7 @@ const DICT: Record<string, Entry> = {
   },
   emailExistsDesc: {
     en: "Please sign in with your existing password.",
-    ar: "من فضلك سجّل الدخول بكلمة المرور الحالية.",
+    ar: "من فضلك سجّل الدخول بPassword الحالية.",
     "ar-eg": "سجّل دخول بكلمة السر بتاعتك.",
     es: "Inicia sesión con tu contraseña existente.",
     fr: "Connectez-vous avec votre mot de passe existant.",
@@ -277,7 +277,7 @@ const DICT: Record<string, Entry> = {
   },
   passwordUpdated: {
     en: "Password updated!",
-    ar: "تم تحديث كلمة المرور!",
+    ar: "تم تحديث Password!",
     "ar-eg": "كلمة السر اتحدثت!",
     es: "¡Contraseña actualizada!",
     fr: "Mot de passe mis à jour !",
@@ -291,7 +291,7 @@ const DICT: Record<string, Entry> = {
   },
   passwordUpdateFailed: {
     en: "Failed to update password",
-    ar: "فشل تحديث كلمة المرور",
+    ar: "فشل تحديث Password",
     "ar-eg": "معرفناش نحدّث كلمة السر",
     es: "Error al actualizar la contraseña",
     fr: "Échec de la mise à jour du mot de passe",
@@ -305,7 +305,7 @@ const DICT: Record<string, Entry> = {
   },
   continueWithPassword: {
     en: "Continue with your password",
-    ar: "تابع باستخدام كلمة المرور",
+    ar: "تابع باستخدام Password",
     "ar-eg": "كمّل بكلمة السر",
     es: "Continúa con tu contraseña",
     fr: "Continuez avec votre mot de passe",
@@ -319,7 +319,7 @@ const DICT: Record<string, Entry> = {
   },
   previewProxyBlocked: {
     en: "Preview proxy blocked the login request. Please try on the published site.",
-    ar: "تم حظر طلب تسجيل الدخول في المعاينة. جرّب على الموقع المنشور.",
+    ar: "تم حظر طلب Sign in في المعاينة. جرّب على الموقع المنشور.",
     "ar-eg": "المعاينة حجبت طلب الدخول. جرّب على الموقع المنشور.",
     es: "El proxy de vista previa bloqueó el inicio de sesión. Prueba en el sitio publicado.",
     fr: "Le proxy d'aperçu a bloqué la connexion. Essayez sur le site publié.",
@@ -347,7 +347,7 @@ const DICT: Record<string, Entry> = {
   },
   enterPasswordConfirm: {
     en: "Please enter your password to confirm",
-    ar: "من فضلك أدخل كلمة المرور للتأكيد",
+    ar: "من فضلك أدخل Password للتأكيد",
     "ar-eg": "ادخل كلمة السر عشان تأكد",
     es: "Introduce tu contraseña para confirmar",
     fr: "Saisissez votre mot de passe pour confirmer",
@@ -361,7 +361,7 @@ const DICT: Record<string, Entry> = {
   },
   incorrectPassword: {
     en: "Incorrect password",
-    ar: "كلمة المرور غير صحيحة",
+    ar: "Password غير صحيحة",
     "ar-eg": "كلمة السر غلط",
     es: "Contraseña incorrecta",
     fr: "Mot de passe incorrect",
@@ -419,7 +419,7 @@ const DICT: Record<string, Entry> = {
   // ── AuthPage UI (new) ────────────────────────────────────────────────
   seoTitle: {
     en: "Sign in to Megsy AI",
-    ar: "تسجيل الدخول إلى Megsy AI",
+    ar: "Sign in إلى Megsy AI",
     "ar-eg": "سجّل دخولك في Megsy AI",
     es: "Iniciar sesión en Megsy AI",
     fr: "Se connecter à Megsy AI",
@@ -432,10 +432,10 @@ const DICT: Record<string, Entry> = {
     fr: "Connectez-vous ou créez votre compte Megsy AI.",
   },
   back: {
-    en: "Back", ar: "رجوع", "ar-eg": "رجوع", es: "Atrás", fr: "Retour",
+    en: "Back", ar: "Back", "ar-eg": "Back", es: "Atrás", fr: "Retour",
   },
   getStarted: {
-    en: "Get started", ar: "ابدأ الآن", "ar-eg": "يلا نبدأ", es: "Comenzar", fr: "Commencer",
+    en: "Get started", ar: "Get started", "ar-eg": "يلا نبدأ", es: "Comenzar", fr: "Commencer",
   },
   emailTitle: {
     en: "Welcome to Megsy",
@@ -446,14 +446,14 @@ const DICT: Record<string, Entry> = {
   },
   emailSub: {
     en: "Enter your email to sign in or create an account.",
-    ar: "أدخل بريدك الإلكتروني لتسجيل الدخول أو إنشاء حساب.",
+    ar: "أدخل بريدك الإلكتروني لSign in أو إنشاء حساب.",
     "ar-eg": "اكتب إيميلك عشان تدخل أو تعمل حساب.",
     es: "Introduce tu correo para iniciar sesión o crear una cuenta.",
     fr: "Saisissez votre e-mail pour vous connecter ou créer un compte.",
   },
   passwordTitle: {
     en: "Enter your password",
-    ar: "أدخل كلمة المرور",
+    ar: "أدخل Password",
     "ar-eg": "اكتب كلمة السر",
     es: "Introduce tu contraseña",
     fr: "Entrez votre mot de passe",
@@ -502,7 +502,7 @@ const DICT: Record<string, Entry> = {
   },
   forgotTitle: {
     en: "Reset your password",
-    ar: "إعادة تعيين كلمة المرور",
+    ar: "إعادة تعيين Password",
     "ar-eg": "إعادة ضبط كلمة السر",
     es: "Restablecer tu contraseña",
     fr: "Réinitialiser votre mot de passe",
@@ -516,19 +516,19 @@ const DICT: Record<string, Entry> = {
   },
   chooseNewPasswordTitle: {
     en: "Choose a new password",
-    ar: "اختر كلمة مرور جديدة",
-    "ar-eg": "اختار كلمة سر جديدة",
+    ar: "اختر كلمة مرور Newة",
+    "ar-eg": "اختار كلمة سر Newة",
     es: "Elige una nueva contraseña",
     fr: "Choisissez un nouveau mot de passe",
   },
   signIn: {
-    en: "Sign in", ar: "تسجيل الدخول", "ar-eg": "دخول", es: "Iniciar sesión", fr: "Se connecter",
+    en: "Sign in", ar: "Sign in", "ar-eg": "دخول", es: "Iniciar sesión", fr: "Se connecter",
   },
   createAccount: {
     en: "Create account", ar: "إنشاء حساب", "ar-eg": "اعمل حساب", es: "Crear cuenta", fr: "Créer un compte",
   },
   resetPassword: {
-    en: "Reset password", ar: "إعادة تعيين كلمة المرور", "ar-eg": "غيّر كلمة السر", es: "Restablecer contraseña", fr: "Réinitialiser le mot de passe",
+    en: "Reset password", ar: "إعادة تعيين Password", "ar-eg": "غيّر كلمة السر", es: "Restablecer contraseña", fr: "Réinitialiser le mot de passe",
   },
   continue: {
     en: "Continue", ar: "متابعة", "ar-eg": "كمّل", es: "Continuar", fr: "Continuer",
@@ -537,10 +537,10 @@ const DICT: Record<string, Entry> = {
     en: "Checking…", ar: "جارٍ التحقق…", "ar-eg": "بنتأكد…", es: "Comprobando…", fr: "Vérification…",
   },
   signingIn: {
-    en: "Signing in…", ar: "جارٍ تسجيل الدخول…", "ar-eg": "بنسجل دخولك…", es: "Iniciando sesión…", fr: "Connexion…",
+    en: "Signing in…", ar: "جارٍ Sign in…", "ar-eg": "بنسجل دخولك…", es: "Iniciando sesión…", fr: "Connexion…",
   },
   creating: {
-    en: "Creating…", ar: "جارٍ الإنشاء…", "ar-eg": "بنعمل الحساب…", es: "Creando…", fr: "Création…",
+    en: "Creating…", ar: "جارٍ Create…", "ar-eg": "بنعمل الحساب…", es: "Creando…", fr: "Création…",
   },
   updating: {
     en: "Updating…", ar: "جارٍ التحديث…", "ar-eg": "بنحدّث…", es: "Actualizando…", fr: "Mise à jour…",
@@ -552,31 +552,31 @@ const DICT: Record<string, Entry> = {
     en: "Verifying…", ar: "جارٍ التحقق…", "ar-eg": "بنتحقق…", es: "Verificando…", fr: "Vérification…",
   },
   passwordPlaceholder: {
-    en: "Password", ar: "كلمة المرور", "ar-eg": "كلمة السر", es: "Contraseña", fr: "Mot de passe",
+    en: "Password", ar: "Password", "ar-eg": "كلمة السر", es: "Contraseña", fr: "Mot de passe",
   },
   passwordMinPlaceholder: {
     en: "Password (min 8 characters)",
-    ar: "كلمة المرور (8 أحرف على الأقل)",
+    ar: "Password (8 أحرف على الأقل)",
     "ar-eg": "كلمة السر (8 حروف على الأقل)",
     es: "Contraseña (mín. 8 caracteres)",
     fr: "Mot de passe (min 8 caractères)",
   },
   newPasswordMinPlaceholder: {
     en: "New password (min 8 characters)",
-    ar: "كلمة مرور جديدة (8 أحرف على الأقل)",
-    "ar-eg": "كلمة سر جديدة (8 حروف على الأقل)",
+    ar: "كلمة مرور Newة (8 أحرف على الأقل)",
+    "ar-eg": "كلمة سر Newة (8 حروف على الأقل)",
     es: "Nueva contraseña (mín. 8 caracteres)",
     fr: "Nouveau mot de passe (min 8 caractères)",
   },
   forgotPasswordLink: {
-    en: "Forgot password?", ar: "نسيت كلمة المرور؟", "ar-eg": "نسيت كلمة السر؟",
+    en: "Forgot password?", ar: "Forgot password?", "ar-eg": "نسيت كلمة السر؟",
     es: "¿Olvidaste la contraseña?", fr: "Mot de passe oublié ?",
   },
   or: {
     en: "or", ar: "أو", "ar-eg": "أو", es: "o", fr: "ou",
   },
   continueWithGoogle: {
-    en: "Continue with Google", ar: "المتابعة باستخدام جوجل", "ar-eg": "كمّل بجوجل",
+    en: "Continue with Google", ar: "Continue باستخدام جوجل", "ar-eg": "كمّل بجوجل",
     es: "Continuar con Google", fr: "Continuer avec Google",
   },
   continueWithGitHub: {
@@ -584,7 +584,7 @@ const DICT: Record<string, Entry> = {
     es: "Continuar con GitHub", fr: "Continuer avec GitHub",
   },
   continueWithTelegram: {
-    en: "Continue with Telegram", ar: "المتابعة باستخدام Telegram", "ar-eg": "كمّل بـ Telegram",
+    en: "Continue with Telegram", ar: "Continue باستخدام Telegram", "ar-eg": "كمّل بـ Telegram",
     es: "Continuar con Telegram", fr: "Continuer avec Telegram",
   },
   inviteCode: {
@@ -611,7 +611,7 @@ const DICT: Record<string, Entry> = {
     es: "Enviar código", fr: "Envoyer le code",
   },
   updatePassword: {
-    en: "Update password", ar: "تحديث كلمة المرور", "ar-eg": "حدّث كلمة السر",
+    en: "Update password", ar: "تحديث Password", "ar-eg": "حدّث كلمة السر",
     es: "Actualizar contraseña", fr: "Mettre à jour le mot de passe",
   },
   resendCode: {
@@ -630,7 +630,7 @@ const DICT: Record<string, Entry> = {
   },
   termsAgreePrefix: {
     en: "By continuing, you agree to our ",
-    ar: "بالمتابعة، فإنك توافق على ",
+    ar: "بContinue، فإنك توافق على ",
     "ar-eg": "بالاستمرار، إنت موافق على ",
     es: "Al continuar, aceptas nuestros ",
     fr: "En continuant, vous acceptez nos ",
@@ -642,7 +642,7 @@ const DICT: Record<string, Entry> = {
     en: " and ", ar: " و ", "ar-eg": " و ", es: " y ", fr: " et ",
   },
   privacyLink: {
-    en: "Privacy Policy", ar: "سياسة الخصوصية", "ar-eg": "سياسة الخصوصية",
+    en: "Privacy Policy", ar: "Privacy policy", "ar-eg": "Privacy policy",
     es: "Política de privacidad", fr: "Politique de confidentialité",
   },
   emailPlaceholder: {
@@ -674,7 +674,7 @@ const DICT: Record<string, Entry> = {
     en: "Appearance", ar: "المظهر", "ar-eg": "الشكل", es: "Apariencia", fr: "Apparence",
   },
   rowIntegrations: {
-    en: "Integrations", ar: "التكاملات", "ar-eg": "الربط بالتطبيقات", es: "Integraciones", fr: "Intégrations",
+    en: "Integrations", ar: "Integrations", "ar-eg": "الربط بالApps", es: "Integraciones", fr: "Intégrations",
   },
   rowHelp: {
     en: "Help & Support", ar: "المساعدة والدعم", "ar-eg": "المساعدة والدعم",
@@ -724,17 +724,17 @@ const DICT: Record<string, Entry> = {
   },
   mobileIntroSub: {
     en: "Chat, images, video, slides, code and deep research — in one place.",
-    ar: "دردشة وصور وفيديو وشرائح وكود وبحث معمق — في مكان واحد.",
-    "ar-eg": "شات، صور، فيديو، شرايح، كود وبحث عميق — كله في مكان واحد.",
+    ar: "دردشة وصور وفيديو وشرائح وكود وSearch معمق — في مكان واحد.",
+    "ar-eg": "شات، صور، فيديو، شرايح، كود وDeep research — كله في مكان واحد.",
     es: "Chat, imágenes, vídeo, diapositivas, código e investigación profunda — en un solo lugar.",
     fr: "Chat, images, vidéo, slides, code et recherche approfondie — en un seul endroit.",
   },
   signInWithEmail: {
-    en: "Sign in with Email", ar: "تسجيل الدخول بالبريد الإلكتروني", "ar-eg": "دخول بالإيميل",
+    en: "Sign in with Email", ar: "Sign in بEmail", "ar-eg": "دخول بالإيميل",
     es: "Inicia sesión con e-mail", fr: "Se connecter par e-mail",
   },
   continueWithEmail: {
-    en: "Continue with email", ar: "المتابعة بالبريد الإلكتروني", "ar-eg": "كمّل بالإيميل",
+    en: "Continue with email", ar: "Continue بEmail", "ar-eg": "كمّل بالإيميل",
     es: "Continuar con e-mail", fr: "Continuer par e-mail",
   },
   mobileAuthSub: {
@@ -745,15 +745,15 @@ const DICT: Record<string, Entry> = {
     fr: "Connectez-vous pour accéder à vos créations IA.",
   },
   emailLabel: {
-    en: "Email", ar: "البريد الإلكتروني", "ar-eg": "الإيميل",
+    en: "Email", ar: "Email", "ar-eg": "الإيميل",
     es: "Correo electrónico", fr: "E-mail",
   },
   passwordLabel: {
-    en: "Password", ar: "كلمة المرور", "ar-eg": "كلمة السر",
+    en: "Password", ar: "Password", "ar-eg": "كلمة السر",
     es: "Contraseña", fr: "Mot de passe",
   },
   forgotPasswordQ: {
-    en: "Forgot Password?", ar: "نسيت كلمة المرور؟", "ar-eg": "نسيت كلمة السر؟",
+    en: "Forgot Password?", ar: "Forgot password?", "ar-eg": "نسيت كلمة السر؟",
     es: "¿Olvidaste tu contraseña?", fr: "Mot de passe oublié ?",
   },
 };
@@ -772,10 +772,10 @@ const UI_DICT: Record<string, Entry> = {
     en: "Cloud", ar: "السحابة", "ar-eg": "السحابة", es: "Nube", fr: "Cloud", de: "Cloud", pt: "Nuvem", it: "Cloud", tr: "Bulut", ru: "Облако", zh: "云端", ja: "クラウド", ko: "클라우드", hi: "क्लाउड", id: "Cloud", nl: "Cloud", sv: "Moln", cs: "Cloud", ro: "Cloud", el: "Cloud", uk: "Хмара", he: "ענן", fa: "ابر", vi: "Đám mây", th: "คลาวด์", pl: "Chmura",
   },
   newChat: {
-    en: "New chat", ar: "محادثة جديدة", "ar-eg": "شات جديد", es: "Nuevo chat", fr: "Nouvelle discussion", de: "Neuer Chat", pt: "Novo chat", it: "Nuova chat", tr: "Yeni sohbet", ru: "Новый чат", zh: "新聊天", ja: "新しいチャット", ko: "새 채팅", hi: "नई चैट", id: "Chat baru", nl: "Nieuwe chat", sv: "Ny chatt", cs: "Nový chat", ro: "Chat nou", el: "Νέα συνομιλία", uk: "Новий чат", he: "צ'אט חדש", fa: "گفتگوی جدید", vi: "Chat mới", th: "แชตใหม่", pl: "Nowy czat",
+    en: "New chat", ar: "محادثة Newة", "ar-eg": "شات New", es: "Nuevo chat", fr: "Nouvelle discussion", de: "Neuer Chat", pt: "Novo chat", it: "Nuova chat", tr: "Yeni sohbet", ru: "Новый чат", zh: "新聊天", ja: "新しいチャット", ko: "새 채팅", hi: "नई चैट", id: "Chat baru", nl: "Nieuwe chat", sv: "Ny chatt", cs: "Nový chat", ro: "Chat nou", el: "Νέα συνομιλία", uk: "Новий чат", he: "צ'אט חדש", fa: "گفتگوی جدید", vi: "Chat mới", th: "แชตใหม่", pl: "Nowy czat",
   },
   newProject: {
-    en: "New project", ar: "مشروع جديد", "ar-eg": "مشروع جديد", es: "Nuevo proyecto", fr: "Nouveau projet", de: "Neues Projekt", pt: "Novo projeto", it: "Nuovo progetto", tr: "Yeni proje", ru: "Новый проект", zh: "新项目", ja: "新規プロジェクト", ko: "새 프로젝트", hi: "नया प्रोजेक्ट", id: "Proyek baru", nl: "Nieuw project", sv: "Nytt projekt", cs: "Nový projekt", ro: "Proiect nou", el: "Νέο έργο", uk: "Новий проєкт", he: "פרויקט חדש", fa: "پروژه جدید", vi: "Dự án mới", th: "โปรเจกต์ใหม่", pl: "Nowy projekt",
+    en: "New project", ar: "مشروع New", "ar-eg": "مشروع New", es: "Nuevo proyecto", fr: "Nouveau projet", de: "Neues Projekt", pt: "Novo projeto", it: "Nuovo progetto", tr: "Yeni proje", ru: "Новый проект", zh: "新项目", ja: "新規プロジェクト", ko: "새 프로젝트", hi: "नया प्रोजेक्ट", id: "Proyek baru", nl: "Nieuw project", sv: "Nytt projekt", cs: "Nový projekt", ro: "Proiect nou", el: "Νέο έργο", uk: "Новий проєкт", he: "פרויקט חדש", fa: "پروژه جدید", vi: "Dự án mới", th: "โปรเจกต์ใหม่", pl: "Nowy projekt",
   },
   noConversations: {
     en: "No conversations yet", ar: "لا توجد محادثات بعد", "ar-eg": "لسه مفيش شاتات", es: "Aún no hay conversaciones", fr: "Aucune conversation pour l’instant", de: "Noch keine Unterhaltungen", pt: "Ainda sem conversas", it: "Ancora nessuna conversazione", tr: "Henüz sohbet yok", ru: "Пока нет бесед", zh: "还没有对话", ja: "まだ会話がありません", ko: "아직 대화가 없습니다", hi: "अभी कोई बातचीत नहीं", id: "Belum ada percakapan", nl: "Nog geen gesprekken", sv: "Inga konversationer än", cs: "Zatím žádné konverzace", ro: "Încă nu există conversații", el: "Δεν υπάρχουν συνομιλίες ακόμα", uk: "Ще немає розмов", he: "אין שיחות עדיין", fa: "هنوز گفتگویی نیست", vi: "Chưa có cuộc trò chuyện", th: "ยังไม่มีบทสนทนา", pl: "Brak rozmów",
@@ -784,7 +784,7 @@ const UI_DICT: Record<string, Entry> = {
     en: "Untitled", ar: "بدون عنوان", "ar-eg": "من غير عنوان", es: "Sin título", fr: "Sans titre", de: "Ohne Titel", pt: "Sem título", it: "Senza titolo", tr: "Başlıksız", ru: "Без названия", zh: "未命名", ja: "無題", ko: "제목 없음", hi: "शीर्षकहीन", id: "Tanpa judul", nl: "Naamloos", sv: "Namnlös", cs: "Bez názvu", ro: "Fără titlu", el: "Χωρίς τίτλο", uk: "Без назви", he: "ללא כותרת", fa: "بدون عنوان", vi: "Chưa có tiêu đề", th: "ไม่มีชื่อ", pl: "Bez tytułu",
   },
   logIn: {
-    en: "Log in", ar: "تسجيل الدخول", "ar-eg": "دخول", es: "Entrar", fr: "Connexion", de: "Einloggen", pt: "Entrar", it: "Accedi", tr: "Giriş yap", ru: "Войти", zh: "登录", ja: "ログイン", ko: "로그인", hi: "लॉग इन", id: "Masuk", nl: "Inloggen", sv: "Logga in", cs: "Přihlásit", ro: "Autentificare", el: "Σύνδεση", uk: "Увійти", he: "כניסה", fa: "ورود", vi: "Đăng nhập", th: "เข้าสู่ระบบ", pl: "Zaloguj",
+    en: "Log in", ar: "Sign in", "ar-eg": "دخول", es: "Entrar", fr: "Connexion", de: "Einloggen", pt: "Entrar", it: "Accedi", tr: "Giriş yap", ru: "Войти", zh: "登录", ja: "ログイン", ko: "로그인", hi: "लॉग इन", id: "Masuk", nl: "Inloggen", sv: "Logga in", cs: "Přihlásit", ro: "Autentificare", el: "Σύνδεση", uk: "Увійти", he: "כניסה", fa: "ورود", vi: "Đăng nhập", th: "เข้าสู่ระบบ", pl: "Zaloguj",
   },
   upgrade: {
     en: "Upgrade", ar: "ترقية", "ar-eg": "ترقية", es: "Mejorar", fr: "Passer à l’offre supérieure", de: "Upgrade", pt: "Atualizar", it: "Upgrade", tr: "Yükselt", ru: "Улучшить", zh: "升级", ja: "アップグレード", ko: "업그레이드", hi: "अपग्रेड", id: "Tingkatkan", nl: "Upgraden", sv: "Uppgradera", cs: "Upgradovat", ro: "Upgrade", el: "Αναβάθμιση", uk: "Оновити", he: "שדרוג", fa: "ارتقا", vi: "Nâng cấp", th: "อัปเกรด", pl: "Ulepsz",
@@ -815,7 +815,7 @@ const UI_DICT: Record<string, Entry> = {
   },
 
   placeholderAllInOne: {
-    en: "Design, write, research — all in one place", ar: "صمّم واكتب وابحث — كل شيء في مكان واحد", "ar-eg": "صمّم واكتب وابحث — كله في مكان واحد", es: "Diseña, escribe e investiga — todo en un lugar", fr: "Concevoir, écrire, rechercher — tout au même endroit", de: "Designen, schreiben, recherchieren — alles an einem Ort", pt: "Crie, escreva e pesquise — tudo em um só lugar", it: "Progetta, scrivi, ricerca — tutto in un posto", tr: "Tasarla, yaz, araştır — hepsi tek yerde", ru: "Дизайн, тексты, исследования — всё в одном месте", zh: "设计、写作、研究——尽在一处", ja: "デザイン、執筆、調査 — すべて一か所で", ko: "디자인, 글쓰기, 리서치 — 한곳에서", hi: "डिज़ाइन, लेखन, शोध — सब एक जगह", id: "Desain, tulis, riset — semua di satu tempat", nl: "Ontwerp, schrijf, onderzoek — alles op één plek", sv: "Designa, skriv, forska — allt på ett ställe", cs: "Navrhujte, pište, zkoumejte — vše na jednom místě", ro: "Design, scriere, cercetare — toate într-un loc", el: "Σχεδίαση, γραφή, έρευνα — όλα σε ένα μέρος", uk: "Дизайн, письмо, дослідження — усе в одному місці", he: "עיצוב, כתיבה ומחקר — הכול במקום אחד", fa: "طراحی، نوشتن، پژوهش — همه در یک جا", vi: "Thiết kế, viết, nghiên cứu — tất cả một nơi", th: "ออกแบบ เขียน ค้นคว้า — ครบในที่เดียว", pl: "Projektuj, pisz, badaj — wszystko w jednym miejscu",
+    en: "Design, write, research — all in one place", ar: "صمّم واكتب واSearch — كل شيء في مكان واحد", "ar-eg": "صمّم واكتب واSearch — كله في مكان واحد", es: "Diseña, escribe e investiga — todo en un lugar", fr: "Concevoir, écrire, rechercher — tout au même endroit", de: "Designen, schreiben, recherchieren — alles an einem Ort", pt: "Crie, escreva e pesquise — tudo em um só lugar", it: "Progetta, scrivi, ricerca — tutto in un posto", tr: "Tasarla, yaz, araştır — hepsi tek yerde", ru: "Дизайн, тексты, исследования — всё в одном месте", zh: "设计、写作、研究——尽在一处", ja: "デザイン、執筆、調査 — すべて一か所で", ko: "디자인, 글쓰기, 리서치 — 한곳에서", hi: "डिज़ाइन, लेखन, शोध — सब एक जगह", id: "Desain, tulis, riset — semua di satu tempat", nl: "Ontwerp, schrijf, onderzoek — alles op één plek", sv: "Designa, skriv, forska — allt på ett ställe", cs: "Navrhujte, pište, zkoumejte — vše na jednom místě", ro: "Design, scriere, cercetare — toate într-un loc", el: "Σχεδίαση, γραφή, έρευνα — όλα σε ένα μέρος", uk: "Дизайн, письмо, дослідження — усе в одному місці", he: "עיצוב, כתיבה ומחקר — הכול במקום אחד", fa: "طراحی، نوشتن، پژوهش — همه در یک جا", vi: "Thiết kế, viết, nghiên cứu — tất cả một nơi", th: "ออกแบบ เขียน ค้นคว้า — ครบในที่เดียว", pl: "Projektuj, pisz, badaj — wszystko w jednym miejscu",
   },
   placeholderType: {
     en: "Type a question and let's get started", ar: "اكتب سؤالًا ولنبدأ", "ar-eg": "اكتب سؤال ويلا نبدأ", es: "Escribe una pregunta y empecemos", fr: "Écrivez une question et commençons", de: "Stell eine Frage und los geht’s", pt: "Digite uma pergunta e vamos começar", it: "Scrivi una domanda e iniziamo", tr: "Bir soru yazın, başlayalım", ru: "Введите вопрос — начнём", zh: "输入问题，开始吧", ja: "質問を入力して始めましょう", ko: "질문을 입력하고 시작하세요", hi: "सवाल लिखें और शुरू करें", id: "Ketik pertanyaan dan mulai", nl: "Typ een vraag en begin", sv: "Skriv en fråga och börja", cs: "Napište otázku a začněme", ro: "Scrie o întrebare și să începem", el: "Γράψε μια ερώτηση και ξεκινάμε", uk: "Введіть запитання і почнімо", he: "כתבו שאלה ונתחיל", fa: "یک سؤال بنویسید و شروع کنیم", vi: "Nhập câu hỏi và bắt đầu", th: "พิมพ์คำถามแล้วเริ่มกัน", pl: "Wpisz pytanie i zaczynajmy",
@@ -839,7 +839,7 @@ const UI_DICT: Record<string, Entry> = {
     en: "Cancel edit", ar: "إلغاء التعديل", "ar-eg": "إلغاء التعديل", es: "Cancelar edición", fr: "Annuler la modification", de: "Bearbeitung abbrechen", pt: "Cancelar edição", it: "Annulla modifica", tr: "Düzenlemeyi iptal et", ru: "Отменить правку", zh: "取消编辑", ja: "編集をキャンセル", ko: "편집 취소", hi: "संपादन रद्द करें", id: "Batalkan edit", nl: "Bewerking annuleren", sv: "Avbryt redigering", cs: "Zrušit úpravu", ro: "Anulează editarea", el: "Ακύρωση επεξεργασίας", uk: "Скасувати редагування", he: "ביטול עריכה", fa: "لغو ویرایش", vi: "Hủy chỉnh sửa", th: "ยกเลิกการแก้ไข", pl: "Anuluj edycję",
   },
   openTools: {
-    en: "Open attachments and tools", ar: "فتح المرفقات والأدوات", "ar-eg": "افتح المرفقات والأدوات", es: "Abrir adjuntos y herramientas", fr: "Ouvrir pièces jointes et outils", de: "Anhänge und Tools öffnen", pt: "Abrir anexos e ferramentas", it: "Apri allegati e strumenti", tr: "Ekleri ve araçları aç", ru: "Открыть вложения и инструменты", zh: "打开附件和工具", ja: "添付とツールを開く", ko: "첨부 및 도구 열기", hi: "अटैचमेंट और टूल खोलें", id: "Buka lampiran dan alat", nl: "Bijlagen en tools openen", sv: "Öppna bilagor och verktyg", cs: "Otevřít přílohy a nástroje", ro: "Deschide atașamente și unelte", el: "Άνοιγμα συνημμένων και εργαλείων", uk: "Відкрити вкладення й інструменти", he: "פתיחת קבצים וכלים", fa: "باز کردن پیوست‌ها و ابزارها", vi: "Mở tệp đính kèm và công cụ", th: "เปิดไฟล์แนบและเครื่องมือ", pl: "Otwórz załączniki i narzędzia",
+    en: "Open attachments and tools", ar: "فتح المرفقات وTools", "ar-eg": "افتح المرفقات وTools", es: "Abrir adjuntos y herramientas", fr: "Ouvrir pièces jointes et outils", de: "Anhänge und Tools öffnen", pt: "Abrir anexos e ferramentas", it: "Apri allegati e strumenti", tr: "Ekleri ve araçları aç", ru: "Открыть вложения и инструменты", zh: "打开附件和工具", ja: "添付とツールを開く", ko: "첨부 및 도구 열기", hi: "अटैचमेंट और टूल खोलें", id: "Buka lampiran dan alat", nl: "Bijlagen en tools openen", sv: "Öppna bilagor och verktyg", cs: "Otevřít přílohy a nástroje", ro: "Deschide atașamente și unelte", el: "Άνοιγμα συνημμένων και εργαλείων", uk: "Відкрити вкладення й інструменти", he: "פתיחת קבצים וכלים", fa: "باز کردن پیوست‌ها و ابزارها", vi: "Mở tệp đính kèm và công cụ", th: "เปิดไฟล์แนบและเครื่องมือ", pl: "Otwórz załączniki i narzędzia",
   },
   stopGeneration: {
     en: "Stop generation", ar: "إيقاف التوليد", "ar-eg": "وقف التوليد", es: "Detener generación", fr: "Arrêter la génération", de: "Generierung stoppen", pt: "Parar geração", it: "Ferma generazione", tr: "Üretimi durdur", ru: "Остановить генерацию", zh: "停止生成", ja: "生成を停止", ko: "생성 중지", hi: "जनरेशन रोकें", id: "Hentikan generasi", nl: "Generatie stoppen", sv: "Stoppa generering", cs: "Zastavit generování", ro: "Oprește generarea", el: "Διακοπή δημιουργίας", uk: "Зупинити генерацію", he: "עצירת יצירה", fa: "توقف تولید", vi: "Dừng tạo", th: "หยุดสร้าง", pl: "Zatrzymaj generowanie",
@@ -860,13 +860,13 @@ const UI_DICT: Record<string, Entry> = {
     en: "Built for makers", ar: "مصمم للمبدعين", "ar-eg": "معمول للمبدعين", es: "Hecho para creadores", fr: "Conçu pour les créateurs", de: "Für Macher gebaut", pt: "Criado para makers", it: "Creato per i creator", tr: "Üretenler için", ru: "Создано для авторов", zh: "为创作者打造", ja: "クリエイターのために", ko: "크리에이터를 위해", hi: "निर्माताओं के लिए", id: "Dibuat untuk kreator", nl: "Gebouwd voor makers", sv: "Byggt för skapare", cs: "Vytvořeno pro tvůrce", ro: "Creat pentru creatori", el: "Φτιαγμένο για δημιουργούς", uk: "Створено для творців", he: "נבנה ליוצרים", fa: "ساخته‌شده برای خالقان", vi: "Dành cho nhà sáng tạo", th: "สร้างเพื่อครีเอเตอร์", pl: "Stworzone dla twórców",
   },
   imageModels: {
-    en: "Image models", ar: "نماذج الصور", "ar-eg": "موديلات الصور", es: "Modelos de imagen", fr: "Modèles d’image", de: "Bildmodelle", pt: "Modelos de imagem", it: "Modelli immagine", tr: "Görsel modelleri", ru: "Модели изображений", zh: "图像模型", ja: "画像モデル", ko: "이미지 모델", hi: "इमेज मॉडल", id: "Model gambar", nl: "Beeldmodellen", sv: "Bildmodeller", cs: "Obrazové modely", ro: "Modele de imagine", el: "Μοντέλα εικόνας", uk: "Моделі зображень", he: "מודלי תמונה", fa: "مدل‌های تصویر", vi: "Mô hình hình ảnh", th: "โมเดลภาพ", pl: "Modele obrazu",
+    en: "Image models", ar: "نماذج Images", "ar-eg": "موديلات Images", es: "Modelos de imagen", fr: "Modèles d’image", de: "Bildmodelle", pt: "Modelos de imagem", it: "Modelli immagine", tr: "Görsel modelleri", ru: "Модели изображений", zh: "图像模型", ja: "画像モデル", ko: "이미지 모델", hi: "इमेज मॉडल", id: "Model gambar", nl: "Beeldmodellen", sv: "Bildmodeller", cs: "Obrazové modely", ro: "Modele de imagine", el: "Μοντέλα εικόνας", uk: "Моделі зображень", he: "מודלי תמונה", fa: "مدل‌های تصویر", vi: "Mô hình hình ảnh", th: "โมเดลภาพ", pl: "Modele obrazu",
   },
   videoModels: {
     en: "Video models", ar: "نماذج الفيديو", "ar-eg": "موديلات الفيديو", es: "Modelos de vídeo", fr: "Modèles vidéo", de: "Videomodelle", pt: "Modelos de vídeo", it: "Modelli video", tr: "Video modelleri", ru: "Видеомодели", zh: "视频模型", ja: "動画モデル", ko: "비디오 모델", hi: "वीडियो मॉडल", id: "Model video", nl: "Videomodellen", sv: "Videomodeller", cs: "Video modely", ro: "Modele video", el: "Μοντέλα βίντεο", uk: "Відеомоделі", he: "מודלי וידאו", fa: "مدل‌های ویدئو", vi: "Mô hình video", th: "โมเดลวิดีโอ", pl: "Modele wideo",
   },
   imageModelsDesc: {
-    en: "Generate stunning visuals with the world's most powerful image AI models.", ar: "أنشئ صورًا مبهرة بأقوى نماذج الصور بالذكاء الاصطناعي في العالم.", "ar-eg": "اعمل صور مبهرة بأقوى موديلات صور AI في العالم.", es: "Genera imágenes impactantes con los modelos de imagen con IA más potentes del mundo.", fr: "Générez des visuels remarquables avec les modèles d’image IA les plus puissants.", de: "Erstelle starke Visuals mit den leistungsfähigsten KI-Bildmodellen.", pt: "Gere visuais incríveis com os modelos de imagem por IA mais poderosos.", it: "Genera visual straordinari con i modelli immagine IA più potenti.", tr: "Dünyanın en güçlü görsel yapay zekâ modelleriyle etkileyici görseller üret.", ru: "Создавайте впечатляющие изображения с самыми мощными ИИ-моделями.", zh: "使用全球强大的 AI 图像模型生成惊艳视觉。", ja: "世界最高水準の画像AIモデルで美しいビジュアルを生成。", ko: "강력한 이미지 AI 모델로 뛰어난 비주얼을 생성하세요.", hi: "दुनिया के शक्तिशाली AI इमेज मॉडल से शानदार विज़ुअल बनाएं।", id: "Buat visual memukau dengan model gambar AI terkuat.", nl: "Maak sterke visuals met krachtige AI-beeldmodellen.", sv: "Skapa starka visuella resultat med kraftfulla AI-bildmodeller.", cs: "Tvořte působivé vizuály s výkonnými AI obrazovými modely.", ro: "Generează vizualuri puternice cu cele mai bune modele AI de imagine.", el: "Δημιουργήστε εντυπωσιακά οπτικά με ισχυρά μοντέλα εικόνας AI.", uk: "Створюйте вражаючі зображення з потужними AI-моделями.", he: "צרו ויזואלים מרשימים עם מודלי תמונה חזקים של AI.", fa: "با مدل‌های قدرتمند تصویر هوش مصنوعی، تصاویر چشمگیر بسازید.", vi: "Tạo hình ảnh ấn tượng bằng các mô hình ảnh AI mạnh mẽ.", th: "สร้างภาพสวยด้วยโมเดลภาพ AI ชั้นนำ", pl: "Twórz świetne grafiki z mocnymi modelami obrazu AI.",
+    en: "Generate stunning visuals with the world's most powerful image AI models.", ar: "أنشئ صورًا مبهرة بأقوى نماذج Images بالذكاء الاصطناعي في العالم.", "ar-eg": "اعمل صور مبهرة بأقوى موديلات صور AI في العالم.", es: "Genera imágenes impactantes con los modelos de imagen con IA más potentes del mundo.", fr: "Générez des visuels remarquables avec les modèles d’image IA les plus puissants.", de: "Erstelle starke Visuals mit den leistungsfähigsten KI-Bildmodellen.", pt: "Gere visuais incríveis com os modelos de imagem por IA mais poderosos.", it: "Genera visual straordinari con i modelli immagine IA più potenti.", tr: "Dünyanın en güçlü görsel yapay zekâ modelleriyle etkileyici görseller üret.", ru: "Создавайте впечатляющие изображения с самыми мощными ИИ-моделями.", zh: "使用全球强大的 AI 图像模型生成惊艳视觉。", ja: "世界最高水準の画像AIモデルで美しいビジュアルを生成。", ko: "강력한 이미지 AI 모델로 뛰어난 비주얼을 생성하세요.", hi: "दुनिया के शक्तिशाली AI इमेज मॉडल से शानदार विज़ुअल बनाएं।", id: "Buat visual memukau dengan model gambar AI terkuat.", nl: "Maak sterke visuals met krachtige AI-beeldmodellen.", sv: "Skapa starka visuella resultat med kraftfulla AI-bildmodeller.", cs: "Tvořte působivé vizuály s výkonnými AI obrazovými modely.", ro: "Generează vizualuri puternice cu cele mai bune modele AI de imagine.", el: "Δημιουργήστε εντυπωσιακά οπτικά με ισχυρά μοντέλα εικόνας AI.", uk: "Створюйте вражаючі зображення з потужними AI-моделями.", he: "צרו ויזואלים מרשימים עם מודלי תמונה חזקים של AI.", fa: "با مدل‌های قدرتمند تصویر هوش مصنوعی، تصاویر چشمگیر بسازید.", vi: "Tạo hình ảnh ấn tượng bằng các mô hình ảnh AI mạnh mẽ.", th: "สร้างภาพสวยด้วยโมเดลภาพ AI ชั้นนำ", pl: "Twórz świetne grafiki z mocnymi modelami obrazu AI.",
   },
   videoModelsDesc: {
     en: "Create cinematic videos from text or images with cutting-edge video AI.", ar: "أنشئ فيديوهات سينمائية من نص أو صور باستخدام أحدث نماذج الفيديو بالذكاء الاصطناعي.", "ar-eg": "اعمل فيديوهات سينمائية من نص أو صور بأحدث موديلات فيديو AI.", es: "Crea vídeos cinematográficos desde texto o imágenes con IA de vídeo avanzada.", fr: "Créez des vidéos cinématiques à partir de texte ou d’images avec l’IA vidéo avancée.", de: "Erstelle filmische Videos aus Text oder Bildern mit moderner Video-KI.", pt: "Crie vídeos cinematográficos a partir de texto ou imagens com IA de vídeo avançada.", it: "Crea video cinematografici da testo o immagini con IA video avanzata.", tr: "Metin veya görsellerden gelişmiş video yapay zekâsıyla sinematik videolar üret.", ru: "Создавайте кинематографичные видео из текста или изображений с помощью видео-AI.", zh: "用前沿视频 AI 从文本或图片创建电影感视频。", ja: "最先端の動画AIでテキストや画像からシネマ風動画を作成。", ko: "첨단 비디오 AI로 텍스트나 이미지에서 시네마틱 영상을 만드세요.", hi: "टेक्स्ट या इमेज से सिनेमैटिक वीडियो बनाएं।", id: "Buat video sinematik dari teks atau gambar dengan AI video mutakhir.", nl: "Maak filmische video’s van tekst of beelden met video-AI.", sv: "Skapa filmiska videor från text eller bilder med video-AI.", cs: "Vytvářejte filmová videa z textu či obrázků pomocí video AI.", ro: "Creează videoclipuri cinematice din text sau imagini cu AI video.", el: "Δημιουργήστε κινηματογραφικά βίντεο από κείμενο ή εικόνες με AI.", uk: "Створюйте кінематографічні відео з тексту або зображень за допомогою AI.", he: "צרו וידאו קולנועי מטקסט או תמונות עם AI מתקדם.", fa: "از متن یا تصویر، ویدئوهای سینمایی با هوش مصنوعی بسازید.", vi: "Tạo video điện ảnh từ văn bản hoặc hình ảnh bằng AI video.", th: "สร้างวิดีโอแบบภาพยนตร์จากข้อความหรือภาพด้วย AI", pl: "Twórz filmowe wideo z tekstu lub obrazów dzięki AI.",
@@ -878,7 +878,7 @@ const UI_DICT: Record<string, Entry> = {
     en: "Replace ChatGPT, Midjourney, Sora, Gamma and Bolt with one plan. Cancel anytime.", ar: "استبدل ChatGPT وMidjourney وSora وGamma وBolt بخطة واحدة. إلغِ في أي وقت.", "ar-eg": "استبدل ChatGPT وMidjourney وSora وGamma وBolt بخطة واحدة. لغي في أي وقت.", es: "Reemplaza ChatGPT, Midjourney, Sora, Gamma y Bolt con un solo plan. Cancela cuando quieras.", fr: "Remplacez ChatGPT, Midjourney, Sora, Gamma et Bolt par un seul abonnement. Annulez à tout moment.", de: "Ersetze ChatGPT, Midjourney, Sora, Gamma und Bolt mit einem Plan. Jederzeit kündbar.", pt: "Substitua ChatGPT, Midjourney, Sora, Gamma e Bolt por um único plano. Cancele quando quiser.", it: "Sostituisci ChatGPT, Midjourney, Sora, Gamma e Bolt con un solo piano. Disdici quando vuoi.", tr: "ChatGPT, Midjourney, Sora, Gamma ve Bolt’u tek planla değiştir. İstediğin zaman iptal et.", ru: "Замените ChatGPT, Midjourney, Sora, Gamma и Bolt одной подпиской. Отмена в любой момент.", zh: "用一个订阅替代 ChatGPT、Midjourney、Sora、Gamma 和 Bolt。随时取消。", ja: "ChatGPT・Midjourney・Sora・Gamma・Boltをひとつのプランに。いつでも解約可能。", ko: "ChatGPT, Midjourney, Sora, Gamma, Bolt를 하나의 요금제로. 언제든 해지.", hi: "ChatGPT, Midjourney, Sora, Gamma और Bolt को एक प्लान से बदलें। कभी भी रद्द करें।", id: "Ganti ChatGPT, Midjourney, Sora, Gamma & Bolt dengan satu paket. Batalkan kapan saja.", nl: "Vervang ChatGPT, Midjourney, Sora, Gamma en Bolt door één abonnement. Altijd opzegbaar.", sv: "Ersätt ChatGPT, Midjourney, Sora, Gamma och Bolt med ett abonnemang. Avsluta när du vill.", cs: "Nahraďte ChatGPT, Midjourney, Sora, Gamma a Bolt jedním předplatným. Kdykoli zrušit.", ro: "Înlocuiește ChatGPT, Midjourney, Sora, Gamma și Bolt cu un singur abonament. Anulează oricând.", el: "Αντικατάσταση των ChatGPT, Midjourney, Sora, Gamma, Bolt με ένα πλάνο. Ακύρωση όποτε θες.", uk: "Замініть ChatGPT, Midjourney, Sora, Gamma і Bolt однією підпискою. Скасувати будь-коли.", he: "החליפו את ChatGPT, Midjourney, Sora, Gamma ו-Bolt במנוי אחד. בטלו מתי שתרצו.", fa: "ChatGPT، Midjourney، Sora، Gamma و Bolt را با یک اشتراک جایگزین کنید. لغو در هر زمان.", vi: "Thay thế ChatGPT, Midjourney, Sora, Gamma và Bolt bằng một gói. Hủy bất cứ lúc nào.", th: "แทนที่ ChatGPT, Midjourney, Sora, Gamma และ Bolt ด้วยแพ็คเดียว ยกเลิกได้ทุกเมื่อ", pl: "Zastąp ChatGPT, Midjourney, Sora, Gamma i Bolt jednym planem. Anuluj w każdej chwili.",
   },
   startCreating: {
-    en: "Start creating", ar: "ابدأ الإنشاء", "ar-eg": "ابدأ دلوقتي", es: "Empieza a crear", fr: "Commencer à créer", de: "Jetzt erstellen", pt: "Começar a criar", it: "Inizia a creare", tr: "Oluşturmaya başla", ru: "Начать создавать", zh: "开始创作", ja: "作成を開始", ko: "만들기 시작", hi: "बनाना शुरू करें", id: "Mulai membuat", nl: "Begin met maken", sv: "Börja skapa", cs: "Začít tvořit", ro: "Începe să creezi", el: "Ξεκίνα να δημιουργείς", uk: "Почати створювати", he: "התחילו ליצור", fa: "شروع به ساخت", vi: "Bắt đầu tạo", th: "เริ่มสร้าง", pl: "Zacznij tworzyć",
+    en: "Start creating", ar: "ابدأ Create", "ar-eg": "ابدأ دلوقتي", es: "Empieza a crear", fr: "Commencer à créer", de: "Jetzt erstellen", pt: "Começar a criar", it: "Inizia a creare", tr: "Oluşturmaya başla", ru: "Начать создавать", zh: "开始创作", ja: "作成を開始", ko: "만들기 시작", hi: "बनाना शुरू करें", id: "Mulai membuat", nl: "Begin met maken", sv: "Börja skapa", cs: "Začít tvořit", ro: "Începe să creezi", el: "Ξεκίνα να δημιουργείς", uk: "Почати створювати", he: "התחילו ליצור", fa: "شروع به ساخت", vi: "Bắt đầu tạo", th: "เริ่มสร้าง", pl: "Zacznij tworzyć",
   },
   allModelsIncluded: {
     en: "All flagship models included", ar: "كل النماذج الرائدة متاحة", "ar-eg": "كل الموديلات القوية متاحة", es: "Todos los modelos líderes incluidos", fr: "Tous les modèles phares inclus", de: "Alle Top-Modelle inklusive", pt: "Todos os modelos principais incluídos", it: "Tutti i modelli principali inclusi", tr: "Tüm amiral gemisi modeller dahil", ru: "Все флагманские модели включены", zh: "包含所有旗舰模型", ja: "主要モデルをすべて含む", ko: "주요 플래그십 모델 포함", hi: "सभी प्रमुख मॉडल शामिल", id: "Semua model unggulan termasuk", nl: "Alle topmodellen inbegrepen", sv: "Alla toppmodeller ingår", cs: "Všechny špičkové modely zahrnuty", ro: "Toate modelele principale incluse", el: "Όλα τα κορυφαία μοντέλα περιλαμβάνονται", uk: "Усі флагманські моделі включено", he: "כל המודלים המובילים כלולים", fa: "همه مدل‌های شاخص شامل است", vi: "Bao gồm mọi mô hình hàng đầu", th: "รวมโมเดลหลักทั้งหมด", pl: "Wszystkie flagowe modele w pakiecie",
@@ -929,7 +929,7 @@ const UI_DICT: Record<string, Entry> = {
     en: "Where to today", ar: "إلى أين اليوم", "ar-eg": "رايح فين النهارده", es: "A dónde hoy", fr: "Où allons-nous aujourd'hui", de: "Wohin heute", pt: "Para onde hoje", it: "Dove andiamo oggi", tr: "Bugün nereye", ru: "Куда сегодня", zh: "今天去哪儿", ja: "今日はどこへ", ko: "오늘은 어디로", hi: "आज कहाँ", id: "Ke mana hari ini", nl: "Waarheen vandaag", sv: "Vart idag", cs: "Kam dnes", ro: "Încotro azi", el: "Πού σήμερα", uk: "Куди сьогодні", he: "לאן היום", fa: "امروز کجا", vi: "Hôm nay đi đâu", th: "วันนี้ไปไหน", pl: "Dokąd dziś",
   },
   readyWhenYouAre: {
-    en: "Ready when you are", ar: "جاهز عندما تكون جاهزًا", "ar-eg": "جاهز لما تكون جاهز", es: "Listo cuando tú quieras", fr: "Prêt quand vous l'êtes", de: "Bereit, wenn du es bist", pt: "Pronto quando você estiver", it: "Pronto quando vuoi", tr: "Hazır olduğunda hazırım", ru: "Готово, когда вы готовы", zh: "随时准备好", ja: "準備できたらどうぞ", ko: "준비되면 시작하세요", hi: "जब आप तैयार हों", id: "Siap kapan pun Anda siap", nl: "Klaar wanneer jij bent", sv: "Redo när du är det", cs: "Připraveno, až budeš", ro: "Gata când ești tu", el: "Έτοιμο όποτε είσαι", uk: "Готово, коли ви будете", he: "מוכן כשתהיו מוכנים", fa: "هر وقت آماده باشی", vi: "Sẵn sàng khi bạn muốn", th: "พร้อมเมื่อคุณพร้อม", pl: "Gotowe, gdy jesteś",
+    en: "Ready when you are", ar: "جاهز عندما تكون جاهزًا", "ar-eg": "Ready when you are", es: "Listo cuando tú quieras", fr: "Prêt quand vous l'êtes", de: "Bereit, wenn du es bist", pt: "Pronto quando você estiver", it: "Pronto quando vuoi", tr: "Hazır olduğunda hazırım", ru: "Готово, когда вы готовы", zh: "随时准备好", ja: "準備できたらどうぞ", ko: "준비되면 시작하세요", hi: "जब आप तैयार हों", id: "Siap kapan pun Anda siap", nl: "Klaar wanneer jij bent", sv: "Redo när du är det", cs: "Připraveno, až budeš", ro: "Gata când ești tu", el: "Έτοιμο όποτε είσαι", uk: "Готово, коли ви будете", he: "מוכן כשתהיו מוכנים", fa: "هر وقت آماده باشی", vi: "Sẵn sàng khi bạn muốn", th: "พร้อมเมื่อคุณพร้อม", pl: "Gotowe, gdy jesteś",
   },
   loadingMegsy: {
     en: "Loading Megsy", ar: "جارٍ تحميل ميغسي", "ar-eg": "ميغسي بيحمّل", es: "Cargando Megsy", fr: "Chargement de Megsy", de: "Megsy wird geladen", pt: "Carregando Megsy", it: "Caricamento di Megsy", tr: "Megsy yükleniyor", ru: "Загрузка Megsy", zh: "正在加载 Megsy", ja: "Megsy を読み込み中", ko: "Megsy 로딩 중", hi: "Megsy लोड हो रहा है", id: "Memuat Megsy", nl: "Megsy laden", sv: "Läser in Megsy", cs: "Načítání Megsy", ro: "Se încarcă Megsy", el: "Φόρτωση Megsy", uk: "Завантаження Megsy", he: "Megsy נטען", fa: "در حال بارگذاری Megsy", vi: "Đang tải Megsy", th: "กำลังโหลด Megsy", pl: "Ładowanie Megsy",

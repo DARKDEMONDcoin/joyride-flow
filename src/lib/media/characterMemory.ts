@@ -1,4 +1,4 @@
-// ذاكرة هوية الشخصيات المولدة (Character identity memory).
+// Memory هوية الشخصيات المولدة (Character identity memory).
 // نحتفظ محليًا بكل شخصية/موضوع تم توليده مع وصفه وصورته المرجعية، حتى يمكن
 // إعادة استخدام نفس الهوية في أي وقت لاحق بمجرد ذكر اسمها في الطلب.
 
@@ -11,7 +11,7 @@ export interface RememberedCharacter {
   name: string;
   /** الوصف البصري الكامل (البرومبت الذي وُلدت منه). */
   descriptor: string;
-  /** رابط الصورة المرجعية. */
+  /** رابط Imagesة المرجعية. */
   refUrl?: string;
   createdAt: number;
 }
@@ -81,7 +81,7 @@ export function forgetCharacter(id: string) {
 }
 
 /**
- * يبحث عن شخصية محفوظة مذكورة داخل نص الطلب (مطابقة كلمات مميزة)،
+ * يSearch عن شخصية محفوظة مذكورة داخل نص الطلب (مطابقة كلمات مميزة)،
  * فيتم إعادة استخدام هويتها تلقائيًا دون أن يعيد المستخدم وصفها.
  */
 export function findMentionedCharacter(text: string): RememberedCharacter | null {

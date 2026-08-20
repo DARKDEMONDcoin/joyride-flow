@@ -126,7 +126,7 @@ export async function runDocsTurn(args: RunDocsTurnArgs): Promise<boolean> {
       };
       const intro =
         language === "ar"
-          ? "جهّزت مخطط المستند — راجعه أو عدّله، ويمكنك تشغيل البحث العميق قبل الكتابة."
+          ? "جهّزت مخطط المستند — راجعه أو عدّله، ويمكنك تشغيل الSearch العميق قبل الكتابة."
           : "Here's the document plan — review or edit it, and optionally run deep research before writing.";
       setMessages((prev) =>
         prev.map((m) =>

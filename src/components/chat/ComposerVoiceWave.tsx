@@ -3,7 +3,7 @@ import { m as motion } from "framer-motion";
 /**
  * Clean listening animation shown inside the composer while dictation runs.
  */
-export function ComposerVoiceWave({ label = "أستمع إليك..." }: { label?: string }) {
+export function ComposerVoiceWave({ label = "Listening…" }: { label?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 4 }}

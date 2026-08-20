@@ -103,8 +103,8 @@ export function ChatArtifactsCanvas({ conversationId }: Props) {
 
           {files.length === 0 ? (
             <div className="p-8 text-center text-sm text-muted-foreground">
-              لا توجد ملفات ذاكرة بعد لهذه المحادثة. سيتم إنشاؤها تلقائياً عندما
-              يكتب الوكيل <code className="font-mono">&lt;agent-write&gt;</code>.
+              No memory files for this chat yet. They are created automatically when
+              the agent writes <code className="font-mono">&lt;agent-write&gt;</code>.
             </div>
           ) : (
             <div className="grid h-[calc(100vh-3.25rem)] grid-cols-[220px_1fr]">
@@ -145,12 +145,12 @@ export function ChatArtifactsCanvas({ conversationId }: Props) {
                       </span>
                     </div>
                     <pre className="flex-1 overflow-auto whitespace-pre-wrap p-4 font-mono text-[12px] leading-relaxed">
-                      {active.content || "(فارغ)"}
+                      {active.content || "(empty)"}
                     </pre>
                   </>
                 ) : (
                   <div className="p-8 text-center text-sm text-muted-foreground">
-                    اختر ملف من القائمة.
+                    Choose a file from the list.
                   </div>
                 )}
               </div>

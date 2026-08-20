@@ -206,7 +206,7 @@ const ChatMessageItemImpl = ({
                     ),
                   );
                   void handleSendWithText(
-                    "استكمل من حيث توقفت تماماً، لا تُعِد أي جزء سابق ولا تُلخّصه.",
+                    "Continue exactly where you stopped; do not repeat or summarize any previous part.",
                   );
                 }
               : undefined

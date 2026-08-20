@@ -32,9 +32,9 @@ import { goBackOr } from "@/lib/navigation";
 import { getAppearance, setAppearance, type Appearance } from "@/lib/appTheme";
 
 const THEME_OPTIONS = [
-  { id: "system" as Appearance, en: "Follow system", ar: "اتّباع النظام", icon: Contrast },
-  { id: "light" as Appearance, en: "Light mode", ar: "الوضع الفاتح", icon: Sun },
-  { id: "dark" as Appearance, en: "Dark mode", ar: "الوضع الداكن", icon: Moon },
+  { id: "system" as Appearance, en: "Follow system", ar: "Follow system", icon: Contrast },
+  { id: "light" as Appearance, en: "Light mode", ar: "Light mode", icon: Sun },
+  { id: "dark" as Appearance, en: "Dark mode", ar: "Dark mode", icon: Moon },
 ];
 
 type Row = {

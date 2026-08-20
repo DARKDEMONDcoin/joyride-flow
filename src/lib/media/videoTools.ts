@@ -6,7 +6,7 @@ const KEY = "megsy_video_tools_v1";
 export interface VideoToolsPrefs {
   /** توليد بأسلوب محتوى المستخدمين (UGC): كاميرا هاتف، إضاءة طبيعية، عفوية. */
   ugc: boolean;
-  /** أبعاد إضافية تُولَّد لنفس الفيديو (مثل 9:16 و1:1 بجانب 16:9). */
+  /** More aspect ratios تُولَّد لنفس الفيديو (مثل 9:16 و1:1 بجانب 16:9). */
   extraAspects: string[];
 }
 

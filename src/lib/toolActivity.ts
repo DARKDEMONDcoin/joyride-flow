@@ -17,7 +17,7 @@ export interface ToolActivityMeta {
 
 const REG: Record<string, ToolActivityMeta> = {
   // first-party
-  web_search: { lucide: "Search", action: "search", ar: "يبحث عن", en: "Searching for" },
+  web_search: { lucide: "Search", action: "search", ar: "يSearch عن", en: "Searching for" },
   generate_image: { lucide: "Image", action: "run", ar: "يرسم صورة", en: "Generating image" },
   generate_video: { lucide: "Video", action: "run", ar: "يرندر فيديو", en: "Generating video" },
   code_agent: {
@@ -26,15 +26,15 @@ const REG: Record<string, ToolActivityMeta> = {
     ar: "يشغّل وكيل البرمجة",
     en: "Running code agent",
   },
-  memory_recall: { lucide: "Brain", action: "fetch", ar: "يستدعي الذاكرة", en: "Recalling memory" },
+  memory_recall: { lucide: "Brain", action: "fetch", ar: "يستدعي الMemory", en: "Recalling memory" },
   memory_save: { lucide: "Save", action: "write", ar: "يحفظ ملاحظة", en: "Saving memory" },
   skill_lookup: {
     lucide: "Sparkles",
     action: "search",
-    ar: "يبحث عن مهارة",
+    ar: "يSearch عن مهارة",
     en: "Looking up skill",
   },
-  tool_search: { lucide: "Wrench", action: "search", ar: "يبحث عن أداة", en: "Looking up tools" },
+  tool_search: { lucide: "Wrench", action: "search", ar: "يSearch عن أداة", en: "Looking up tools" },
   tool_invoke: { lucide: "Play", action: "run", ar: "يستخدم أداة", en: "Running tool" },
 
   // pipedream integrations — keyed by exact tool name
@@ -81,7 +81,7 @@ const REG: Record<string, ToolActivityMeta> = {
     ar: "يرسل رسالة على Discord",
     en: "Sending Discord message",
   },
-  notion_search: { slug: "notion", action: "search", ar: "يبحث في Notion", en: "Searching Notion" },
+  notion_search: { slug: "notion", action: "search", ar: "يSearch في Notion", en: "Searching Notion" },
   notion_create_page: {
     slug: "notion",
     action: "write",
@@ -121,7 +121,7 @@ const REG: Record<string, ToolActivityMeta> = {
   hubspot_create_contact: {
     slug: "hubspot",
     action: "write",
-    ar: "ينشئ جهة اتصال HubSpot",
+    ar: "ينشئ جهة Connect HubSpot",
     en: "Creating HubSpot contact",
   },
   telegram_send_message: {

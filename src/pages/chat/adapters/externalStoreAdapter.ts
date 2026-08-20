@@ -18,7 +18,7 @@ import { createMegsyAttachmentAdapter } from "./attachmentAdapter";
  *  - العرض والـ primitives (thread/composer/message/branch/edit) تعمل من هنا.
  *  - الإرسال/التحرير/إعادة التوليد تُحال إلى الـ callbacks الأصلية في ChatPage
  *    (handleSend / handleEdit / regenerate). لو الـ callback مش متوفر
- *    نتجاهل العملية بأمان (no-op) بدون تغيير سلوك التطبيق.
+ *    نتجاهل العملية بأمان (no-op) بدون تغيير سلوك الApp.
  */
 export function useChatAuiRuntime(params: {
   messages: Message[];

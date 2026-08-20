@@ -1,4 +1,4 @@
-// "الروبوت الذكي الداخلي" لوضع الصور: يحسّن كل طلب تلقائيًا قبل التوليد،
+// "الروبوت الذكي الداخلي" لوضع Images: يحسّن كل طلب تلقائيًا قبل التوليد،
 // ويكتشف نية التعديل على صورة سبق توليدها حتى لا يحتاج المستخدم لإعادة إرفاقها.
 
 import { supabase } from "@/integrations/supabase/client";
@@ -8,7 +8,7 @@ const CHAT_EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-al
 const EDIT_PATTERNS =
   /(عدّل|عدل|تعديل|غيّر|غير|بدّل|بدل|خلي|اجعل|احذف|امسح|شيل|ضيف|أضف|زوّد|نفس الصورة|الصوره دي|الصورة دي|هذه الصورة|نفس الشخصية|edit|change|modify|adjust|remove|erase|replace|make it|same image|this image|tweak|retouch)/i;
 
-/** هل الطلب تعديل على آخر صورة مولّدة بدل توليد صورة جديدة؟ */
+/** هل الطلب تعديل على آخر صورة مولّدة بدل Generate image Newة؟ */
 export function detectImageEditIntent(text: string): boolean {
   const t = (text || "").trim();
   if (!t) return false;
@@ -104,7 +104,7 @@ export async function enhanceImagePrompt(args: {
   }
 }
 
-/** يبني البرومبت النهائي لمشهد الصورة مع الهوية والتعديل الداخلي. */
+/** يبني البرومبت النهائي لمشهد Imagesة مع الهوية والتعديل الداخلي. */
 export function composeImagePrompt(args: {
   enhanced: string;
   identity?: string;

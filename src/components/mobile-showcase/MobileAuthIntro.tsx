@@ -50,19 +50,19 @@ export default function MobileAuthIntro({
   const logo = useBrandLogo();
   const t = isAr
     ? {
-        title1: "منصة الذكاء",
-        title2: "لكل ما تبتكره",
-        subtitle: "دردشة، صور، فيديو، عروض\nومشاريع كاملة في مكان واحد",
-        google: "المتابعة عبر Google",
-        email: "المتابعة عبر البريد",
-        telegram: "المتابعة عبر Telegram",
-        terms: "بمتابعتك، أنت توافق على",
-        termsLink: "شروط الاستخدام",
-        continue: "المتابعة",
-        signIn: "تسجيل الدخول",
-        emailPlaceholder: "البريد الإلكتروني",
-        passwordPlaceholder: "كلمة المرور",
-        forgot: "نسيت كلمة المرور؟",
+        title1: "The AI platform",
+        title2: "for everything you create",
+        subtitle: "Chat, images, video, slides\nand complete projects in one place",
+        google: "Continue with Google",
+        email: "Continue with email",
+        telegram: "Continue with Telegram",
+        terms: "By continuing, you agree to the",
+        termsLink: "Terms of Use",
+        continue: "Continue",
+        signIn: "Sign in",
+        emailPlaceholder: "Email",
+        passwordPlaceholder: "Password",
+        forgot: "Forgot password?",
       }
     : {
         title1: "The AI stack for",

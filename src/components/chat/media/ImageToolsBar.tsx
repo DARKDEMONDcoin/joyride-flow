@@ -1,5 +1,5 @@
-// شريط أدوات ثابت يظهر داخل الملحن في وضع الصور:
-// رفع صورة + مسح الخلفية + إعادة استخدام شخصية محفوظة.
+// شريط أدوات ثابت يظهر داخل الملحن في وضع Images:
+// Upload image + Remove background + إعادة استخدام شخصية محفوظة.
 
 import { useEffect, useRef, useState } from "react";
 import { ImagePlus, Eraser, Users, Loader2, X, Sparkles } from "lucide-react";
@@ -39,7 +39,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
       const { dataUrl } = await compressImageToDataUrl(file);
       onAttach({ name: file.name, type: "image", data: dataUrl });
     } catch {
-      toast.error("تعذر إرفاق الصورة");
+      toast.error("تعذر إرفاق Imagesة");
     }
   };
 
@@ -48,14 +48,14 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
     e.target.value = "";
     if (!file) return;
     setBusy(true);
-    const toastId = toast.loading("جاري مسح الخلفية…");
+    const toastId = toast.loading("Removing background…");
     try {
       const blob = await removeImageBackground(file);
       const dataUrl = await blobToDataUrl(blob);
       onAttach({ name: file.name.replace(/\.\w+$/, "") + "-no-bg.png", type: "image", data: dataUrl });
-      toast.success("تم مسح الخلفية", { id: toastId });
+      toast.success("Background removed", { id: toastId });
     } catch {
-      toast.error("تعذر مسح الخلفية، جرّب صورة أخرى", { id: toastId });
+      toast.error("Couldn't remove the background, try another image", { id: toastId });
     } finally {
       setBusy(false);
     }
@@ -66,7 +66,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
     e.target.value = "";
     if (!file) return;
     setBusy(true);
-    const toastId = toast.loading(`جاري رفع الدقة ×${upscaleFactor}…`);
+    const toastId = toast.loading(`جاري Upscale ×${upscaleFactor}…`);
     try {
       const res = await upscaleImage(file, upscaleFactor);
       onAttach({
@@ -74,9 +74,9 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
         type: "image",
         data: res.dataUrl,
       });
-      toast.success(`تم رفع الدقة إلى ${res.width}×${res.height}`, { id: toastId });
+      toast.success(`تم Upscale إلى ${res.width}×${res.height}`, { id: toastId });
     } catch {
-      toast.error("تعذر رفع دقة الصورة، جرّب صورة أخرى", { id: toastId });
+      toast.error("تعذر رفع دقة Imagesة، جرّب صورة أخرى", { id: toastId });
     } finally {
       setBusy(false);
     }
@@ -90,28 +90,28 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
       <div className="flex flex-wrap items-center gap-2">
         <button type="button" className={btn} onClick={() => uploadRef.current?.click()} disabled={busy}>
           <ImagePlus className="w-3.5 h-3.5" />
-          رفع صورة
+          Upload image
         </button>
         <button type="button" className={btn} onClick={() => cutoutRef.current?.click()} disabled={busy}>
           {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Eraser className="w-3.5 h-3.5" />}
-          مسح الخلفية
+          Remove background
         </button>
         <button type="button" className={btn} onClick={() => upscaleRef.current?.click()} disabled={busy}>
           {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
-          رفع الدقة
+          Upscale
         </button>
         <button
           type="button"
           className={btn}
           onClick={() => setUpscaleFactor((v) => (v === 2 ? 4 : 2))}
           disabled={busy}
-          aria-label="تغيير معامل رفع الدقة"
+          aria-label="Change upscale factor"
         >
           ×{upscaleFactor}
         </button>
         <button type="button" className={btn} onClick={() => setCharsOpen((v) => !v)}>
           <Users className="w-3.5 h-3.5" />
-          شخصياتي
+          My characters
         </button>
       </div>
 
@@ -119,7 +119,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
         <div className="max-h-40 overflow-y-auto rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-2 space-y-1">
           {chars.length === 0 ? (
             <div className="px-2 py-1.5 text-[12px] text-foreground/55">
-              لا توجد شخصيات محفوظة بعد — كل صورة تولّدها تُحفظ هويتها تلقائيًا.
+              No saved characters yet — every image you generate saves its identity automatically.
             </div>
           ) : (
             chars.map((c) => (
@@ -146,7 +146,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
                 </button>
                 <button
                   type="button"
-                  aria-label="حذف الشخصية"
+                  aria-label="Delete character"
                   onClick={() => {
                     forgetCharacter(c.id);
                     setChars(listCharacters());

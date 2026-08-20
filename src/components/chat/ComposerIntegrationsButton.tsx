@@ -13,7 +13,7 @@ interface Props {
  * - Many apps → a clean overlapped stack of up to 3 logos (+N).
  * Fully transparent: no background, no border.
  */
-export function ComposerIntegrationsButton({ onClick, label = "التكاملات" }: Props) {
+export function ComposerIntegrationsButton({ onClick, label = "Integrations" }: Props) {
   const apps = useConnectedApps();
   const shown = apps.slice(0, 3);
   const extra = apps.length - shown.length;

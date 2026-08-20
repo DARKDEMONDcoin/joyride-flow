@@ -263,7 +263,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
           : planDeck;
         const finalContent =
           plan.language === "ar"
-            ? `تم إنشاء العرض (${enrichedDeck.slides.length} شرائح) حسب الخطة المعتمدة.`
+            ? `تم Rendering the deck (${enrichedDeck.slides.length} شرائح) حسب الخطة المعتمدة.`
             : `Generated ${enrichedDeck.slides.length} slides from your approved plan.`;
         if (placeholderId) {
           try {

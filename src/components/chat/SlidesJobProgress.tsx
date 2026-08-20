@@ -23,10 +23,10 @@ const STAGES_EN: Array<{ id: string; label: string; match: (phase: string, pct: 
 ];
 
 const STAGES_AR_LABELS: Record<string, string> = {
-  queued: "في قائمة الانتظار",
-  planning: "تخطيط الشرائح",
-  rendering: "إنشاء العرض",
-  done: "اللمسات الأخيرة",
+  queued: "Queued",
+  planning: "Planning slides",
+  rendering: "Rendering the deck",
+  done: "Final touches",
 };
 
 function getStages() {

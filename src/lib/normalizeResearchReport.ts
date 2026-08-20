@@ -19,17 +19,17 @@ export const normalizeResearchReport = (raw: string): string => {
       .replace(/\[\s*section(?:_\d+)?(?:\[\d+\])?\s*\]/gi, "")
       // Numeric footnote markers like "[2]" that models leak into body text.
       .replace(/\[\s*\d+\s*\]/g, "")
-      // Plain-text "المصادر الرئيسية:" / "Main sources:" lines outside headings.
-      .replace(/^\s*(?:المصادر\s+الرئيسية|main\s+sources|sources|references|المصادر|المراجع|مصادر)\s*[:：]\s*$/gim, "")
+      // Plain-text "Sources الرئيسية:" / "Main sources:" lines outside headings.
+      .replace(/^\s*(?:Sources\s+الرئيسية|main\s+sources|sources|references|Sources|المراجع|مصادر)\s*[:：]\s*$/gim, "")
       .replace(/[ \t]{2,}/g, " ")
       .replace(/\n[ \t]+\n/g, "\n\n");
 
   // Remove an in-body source list block: a line that looks like a source heading
   // (heading, bold, or plain text) followed by list items. This catches the
-  // "المصادر الرئيسية:" blocks that models sometimes inject inside sections.
+  // "Sources الرئيسية:" blocks that models sometimes inject inside sections.
   const stripSourceListBlocks = (txt: string): string => {
     const sourceLabelRe =
-      /^\s*(?:#{1,6}\s+|\*\*)?(?:المصادر\s+الرئيسية|المصادر|المراجع|مصادر|main\s+sources|sources|references)\s*[:：]?(?:\*\*)?\s*[:：]?\s*$/i;
+      /^\s*(?:#{1,6}\s+|\*\*)?(?:Sources\s+الرئيسية|Sources|المراجع|مصادر|main\s+sources|sources|references)\s*[:：]?(?:\*\*)?\s*[:：]?\s*$/i;
     const listItemRe = /^\s*(?:[-*]|\d+\.)\s+/;
     const blankOrHeading = (l: string) => /^\s*$/.test(l) || /^#{1,6}\s/.test(l.trim());
     const lines = txt.split("\n");
@@ -101,7 +101,7 @@ export const normalizeResearchReport = (raw: string): string => {
           }
           parts.push(text);
         } else {
-          // Named key (e.g. "المصادر_الرئيسية") — render as heading.
+          // Named key (e.g. "Sources_الرئيسية") — render as heading.
           const heading = k.replace(/_/g, " ").trim();
           parts.push(`## ${heading}\n\n${text}`);
         }
@@ -234,10 +234,10 @@ export const normalizeResearchReport = (raw: string): string => {
   // 11) Trim leading/trailing blank lines and stray horizontal rules at top
   s = s.replace(/^\s*(?:-{3,}\s*\n+)+/, "").trim();
 
-  // 12) Strip any "Sources / المصادر / المراجع / المصادر الرئيسية" section
+  // 12) Strip any "Sources / Sources / المراجع / Sources الرئيسية" section
   //     (both trailing and mid-body — sources are rendered separately).
   s = s.replace(
-    /\n+#{1,6}\s*(?:sources|references|المصادر\s+الرئيسية|المصادر|المراجع|مصادر)\s*:?\s*\n[\s\S]*?(?=\n#{1,6}\s|\n*$)/gi,
+    /\n+#{1,6}\s*(?:sources|references|Sources\s+الرئيسية|Sources|المراجع|مصادر)\s*:?\s*\n[\s\S]*?(?=\n#{1,6}\s|\n*$)/gi,
     "\n\n",
   ).trim();
 

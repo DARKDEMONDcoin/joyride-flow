@@ -258,9 +258,9 @@ export async function runMediaTurn(args: RunMediaTurnArgs): Promise<void> {
         ],
       };
     } else {
-      // وضع الصور: يمر كل طلب على "الروبوت الداخلي" الذي يحسّن البرومبت،
+      // وضع Images: يمر كل طلب على "الروبوت الداخلي" الذي يحسّن البرومبت،
       // ويستحضر هوية أي شخصية محفوظة، ويكتشف نية التعديل على آخر صورة
-      // مولّدة فيرفقها داخليًا بدون أن يعيد المستخدم إرفاق الصورة.
+      // مولّدة فيرفقها داخليًا بدون أن يعيد المستخدم إرفاق Imagesة.
       let scenePrompt = text;
       let referenceImage: string | undefined;
       let identityDescriptor: string | undefined;
@@ -294,7 +294,7 @@ export async function runMediaTurn(args: RunMediaTurnArgs): Promise<void> {
       let planned = false;
 
       // وضع الفيديو: خطة مسبقة تفهم الشخصية/المنتج والمشاهد والسيناريو الممتد،
-      // مع نمط UGC اختياري وأبعاد إضافية لنفس الفيديو.
+      // مع نمط UGC اختياري وMore aspect ratios لنفس الفيديو.
       if (modeLocal === "video" && text?.trim()) {
         try {
           const [{ planVideoStory }, { loadVideoTools, UGC_STYLE_PROMPT }] = await Promise.all([

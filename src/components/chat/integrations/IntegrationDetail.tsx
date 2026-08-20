@@ -33,7 +33,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         <button
           type="button"
           onClick={onBack}
-          aria-label="رجوع"
+          aria-label="Back"
           className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-foreground/70"
           style={{ border: 0 }}
         >
@@ -44,7 +44,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label="خيارات"
+            aria-label="Options"
             className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-foreground/70"
             style={{ border: 0 }}
           >
@@ -61,7 +61,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
                 className="flex w-full items-center justify-between gap-2 rounded-[12px] bg-transparent px-3 py-2.5 text-[14px] text-foreground"
                 style={{ border: 0 }}
               >
-                <span>تكوين</span>
+                <span>Configure</span>
                 <SlidersHorizontal className="h-[18px] w-[18px] text-foreground/60" />
               </button>
               <button
@@ -74,7 +74,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
                 className="flex w-full items-center justify-between gap-2 rounded-[12px] bg-transparent px-3 py-2.5 text-[14px] text-destructive disabled:opacity-40"
                 style={{ border: 0 }}
               >
-                <span>قطع الاتصال</span>
+                <span>Disconnect</span>
                 <Trash2 className="h-[18px] w-[18px]" />
               </button>
             </div>
@@ -99,17 +99,17 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         </div>
       )}
 
-      <p className="mb-1 mt-6 px-2 text-[12.5px] text-foreground/40">التفاصيل</p>
+      <p className="mb-1 mt-6 px-2 text-[12.5px] text-foreground/40">Details</p>
       <div className="overflow-hidden rounded-[18px] bg-card">
-        <DetailRow label="نوع الموصل" value={typeLabel(item.type)} />
-        <DetailRow label="المؤلف" value={item.name} />
-        <LinkRow label="موقع إلكتروني" href={site} />
-        <LinkRow label="التوثيق" href={site ? `${site}/docs` : undefined} />
-        <LinkRow label="سياسة الخصوصية" href={site ? `${site}/privacy` : undefined} last />
+        <DetailRow label="Connector type" value={typeLabel(item.type)} />
+        <DetailRow label="Author" value={item.name} />
+        <LinkRow label="Website" href={site} />
+        <LinkRow label="Documentation" href={site ? `${site}/docs` : undefined} />
+        <LinkRow label="Privacy policy" href={site ? `${site}/privacy` : undefined} last />
       </div>
 
       <div className="mt-4 overflow-hidden rounded-[18px] bg-card">
-        <LinkRow label="تقديم ملاحظات" href="mailto:support@example.com" last />
+        <LinkRow label="Send feedback" href="mailto:support@example.com" last />
       </div>
 
       <div className="mt-6 pb-2">
@@ -120,7 +120,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           className="inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-foreground text-[14.5px] font-semibold text-background transition-opacity active:opacity-80"
           style={{ border: 0 }}
         >
-          {busy ? <Loader2 className="h-[18px] w-[18px] animate-spin" /> : connected ? "جرّبه" : "اتصال"}
+          {busy ? <Loader2 className="h-[18px] w-[18px] animate-spin" /> : connected ? "Try it" : "Connect"}
         </button>
       </div>
     </div>
@@ -144,11 +144,11 @@ function typeLabel(t: Integration["type"]) {
     case "oauth":
       return "OAuth";
     case "notification":
-      return "إشعارات";
+      return "Notifications";
     case "service":
       return "MCP";
     default:
-      return "تطبيق";
+      return "App";
   }
 }
 

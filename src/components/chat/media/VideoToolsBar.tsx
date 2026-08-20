@@ -1,4 +1,4 @@
-// شريط أدوات ثابت لوضع الفيديو: نمط UGC + توليد أبعاد إضافية لنفس الفيديو.
+// شريط أدوات ثابت لوضع الفيديو: نمط UGC + توليد More aspect ratios لنفس الفيديو.
 
 import { useEffect, useState } from "react";
 import { Smartphone, Ratio } from "lucide-react";
@@ -34,11 +34,11 @@ export default function VideoToolsBar() {
     <div className="px-2 pt-2 pb-1 flex flex-wrap items-center gap-2" dir="auto">
       <button type="button" className={chip(ugc)} onClick={() => persist({ ugc: !ugc })}>
         <Smartphone className="w-3.5 h-3.5" />
-        أسلوب UGC
+        UGC style
       </button>
       <span className="inline-flex items-center gap-1 text-[12px] text-foreground/50 px-1">
         <Ratio className="w-3.5 h-3.5" />
-        أبعاد إضافية
+        More aspect ratios
       </span>
       {ASPECTS.map((a) => {
         const active = extra.includes(a);

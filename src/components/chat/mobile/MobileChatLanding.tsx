@@ -636,17 +636,17 @@ const MobileChatLanding = ({
     if (isRtl) {
       if (firstName) {
         return [
-          `${firstName}، نبدأ منين النهارده؟`,
-          `${firstName}، هنبني إيه مع بعض؟`,
-          `${firstName}، قلّي أول فكرة في بالك`,
-          `${firstName}، جاهز لما تكون جاهز`,
+          `${firstName}، Where should we start today?`,
+          `${firstName}، What are we building together?`,
+          `${firstName}، Tell me your first idea`,
+          `${firstName}، Ready when you are`,
         ];
       }
       return [
-        "نبدأ منين النهارده؟",
-        "هنبني إيه مع بعض؟",
-        "قلّي أول فكرة في بالك",
-        "جاهز لما تكون جاهز",
+        "Where should we start today?",
+        "What are we building together?",
+        "Tell me your first idea",
+        "Ready when you are",
       ];
     }
     if (firstName) {

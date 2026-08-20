@@ -1712,7 +1712,7 @@ const ChatPage = () => {
 
             duration: 5000,
             action: {
-              label: userLang?.startsWith("ar") ? "ليس هذا" : "Not this",
+              label: userLang?.startsWith("ar") ? "Not this" : "Not this",
               onClick: () => {
                 rejectIntent(result.intent);
                 setChatMode("normal");

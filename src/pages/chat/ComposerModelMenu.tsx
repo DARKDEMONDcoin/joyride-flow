@@ -323,7 +323,7 @@ export default function ComposerModelMenu({
                   className="tier-menu-card z-[9999] flex flex-col overflow-y-auto overscroll-contain rounded-[26px] p-1.5"
                 >
                   <div className="px-3 pb-1.5 pt-2 text-[11px] font-medium tracking-wide text-white/35">
-                    اختر النموذج
+                    Choose a model
                   </div>
 
                   {CHAT_COMPOSER_MODEL_OPTIONS.map((item, idx) => {

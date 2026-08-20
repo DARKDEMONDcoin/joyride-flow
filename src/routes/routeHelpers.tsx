@@ -46,7 +46,7 @@ export const LazyFallback = () => {
         role="status"
         aria-busy="true"
       >
-        <span className="sr-only">جارٍ التحميل</span>
+        <span className="sr-only">Loading</span>
         <SkeletonBar className="h-8 w-48" />
         <SkeletonBar className="h-4 w-72" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-4">
@@ -64,7 +64,7 @@ export const LazyFallback = () => {
       role="status"
       aria-busy="true"
     >
-      <span className="sr-only">جارٍ تحضير مساحة العمل</span>
+      <span className="sr-only">Preparing your workspace</span>
 
       {/* Sidebar rail */}
       <div className="hidden md:flex w-[260px] shrink-0 flex-col gap-3 border-e border-border p-4">

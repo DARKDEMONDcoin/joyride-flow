@@ -26,19 +26,19 @@ const KIND_META: Record<
 > = {
   images: {
     icon: ImageIcon,
-    label: "جاري توليد الصور…",
+    label: "Generating images…",
     aspect: "aspect-square",
     tint: "from-fuchsia-500/10 via-rose-500/5 to-transparent",
   },
   video: {
     icon: Film,
-    label: "جاري توليد الفيديو…",
+    label: "Generating video…",
     aspect: "aspect-video",
     tint: "from-cyan-500/10 via-sky-500/5 to-transparent",
   },
   music: {
     icon: Music,
-    label: "جاري تأليف الأغنية…",
+    label: "Composing the song…",
     aspect: "h-24 w-full",
     tint: "from-emerald-500/10 via-teal-500/5 to-transparent",
   },
