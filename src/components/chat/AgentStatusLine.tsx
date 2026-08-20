@@ -1,10 +1,39 @@
 import { memo, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, m as motion, useReducedMotion } from "framer-motion";
-import { Brain, Check, ChevronDown, Wrench } from "lucide-react";
+import {
+  Brain,
+  Check,
+  ChevronDown,
+  Wrench,
+  Search,
+  Image as ImageIcon,
+  Video,
+  Code2,
+  Save,
+  Sparkles,
+  Play,
+} from "lucide-react";
 import MegsyStar from "@/components/files/MegsyStar";
 import { resolveToolActivity, brandIconUrl } from "@/lib/toolActivity";
-import * as Lucide from "lucide-react";
 import { t as uiT, useUserLang } from "@/lib/authI18n";
+
+/**
+ * Explicit icon map. A `import * as Lucide` barrel used to live here, which
+ * defeated tree-shaking and shipped the ENTIRE lucide-react library (556 kB
+ * raw / 149 kB gzip) to every chat session. Only these names are ever
+ * referenced by `resolveToolActivity` (see src/lib/toolActivity.ts).
+ */
+const TOOL_ICONS: Record<string, typeof Wrench> = {
+  Search,
+  Image: ImageIcon,
+  Video,
+  Code2,
+  Brain,
+  Save,
+  Sparkles,
+  Wrench,
+  Play,
+};
 
 export interface ToolActivity {
   name: string;
