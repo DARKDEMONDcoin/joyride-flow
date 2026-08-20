@@ -3,6 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const APP = fs.readFileSync(path.resolve(__dirname, "../App.tsx"), "utf8");
+const APP_ROUTES = fs.readFileSync(path.resolve(__dirname, "../routes/AppRoutes.tsx"), "utf8");
+const LAZY_PAGES = fs.readFileSync(path.resolve(__dirname, "../routes/lazyPages.ts"), "utf8");
 
 // Parse `const Name = lazy(() => import("./path"))` and plain `import Name from "./path"`
 function parseImports(src: string) {
@@ -11,8 +13,10 @@ function parseImports(src: string) {
   const namedRe = /const\s*\{\s*([^}]+)\s*\}\s*=\s*await?\s*import\(\s*["']([^"']+)["']\s*\)/g;
   const staticRe = /import\s+(\w+)\s+from\s+["']([^"']+)["']/g;
   const staticBraceRe = /import\s+\{\s*([^}]+)\s*\}\s*from\s+["']([^"']+)["']/g;
+  const exportedLazyRe = /export\s+const\s+(\w+)\s*=\s*lazy\(\s*\(\)\s*=>\s*import\(\s*["']([^"']+)["']/g;
 
   for (const m of src.matchAll(lazyRe)) map.set(m[1], m[2]);
+  for (const m of src.matchAll(exportedLazyRe)) map.set(m[1], m[2]);
   for (const m of src.matchAll(staticRe)) map.set(m[1], m[2]);
   for (const m of src.matchAll(staticBraceRe)) {
     const names = m[1].split(",").map((s) =>
@@ -51,12 +55,12 @@ function resolveImport(spec: string): string | null {
   return null;
 }
 
-const imports = parseImports(APP);
+const imports = parseImports(`${APP}\n${APP_ROUTES}\n${LAZY_PAGES}`);
 
 // Extract every <Route path="..." element={...}/>
 const routeRe = /<Route\s+([^>]*?)\/?>/g;
 const routes: Array<{ raw: string; pathAttr?: string; elementExpr?: string }> = [];
-for (const m of APP.matchAll(routeRe)) {
+for (const m of APP_ROUTES.matchAll(routeRe)) {
   const attrs = m[1];
   const pathMatch = attrs.match(/path=["']([^"']+)["']/);
   const elMatch =
@@ -106,6 +110,7 @@ describe("App router audit", () => {
   it("every lazy/static page import resolves to a real file", () => {
     const missing: string[] = [];
     for (const [name, spec] of imports) {
+      if (!spec.startsWith("@/")) continue;
       const resolved = resolveImport(spec);
       if (resolved === null) missing.push(`${name}: ${spec}`);
     }
@@ -115,6 +120,7 @@ describe("App router audit", () => {
   it("every page module has a default export", () => {
     const failures: string[] = [];
     for (const [name, spec] of imports) {
+      if (!spec.startsWith("@/")) continue;
       const resolved = resolveImport(spec);
       if (!resolved || resolved === "external") continue;
       if (!/\/pages\//.test(resolved)) continue;
