@@ -55,6 +55,8 @@ import {
   SettingsHelpPage,
   SettingsContactPage,
   SettingsPrivacyPage,
+  DataControlsPage,
+  DataCategoryPage,
   CapabilitiesPage,
   SystemStatusPage,
   SwitchAccountPage,
@@ -167,6 +169,8 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/support" element={<ProtectedRoute><SettingsSupportPage /></ProtectedRoute>} />
     <Route path="/settings/support/help" element={<ProtectedRoute><SettingsHelpPage /></ProtectedRoute>} />
     <Route path="/settings/support/contact" element={<ProtectedRoute><SettingsContactPage /></ProtectedRoute>} />
+    <Route path="/settings/data" element={<ProtectedRoute><DataControlsPage /></ProtectedRoute>} />
+    <Route path="/settings/data/:category" element={<ProtectedRoute><DataCategoryPage /></ProtectedRoute>} />
     <Route path="/settings/privacy" element={<ProtectedRoute><SettingsPrivacyPage /></ProtectedRoute>} />
     <Route path="/settings/capabilities" element={<ProtectedRoute><CapabilitiesPage /></ProtectedRoute>} />
     <Route path="/settings/system-status" element={<ProtectedRoute><SystemStatusPage /></ProtectedRoute>} />

@@ -66,6 +66,8 @@ export const MarketplacePage = lazy(() => import("@/pages/settings/MarketplacePa
 export const SettingsSupportPage = lazy(() => import("@/pages/settings/SettingsSupportPage"));
 export const SettingsHelpPage = lazy(() => import("@/pages/settings/SettingsHelpPage"));
 export const SettingsContactPage = lazy(() => import("@/pages/settings/SettingsContactPage"));
+export const DataControlsPage = lazy(() => import("@/pages/settings/DataControlsPage"));
+export const DataCategoryPage = lazy(() => import("@/pages/settings/DataCategoryPage"));
 export const SettingsPrivacyPage = lazy(() => import("@/pages/settings/SettingsPrivacyPage"));
 export const CapabilitiesPage = lazy(() => import("@/pages/settings/CapabilitiesPage"));
 export const SystemStatusPage = lazy(() => import("@/pages/settings/SystemStatusPage"));
