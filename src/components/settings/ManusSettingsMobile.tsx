@@ -90,34 +90,34 @@ const ManusSettingsMobile = () => {
   };
 
   const mainRows: Row[] = [
-    { icon: Clock, label: isAr ? "المهام المجدولة" : "Scheduled tasks", path: "/settings/tasks" },
-    { icon: Lightbulb, label: isAr ? "معرفة" : "Knowledge", path: "/settings/memory" },
-    { icon: Bell, label: isAr ? "الإشعارات" : "Notifications", path: "/notifications" },
-    { icon: Database, label: isAr ? "ضوابط البيانات" : "Data controls", path: "/settings/data" },
-    { icon: PanelBottom, label: isAr ? "متصفح السحابة" : "Cloud browser", path: "/settings/capabilities" },
-    { icon: Puzzle, label: isAr ? "المهارات" : "Skills", path: "/settings/skills" },
-    { icon: Plug, label: isAr ? "التكاملات" : "Integrations", path: "/chat?integrations=1" },
+    { icon: Clock, label: "Scheduled tasks", path: "/settings/tasks" },
+    { icon: Lightbulb, label: "Knowledge", path: "/settings/memory" },
+    { icon: Bell, label: "Notifications", path: "/notifications" },
+    { icon: Database, label: "Data controls", path: "/settings/data" },
+    { icon: PanelBottom, label: "Cloud browser", path: "/settings/capabilities" },
+    { icon: Puzzle, label: "Skills", path: "/settings/skills" },
+    { icon: Plug, label: "Integrations", path: "/chat?integrations=1" },
   ];
 
   const advancedRows: Row[] = [
-    { icon: Gift, label: isAr ? "الإحالات" : "Referrals", path: "/settings/referrals" },
+    { icon: Gift, label: "Referrals", path: "/settings/referrals" },
   ];
 
   const accountRows: Row[] = [
-    { icon: UserRound, label: isAr ? "الحساب" : "Account", path: "/settings/profile/edit" },
+    { icon: UserRound, label: "Account", path: "/settings/profile/edit" },
     {
       icon: Moon,
-      label: isAr ? "المظهر" : "Appearance",
-      trailing: THEME_OPTIONS.find((o) => o.id === appearance)?.[isAr ? "ar" : "en"],
+      label: "Appearance",
+      trailing: THEME_OPTIONS.find((o) => o.id === appearance)?.["en"],
       onClick: () => setThemeMenu(true),
       chevron: "stepper",
     },
   ];
 
   const linkRows: Row[] = [
-    { icon: Heart, label: isAr ? "قيّم هذا التطبيق" : "Rate this app", external: true, onClick: () => window.open("https://www.trustpilot.com/review/megsyai.com", "_blank", "noopener") },
-    { icon: HelpCircle, label: isAr ? "الحصول على مساعدة" : "Get help", external: true, onClick: () => window.open("https://help.megsyai.com", "_blank", "noopener") },
-    { icon: Asterisk, label: isAr ? "الإصدار" : "Version", trailing: APP_VERSION, chevron: "none" },
+    { icon: Heart, label: "Rate this app", external: true, onClick: () => window.open("https://www.trustpilot.com/review/megsyai.com", "_blank", "noopener") },
+    { icon: HelpCircle, label: "Get help", external: true, onClick: () => window.open("https://help.megsyai.com", "_blank", "noopener") },
+    { icon: Asterisk, label: "Version", trailing: APP_VERSION, chevron: "none" },
   ];
 
 
@@ -148,7 +148,7 @@ const ManusSettingsMobile = () => {
   };
 
   return (
-    <div className="ms-root" dir={isAr ? "rtl" : "ltr"}>
+    <div className="ms-root" dir={"ltr"}>
       <style>{manusCss}</style>
       <div className="ms-screen">
         <header className="ms-header">
@@ -168,7 +168,7 @@ const ManusSettingsMobile = () => {
             )}
             <span className="ms-profile-text">
               <span className="ms-profile-name">{userName}</span>
-              <span className="ms-profile-sub">{isAr ? "شخصي" : "Personal"}</span>
+              <span className="ms-profile-sub">{"Personal"}</span>
             </span>
           </button>
 
@@ -177,12 +177,12 @@ const ManusSettingsMobile = () => {
             <div className="ms-plan-row">
               <span className="ms-plan-name">{planLabel}</span>
               <button type="button" className="ms-plan-cta" onClick={() => navigate("/pricing")}>
-                {isAr ? "ترقية" : "Upgrade"}
+                {"Upgrade"}
               </button>
             </div>
             <button type="button" className="ms-row ms-row-div" onClick={() => navigate("/usage")}>
               <Coins className="ms-row-icon" />
-              <span className="ms-row-label">{isAr ? "رصيد" : "Credits"}</span>
+              <span className="ms-row-label">{"Credits"}</span>
               <span className="ms-row-trailing">{credits ?? 0}</span>
               {isAr ? <ChevronLeft className="ms-row-chev" /> : <ChevronRight className="ms-row-chev" />}
             </button>
@@ -197,7 +197,7 @@ const ManusSettingsMobile = () => {
           <section className="ms-card">
             <button type="button" className="ms-row" onClick={handleLogout}>
               <LogOut className="ms-row-icon" />
-              <span className="ms-row-label">{isAr ? "تسجيل الخروج" : "Log out"}</span>
+              <span className="ms-row-label">{"Log out"}</span>
             </button>
           </section>
 

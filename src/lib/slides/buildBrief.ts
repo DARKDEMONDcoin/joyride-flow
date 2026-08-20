@@ -12,11 +12,9 @@ export function buildSlidesBrief(plan: SlidesPlanState): string {
   const ar = plan.language === "ar";
   const parts: string[] = [];
 
-  parts.push(ar ? `الموضوع: ${plan.topic}` : `Topic: ${plan.topic}`);
+  parts.push(`Topic: ${plan.topic}`);
   parts.push(
-    ar
-      ? "التزم حرفيًا بالمخطط التالي: نفس الترتيب، نفس عدد الشرائح، نفس العناوين."
-      : "Follow this approved outline exactly: same order, same slide count, same titles.",
+    "Follow this approved outline exactly: same order, same slide count, same titles.",
   );
 
   const steps = plan.outline?.steps || [];
@@ -32,22 +30,20 @@ export function buildSlidesBrief(plan: SlidesPlanState): string {
 
   if (plan.research?.summary) {
     parts.push(
-      (ar ? "نتائج البحث العميق (استخدمها كمصدر للحقائق والأرقام):\n" : "Deep research findings (use as the factual source):\n") +
+      ("Deep research findings (use as the factual source):\n") +
         clip(plan.research.summary, 6000),
     );
     const src = (plan.research.sources || []).slice(0, 10);
     if (src.length) {
       parts.push(
-        (ar ? "المصادر:\n" : "Sources:\n") + src.map((s) => `- ${s.title} (${s.url})`).join("\n"),
+        ("Sources:\n") + src.map((s) => `- ${s.title} (${s.url})`).join("\n"),
       );
     }
   }
 
   if (plan.sourceText?.trim()) {
     parts.push(
-      (ar
-        ? "بيانات مرفوعة من المستخدم (حلّلها واستخدم أرقامها الحقيقية، لا تخترع بيانات):\n"
-        : "User-provided data (analyze it and use its real numbers; do not invent data):\n") +
+      ("User-provided data (analyze it and use its real numbers; do not invent data):\n") +
         clip(plan.sourceText.trim(), 8000),
     );
   }

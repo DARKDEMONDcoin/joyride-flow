@@ -159,10 +159,10 @@ export default function DataCategoryPage() {
 
   if (!cfg) {
     return (
-      <SubShell title={isAr ? "ضوابط البيانات" : "Data controls"} backTo="/settings/data">
+      <SubShell title={"Data controls"} backTo="/settings/data">
         <SubCard>
           <p className="text-[13px] text-[color:var(--mn-muted)]">
-            {isAr ? "قسم غير معروف" : "Unknown section"}
+            {"Unknown section"}
           </p>
         </SubCard>
       </SubShell>
@@ -212,7 +212,7 @@ export default function DataCategoryPage() {
                   target="_blank"
                   rel="noreferrer"
                   className="p-2 text-[color:var(--mn-muted)] hover:text-[color:var(--mn-fg)]"
-                  aria-label={isAr ? "فتح" : "Open"}
+                  aria-label={"Open"}
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -221,7 +221,7 @@ export default function DataCategoryPage() {
                 type="button"
                 onClick={() => remove(it.id)}
                 disabled={busy === it.id}
-                aria-label={isAr ? "حذف" : "Delete"}
+                aria-label={"Delete"}
                 className="p-2 text-[color:var(--mn-danger)] disabled:opacity-50"
               >
                 {busy === it.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}

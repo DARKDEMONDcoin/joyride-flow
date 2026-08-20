@@ -48,15 +48,13 @@ export async function generateSlidesOutline(params: {
   const grounding: string[] = [];
   if (params.sourceText?.trim()) {
     grounding.push(
-      (ar
-        ? "بيانات من ملفات رفعها المستخدم — حلّلها واعتمد عليها ولا تخترع أرقامًا:\n"
-        : "Data from user-uploaded files — analyze it and rely on it; never invent numbers:\n") +
+      ("Data from user-uploaded files — analyze it and rely on it; never invent numbers:\n") +
         clip(params.sourceText.trim(), 8000),
     );
   }
   if (params.researchText?.trim()) {
     grounding.push(
-      (ar ? "نتائج بحث عميق حديثة:\n" : "Recent deep-research findings:\n") +
+      ("Recent deep-research findings:\n") +
         clip(params.researchText.trim(), 6000),
     );
   }
@@ -128,10 +126,10 @@ export async function generateSlidesContent(params: {
 
   const grounding = [
     params.sourceText?.trim()
-      ? (ar ? "بيانات المستخدم:\n" : "User data:\n") + clip(params.sourceText.trim(), 6000)
+      ? ("User data:\n") + clip(params.sourceText.trim(), 6000)
       : "",
     params.researchText?.trim()
-      ? (ar ? "نتائج البحث:\n" : "Research findings:\n") + clip(params.researchText.trim(), 5000)
+      ? ("Research findings:\n") + clip(params.researchText.trim(), 5000)
       : "",
   ]
     .filter(Boolean)
@@ -184,18 +182,7 @@ export async function reviseSingleSlide(params: {
   signal?: AbortSignal;
 }): Promise<SlidesSlideContent | null> {
   const ar = params.language === "ar";
-  const prompt = ar
-    ? `هذه شريحة رقم ${params.slideNumber} من عرض عن "${params.topic}":
-العنوان: ${params.currentTitle}
-النص: ${params.currentBody}
-
-طلب التعديل من المستخدم: ${params.instruction}
-
-أعد كتابة هذه الشريحة فقط بهذا التنسيق بالضبط، بدون أي كلام إضافي:
-
-Slide ${params.slideNumber}: العنوان الجديد
-النص الجديد في 2-4 جمل.`
-    : `This is slide ${params.slideNumber} of a presentation about "${params.topic}":
+  const prompt = `This is slide ${params.slideNumber} of a presentation about "${params.topic}":
 Title: ${params.currentTitle}
 Body: ${params.currentBody}
 

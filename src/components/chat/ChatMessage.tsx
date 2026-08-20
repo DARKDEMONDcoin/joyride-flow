@@ -1718,7 +1718,7 @@ const ChatMessage = ({
                         className="w-full flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-foreground/90 hover:bg-foreground/5 transition"
                       >
                         <span className="flex-1 text-start">
-                          {isAr ? "Research draft" : "Research draft"}
+                          {"Research draft"}
                         </span>
                         <ChevronDown
                           className={`w-4 h-4 text-muted-foreground transition-transform ${researchDraftOpen ? "" : "-rotate-90"}`}

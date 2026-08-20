@@ -98,7 +98,7 @@ export function UpgradePlanButton({ variant = "full", className, hideCredits = f
   return (
     <button
       type="button"
-      dir={isAr ? "rtl" : "ltr"}
+      dir={"ltr"}
       aria-label={label}
       onPointerDown={prefetch}
       onMouseEnter={prefetch}
@@ -139,7 +139,7 @@ export function UpgradePlanButton({ variant = "full", className, hideCredits = f
       {variant === "full" && !hideCredits && credits != null && (
         <span
           className="relative z-10 ms-0.5 inline-flex items-center px-1 text-[10.5px] font-semibold tabular-nums text-white/70"
-          aria-label={isAr ? "الرصيد" : "credits"}
+          aria-label={"credits"}
         >
           {formatCredits(credits)} MC
         </span>

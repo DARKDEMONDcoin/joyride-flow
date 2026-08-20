@@ -13,19 +13,13 @@ export function buildDocsBrief(plan: DocsPlanState, previousHtml?: string): stri
   const parts: string[] = [];
 
   parts.push(
-    ar
-      ? `أنشئ مستندًا من نوع: ${plan.docType} — الموضوع: ${plan.topic}`
-      : `Produce a ${plan.docType} — topic: ${plan.topic}`,
+    `Produce a ${plan.docType} — topic: ${plan.topic}`,
   );
   parts.push(
-    ar
-      ? "التزم حرفيًا بالمخطط التالي: نفس الأقسام، نفس الترتيب، نفس العناوين، ونفس النصوص المعتمدة (يمكنك التنسيق فقط)."
-      : "Follow this approved plan exactly: same sections, same order, same titles, and the same approved text (formatting only is yours).",
+    "Follow this approved plan exactly: same sections, same order, same titles, and the same approved text (formatting only is yours).",
   );
   parts.push(
-    ar
-      ? "أسلوب الكتابة: متسق ومحافظ ومناسب لنوع المستند، بدون حشو، بدون عناصر نائبة مثل [الاسم]."
-      : "Writing style: consistent, conservative, appropriate to the document type. No filler, no placeholders like [Your Name].",
+    "Writing style: consistent, conservative, appropriate to the document type. No filler, no placeholders like [Your Name].",
   );
 
   (plan.sections || []).forEach((s, i) => {
@@ -40,17 +34,13 @@ export function buildDocsBrief(plan: DocsPlanState, previousHtml?: string): stri
 
   if (plan.research?.summary) {
     parts.push(
-      (ar
-        ? "نتائج البحث العميق (استخدمها كمصدر للحقائق والأرقام):\n"
-        : "Deep research findings (use as the factual source):\n") +
+      ("Deep research findings (use as the factual source):\n") +
         clip(plan.research.summary, 7000),
     );
     const src = (plan.research.sources || []).slice(0, 12);
     if (src.length) {
       parts.push(
-        (ar
-          ? "المراجع الحقيقية — أضف في نهاية المستند قسم «المراجع» يسرد هذه المصادر بروابطها الحقيقية فقط، ولا تخترع أي مرجع:\n"
-          : "Real references — add a final 'References' section listing exactly these real sources with their URLs. Never invent a reference:\n") +
+        ("Real references — add a final 'References' section listing exactly these real sources with their URLs. Never invent a reference:\n") +
           src.map((s, i) => `[${i + 1}] ${s.title} — ${s.url}`).join("\n"),
       );
     }
@@ -58,18 +48,14 @@ export function buildDocsBrief(plan: DocsPlanState, previousHtml?: string): stri
 
   if (plan.sourceText?.trim()) {
     parts.push(
-      (ar
-        ? "بيانات مرفوعة من المستخدم (حلّلها واستخدم أرقامها الحقيقية، لا تخترع بيانات):\n"
-        : "User-provided data (analyze it and use its real numbers; do not invent data):\n") +
+      ("User-provided data (analyze it and use its real numbers; do not invent data):\n") +
         clip(plan.sourceText.trim(), 9000),
     );
   }
 
   if (previousHtml?.trim()) {
     parts.push(
-      (ar
-        ? "هذه هي النسخة السابقة من نفس المستند — عدّل عليها فقط وحافظ على التصميم والهوية والأقسام غير المطلوب تغييرها:\n"
-        : "This is the previous version of the same document — revise it in place and keep its design, identity and untouched sections:\n") +
+      ("This is the previous version of the same document — revise it in place and keep its design, identity and untouched sections:\n") +
         clip(previousHtml.trim(), 24000),
     );
   }

@@ -72,9 +72,7 @@ const ParallelAgentsPanel = ({ tasks, active = true }: Props) => {
         <div className="min-w-0 flex-1">
           <div className="text-[13px] font-semibold leading-tight">{intro}</div>
           <div className="text-[11px] text-muted-foreground">
-            {isArabic
-              ? `${done}/${visibleTasks.length} done`
-              : `${done}/${visibleTasks.length} complete`}
+            {`${done}/${visibleTasks.length} complete`}
           </div>
         </div>
         {active && running > 0 && (

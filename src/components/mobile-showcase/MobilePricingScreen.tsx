@@ -104,7 +104,7 @@ export default function MobilePricingScreen({
 
   return (
     <div
-      dir={isAr ? "rtl" : "ltr"}
+      dir={"ltr"}
       className="relative flex h-[100dvh] w-full flex-col overflow-hidden"
       style={{
         background: c.bg,
@@ -134,10 +134,10 @@ export default function MobilePricingScreen({
             className="text-[26px] font-normal leading-[1.15] tracking-[-0.02em]"
             style={{ fontFamily: '"Instrument Serif", Georgia, serif' }}
           >
-            {isAr ? `الترقية إلى Megsy ${plan === "pro" ? t.pro : t.max}` : `Upgrade to Megsy ${plan === "pro" ? t.pro : t.max}`}
+            {`Upgrade to Megsy ${plan === "pro" ? t.pro : t.max}`}
           </h1>
           <p className="mt-1.5 text-[13.5px]" style={{ color: c.muted }}>
-            {isAr ? "ألغِ في أي وقت." : "Cancel anytime."}
+            {"Cancel anytime."}
           </p>
 
           <div className="mt-4 inline-flex rounded-full p-[3px]" style={{ background: c.switchBg }}>
@@ -233,14 +233,14 @@ export default function MobilePricingScreen({
           {isLoading ? (
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-current/30 border-t-current" />
           ) : (
-            isAr ? "الترقية الآن" : "Upgrade now"
+            "Upgrade now"
           )}
         </button>
         <div className="mt-3 flex items-center justify-center gap-6 text-[12px]" style={{ color: c.faint }}>
-          <a href="/terms">{isAr ? "الشروط" : "Terms"}</a>
-          <a href="/privacy">{isAr ? "الخصوصية" : "Privacy"}</a>
+          <a href="/terms">{"Terms"}</a>
+          <a href="/privacy">{"Privacy"}</a>
           <button type="button" onClick={() => onSubscribe(activeTier)}>
-            {isAr ? "استعادة" : "Restore"}
+            {"Restore"}
           </button>
         </div>
       </div>

@@ -51,58 +51,56 @@ export default function DataControlsPage() {
 
   return (
     <SubShell
-      title={isAr ? "ضوابط البيانات" : "Data controls"}
+      title={"Data controls"}
       subtitle={
-        isAr
-          ? "كل ما أنشأته أو رفعته داخل Megsy، في مكان واحد."
-          : "Everything you created or uploaded in Megsy, in one place."
+        "Everything you created or uploaded in Megsy, in one place."
       }
     >
-      <SubSection title={isAr ? "محتواك" : "Your content"}>
+      <SubSection title={"Your content"}>
         <SubRowList>
           <SubRow
             icon={Image}
-            label={isAr ? "الصور" : "Images"}
-            hint={isAr ? "الصور التي أنشأتها بالذكاء الاصطناعي" : "AI-generated images"}
+            label={"Images"}
+            hint={"AI-generated images"}
             trailing={<span className="text-[12px] tabular-nums">{n(counts?.images)}</span>}
             onClick={() => navigate("/settings/data/images")}
           />
           <SubRow
             icon={Video}
-            label={isAr ? "الفيديوهات" : "Videos"}
-            hint={isAr ? "مقاطع الفيديو المولدة" : "Generated videos"}
+            label={"Videos"}
+            hint={"Generated videos"}
             trailing={<span className="text-[12px] tabular-nums">{n(counts?.videos)}</span>}
             onClick={() => navigate("/settings/data/videos")}
           />
           <SubRow
             icon={FileText}
-            label={isAr ? "الملفات" : "Files"}
-            hint={isAr ? "الملفات المرفوعة والمرفقات" : "Uploads and attachments"}
+            label={"Files"}
+            hint={"Uploads and attachments"}
             trailing={<span className="text-[12px] tabular-nums">{n(counts?.files)}</span>}
             onClick={() => navigate("/settings/data/files")}
           />
           <SubRow
             icon={Globe}
-            label={isAr ? "المواقع المنشورة" : "Published sites"}
-            hint={isAr ? "المواقع التي بناها Megsy لك" : "Sites Megsy built for you"}
+            label={"Published sites"}
+            hint={"Sites Megsy built for you"}
             trailing={<span className="text-[12px] tabular-nums">{n(counts?.sites)}</span>}
             onClick={() => navigate("/settings/data/sites")}
           />
           <SubRow
             icon={Share2}
-            label={isAr ? "المحادثات المشتركة" : "Shared chats"}
-            hint={isAr ? "المحادثات التي شاركتها برابط" : "Conversations shared via link"}
+            label={"Shared chats"}
+            hint={"Conversations shared via link"}
             trailing={<span className="text-[12px] tabular-nums">{n(counts?.shared)}</span>}
             onClick={() => navigate("/settings/data/shared")}
           />
         </SubRowList>
       </SubSection>
 
-      <SubSection title={isAr ? "الخصوصية" : "Privacy"}>
+      <SubSection title={"Privacy"}>
         <SubRowList>
           <SubRow
             icon={Download}
-            label={isAr ? "تنزيل بياناتي والخصوصية" : "Download my data & privacy"}
+            label={"Download my data & privacy"}
             onClick={() => navigate("/settings/privacy")}
           />
         </SubRowList>

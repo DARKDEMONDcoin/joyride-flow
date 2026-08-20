@@ -107,7 +107,7 @@ export function buildDeckFromPlan(
     slides.push({
       type: "bullets",
       layout: "bullets",
-      title: ar ? "المصادر" : "Sources",
+      title: "Sources",
       bullets: sources.map((s) => `${s.title} — ${s.url}`),
     });
   }

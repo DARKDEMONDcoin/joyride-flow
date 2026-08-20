@@ -96,12 +96,12 @@ export default function DocsPlanCard({
   const runResearch = async () => {
     if (busy) return;
     setBusy("research");
-    setResearchStatus(ar ? "جاري بدء البحث…" : "Starting research…");
+    setResearchStatus("Starting research…");
     try {
       const { startResearchJob, subscribeToResearchJob } = await import("@/lib/deepResearchJob");
       const jobId = await startResearchJob({
         query: plan.topic,
-        language: ar ? "ar" : "en",
+        language: "en",
         conversationId: conversationId || null,
       });
       setResearch({ jobId, status: "searching" });
@@ -119,7 +119,7 @@ export default function DocsPlanCard({
             unsub();
             resolve();
           } else if (job.status === "failed" || job.status === "cancelled") {
-            toast.error(ar ? "فشل البحث العميق" : "Deep research failed");
+            toast.error("Deep research failed");
             unsub();
             resolve();
           }
@@ -130,7 +130,7 @@ export default function DocsPlanCard({
       const next = await generateDocsOutline({
         topic: plan.topic,
         docType: plan.docType,
-        language: ar ? "ar" : "en",
+        language: "en",
         userId: userId || undefined,
         sourceText: plan.sourceText,
         researchText: summary,
@@ -139,7 +139,7 @@ export default function DocsPlanCard({
       if (next?.sections?.length && mounted.current) setSections(next.sections);
       setStage("research");
     } catch (e: any) {
-      toast.error(e?.message || (ar ? "تعذّر تشغيل البحث" : "Could not run research"));
+      toast.error(e?.message || ("Could not run research"));
     } finally {
       if (mounted.current) setBusy(null);
     }
@@ -155,13 +155,13 @@ export default function DocsPlanCard({
         sections,
         topic: plan.topic,
         docType: plan.docType,
-        language: ar ? "ar" : "en",
+        language: "en",
         userId: userId || undefined,
         sourceText: plan.sourceText,
         researchText: research?.summary,
         sources: research?.sources,
       });
-      if (!written) throw new Error(ar ? "تعذّر توليد المحتوى" : "Could not draft content");
+      if (!written) throw new Error("Could not draft content");
       if (!mounted.current) return;
       setContent(written);
       setStage("review");
@@ -184,23 +184,23 @@ export default function DocsPlanCard({
   };
 
   const t = {
-    plan: ar ? "التخطيط" : "Plan",
-    research: ar ? "بحث عميق" : "Deep research",
-    review: ar ? "مراجعة المحتوى" : "Review content",
-    generate: ar ? "كتابة المستند" : "Write document",
-    addSection: ar ? "إضافة قسم" : "Add section",
-    addPoint: ar ? "إضافة نقطة" : "Add point",
+    plan: "Plan",
+    research: "Deep research",
+    review: "Review content",
+    generate: "Write document",
+    addSection: "Add section",
+    addPoint: "Add point",
   };
 
   return (
     <ToolCard
-      title={ar ? "مخطط المستند" : "Document plan"}
-      subtitle={`${plan.docType} · ${sections.length} ${ar ? "قسم" : `section${sections.length === 1 ? "" : "s"}`}`}
+      title={"Document plan"}
+      subtitle={`${plan.docType} · ${sections.length} ${`section${sections.length === 1 ? "" : "s"}`}`}
       trailing={
         <ToolStatusBadge
           status={generating ? "running" : done ? "done" : "idle"}
-          runningLabel={ar ? "جاري الكتابة…" : "Writing…"}
-          doneLabel={ar ? "تم" : "Done"}
+          runningLabel={"Writing…"}
+          doneLabel={"Done"}
         />
       }
     >
@@ -215,7 +215,7 @@ export default function DocsPlanCard({
 
       {plan.sourceFiles?.length ? (
         <p className="mb-2 text-[11px] text-muted-foreground">
-          {ar ? "بيانات مستوردة: " : "Imported data: "}
+          {"Imported data: "}
           {plan.sourceFiles.map((f) => f.name).join("، ")}
         </p>
       ) : null}
@@ -223,13 +223,13 @@ export default function DocsPlanCard({
       {busy === "research" && (
         <ToolLoader
           className="mb-2"
-          label={researchStatus || (ar ? "جاري البحث…" : "Researching…")}
+          label={researchStatus || ("Researching…")}
         />
       )}
 
       {research?.sources?.length ? (
         <p className="mb-2 text-[11px] text-muted-foreground">
-          {ar ? "مراجع حقيقية: " : "Real references: "}
+          {"Real references: "}
           {research.sources.length}
         </p>
       ) : null}
@@ -348,7 +348,7 @@ export default function DocsPlanCard({
             {busy === "research" ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
             ) : null}
-            {research?.status === "succeeded" ? (ar ? "تم البحث" : "Research done") : t.research}
+            {research?.status === "succeeded" ? ("Research done") : t.research}
           </button>
           <button
             type="button"

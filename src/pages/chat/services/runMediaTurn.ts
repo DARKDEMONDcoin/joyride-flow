@@ -56,9 +56,7 @@ async function streamLyricsFromChatEdge({
   onDraft: (content: string) => void;
 }): Promise<string> {
   const token = await getAccessToken();
-  const customSystem = isArabic
-    ? "اكتب كلمات أغنية كاملة فقط، بنفس لغة ولهجة طلب المستخدم. استخدم الوسوم [verse] و[chorus] و[bridge] عند الحاجة، كل وسم في سطر منفصل. لا تكتب مقدمة، لا شرح، لا روابط، لا أسماء نماذج، ولا أي كلام خارج كلمات الأغنية. اجعل الكورس واضح ومتكرر وقابل للغناء."
-    : "Write full song lyrics only, in the same language and dialect as the user. Use [verse], [chorus], and optional [bridge] tags, each on its own line. No intro, no explanation, no links, no model names, and no text outside the lyrics. Make the chorus strong, repeatable, and singable.";
+  const customSystem = "Write full song lyrics only, in the same language and dialect as the user. Use [verse], [chorus], and optional [bridge] tags, each on its own line. No intro, no explanation, no links, no model names, and no text outside the lyrics. Make the chorus strong, repeatable, and singable.";
 
   const resp = await fetch(CHAT_EDGE_URL, {
     method: "POST",

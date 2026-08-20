@@ -2068,7 +2068,7 @@ const ChatPage = () => {
               const rewritten = await rewriteSnippet({
                 snippet: intent.snippet,
                 instruction: intent.instruction,
-                language: ar ? "ar" : "en",
+                language: "en",
                 userId: chatUserId || undefined,
               });
               if (rewritten) {
@@ -2086,9 +2086,7 @@ const ChatPage = () => {
                 docType: lastDocMsg.docsArtifact.docType,
                 html: nextHtml,
               };
-              const note = ar
-                ? "عدّلت النص المطلوب في نفس المستند دون إعادة توليده."
-                : "Updated that text in the same document — nothing else was regenerated.";
+              const note = "Updated that text in the same document — nothing else was regenerated.";
               setMessages((prev) =>
                 prev.map((m) =>
                   m.clientId === `assistant-${localTurnId}`

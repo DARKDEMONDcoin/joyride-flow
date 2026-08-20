@@ -97,7 +97,7 @@ export default function MobileAuthIntro({
 
   return (
     <div
-      dir={isAr ? "rtl" : "ltr"}
+      dir={"ltr"}
       className="relative min-h-[100dvh] w-full overflow-hidden bg-[#02040c] text-white"
       style={{ fontFamily: 'Inter, -apple-system, "SF Pro Text", system-ui, sans-serif', touchAction: "manipulation" }}
     >

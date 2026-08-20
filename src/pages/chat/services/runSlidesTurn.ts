@@ -157,11 +157,11 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
           topic: slidesTopic,
           kind: "slides",
           title: slidesTopic.slice(0, 80),
-          language: isArabic ? "ar" : "en",
+          language: "en",
         }).catch(() => null),
         generateSlidesOutline({
           topic: slidesTopic,
-          language: isArabic ? "ar" : "en",
+          language: "en",
           userId: chatUserId || undefined,
           sourceText: attachedFilesText,
         }).catch(() => null),
@@ -170,9 +170,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
       if (isSlidesRequestCancelled()) return;
 
       if (!plan) {
-        const msg = isArabic
-          ? "تعذّر تجهيز مخطط العرض. جرّب توضيح الموضوع مرة أخرى."
-          : "Could not draft the outline. Please describe the topic again.";
+        const msg = "Could not draft the outline. Please describe the topic again.";
         await insertAssistantNarration(cid, msg, `assistant-${localTurnId}`);
         setIsLoading(false);
         setIsThinking(false);
@@ -183,7 +181,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
       const planState: import("@/lib/slides/planTypes").SlidesPlanState = {
         topic: slidesTopic,
         templateId: slidesTemplate,
-        language: isArabic ? "ar" : "en",
+        language: "en",
         outline: plan.outline,
         stage: "planning",
         sourceText: attachedFilesText || undefined,
@@ -192,9 +190,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
 
       const introText =
         narration ||
-        (isArabic
-          ? "جهّزت مخطط العرض التقديمي — راجعه أو عدّله ثم اضغط توليد العرض."
-          : "Here's the outline — review or edit it, then press Generate slides.");
+        ("Here's the outline — review or edit it, then press Generate slides.");
 
       let planMessageId: string | undefined;
       if (cid) {
@@ -586,7 +582,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
               topic: slidesTopic,
               brief,
               templateId: slidesTemplate,
-              language: isArabic ? "ar" : "en",
+              language: "en",
               userId: chatUserId || undefined,
             });
           } catch {
@@ -600,9 +596,7 @@ export async function runSlidesTurn(args: RunSlidesTurnArgs): Promise<void> {
               : fallbackDeck;
             const finalContent = (
               narrative ||
-              (isArabic
-                ? `تم إنشاء العرض (${enrichedDeck.slides.length} شرائح).`
-                : `Generated ${enrichedDeck.slides.length} slides.`)
+              (`Generated ${enrichedDeck.slides.length} slides.`)
             ).trim();
             if (placeholderId) {
               void supabase
