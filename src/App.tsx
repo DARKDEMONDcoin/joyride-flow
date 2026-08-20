@@ -12,6 +12,7 @@ import { PromoBannerProvider } from "@/components/promo/PromoBannerContext";
 import { ZoneProvider } from "@/contexts/ZoneContext";
 import { ConfirmProvider } from "@/components/common/ConfirmDialog";
 import { supabase } from "@/integrations/supabase/client";
+import { subscribeAuthEvents } from "@/lib/authStore";
 import { clearQueryPersistence } from "@/lib/queryPersist";
 import { clearAllSnapshots } from "@/lib/pageSnapshot";
 
@@ -112,9 +113,7 @@ const useAuthSession = () => {
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
   useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    const unsubscribe = subscribeAuthEvents((event, session) => {
       const userId = session?.user?.id || null;
       const lastUserId = localStorage.getItem("megsy_last_user_id");
 
@@ -135,11 +134,9 @@ const useAuthSession = () => {
       setCurrentUserId(userId);
     });
 
-    void supabase.auth.getSession().then(({ data: { session } }) => {
-      setCurrentUserId(session?.user?.id || null);
-    });
-
-    return () => subscription.unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return currentUserId;

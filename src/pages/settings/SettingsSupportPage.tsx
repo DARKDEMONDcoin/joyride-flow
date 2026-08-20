@@ -50,7 +50,7 @@ export default function SettingsSupportPage() {
             <SupportCard
               label="Ask AI"
               hint="Instant answers from our agent"
-              onClick={() => navigate("/support")}
+              onClick={() => navigate("/chat")}
             />
 
             <SupportCard
@@ -74,7 +74,7 @@ export default function SettingsSupportPage() {
             <SupportCard
               label="Documentation"
               hint="Technical specs and API reference"
-              onClick={() => navigate("/docs")}
+              onClick={() => window.open("https://help.megsyai.com", "_blank", "noopener")}
             />
           </div>
         </section>
