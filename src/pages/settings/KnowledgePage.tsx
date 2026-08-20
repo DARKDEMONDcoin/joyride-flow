@@ -260,17 +260,19 @@ const knCss = `
 .kn-time { font-size: 12.5px; color: rgba(232,232,232,0.4); }
 
 .kn-sheet-wrap { position: fixed; inset: 0; z-index: 60; }
-.kn-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0.55); animation: kn-fade 200ms ease both; }
+.kn-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0.45); animation: kn-fade 200ms ease both; }
 .kn-sheet {
-  position: absolute; inset: 8dvh 0 0; background: var(--mn-sheet);
-  border-radius: 18px 18px 0 0; overflow-y: auto;
+  position: absolute; inset: 7dvh 0 0;
+  background: hsl(0 0% 14%);
+  border-radius: 22px 22px 0 0; overflow-y: auto;
+  box-shadow: 0 -18px 40px rgba(0,0,0,0.45);
   animation: kn-up 300ms cubic-bezier(0.16,1,0.3,1) both;
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
 }
 .kn-sheet-top {
-  position: sticky; top: 0; z-index: 2; background: var(--mn-sheet);
+  position: sticky; top: 0; z-index: 2; background: hsl(0 0% 14%);
   display: grid; grid-template-columns: 34px 1fr auto; align-items: center;
-  padding: 10px 12px;
+  padding: 14px 12px 10px;
 }
 .kn-sheet-title { margin: 0; text-align: center; font-size: 15.5px; font-weight: 600; }
 .kn-save {
@@ -279,29 +281,28 @@ const knCss = `
 }
 .kn-save:disabled { opacity: 0.5; }
 
-.kn-fields { padding: 8px 16px 0; display: grid; gap: 4px; }
+.kn-fields { padding: 4px 16px 0; display: grid; gap: 8px; }
 .kn-label {
-  margin-top: 16px; font-size: 11.5px; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  color: rgba(232,232,232,0.45);
+  margin-top: 14px; font-size: 13.5px; font-weight: 500;
+  color: rgba(232,232,232,0.92);
 }
 .kn-req { color: var(--mn-danger); }
 .kn-input {
   width: 100%; box-sizing: border-box;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 10px;
-  padding: 11px 13px; color: var(--mn-fg); font: inherit; font-size: 14px;
+  background: hsl(0 0% 18%);
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 15px; color: var(--mn-fg); font: inherit; font-size: 14px;
   line-height: 1.45;
-  outline: none; transition: border-color 160ms ease, background 160ms ease;
+  outline: none; transition: background 160ms ease, box-shadow 160ms ease;
 }
-.kn-input::placeholder { color: rgba(232,232,232,0.32); }
+.kn-input::placeholder { color: rgba(232,232,232,0.38); }
 .kn-input:focus {
-  border-color: rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.06);
+  background: hsl(0 0% 21%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
 }
-.kn-area { min-height: 64px; resize: none; }
-.kn-area-lg { min-height: 92px; }
+.kn-area { min-height: 76px; resize: none; }
+.kn-area-lg { min-height: 100px; }
 
 @keyframes kn-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes kn-fade { from { opacity: 0; } to { opacity: 1; } }
