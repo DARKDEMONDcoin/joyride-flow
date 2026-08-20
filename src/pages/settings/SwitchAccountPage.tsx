@@ -83,28 +83,12 @@ const SwitchAccountPage = () => {
 
         <p className="amb-mono mb-2 px-1">Manage</p>
         <div className="amb-plate overflow-hidden">
-          {activeId && (
-            <button
-              onClick={() => navigate(`/settings/workspaces/${activeId}`)}
-              className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-[color:var(--amb-line)] transition"
-            >
-              <span className="amb-icon-capsule"><Settings2 className="w-5 h-5" /></span>
-              <p className="text-[14px] font-semibold text-[color:var(--amb-cream)]">Manage current workspace</p>
-            </button>
-          )}
           <button
-            onClick={() => navigate("/settings/workspaces")}
-            className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-[color:var(--amb-line)] transition border-t border-[color:var(--amb-line)]"
+            onClick={() => navigate("/settings/profile/edit")}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-[color:var(--amb-line)] transition"
           >
-            <span className="amb-icon-capsule"><Users className="w-5 h-5" /></span>
-            <p className="text-[14px] font-semibold text-[color:var(--amb-cream)]">All workspaces</p>
-          </button>
-          <button
-            onClick={() => navigate("/settings/workspaces/new")}
-            className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-[color:var(--amb-line)] transition border-t border-[color:var(--amb-line)]"
-          >
-            <span className="amb-icon-capsule"><Plus className="w-5 h-5" /></span>
-            <p className="text-[14px] font-semibold text-[color:var(--amb-cream)]">New workspace</p>
+            <span className="amb-icon-capsule"><Settings2 className="w-5 h-5" /></span>
+            <p className="text-[14px] font-semibold text-[color:var(--amb-cream)]">Account settings</p>
           </button>
         </div>
       </GlassPage>
