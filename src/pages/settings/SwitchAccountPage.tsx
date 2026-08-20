@@ -1,6 +1,6 @@
 /** @doc Switch between multiple signed-in Megsy accounts. */
 import { useNavigate } from "react-router-dom";
-import { Check, Plus, Settings2, Users, UserCircle2 } from "lucide-react";
+import { Check, Settings2, Users, UserCircle2 } from "lucide-react";
 import { useWorkspaces } from "@/hooks/useWorkspace";
 import { useActiveAccount } from "@/hooks/useActiveAccount";
 import { toast } from "sonner";
