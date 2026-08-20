@@ -361,6 +361,15 @@ export default defineConfig({
           // the React runtime so the shell never drags a route chunk with it.
           if (id.includes("vite/preload-helper")) return "react-vendor";
           if (!id.includes("node_modules")) return;
+          // Tiny runtime helpers shared by many packages. Left unpinned they
+          // land in whichever async chunk Rollup picks first, which forces the
+          // shell to download an unrelated route chunk at boot.
+          if (
+            id.includes("@babel/runtime") ||
+            /[\\/]node_modules[\\/]tslib[\\/]/.test(id)
+          ) {
+            return "react-vendor";
+          }
 
           // MUST come before the react-vendor rule below: the substring
           // "react-router" also matches `@tanstack/react-router`, which is a
