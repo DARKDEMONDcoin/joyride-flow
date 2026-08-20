@@ -32,13 +32,13 @@ const DeepResearchCard = ({
 
   return (
     <ToolCard
-      dir={isRtl ? "rtl" : "ltr"}
+      dir={"ltr"}
       className="max-w-[420px]"
       icon={<FileText className="h-4 w-4" />}
       title={query}
       subtitle={isEmpty ? "No report content" : undefined}
     >
-      <div className={isRtl ? "text-right" : "text-left"}>
+      <div className={"text-left"}>
         <button
           type="button"
           onClick={openPreview}

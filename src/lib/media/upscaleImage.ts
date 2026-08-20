@@ -1,4 +1,4 @@
-// تكبير دقة الصور (Upscale) داخل المتصفح بدون أي خدمة خارجية.
+// تكبير دقة Images (Upscale) داخل المتصفح بدون أي خدمة خارجية.
 // تكبير تدريجي بخطوات ×2 مع إعادة تشكيل ناعمة ثم تحسين حدة خفيف.
 
 const MAX_SIDE = 4096;
@@ -59,7 +59,7 @@ export interface UpscaleResult {
   scale: number;
 }
 
-/** يكبّر الصورة بالمقدار المطلوب (2 أو 4) مع حد أقصى 4096px للضلع. */
+/** يكبّر Imagesة بالمقدار المطلوب (2 أو 4) مع حد أقصى 4096px للضلع. */
 export async function upscaleImage(
   input: File | Blob | string,
   scale: 2 | 4 = 2,

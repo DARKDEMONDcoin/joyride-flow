@@ -76,15 +76,13 @@ export async function generateDocsOutline(params: {
   const grounding: string[] = [];
   if (params.sourceText?.trim()) {
     grounding.push(
-      (ar
-        ? "بيانات من ملفات رفعها المستخدم — حلّلها واعتمد عليها ولا تخترع أرقامًا:\n"
-        : "Data from user-uploaded files — analyze it and rely on it; never invent numbers:\n") +
+      ("Data from user-uploaded files — analyze it and rely on it; never invent numbers:\n") +
         clip(params.sourceText.trim(), 9000),
     );
   }
   if (params.researchText?.trim()) {
     grounding.push(
-      (ar ? "نتائج بحث عميق حديثة:\n" : "Recent deep-research findings:\n") +
+      ("Recent deep-research findings:\n") +
         clip(params.researchText.trim(), 6000),
     );
   }
@@ -129,7 +127,7 @@ Rules: clear titles and 2-4 short bullets per section. Output nothing else.${
   const dt = text.match(/^\s*DocType\s*[:：]\s*(.+)$/im)?.[1]?.trim();
   const sections = parseDocsOutline(text);
   if (!sections.length) return null;
-  return { docType: params.docType || dt || (ar ? "مستند" : "document"), sections };
+  return { docType: params.docType || dt || ("document"), sections };
 }
 
 /**
@@ -160,13 +158,13 @@ export async function generateDocsContent(params: {
   const refs = (params.sources || []).slice(0, 12);
   const grounding = [
     params.sourceText?.trim()
-      ? (ar ? "بيانات المستخدم:\n" : "User data:\n") + clip(params.sourceText.trim(), 7000)
+      ? ("User data:\n") + clip(params.sourceText.trim(), 7000)
       : "",
     params.researchText?.trim()
-      ? (ar ? "نتائج البحث:\n" : "Research findings:\n") + clip(params.researchText.trim(), 6000)
+      ? ("Research findings:\n") + clip(params.researchText.trim(), 6000)
       : "",
     refs.length
-      ? (ar ? "المراجع الحقيقية المتاحة (استشهد بها فقط):\n" : "Real available references (cite only these):\n") +
+      ? ("Real available references (cite only these):\n") +
         refs.map((r, i) => `[${i + 1}] ${r.title} — ${r.url}`).join("\n")
       : "",
   ]
@@ -186,7 +184,7 @@ Section 1: العنوان
 
 قواعد مهمة: أسلوب واحد متسق في كل المستند، بدون مبالغة أو حشو، وبدون أي عناصر نائبة مثل [الاسم].${
         refs.length
-          ? " إذا استشهدت بمعلومة من بحث فاذكر رقم المرجع بين قوسين مثل [1]، ولا تخترع مراجع غير موجودة."
+          ? " إذا استشهدت بمعلومة من Search فاذكر رقم المرجع بين قوسين مثل [1]، ولا تخترع مراجع غير موجودة."
           : " لا تخترع أي مراجع."
       }${grounding ? `\n\n${grounding}` : ""}`
     : `Write the final content of every section of a ${params.docType || "document"} about "${params.topic}".
@@ -236,18 +234,7 @@ export async function reviseDocsSection(params: {
   signal?: AbortSignal;
 }): Promise<DocsSectionContent | null> {
   const ar = params.language === "ar";
-  const prompt = ar
-    ? `هذا القسم رقم ${params.sectionNumber} من مستند عن "${params.topic}":
-العنوان: ${params.currentTitle}
-النص: ${params.currentBody}
-
-طلب التعديل: ${params.instruction}
-
-أعد كتابة هذا القسم فقط بنفس الأسلوب، بهذا التنسيق بالضبط وبدون أي كلام إضافي:
-
-Section ${params.sectionNumber}: العنوان الجديد
-النص الجديد.`
-    : `This is section ${params.sectionNumber} of a document about "${params.topic}":
+  const prompt = `This is section ${params.sectionNumber} of a document about "${params.topic}":
 Title: ${params.currentTitle}
 Body: ${params.currentBody}
 
@@ -283,12 +270,7 @@ export async function rewriteSnippet(params: {
   userId?: string;
 }): Promise<string | null> {
   const ar = params.language === "ar";
-  const prompt = ar
-    ? `أعد صياغة هذا النص فقط حسب التعليمات، وأعد النص الجديد فقط بدون أي شرح أو علامات اقتباس:
-
-النص: ${params.snippet}
-التعليمات: ${params.instruction}`
-    : `Rewrite only this text per the instruction. Return the new text only, with no explanation or quotes:
+  const prompt = `Rewrite only this text per the instruction. Return the new text only, with no explanation or quotes:
 
 Text: ${params.snippet}
 Instruction: ${params.instruction}`;

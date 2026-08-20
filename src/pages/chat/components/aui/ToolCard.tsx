@@ -64,7 +64,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
         <span className="font-medium text-foreground/90 truncate flex-1">{label}</span>
         {needsApproval && (
           <span className="px-1.5 py-0.5 rounded-md bg-amber-400/15 text-amber-300 text-[10px] font-semibold uppercase tracking-wide border border-amber-400/30 shrink-0">
-            يحتاج موافقة
+            Needs approval
           </span>
         )}
         {part.target && !needsApproval && (
@@ -85,7 +85,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
         <div className="px-3 py-2 border-t border-amber-400/20 bg-amber-400/5 flex items-center gap-2 text-[12px]">
           <ShieldAlert className="w-3.5 h-3.5 text-amber-400 shrink-0" strokeWidth={2} />
           <span className="flex-1 text-amber-200/90">
-            هذه الأداة حساسة. اعتمد التنفيذ لعرض النتيجة (سيُحفظ القرار تلقائياً).
+            This tool is sensitive. Approve execution to see the result (your choice is saved).
           </span>
           <button
             type="button"
@@ -99,7 +99,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
             }}
             className="px-2 py-1 rounded-md text-muted-foreground hover:bg-white/5"
           >
-            رفض
+            Reject
           </button>
           <button
             type="button"
@@ -113,7 +113,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
             }}
             className="px-2 py-1 rounded-md bg-emerald-500/20 text-emerald-200 hover:bg-emerald-500/30"
           >
-            اعتماد
+            Approve
           </button>
         </div>
       )}
@@ -145,7 +145,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
           )}
           {denied && (
             <div className="text-[12px] text-destructive/90">
-              تم رفض عرض نتيجة هذه الأداة.
+              Showing this tool's result was rejected.
             </div>
           )}
         </div>

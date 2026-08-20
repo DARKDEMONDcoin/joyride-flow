@@ -123,48 +123,48 @@ const PlusMain = (p: PlusContentProps) => {
   };
 
   const tiles: Tile[] = [
-    { id: "camera", label: "الكاميرا", Icon: Camera, onClick: closeThen(() => p.cameraInputRef.current?.click()) },
-    { id: "photos", label: "الصور", Icon: ImageIcon, onClick: closeThen(() => p.imageInputRef.current?.click()) },
-    { id: "file", label: "إرفاق ملف", Icon: FileUp, onClick: closeThen(() => p.fileInputRef.current?.click()) },
+    { id: "camera", label: "Camera", Icon: Camera, onClick: closeThen(() => p.cameraInputRef.current?.click()) },
+    { id: "photos", label: "Images", Icon: ImageIcon, onClick: closeThen(() => p.imageInputRef.current?.click()) },
+    { id: "file", label: "Attach file", Icon: FileUp, onClick: closeThen(() => p.fileInputRef.current?.click()) },
   ];
 
   type RowItem = { id: string; label: string; Icon: any; badge?: string; active?: boolean; toggle?: boolean; onClick: () => void };
 
   const sections: { title?: string; items: RowItem[] }[] = [
     {
-      title: "الأدوات",
+      title: "Tools",
       items: [
-        { id: "search", label: "البحث في الويب", Icon: Globe, active: p.searchEnabled, toggle: true, onClick: () => p.handleSearchToggle() },
-        { id: "tasks", label: "المهام المجدولة", Icon: ListChecks, onClick: closeThen(() => p.navigate("/settings/tasks")) },
-        { id: "skills", label: "المهارات", Icon: Puzzle, onClick: closeThen(() => p.navigate("/settings/skills")) },
-        { id: "integrations", label: "التكاملات", Icon: Plug, onClick: closeThen(() => p.navigate("/chat?integrations=1")) },
+        { id: "search", label: "Web search", Icon: Globe, active: p.searchEnabled, toggle: true, onClick: () => p.handleSearchToggle() },
+        { id: "tasks", label: "Scheduled tasks", Icon: ListChecks, onClick: closeThen(() => p.navigate("/settings/tasks")) },
+        { id: "skills", label: "Skills", Icon: Puzzle, onClick: closeThen(() => p.navigate("/settings/skills")) },
+        { id: "integrations", label: "Integrations", Icon: Plug, onClick: closeThen(() => p.navigate("/chat?integrations=1")) },
       ],
     },
 
     {
-      title: "الإنشاء",
+      title: "Create",
       items: [
-        { id: "image", label: "إنشاء صورة", Icon: ImagePlus, onClick: closeThen(() => p.onModeChange?.("images")) },
-        { id: "image-edit", label: "تعديل الصورة", Icon: Wand2, onClick: closeThen(() => p.onModeChange?.("images")) },
-        { id: "audio", label: "إنشاء صوت", Icon: AudioLines, onClick: closeThen(() => p.onModeChange?.("music")) },
-        { id: "video", label: "إنشاء فيديو", Icon: VideoIcon, onClick: closeThen(() => p.onModeChange?.("video")) },
-        { id: "slides", label: "إنشاء شرائح عرض", Icon: Presentation, onClick: closeThen(() => p.onModeChange?.("slides")) },
+        { id: "image", label: "Create image", Icon: ImagePlus, onClick: closeThen(() => p.onModeChange?.("images")) },
+        { id: "image-edit", label: "Edit image", Icon: Wand2, onClick: closeThen(() => p.onModeChange?.("images")) },
+        { id: "audio", label: "Create audio", Icon: AudioLines, onClick: closeThen(() => p.onModeChange?.("music")) },
+        { id: "video", label: "Create video", Icon: VideoIcon, onClick: closeThen(() => p.onModeChange?.("video")) },
+        { id: "slides", label: "Create slides", Icon: Presentation, onClick: closeThen(() => p.onModeChange?.("slides")) },
       ],
     },
     {
-      title: "البناء",
+      title: "Build",
       items: [
-        { id: "website", label: "إنشاء موقع إلكتروني", Icon: Code2, badge: "جديد", onClick: closeThen(() => p.onWebsiteStart?.()) },
-        { id: "code", label: "كتابة وتطوير الكود", Icon: Smartphone, onClick: closeThen(() => p.onModeChange?.("code")) },
-        { id: "operator", label: "ربط جهاز الكمبيوتر", Icon: Monitor, onClick: closeThen(() => p.onModeChange?.("operator")) },
+        { id: "website", label: "Create a website", Icon: Code2, badge: "New", onClick: closeThen(() => p.onWebsiteStart?.()) },
+        { id: "code", label: "Write and build code", Icon: Smartphone, onClick: closeThen(() => p.onModeChange?.("code")) },
+        { id: "operator", label: "Connect computer", Icon: Monitor, onClick: closeThen(() => p.onModeChange?.("operator")) },
       ],
     },
     {
-      title: "أوضاع",
+      title: "Modes",
       items: [
-        { id: "research", label: "بحث موسّع", Icon: ScanSearch, onClick: closeThen(() => p.onModeChange?.("deep-research")) },
-        { id: "learning", label: "وضع التعلّم", Icon: Lightbulb, onClick: closeThen(() => p.onModeChange?.("learning")) },
-        { id: "shopping", label: "التسوّق", Icon: ShoppingBag, onClick: closeThen(() => p.onModeChange?.("shopping")) },
+        { id: "research", label: "Extended research", Icon: ScanSearch, onClick: closeThen(() => p.onModeChange?.("deep-research")) },
+        { id: "learning", label: "Learning mode", Icon: Lightbulb, onClick: closeThen(() => p.onModeChange?.("learning")) },
+        { id: "shopping", label: "Shopping", Icon: ShoppingBag, onClick: closeThen(() => p.onModeChange?.("shopping")) },
       ],
     },
   ];

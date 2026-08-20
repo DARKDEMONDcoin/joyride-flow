@@ -123,10 +123,10 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
     try {
       await navigator.clipboard.writeText(selected.content);
       setCopied(true);
-      toast.success("تم نسخ الكود");
+      toast.success("Code copied");
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      toast.error("فشل النسخ");
+      toast.error("Copy failed");
     }
   };
 
@@ -138,7 +138,7 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
     a.download = `artifact-${Date.now()}.html`;
     a.click();
     URL.revokeObjectURL(url);
-    toast.success("تم تنزيل الملف");
+    toast.success("File downloaded");
   };
 
   const openInNewTab = () => {
@@ -202,7 +202,7 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
           <button
             onClick={copyCode}
             className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
-            title="نسخ الكود"
+            title="Copy code"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
           </button>
@@ -211,21 +211,21 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
               <button
                 onClick={() => setRefreshKey((k) => k + 1)}
                 className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
-                title="تحديث المعاينة"
+                title="Refresh preview"
               >
                 <RefreshCw className="w-4 h-4" />
               </button>
               <button
                 onClick={openInNewTab}
                 className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
-                title="فتح في تبويب جديد"
+                title="Open in new tab"
               >
                 <ExternalLink className="w-4 h-4" />
               </button>
               <button
                 onClick={downloadHtml}
                 className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
-                title="تنزيل HTML"
+                title="Download HTML"
               >
                 <Download className="w-4 h-4" />
               </button>
@@ -234,7 +234,7 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
           <button
             onClick={() => setIsFullscreen(!isFullscreen)}
             className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors"
-            title={isFullscreen ? "تصغير" : "ملء الشاشة"}
+            title={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
           </button>

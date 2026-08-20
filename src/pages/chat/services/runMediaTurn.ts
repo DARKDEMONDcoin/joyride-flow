@@ -56,9 +56,7 @@ async function streamLyricsFromChatEdge({
   onDraft: (content: string) => void;
 }): Promise<string> {
   const token = await getAccessToken();
-  const customSystem = isArabic
-    ? "اكتب كلمات أغنية كاملة فقط، بنفس لغة ولهجة طلب المستخدم. استخدم الوسوم [verse] و[chorus] و[bridge] عند الحاجة، كل وسم في سطر منفصل. لا تكتب مقدمة، لا شرح، لا روابط، لا أسماء نماذج، ولا أي كلام خارج كلمات الأغنية. اجعل الكورس واضح ومتكرر وقابل للغناء."
-    : "Write full song lyrics only, in the same language and dialect as the user. Use [verse], [chorus], and optional [bridge] tags, each on its own line. No intro, no explanation, no links, no model names, and no text outside the lyrics. Make the chorus strong, repeatable, and singable.";
+  const customSystem = "Write full song lyrics only, in the same language and dialect as the user. Use [verse], [chorus], and optional [bridge] tags, each on its own line. No intro, no explanation, no links, no model names, and no text outside the lyrics. Make the chorus strong, repeatable, and singable.";
 
   const resp = await fetch(CHAT_EDGE_URL, {
     method: "POST",
@@ -260,9 +258,9 @@ export async function runMediaTurn(args: RunMediaTurnArgs): Promise<void> {
         ],
       };
     } else {
-      // وضع الصور: يمر كل طلب على "الروبوت الداخلي" الذي يحسّن البرومبت،
+      // وضع Images: يمر كل طلب على "الروبوت الداخلي" الذي يحسّن البرومبت،
       // ويستحضر هوية أي شخصية محفوظة، ويكتشف نية التعديل على آخر صورة
-      // مولّدة فيرفقها داخليًا بدون أن يعيد المستخدم إرفاق الصورة.
+      // مولّدة فيرفقها داخليًا بدون أن يعيد المستخدم إرفاق Imagesة.
       let scenePrompt = text;
       let referenceImage: string | undefined;
       let identityDescriptor: string | undefined;
@@ -296,7 +294,7 @@ export async function runMediaTurn(args: RunMediaTurnArgs): Promise<void> {
       let planned = false;
 
       // وضع الفيديو: خطة مسبقة تفهم الشخصية/المنتج والمشاهد والسيناريو الممتد،
-      // مع نمط UGC اختياري وأبعاد إضافية لنفس الفيديو.
+      // مع نمط UGC اختياري وMore aspect ratios لنفس الفيديو.
       if (modeLocal === "video" && text?.trim()) {
         try {
           const [{ planVideoStory }, { loadVideoTools, UGC_STYLE_PROMPT }] = await Promise.all([

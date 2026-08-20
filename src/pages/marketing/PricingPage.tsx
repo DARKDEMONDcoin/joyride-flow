@@ -77,7 +77,7 @@ function StaggeredFade({
         className={className}
         aria-label={translated}
         data-no-translate="true"
-        dir={isRTL ? "rtl" : "ltr"}
+        dir={"ltr"}
       >
         {words.map((w, i) => {
           if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
@@ -690,12 +690,10 @@ const PricingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
             className="text-white/70 font-light leading-relaxed max-w-xs sm:max-w-md text-sm sm:text-base md:text-lg"
-            dir={isAr ? "rtl" : "ltr"}
+            dir={"ltr"}
             data-no-translate="true"
           >
-            {isAr
-              ? `خطط بسيطة لكل منظومة ${BRAND}، متصممة للمبدعين والفرق والشركات.`
-              : `Simple plans for the entire ${BRAND} ecosystem, built for creators, teams and enterprises.`}
+            {`Simple plans for the entire ${BRAND} ecosystem, built for creators, teams and enterprises.`}
           </motion.p>
 
 
@@ -710,20 +708,18 @@ const PricingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 2.2 }}
               className="mt-6 sm:mt-8 inline-flex flex-col md:flex-row items-center md:items-stretch gap-5 md:gap-6 px-6 sm:px-7 py-4 rounded-2xl mobile-menu-glass"
-              dir={isAr ? "rtl" : "ltr"}
+              dir={"ltr"}
               data-no-translate="true"
             >
               <div className="flex flex-col items-center md:items-start text-center md:text-start gap-1.5">
                 <span
                   className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase font-medium text-white bg-white/10 border border-white/10"
-                  style={{ letterSpacing: isAr ? "normal" : "0.18em" }}
+                  style={{ letterSpacing: "0.18em" }}
                 >
-                  {isAr ? "عرض إطلاق محدود" : "Limited Launch Offer"}
+                  {"Limited Launch Offer"}
                 </span>
                 <p className="text-[13px] text-white/90 leading-relaxed max-w-[16rem] sm:max-w-[18rem]">
-                  {isAr
-                    ? "Pro أول شهر بـ $5 — خصم 75٪ على باقي الأشهر"
-                    : "Pro first month $5 — 75% OFF the rest"}
+                  {"Pro first month $5 — 75% OFF the rest"}
                 </p>
 
               </div>
@@ -737,16 +733,16 @@ const PricingPage = () => {
               />
               <div className="flex gap-4 sm:gap-5 font-garamond tabular-nums" dir="ltr">
                 {[
-                  { v: pad2(promo.days), l: isAr ? "يوم" : "Days" },
-                  { v: pad2(promo.hours), l: isAr ? "ساعة" : "Hrs" },
-                  { v: pad2(promo.minutes), l: isAr ? "دقيقة" : "Min" },
-                  { v: pad2(promo.seconds), l: isAr ? "ثانية" : "Sec" },
+                  { v: pad2(promo.days), l: "Days" },
+                  { v: pad2(promo.hours), l: "Hrs" },
+                  { v: pad2(promo.minutes), l: "Min" },
+                  { v: pad2(promo.seconds), l: "Sec" },
                 ].map((t) => (
                   <div key={t.l} className="flex flex-col items-center min-w-[2.5rem]">
                     <span className="text-[26px] sm:text-2xl text-white leading-none">{t.v}</span>
                     <span
                       className="text-[10px] uppercase mt-1.5 text-white/80 whitespace-nowrap"
-                      style={{ letterSpacing: isAr ? "normal" : "0.22em" }}
+                      style={{ letterSpacing: "0.22em" }}
                       data-no-translate="true"
                     >
                       {t.l}

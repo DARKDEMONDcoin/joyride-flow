@@ -56,8 +56,8 @@ export const INTENT_ACTIONS: Record<ChatIntent, IntentAction> = {
     trackEvent: "image_generated",
     nudge: NUDGE(
       "Switched to Image mode — pick a model and send your prompt.",
-      "تم التبديل إلى وضع الصور — اختر النموذج وأرسل طلبك.",
-      "حوّلتك على وضع الصور — اختار الموديل وابعت الطلب.",
+      "تم التبديل إلى وضع Images — Choose a model وأرسل طلبك.",
+      "حوّلتك على وضع Images — اختار الموديل وابعت الطلب.",
       "Passage en mode Image — choisis un modèle et envoie ta demande.",
       "Modo Imagen activado — elige un modelo y envía tu petición.",
       "In den Bildmodus gewechselt — Modell wählen und senden.",
@@ -73,7 +73,7 @@ export const INTENT_ACTIONS: Record<ChatIntent, IntentAction> = {
     trackEvent: "video_generated",
     nudge: NUDGE(
       "Switched to Video mode — pick a model and send your prompt.",
-      "تم التبديل إلى وضع الفيديو — اختر النموذج وأرسل طلبك.",
+      "تم التبديل إلى وضع الفيديو — Choose a model وأرسل طلبك.",
       "حوّلتك على وضع الفيديو — اختار الموديل وابعت الطلب.",
       "Passage en mode Vidéo — choisis un modèle et envoie ta demande.",
       "Modo Vídeo activado — elige un modelo y envía tu petición.",
@@ -89,8 +89,8 @@ export const INTENT_ACTIONS: Record<ChatIntent, IntentAction> = {
     trackEvent: "research_started",
     nudge: NUDGE(
       "Deep Research is on — choose depth and send your question.",
-      "تم تفعيل البحث العميق — اختر العمق وأرسل سؤالك.",
-      "شغّلت البحث العميق — اختار العمق وابعت سؤالك.",
+      "تم تفعيل الSearch العميق — اختر العمق وأرسل سؤالك.",
+      "شغّلت الSearch العميق — اختار العمق وابعت سؤالك.",
       "Recherche approfondie activée — choisis la profondeur et envoie.",
       "Investigación profunda activada — elige la profundidad y envía.",
       "Tiefenrecherche aktiv — Tiefe wählen und Frage senden.",
@@ -164,7 +164,7 @@ export const INTENT_ACTIONS: Record<ChatIntent, IntentAction> = {
     trackEvent: "code_ran",
     nudge: NUDGE(
       "Coder is on to build your site — describe pages and style.",
-      "تم تفعيل المبرمج لبناء موقعك — صف الصفحات والتصميم.",
+      "تم تفعيل المبرمج لBuild a websiteك — صف الصفحات والتصميم.",
       "شغّلت المبرمج علشان يبنيلك الموقع — قوللي الصفحات والاستايل.",
       "Coder activé pour ton site — décris les pages et le style.",
       "Coder activado para tu sitio — describe páginas y estilo.",

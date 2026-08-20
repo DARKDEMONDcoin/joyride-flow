@@ -92,7 +92,7 @@ const ResearchReportTabs = ({
   );
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-6" dir={isRtl ? "rtl" : "ltr"}>
+    <div className="mx-auto max-w-3xl px-4 py-6" dir={"ltr"}>
       <Accordion type="multiple" className="space-y-2">
         <AccordionItem value="used" className="border-b-0">
           <AccordionTrigger className="rounded-2xl px-3 py-3 text-base font-semibold text-foreground/90 hover:no-underline">

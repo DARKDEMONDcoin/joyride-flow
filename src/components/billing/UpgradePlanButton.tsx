@@ -2,8 +2,8 @@
  * UpgradePlanButton — premium emerald payment CTA for Megsy.
  *
  * Two-plan model (Pro + Max only):
- *   free  → "Get Pro"          (احصل على برو)
- *   pro   → "Upgrade to Max"   (الترقية إلى ماكس)
+ *   free  → "Get Pro"          (Get Pro)
+ *   pro   → "Upgrade to Max"   (Upgrade to Max)
  *   max   → hidden             (already at top tier)
  *
  * Design spec:
@@ -37,16 +37,16 @@ const TIER_MAP: Record<Tier, TierMeta> = {
   free: {
     target: "pro",
     labelEn: "Upgrade to Pro",
-    labelAr: "الترقية إلى برو",
+    labelAr: "Upgrade to Pro",
     shortEn: "Get Pro",
-    shortAr: "احصل على برو",
+    shortAr: "Get Pro",
   },
   pro: {
     target: "max",
     labelEn: "Upgrade to Max",
-    labelAr: "الترقية إلى ماكس",
+    labelAr: "Upgrade to Max",
     shortEn: "Upgrade to Max",
-    shortAr: "الترقية إلى ماكس",
+    shortAr: "Upgrade to Max",
   },
   max: {
     target: null,
@@ -98,7 +98,7 @@ export function UpgradePlanButton({ variant = "full", className, hideCredits = f
   return (
     <button
       type="button"
-      dir={isAr ? "rtl" : "ltr"}
+      dir={"ltr"}
       aria-label={label}
       onPointerDown={prefetch}
       onMouseEnter={prefetch}
@@ -139,7 +139,7 @@ export function UpgradePlanButton({ variant = "full", className, hideCredits = f
       {variant === "full" && !hideCredits && credits != null && (
         <span
           className="relative z-10 ms-0.5 inline-flex items-center px-1 text-[10.5px] font-semibold tabular-nums text-white/70"
-          aria-label={isAr ? "الرصيد" : "credits"}
+          aria-label={"credits"}
         >
           {formatCredits(credits)} MC
         </span>

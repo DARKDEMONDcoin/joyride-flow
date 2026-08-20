@@ -135,8 +135,8 @@ export function StudyHUD() {
           {/* Dashboard link */}
           <Link
             to="/learn"
-            aria-label="لوحة التعلّم"
-            title="لوحة التعلّم"
+            aria-label="Learning panel"
+            title="Learning panel"
             className="ms-1 shrink-0 inline-flex items-center gap-1 px-1.5 py-1 rounded-lg text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
           >
             <LayoutDashboard className="w-3 h-3" />

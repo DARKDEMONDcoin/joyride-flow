@@ -28,9 +28,9 @@ interface Props {
 type Tab = "apps" | "api" | "mcp";
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: "apps", label: "تطبيقات" },
-  { id: "api", label: "API مخصص" },
-  { id: "mcp", label: "MCP مخصص" },
+  { id: "apps", label: "Apps" },
+  { id: "api", label: "Custom API" },
+  { id: "mcp", label: "Custom MCP" },
 ];
 
 /** Connectors needing an API key / manual credentials instead of OAuth. */
@@ -92,7 +92,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
       if (connected[item.app]) {
         await disconnectIntegration(item);
         await refresh();
-        toast.success(`تم فصل ${item.name}`);
+        toast.success(`Disconnected ${item.name}`);
       } else {
         const res = await startIntegrationConnection(item);
         if ("popup" in res && res.popup) {
@@ -103,10 +103,10 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
         } else {
           await refresh();
         }
-        toast.success(`تم ربط ${item.name}`);
+        toast.success(`Connected ${item.name}`);
       }
     } catch (e: any) {
-      toast.error(e?.message || "تعذّر إتمام العملية");
+      toast.error(e?.message || "Couldn't complete the action");
     } finally {
       setBusy(null);
     }
@@ -165,7 +165,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                       className="flex min-h-full flex-col"
                     >
                       <h2 className="px-2 pb-3 text-center text-[16px] font-semibold text-foreground">
-                        التكاملات
+                        Integrations
                       </h2>
 
                       <div data-connectors-search className="flex h-11 items-center gap-2 rounded-[16px] px-3.5">
@@ -173,7 +173,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                         <input
                           value={query}
                           onChange={(e) => setQuery(e.target.value)}
-                          placeholder="ابحث عن تطبيق"
+                          placeholder="Search for an app"
                           className="h-full w-full text-[14px] text-foreground outline-none placeholder:text-foreground/35"
                           style={{
                             border: 0,
@@ -212,17 +212,17 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                       <div className="mt-2 flex-1">
                         {tab === "mcp" ? (
                           <EmptyConnectors
-                            label="لا يوجد MCP مخصص"
-                            actionLabel="الإنشاء عبر الدردشة"
+                            label="No custom MCP"
+                            actionLabel="Create via chat"
                             onAction={() => onOpenChange(false)}
                           />
                         ) : list.length === 0 ? (
-                          <EmptyConnectors label="لا توجد نتائج" />
+                          <EmptyConnectors label="No results" />
                         ) : (
                           <>
                             {connectedList.length > 0 && (
                               <div className="mb-3">
-                                <p className="px-2 pb-1 pt-2 text-[12px] text-foreground/40">المتصلة حاليًا</p>
+                                <p className="px-2 pb-1 pt-2 text-[12px] text-foreground/40">Currently connected</p>
                                 {connectedList.map((item) => (
                                   <IntegrationRow
                                     key={item.id}

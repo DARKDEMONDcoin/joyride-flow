@@ -141,7 +141,7 @@ const AgentStatusLine = ({ searchStatus, toolActivity, userText }: AgentStatusLi
     icon = <ToolIcon meta={meta} />;
     const verb = meta ? (ar && (meta as any).ar ? (meta as any).ar : meta.en) : "";
     if (searchStatus?.trim()) label = searchStatus.trim();
-    else if (active?.target) label = ar ? `${verb} ${active.target}` : `${verb} ${active.target}`;
+    else if (active?.target) label = `${verb} ${active.target}`;
     else label = verb || L.working;
   } else if (phase === "tool_done" && lastDoneTool) {
     const meta = resolveToolActivity(lastDoneTool.name, lastDoneTool.appSlug);

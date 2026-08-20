@@ -44,7 +44,7 @@ const wb = (inner: string) => new RegExp(`(?<![\\p{L}\\p{N}])(?:${inner})(?![\\p
 // Strong "needs fresh data" signals — never suppress when present.
 const NEEDS_SEARCH_PATTERNS: RegExp[] = [
   wb("today|tonight|right now|currently|الآن|اليوم|الليلة|حالياً|حاليا"),
-  wb("news|latest|breaking|update|أخبار|اخبار|آخر|اخر|جديد|عاجل"),
+  wb("news|latest|breaking|update|أخبار|اخبار|آخر|اخر|New|عاجل"),
   wb("price|stock|market|سعر|أسعار|اسعار|سوق|بورصة"),
   wb("weather|طقس|درجة الحرارة"),
   wb("202[5-9]|203\\d"), // recent / future years

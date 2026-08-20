@@ -66,8 +66,8 @@ export function MessageInsights({ metadata }: MessageInsightsProps) {
 
   if (usedMemory) {
     chips.push(
-      <span key="mem" className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] text-primary" title="تم استخدام ذاكرتك في هذا الرد">
-        <Brain className="h-3 w-3" /> ذاكرة{memoryCount ? ` (${memoryCount})` : ""}
+      <span key="mem" className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] text-primary" title="Your memory was used in this reply">
+        <Brain className="h-3 w-3" /> Memory{memoryCount ? ` (${memoryCount})` : ""}
       </span>,
     );
   }

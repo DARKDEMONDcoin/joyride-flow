@@ -31,9 +31,9 @@ type Cfg = {
 const CONFIGS: Record<string, Cfg> = {
   images: {
     table: "media_assets",
-    titleAr: "الصور",
+    titleAr: "Images",
     titleEn: "Images",
-    emptyAr: "لا توجد صور بعد",
+    emptyAr: "No images yet",
     emptyEn: "No images yet",
     icon: ImageIcon,
     select: "id, prompt, model, public_url, created_at",
@@ -42,9 +42,9 @@ const CONFIGS: Record<string, Cfg> = {
   },
   videos: {
     table: "media_assets",
-    titleAr: "الفيديوهات",
+    titleAr: "Videos",
     titleEn: "Videos",
-    emptyAr: "لا توجد فيديوهات بعد",
+    emptyAr: "No videos yet",
     emptyEn: "No videos yet",
     icon: Video,
     select: "id, prompt, model, public_url, duration_seconds, created_at",
@@ -59,9 +59,9 @@ const CONFIGS: Record<string, Cfg> = {
   },
   files: {
     table: "user_assets",
-    titleAr: "الملفات",
+    titleAr: "Files",
     titleEn: "Files",
-    emptyAr: "لا توجد ملفات بعد",
+    emptyAr: "No files yet",
     emptyEn: "No files yet",
     icon: FileText,
     select: "id, original_filename, mime_type, size_bytes, public_url, created_at",
@@ -77,9 +77,9 @@ const CONFIGS: Record<string, Cfg> = {
   },
   sites: {
     table: "generated_sites",
-    titleAr: "المواقع المنشورة",
+    titleAr: "Published sites",
     titleEn: "Published sites",
-    emptyAr: "لا توجد مواقع منشورة",
+    emptyAr: "No published sites",
     emptyEn: "No published sites",
     icon: Globe,
     select: "id, title, status, published_url, preview_url, share_slug, created_at",
@@ -93,9 +93,9 @@ const CONFIGS: Record<string, Cfg> = {
   },
   shared: {
     table: "conversations",
-    titleAr: "المحادثات المشتركة",
+    titleAr: "Shared chats",
     titleEn: "Shared chats",
-    emptyAr: "لا توجد محادثات مشتركة",
+    emptyAr: "No shared chats",
     emptyEn: "No shared chats",
     icon: Share2,
     select: "id, title, share_id, created_at",
@@ -159,10 +159,10 @@ export default function DataCategoryPage() {
 
   if (!cfg) {
     return (
-      <SubShell title={isAr ? "ضوابط البيانات" : "Data controls"} backTo="/settings/data">
+      <SubShell title={"Data controls"} backTo="/settings/data">
         <SubCard>
           <p className="text-[13px] text-[color:var(--mn-muted)]">
-            {isAr ? "قسم غير معروف" : "Unknown section"}
+            {"Unknown section"}
           </p>
         </SubCard>
       </SubShell>
@@ -212,7 +212,7 @@ export default function DataCategoryPage() {
                   target="_blank"
                   rel="noreferrer"
                   className="p-2 text-[color:var(--mn-muted)] hover:text-[color:var(--mn-fg)]"
-                  aria-label={isAr ? "فتح" : "Open"}
+                  aria-label={"Open"}
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -221,7 +221,7 @@ export default function DataCategoryPage() {
                 type="button"
                 onClick={() => remove(it.id)}
                 disabled={busy === it.id}
-                aria-label={isAr ? "حذف" : "Delete"}
+                aria-label={"Delete"}
                 className="p-2 text-[color:var(--mn-danger)] disabled:opacity-50"
               >
                 {busy === it.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}

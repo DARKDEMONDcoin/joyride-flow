@@ -21,65 +21,65 @@ const CARDS = [
   {
     id: "research",
     img: researchImg,
-    title: "بحث عميق",
-    desc: "تقرير منظّم مع مصادر موثوقة.",
-    prompt: "اعمل بحث عميق ومنظم مع مصادر عن: ",
+    title: "Deep research",
+    desc: "A structured report with trusted sources.",
+    prompt: "Do deep, structured research with sources about: ",
   },
   {
     id: "image",
     img: imageImg,
-    title: "توليد الصور",
-    desc: "صور عالية الجودة من وصف نصي.",
-    prompt: "ولّد لي صورة عالية الجودة لـ: ",
+    title: "Generate images",
+    desc: "High-quality images from a text prompt.",
+    prompt: "Generate a high-quality image of: ",
   },
   {
     id: "video",
     img: videoImg,
-    title: "توليد الفيديو",
-    desc: "مقاطع قصيرة من فكرة مكتوبة.",
-    prompt: "ولّد لي فيديو قصير عن: ",
+    title: "Generate video",
+    desc: "Short clips from a written idea.",
+    prompt: "Generate a short video about: ",
   },
   {
     id: "slides",
     img: slidesImg,
-    title: "عرض تقديمي",
-    desc: "شرائح متكاملة بتصميم نظيف.",
-    prompt: "اعمل لي عرض تقديمي متكامل عن: ",
+    title: "Presentation",
+    desc: "Complete slides with a clean design.",
+    prompt: "Create a complete presentation about: ",
   },
   {
     id: "code",
     img: codeImg,
-    title: "كتابة وتنفيذ كود",
-    desc: "مشروع كامل مع معاينة مباشرة.",
-    prompt: "اكتب لي كود لمشروع: ",
+    title: "Write and run code",
+    desc: "A full project with live preview.",
+    prompt: "Write code for a project: ",
   },
   {
     id: "web",
     img: webImg,
-    title: "بناء موقع",
-    desc: "صفحة أو موقع كامل جاهز للنشر.",
-    prompt: "ابنِ لي موقع ويب عن: ",
+    title: "Build a website",
+    desc: "A page or full site ready to publish.",
+    prompt: "Build me a website about: ",
   },
   {
     id: "docs",
     img: docsImg,
-    title: "تحليل المستندات",
-    desc: "ارفع PDF أو ملف واسأل عنه.",
-    prompt: "حلّل لي هذا المستند واستخرج أهم النقاط: ",
+    title: "Analyze documents",
+    desc: "Upload a PDF or file and ask about it.",
+    prompt: "Analyze this document and extract the key points: ",
   },
   {
     id: "agent",
     img: agentImg,
-    title: "وكيل ذكي",
-    desc: "ينفّذ مهام متعددة الخطوات نيابة عنك.",
-    prompt: "نفّذ كوكيل ذكي المهمة التالية خطوة بخطوة: ",
+    title: "AI agent",
+    desc: "Runs multi-step tasks on your behalf.",
+    prompt: "Act as an agent and do the following task step by step: ",
   },
   {
     id: "integrations",
     img: integrationsImg,
-    title: "التكاملات",
-    desc: "اربط تطبيقاتك ونفّذ منها مباشرة.",
-    prompt: "استخدم التكاملات المربوطة عندي عشان: ",
+    title: "Integrations",
+    desc: "Connect your apps and act from them directly.",
+    prompt: "Use my connected integrations to: ",
   },
 ];
 
@@ -94,10 +94,10 @@ export function StarterCards({ onPick, className = "" }: StarterCardsProps) {
   return (
     <div className={`w-full ${className}`}>
       <div className="flex items-center justify-between px-2 pb-2">
-        <span className="text-[13px] font-medium text-foreground/70">ابدأ الآن</span>
+        <span className="text-[13px] font-medium text-foreground/70">Get started</span>
         <button
           type="button"
-          aria-label="إخفاء الاقتراحات"
+          aria-label="Hide suggestions"
           onClick={() => setDismissed(true)}
           className="p-1 rounded-full text-foreground/45 hover:text-foreground/80 transition-colors"
         >

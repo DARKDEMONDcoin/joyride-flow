@@ -37,7 +37,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar-
     const Ctor =
       (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!Ctor) {
-      toast.error("المتصفح لا يدعم الإدخال الصوتي");
+      toast.error("Your browser does not support voice input");
       return;
     }
     const rec = new Ctor();
@@ -53,7 +53,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar-
     };
     rec.onerror = () => {
       setListening(false);
-      toast.error("تعذّر تشغيل الميكروفون");
+      toast.error("Couldn't start the microphone");
     };
     rec.onend = () => setListening(false);
     recRef.current = rec;
@@ -71,7 +71,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar-
     <button
       type="button"
       onClick={() => (listening ? stop() : start())}
-      aria-label={listening ? "إيقاف التسجيل" : "إدخال صوتي"}
+      aria-label={listening ? "Stop recording" : "Voice input"}
       aria-pressed={listening}
       className="shrink-0 inline-flex w-9 h-9 items-center justify-center rounded-full border-0 bg-transparent outline-none transition-opacity hover:opacity-80 active:scale-95"
       style={{ background: "transparent", border: 0, boxShadow: "none" }}

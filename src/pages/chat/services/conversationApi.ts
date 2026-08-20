@@ -22,9 +22,7 @@ export async function generateShortTitle(
     // the model sometimes answers the English "Summarize..." prompt with a
     // one-word Arabic reply like "لا" (No) instead of an actual title.
     const isArabic = /[\u0600-\u06FF]/.test(firstMessage);
-    const instruction = isArabic
-      ? `اكتب عنواناً قصيراً جداً (كلمتين إلى ثلاث كلمات فقط) يلخّص الرسالة التالية باللغة العربية. أعد العنوان فقط بدون علامات تنصيص أو نقاط أو شرح، ولا تجب على الرسالة:\n\n${firstMessage.slice(0, 500)}`
-      : `Write a very short title (two to three words maximum) summarizing the following message, in the same language as the message. Return only the title with no quotes, punctuation, or explanation. Do NOT answer the message:\n\n${firstMessage.slice(0, 500)}`;
+    const instruction = `Write a very short title (two to three words maximum) summarizing the following message, in the same language as the message. Return only the title with no quotes, punctuation, or explanation. Do NOT answer the message:\n\n${firstMessage.slice(0, 500)}`;
 
     const resp = await fetch(url, {
       method: "POST",

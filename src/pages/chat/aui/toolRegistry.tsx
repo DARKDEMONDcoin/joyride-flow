@@ -54,49 +54,49 @@ function ToolShell({
 export const WebSearchToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "web_search",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={Globe} label="بحث الويب" args={args} result={result} status={status} />
+    <ToolShell Icon={Globe} label="Web search" args={args} result={result} status={status} />
   ),
 });
 
 export const SearchToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "search",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={Search} label="بحث" args={args} result={result} status={status} />
+    <ToolShell Icon={Search} label="Search" args={args} result={result} status={status} />
   ),
 });
 
 export const ImageGenerationToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "image_generation",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={ImageIcon} label="توليد صورة" args={args} result={result} status={status} />
+    <ToolShell Icon={ImageIcon} label="Generate image" args={args} result={result} status={status} />
   ),
 });
 
 export const CodeExecToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "code_execution",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={Terminal} label="تشغيل كود" args={args} result={result} status={status} />
+    <ToolShell Icon={Terminal} label="Run code" args={args} result={result} status={status} />
   ),
 });
 
 export const FileReadToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "read_file",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={FileText} label="قراءة ملف" args={args} result={result} status={status} />
+    <ToolShell Icon={FileText} label="Read file" args={args} result={result} status={status} />
   ),
 });
 
 export const GenerateVideoToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "generate_video",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={Video} label="توليد فيديو" args={args} result={result} status={status} />
+    <ToolShell Icon={Video} label="Generate video" args={args} result={result} status={status} />
   ),
 });
 
 export const GenerateMusicToolUI = makeAssistantToolUI<ToolArgs, ToolResult>({
   toolName: "generate_music",
   render: ({ args, result, status }) => (
-    <ToolShell Icon={Music} label="توليد موسيقى" args={args} result={result} status={status} />
+    <ToolShell Icon={Music} label="Generate music" args={args} result={result} status={status} />
   ),
 });
 

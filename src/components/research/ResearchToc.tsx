@@ -85,8 +85,8 @@ const ResearchToc = ({ markdown, isRtl, onActiveChange }: Props) => {
 
   return (
     <nav
-      className={`fixed top-24 ${isRtl ? "left-4" : "right-4"} z-20 hidden max-h-[70vh] w-60 overflow-y-auto rounded-2xl border border-foreground/10 bg-background/70 p-4 backdrop-blur-xl xl:block`}
-      dir={isRtl ? "rtl" : "ltr"}
+      className={`fixed top-24 ${"right-4"} z-20 hidden max-h-[70vh] w-60 overflow-y-auto rounded-2xl border border-foreground/10 bg-background/70 p-4 backdrop-blur-xl xl:block`}
+      dir={"ltr"}
       aria-label="Table of contents"
     >
       <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-foreground/50">
@@ -94,7 +94,7 @@ const ResearchToc = ({ markdown, isRtl, onActiveChange }: Props) => {
       </div>
       <ul className="space-y-1 text-sm">
         {items.map((it) => (
-          <li key={it.id} className={it.level === 3 ? (isRtl ? "pr-3" : "pl-3") : ""}>
+          <li key={it.id} className={it.level === 3 ? ("pl-3") : ""}>
             <a
               href={`#${it.id}`}
               onClick={(e) => {

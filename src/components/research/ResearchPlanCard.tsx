@@ -70,7 +70,7 @@ const ResearchPlanCard = ({
 
   return (
     <ToolCard
-      dir={isRtl ? "rtl" : "ltr"}
+      dir={"ltr"}
       title={"Search, analyze, and prepare report"}
       subtitle={goal || undefined}
       trailing={
@@ -83,7 +83,7 @@ const ResearchPlanCard = ({
       {ready && <p className="mb-3 text-sm leading-relaxed text-foreground/85">{ready}</p>}
 
       <div>
-        <ul className="space-y-5" dir={isRtl ? "rtl" : "ltr"}>
+        <ul className="space-y-5" dir={"ltr"}>
           {phases.map((phase, idx) => {
             const Icon = phase.icon;
             const open = openIdx === idx;
@@ -106,7 +106,7 @@ const ResearchPlanCard = ({
                 </button>
                 {open && phase.items.length > 0 && (
                   <ul
-                    className={`mt-3 space-y-2.5 ${isRtl ? "pr-7" : "pl-7"} text-[13px] leading-[1.8] text-foreground/80`}
+                    className={`mt-3 space-y-2.5 ${"pl-7"} text-[13px] leading-[1.8] text-foreground/80`}
                   >
                     {visibleItems.map((step, i) => (
                       <li key={i} className="flex gap-2.5">
@@ -117,7 +117,7 @@ const ResearchPlanCard = ({
                       </li>
                     ))}
                     {hidden > 0 && (
-                      <li className={isRtl ? "pr-[1.75rem]" : "pl-[1.75rem]"}>
+                      <li className={"pl-[1.75rem]"}>
                         <button
                           type="button"
                           onClick={() => setShowMore(true)}

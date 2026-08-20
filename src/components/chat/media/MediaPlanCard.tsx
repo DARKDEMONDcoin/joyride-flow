@@ -37,7 +37,7 @@ export interface MediaPlan {
   storyline?: string;
   /** وصف الشخصية/المنتج الثابت عبر كل اللقطات. */
   identity?: string;
-  /** هل الخطة بأسلوب UGC؟ */
+  /** هل الخطة بUGC style؟ */
   ugc?: boolean;
   /** كل الأبعاد المولَّدة لنفس الفيديو. */
   aspectRatios?: string[];
