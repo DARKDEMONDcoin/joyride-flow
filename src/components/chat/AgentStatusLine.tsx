@@ -300,7 +300,7 @@ const ToolIcon = ({
       />
     );
   }
-  const Comp = (meta.lucide && (Lucide as any)[meta.lucide]) || (Lucide as any).Wrench;
+  const Comp = (meta.lucide && TOOL_ICONS[meta.lucide]) || Wrench;
   return (
     <Comp
       className={
