@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { isPaidUser } from "@/lib/subscriptionGating";
+import { getCachedUser } from "@/lib/cachedUser";
+import { getOwnProfile } from "@/lib/ownProfile";
 
 export function useUserPlan() {
   const [plan, setPlan] = useState<string>("free");
@@ -9,9 +11,7 @@ export function useUserPlan() {
 
   useEffect(() => {
     const load = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const user = await getCachedUser();
       if (!user) {
         setLoading(false);
         return;
@@ -21,7 +21,7 @@ export function useUserPlan() {
       const { data: paid } = await supabase.rpc("has_paid_plan", { p_user_id: user.id });
       if (typeof paid === "boolean") setIsPaid(paid);
 
-      const { data } = await supabase.from("profiles").select("plan").eq("id", user.id).single();
+      const data = await getOwnProfile(user.id);
       if (data) {
         const p = (data.plan || "free").toString().toLowerCase();
         setPlan(p);
