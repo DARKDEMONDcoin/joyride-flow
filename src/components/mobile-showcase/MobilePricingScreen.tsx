@@ -96,10 +96,10 @@ export default function MobilePricingScreen({
         card: "rgba(255,255,255,0.055)",
         switchBg: "rgba(255,255,255,0.08)",
         switchOn: "#f5f5f5",
-        switchOnText: "hsl(var(--background))",
+        switchOnText: "#1a1a1a",
         selBorder: "#f5f5f5",
         ctaBg: "#f5f5f5",
-        ctaText: "hsl(var(--background))",
+        ctaText: "#1a1a1a",
       };
 
   return (

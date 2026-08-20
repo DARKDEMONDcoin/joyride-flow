@@ -139,7 +139,7 @@ const mobileCss = `
 .privacy-root {
   min-height: 100dvh;
   background: hsl(var(--background));
-  color: #e8e8e8;
+  color: hsl(var(--foreground));
   font-family: "Neue Haas Unica", "Helvetica Now Display", -apple-system, "SF Pro Display", Inter, "Segoe UI", Roboto, sans-serif;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -155,7 +155,7 @@ const mobileCss = `
   text-align: center;
   font-size: 17px; font-weight: 600;
   letter-spacing: -0.01em;
-  color: #e8e8e8;
+  color: hsl(var(--foreground));
 }
 .privacy-icon-btn {
   width: 40px; height: 40px;
@@ -163,7 +163,7 @@ const mobileCss = `
   border-radius: 999px;
   background: transparent;
   border: 0;
-  color: #e8e8e8;
+  color: hsl(var(--foreground));
   cursor: pointer;
   transition: transform 160ms ease;
 }
