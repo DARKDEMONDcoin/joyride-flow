@@ -23,7 +23,7 @@ export default function CapabilitiesPage() {
       onClick={onChange}
       className={[
         "relative inline-flex h-[30px] w-[50px] shrink-0 rounded-full transition-colors duration-200",
-        checked ? "bg-[#4C8BF5]" : "bg-[#3A3A3C]",
+        checked ? "bg-[#4C8BF5]" : "bg-card",
         "cursor-pointer",
       ].join(" ")}
     >
@@ -63,9 +63,9 @@ export default function CapabilitiesPage() {
     const content = (
       <>
         <div className="flex-1 min-w-0 pr-3">
-          <div className="text-[16px] font-medium leading-[1.35] text-[#EDE4D8] tracking-[-0.005em]">{title}</div>
+          <div className="text-[16px] font-medium leading-[1.35] text-foreground tracking-[-0.005em]">{title}</div>
           {description ? (
-            <div className="mt-1 text-[13px] leading-[1.5] text-[#EDE4D8]/50">{description}</div>
+            <div className="mt-1 text-[13px] leading-[1.5] text-foreground/50">{description}</div>
           ) : null}
         </div>
         {trailing ? <div className="shrink-0 self-center">{trailing}</div> : null}
@@ -109,8 +109,8 @@ export default function CapabilitiesPage() {
         ].join(" ")}
       >
         <div className="flex-1 min-w-0 pr-3">
-          <div className="text-[16px] font-medium leading-[1.35] text-[#EDE4D8]">{title}</div>
-          <div className="mt-1 text-[13px] leading-[1.5] text-[#EDE4D8]/50">{description}</div>
+          <div className="text-[16px] font-medium leading-[1.35] text-foreground">{title}</div>
+          <div className="mt-1 text-[13px] leading-[1.5] text-foreground/50">{description}</div>
         </div>
         <span
           className={[
@@ -130,7 +130,7 @@ export default function CapabilitiesPage() {
   };
 
   const SectionLabel = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="mt-8 mb-2 px-4 text-[12px] font-medium uppercase tracking-[0.08em] text-[#EDE4D8]/40">
+    <h2 className="mt-8 mb-2 px-4 text-[12px] font-medium uppercase tracking-[0.08em] text-foreground/40">
       {children}
     </h2>
   );
@@ -143,7 +143,7 @@ export default function CapabilitiesPage() {
 
   return (
     <div
-      className="min-h-[100dvh] bg-background text-[#EDE4D8]"
+      className="min-h-[100dvh] bg-background text-foreground"
       style={{
         fontFamily:
           '"Neue Haas Unica","Helvetica Now Display",-apple-system,"SF Pro Display",Inter,"Segoe UI",Roboto,sans-serif',
@@ -160,13 +160,13 @@ export default function CapabilitiesPage() {
         <button
           aria-label="Back"
           onClick={() => navigate("/settings")}
-          className="w-9 h-9 grid place-items-center rounded-full text-[#EDE4D8]/85 active:scale-95 transition-transform"
+          className="w-9 h-9 grid place-items-center rounded-full text-foreground/85 active:scale-95 transition-transform"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-        <h1 className="text-center text-[17px] font-semibold text-[#EDE4D8] tracking-[-0.01em]">Capabilities</h1>
+        <h1 className="text-center text-[17px] font-semibold text-foreground tracking-[-0.01em]">Capabilities</h1>
         <div />
       </header>
 
@@ -209,7 +209,7 @@ export default function CapabilitiesPage() {
                 : "No memory captured yet"
             }
             trailing={
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#EDE4D8]/40">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/40">
                 <path d="M9 6l6 6-6 6" />
               </svg>
             }
@@ -217,7 +217,7 @@ export default function CapabilitiesPage() {
             last
           />
         </Card>
-        <p className="mt-2 px-4 text-[12px] leading-[1.5] text-[#EDE4D8]/40">
+        <p className="mt-2 px-4 text-[12px] leading-[1.5] text-foreground/40">
           Starts fresh and learns from your conversations.
         </p>
 

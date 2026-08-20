@@ -63,7 +63,7 @@ export default function SettingsPrivacyPage() {
       onClick={toggleTraining}
       className={[
         "relative inline-flex h-[28px] w-[48px] shrink-0 cursor-pointer rounded-full transition-colors duration-200",
-        trainingOptOut ? "bg-[#4C8BF5]" : "bg-[#3A3A3C]",
+        trainingOptOut ? "bg-[#4C8BF5]" : "bg-card",
       ].join(" ")}
     >
       <span
@@ -77,12 +77,12 @@ export default function SettingsPrivacyPage() {
   );
 
   const DataPrivacyCard = () => (
-    <div className="rounded-[18px] bg-[#1C1C1E] border border-white/[0.07] p-4">
-      <h3 className="text-[17px] font-semibold text-[#EDE4D8] mb-2">Data privacy</h3>
-      <p className="text-[13px] leading-[1.45] text-[#EDE4D8]/55">
+    <div className="rounded-[18px] bg-background border border-white/[0.07] p-4">
+      <h3 className="text-[17px] font-semibold text-foreground mb-2">Data privacy</h3>
+      <p className="text-[13px] leading-[1.45] text-foreground/55">
         Megsy believes in transparent data practices.
       </p>
-      <p className="mt-3 text-[13px] leading-[1.5] text-[#EDE4D8]/55">
+      <p className="mt-3 text-[13px] leading-[1.5] text-foreground/55">
         Keeping your data safe is a priority. Learn how your information is protected when using Megsy products, and visit our{" "}
         <a
           href="/privacy"
@@ -90,7 +90,7 @@ export default function SettingsPrivacyPage() {
             e.preventDefault();
             navigate("/privacy");
           }}
-          className="text-[#EDE4D8] underline underline-offset-2 decoration-[#EDE4D8]/30"
+          className="text-foreground underline underline-offset-2 decoration-[#EDE4D8]/30"
         >
           Privacy Center
         </a>{" "}
@@ -101,7 +101,7 @@ export default function SettingsPrivacyPage() {
             e.preventDefault();
             navigate("/privacy");
           }}
-          className="text-[#EDE4D8] underline underline-offset-2 decoration-[#EDE4D8]/30"
+          className="text-foreground underline underline-offset-2 decoration-[#EDE4D8]/30"
         >
           Privacy Policy
         </a>{" "}
@@ -111,19 +111,19 @@ export default function SettingsPrivacyPage() {
   );
 
   const ExportDataCard = () => (
-    <div className="rounded-[18px] bg-[#1C1C1E] border border-white/[0.07] p-4 flex items-start gap-3">
+    <div className="rounded-[18px] bg-background border border-white/[0.07] p-4 flex items-start gap-3">
       <div className="flex-1 min-w-0">
-        <h3 className="text-[17px] font-semibold text-[#EDE4D8] leading-tight">
+        <h3 className="text-[17px] font-semibold text-foreground leading-tight">
           Download my data
         </h3>
-        <p className="mt-1.5 text-[13px] leading-[1.5] text-[#EDE4D8]/55">
+        <p className="mt-1.5 text-[13px] leading-[1.5] text-foreground/55">
           Get a copy of your profile, conversations, messages, and other account data as a JSON file.
         </p>
         <button
           type="button"
           onClick={handleExportData}
           disabled={isExporting}
-          className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.08] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-[#EDE4D8] disabled:opacity-50"
+          className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.08] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-foreground disabled:opacity-50"
         >
           <Download className="w-[14px] h-[14px]" />
           {isExporting ? "Exporting…" : "Export my data"}
@@ -133,12 +133,12 @@ export default function SettingsPrivacyPage() {
   );
 
   const TrainingCard = () => (
-    <div className="rounded-[18px] bg-[#1C1C1E] border border-white/[0.07] p-4 flex items-start gap-3">
+    <div className="rounded-[18px] bg-background border border-white/[0.07] p-4 flex items-start gap-3">
       <div className="flex-1 min-w-0">
-        <h3 className="text-[17px] font-semibold text-[#EDE4D8] leading-tight">
+        <h3 className="text-[17px] font-semibold text-foreground leading-tight">
           Help improve our AI models
         </h3>
-        <p className="mt-1.5 text-[13px] leading-[1.5] text-[#EDE4D8]/55">
+        <p className="mt-1.5 text-[13px] leading-[1.5] text-foreground/55">
           Allow the use of your chats and coding sessions to train and improve Megsy AI models.{" "}
           <a
             href="/privacy"
@@ -146,7 +146,7 @@ export default function SettingsPrivacyPage() {
               e.preventDefault();
               navigate("/privacy");
             }}
-            className="text-[#EDE4D8] underline underline-offset-2 decoration-[#EDE4D8]/30"
+            className="text-foreground underline underline-offset-2 decoration-[#EDE4D8]/30"
           >
             Learn More
           </a>
@@ -185,7 +185,7 @@ export default function SettingsPrivacyPage() {
   }
 
   return (
-    <div className="min-h-[100dvh] bg-background text-[#EDE4D8] font-sans">
+    <div className="min-h-[100dvh] bg-background text-foreground font-sans">
       <style>{mobileCss}</style>
       <div className="privacy-root">
         {/* Topbar */}

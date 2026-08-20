@@ -191,7 +191,7 @@ export default function MobileAuthIntro({
                 animate={{ opacity: 1, height: 52, marginBottom: 0 }}
                 exit={{ opacity: 0, height: 0, marginBottom: -10 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="theme-fixed w-full flex items-center justify-center gap-2.5 rounded-full bg-white text-[#0b0d12] active:scale-[0.985] overflow-hidden"
+                className="theme-fixed w-full flex items-center justify-center gap-2.5 rounded-full bg-white text-background active:scale-[0.985] overflow-hidden"
                 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px", touchAction: "manipulation" }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
@@ -326,13 +326,13 @@ export default function MobileAuthIntro({
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
                 className={`w-full rounded-full flex items-center justify-center gap-2 active:scale-[0.985] transition-colors duration-300 disabled:opacity-50 overflow-hidden ${
                   primaryReady
-                    ? "theme-fixed bg-white text-[#0b0d12] border border-white"
+                    ? "theme-fixed bg-white text-background border border-white"
                     : "bg-transparent text-foreground border border-foreground/30"
                 }`}
                 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px", touchAction: "manipulation" }}
               >
                 {isSubmitting ? (
-                  <span className={`w-4 h-4 border-2 ${primaryReady ? "border-[#0b0d12]" : "border-white"} border-t-transparent rounded-full animate-spin`} />
+                  <span className={`w-4 h-4 border-2 ${primaryReady ? "border-background" : "border-white"} border-t-transparent rounded-full animate-spin`} />
                 ) : (
                   <>
                     {showPasswordField ? t.signIn : t.continue}

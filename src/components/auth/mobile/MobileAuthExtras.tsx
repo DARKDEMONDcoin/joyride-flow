@@ -57,7 +57,7 @@ const TopBar = ({ onBack }: { onBack: () => void }) => (
 const Spinner = ({ dark = false }: { dark?: boolean }) => (
   <span
     className={`w-4 h-4 border-2 rounded-full animate-spin ${
-      dark ? "border-[#0b0d12] border-t-transparent" : "border-foreground/70 border-t-transparent"
+      dark ? "border-background border-t-transparent" : "border-foreground/70 border-t-transparent"
     }`}
   />
 );
@@ -272,7 +272,7 @@ export default function MobileAuthExtras(p: Props) {
                   disabled={p.isSubmitting}
                   className={`w-full h-[52px] rounded-full flex items-center justify-center gap-2 active:scale-[0.985] transition-colors duration-300 disabled:opacity-50 ${
                     hasTypedValue
-                      ? "theme-fixed bg-white text-[#0b0d12] border border-white"
+                      ? "theme-fixed bg-white text-background border border-white"
                       : "bg-transparent text-foreground border border-foreground/30"
                   }`}
                   style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px" }}

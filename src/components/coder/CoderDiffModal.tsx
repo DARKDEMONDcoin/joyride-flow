@@ -71,7 +71,7 @@ export default function CoderDiffModal({ open, onClose, baseline, current }: Pro
 
   return createPortal(
     <div className="fixed inset-0 z-[110] bg-background/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
-      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
+      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-background border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
         <div className="flex items-center justify-between px-4 h-12 border-b border-foreground/10 bg-background/40">
           <div className="flex items-center gap-2 min-w-0">
             <FileDiff className="w-4 h-4 text-foreground/70" />

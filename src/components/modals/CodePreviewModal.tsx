@@ -279,7 +279,7 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
               title="Code preview"
             />
           ) : (
-            <pre className="flex-1 overflow-auto p-4 text-[12.5px] leading-relaxed font-mono bg-[#0b0d10] text-[#e6e8eb] whitespace-pre">
+            <pre className="flex-1 overflow-auto p-4 text-[12.5px] leading-relaxed font-mono bg-[#0b0d10] text-foreground whitespace-pre">
               <code>{selected.content}</code>
             </pre>
           )}

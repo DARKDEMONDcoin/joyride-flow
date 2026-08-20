@@ -87,7 +87,7 @@ export default function SettingsHelpPage() {
 
   return (
     <div
-      className="min-h-screen w-full bg-background text-[#f5f5f5]"
+      className="min-h-screen w-full bg-background text-foreground"
       style={{ fontFamily: '"DM Sans", "Inter", system-ui, sans-serif' }}
     >
       <div className="mx-auto w-full max-w-md px-6 py-8">
@@ -96,7 +96,7 @@ export default function SettingsHelpPage() {
           <button
             onClick={() => goBackOr(navigate, "/settings/support")}
             aria-label="Back"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-background/40 text-[#f5f5f5] transition-colors hover:bg-background/60 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/40 text-foreground transition-colors hover:bg-background/60 active:scale-95"
           >
             <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
           </button>
@@ -105,7 +105,7 @@ export default function SettingsHelpPage() {
         {/* Header */}
         <header className="mb-6 px-2">
           <h1
-            className="text-[32px] leading-tight font-semibold tracking-tight text-[#f5f5f5]"
+            className="text-[32px] leading-tight font-semibold tracking-tight text-foreground"
             style={{ fontFamily: '"Space Grotesk", "Inter", system-ui, sans-serif' }}
           >
             Help Center
@@ -113,8 +113,8 @@ export default function SettingsHelpPage() {
         </header>
 
         {/* Search */}
-        <div className="mb-8 flex items-center gap-3 rounded-[18px] border border-[#1a1a1a] bg-card px-4 py-3">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0 text-[#a0a0a0]">
+        <div className="mb-8 flex items-center gap-3 rounded-[18px] border border-border bg-card px-4 py-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0 text-muted-foreground">
             <circle cx="11" cy="11" r="7" />
             <path strokeLinecap="round" d="m20 20-3.5-3.5" />
           </svg>
@@ -122,7 +122,7 @@ export default function SettingsHelpPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search articles"
-            className="flex-1 bg-transparent text-[14.5px] text-[#f5f5f5] outline-none placeholder:text-[#6b6b6b]"
+            className="flex-1 bg-transparent text-[14.5px] text-foreground outline-none placeholder:text-muted-foreground"
           />
         </div>
 
@@ -130,27 +130,27 @@ export default function SettingsHelpPage() {
         {filtered.map((sec) => (
           <section key={sec.title} className="mb-8 flex flex-col gap-3">
             <h2
-              className="px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#a0a0a0]"
+              className="px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground"
               style={{ fontFamily: '"Space Grotesk", "Inter", system-ui, sans-serif' }}
             >
               {sec.title}
             </h2>
-            <div className="overflow-hidden rounded-[24px] border border-[#1a1a1a] bg-background/40">
+            <div className="overflow-hidden rounded-[24px] border border-border bg-background/40">
               {sec.items.map((it, i) => {
                 const key = `${sec.title}-${i}`;
                 const open = openKey === key;
                 return (
                   <div
                     key={key}
-                    className={`${i > 0 ? "border-t border-[#1a1a1a]" : ""}`}
+                    className={`${i > 0 ? "border-t border-border" : ""}`}
                   >
                     <button
                       onClick={() => setOpenKey(open ? null : key)}
                       className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-background/60 active:scale-[0.99]"
                     >
-                      <span className="text-[14.5px] font-medium text-[#f5f5f5]">{it.q}</span>
+                      <span className="text-[14.5px] font-medium text-foreground">{it.q}</span>
                       <ChevronDown
-                        className={`h-4 w-4 shrink-0 text-[#a0a0a0] transition-transform ${open ? "rotate-180" : ""}`}
+                        className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
                         strokeWidth={2}
                       />
                     </button>
@@ -159,7 +159,7 @@ export default function SettingsHelpPage() {
                       style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-5 pb-4 text-[13.5px] leading-[1.6] text-[#a0a0a0]">{it.a}</p>
+                        <p className="px-5 pb-4 text-[13.5px] leading-[1.6] text-muted-foreground">{it.a}</p>
                       </div>
                     </div>
                   </div>
@@ -170,9 +170,9 @@ export default function SettingsHelpPage() {
         ))}
 
         {filtered.length === 0 && (
-          <div className="rounded-[24px] border border-[#1a1a1a] bg-background/40 p-8 text-center">
-            <p className="text-[15px] font-semibold text-[#f5f5f5]">No matches</p>
-            <span className="mt-1 block text-[13px] text-[#a0a0a0]">Try a different keyword.</span>
+          <div className="rounded-[24px] border border-border bg-background/40 p-8 text-center">
+            <p className="text-[15px] font-semibold text-foreground">No matches</p>
+            <span className="mt-1 block text-[13px] text-muted-foreground">Try a different keyword.</span>
           </div>
         )}
       </div>

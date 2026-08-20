@@ -418,7 +418,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
 
   const modal = useMemo(() => (
     <div className="theme-fixed coder-fixed fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
-      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
+      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-background border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between px-3 sm:px-4 h-12 border-b border-foreground/10 bg-background/40">
           <div className="flex items-center gap-2 min-w-0">
@@ -459,7 +459,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
         {/* Body */}
         <div className="flex-1 min-h-0 overflow-hidden">
           {tab === "preview" && (
-            <div className="h-full flex flex-col bg-[#050506]">
+            <div className="h-full flex flex-col bg-background">
               <div className="flex items-center justify-between px-3 h-9 border-b border-foreground/10">
                 <span className="text-[12px] text-foreground/60">Live preview — reflects saved files</span>
                 <button
@@ -583,7 +583,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
           )}
 
           {tab === "terminal" && (
-            <div className="h-full flex flex-col bg-[#050506]">
+            <div className="h-full flex flex-col bg-background">
               <div ref={termRef} className="flex-1 overflow-y-auto p-3 font-mono text-[12.5px] leading-relaxed" dir="ltr">
                 {history.map((h, i) => (
                   <div
@@ -641,7 +641,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                   onChange={(e) => setPyCode(e.target.value)}
                   spellCheck={false}
                   dir="ltr"
-                  className="w-full h-full bg-[#0b0b0f] text-foreground/90 font-mono text-[12.5px] leading-relaxed p-3 outline-none resize-none border-b border-foreground/10"
+                  className="w-full h-full bg-background text-foreground/90 font-mono text-[12.5px] leading-relaxed p-3 outline-none resize-none border-b border-foreground/10"
                 />
                 <pre
                   dir="ltr"
