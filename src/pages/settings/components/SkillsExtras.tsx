@@ -4,7 +4,7 @@
  */
 import { useRef, useState } from "react";
 import { Drawer } from "vaul";
-import { Plus, Sparkles, FileUp, ChevronLeft } from "lucide-react";
+import { Plus, Sparkles, FileUp, ChevronLeft, ShieldCheck, Github } from "lucide-react";
 import skillsHero from "@/assets/skills-hero-glass.jpg";
 
 export function SkillsHeroGlassCard({ onTry }: { onTry: () => void }) {
@@ -59,9 +59,13 @@ export function SkillsHeroGlassCard({ onTry }: { onTry: () => void }) {
 export function SkillsAddMenu({
   onCreateWithMegsy,
   onCreateFromFiles,
+  onFromLibrary,
+  onFromGithub,
 }: {
   onCreateWithMegsy: () => void;
   onCreateFromFiles: (file: File) => void;
+  onFromLibrary?: () => void;
+  onFromGithub?: (url: string) => void;
 }) {
   const [open, setOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -90,7 +94,7 @@ export function SkillsAddMenu({
             }}
           >
             <Plus className="w-3.5 h-3.5" strokeWidth={2.4} />
-            Add
+            Create
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
@@ -111,8 +115,8 @@ export function SkillsAddMenu({
               className="mx-auto mt-2.5 mb-2 !w-10 !h-1.5 !bg-muted-foreground/40"
             />
             <div className="px-4 pt-3 pb-[calc(env(safe-area-inset-bottom,0px)+20px)]">
-              <p className="text-[15px] font-semibold mb-3 text-right">
-                Add skill
+              <p className="text-[15px] font-semibold mb-3 text-center">
+                Create skills
               </p>
 
               <button
@@ -156,6 +160,54 @@ export function SkillsAddMenu({
                 </span>
                 <ChevronLeft className="w-4 h-4 text-muted-foreground shrink-0" />
               </button>
+
+              {onFromLibrary && (
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    onFromLibrary();
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl mt-2.5 text-right transition-colors bg-muted/60 hover:bg-muted border border-border"
+                >
+                  <span className="shrink-0 w-10 h-10 rounded-xl grid place-items-center bg-foreground/10">
+                    <ShieldCheck className="w-5 h-5" strokeWidth={1.8} />
+                  </span>
+                  <span className="flex-1 min-w-0 flex flex-col gap-1 text-right">
+                    <span className="text-[15px] font-semibold leading-tight">
+                      Add from official library
+                    </span>
+                    <span className="text-[12.5px] text-muted-foreground leading-snug">
+                      Ready-made skills maintained by Megsy
+                    </span>
+                  </span>
+                  <ChevronLeft className="w-4 h-4 text-muted-foreground shrink-0" />
+                </button>
+              )}
+
+              {onFromGithub && (
+                <button
+                  onClick={() => {
+                    const url = window.prompt("Paste the GitHub repository URL");
+                    if (!url || !url.trim()) return;
+                    setOpen(false);
+                    onFromGithub(url.trim());
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl mt-2.5 text-right transition-colors bg-muted/60 hover:bg-muted border border-border"
+                >
+                  <span className="shrink-0 w-10 h-10 rounded-xl grid place-items-center bg-foreground/10">
+                    <Github className="w-5 h-5" strokeWidth={1.8} />
+                  </span>
+                  <span className="flex-1 min-w-0 flex flex-col gap-1 text-right">
+                    <span className="text-[15px] font-semibold leading-tight">
+                      Import from GitHub
+                    </span>
+                    <span className="text-[12.5px] text-muted-foreground leading-snug">
+                      Paste the repository link to start
+                    </span>
+                  </span>
+                  <ChevronLeft className="w-4 h-4 text-muted-foreground shrink-0" />
+                </button>
+              )}
             </div>
           </Drawer.Content>
 
