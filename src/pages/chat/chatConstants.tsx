@@ -1,11 +1,7 @@
 // Static prompts, constants, types, and small presentational atoms used by
 // ChatPage. Extracted out of ChatPage.tsx to shrink the monolithic file and
 // improve HMR / code-splitting.
-import Claude from "@lobehub/icons/es/Claude";
-import Gemini from "@lobehub/icons/es/Gemini";
-import OpenAI from "@lobehub/icons/es/OpenAI";
-import Zhipu from "@lobehub/icons/es/Zhipu";
-import Kimi from "@lobehub/icons/es/Kimi";
+import { lazy, Suspense } from "react";
 import { useBrandLogo } from "@/hooks/useBrandLogo";
 import {
   isLegacyMegsyChatSelection,
@@ -330,17 +326,51 @@ export function getEffortPresetsForModel(modelId: string | null | undefined): Ef
 }
 
 
+// Brand logos are ~85 KB of SVG paths. Loading them eagerly pulled six extra
+// chunks into the first paint even though the default model shows the Megsy
+// logo. Each brand is fetched only when that brand is actually rendered.
+const LazyBrandLogo: Partial<Record<ChatModelBrand, React.ComponentType>> = {
+  claude: lazy(() =>
+    import("@lobehub/icons/es/Claude").then((m) => ({
+      default: () => <m.default.Color size={18} />,
+    })),
+  ),
+  gemini: lazy(() =>
+    import("@lobehub/icons/es/Gemini").then((m) => ({
+      default: () => <m.default.Color size={18} />,
+    })),
+  ),
+  openai: lazy(() =>
+    import("@lobehub/icons/es/OpenAI").then((m) => ({
+      default: () => <m.default size={18} />,
+    })),
+  ),
+  glm: lazy(() =>
+    import("@lobehub/icons/es/Zhipu").then((m) => ({
+      default: () => <m.default.Color size={18} />,
+    })),
+  ),
+  kimi: lazy(() =>
+    import("@lobehub/icons/es/Kimi").then((m) => ({
+      default: () => <m.default.Color size={18} />,
+    })),
+  ),
+};
+
 export const ComposerModelIcon = ({
   brand,
 }: {
   brand: ChatModelBrand;
 }) => {
   const megsyLogo = useBrandLogo();
-  if (brand === "claude") return <Claude.Color size={18} />;
-  if (brand === "gemini") return <Gemini.Color size={18} />;
-  if (brand === "openai") return <OpenAI size={18} />;
-  if (brand === "glm") return <Zhipu.Color size={18} />;
-  if (brand === "kimi") return <Kimi.Color size={18} />;
+  const Logo = LazyBrandLogo[brand];
+  if (Logo) {
+    return (
+      <Suspense fallback={<span className="inline-block w-[18px] h-[18px]" />}>
+        <Logo />
+      </Suspense>
+    );
+  }
   return (
     <img decoding="async"
       src={megsyLogo}
