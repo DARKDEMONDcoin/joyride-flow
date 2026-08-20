@@ -30,7 +30,7 @@ export default function TasksMenu({
       />
       <div
         className="relative w-full rounded-t-3xl pb-[env(safe-area-inset-bottom)]"
-        style={{ background: "#141414", border: "1px solid hsl(0 0% 100% / 0.08)" }}
+        style={{ background: "hsl(var(--background))", border: "1px solid hsl(0 0% 100% / 0.08)" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 pt-4">

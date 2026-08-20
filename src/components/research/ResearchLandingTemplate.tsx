@@ -351,7 +351,7 @@ const ResearchLandingTemplate = ({
             <section className="px-3 pb-10 sm:px-6 sm:pb-16 md:pb-20">
               <div
                 className="mx-auto max-w-5xl overflow-hidden rounded-2xl md:rounded-[2rem] px-5 py-10 sm:px-10 sm:py-14 md:px-14 md:py-16"
-                style={{ backgroundColor: "#101010" }}
+                style={{ backgroundColor: "hsl(var(--background))" }}
               >
                 <div
                   className="mb-5 text-[10px] font-bold uppercase tracking-[0.28em] sm:text-xs"
@@ -477,7 +477,7 @@ const SectionCard = ({
       lang={"en"}
       dir={"ltr"}
       className="scroll-mt-24 overflow-hidden rounded-2xl md:rounded-[1.75rem]"
-      style={{ backgroundColor: "#212121" }}
+      style={{ backgroundColor: "hsl(var(--card))" }}
     >
       {image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">

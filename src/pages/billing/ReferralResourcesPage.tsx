@@ -151,7 +151,7 @@ const ReferralResourcesPage = () => {
                 className="overflow-hidden rounded-2xl"
                 style={{ backgroundColor: SURFACE, border: `2px solid ${BORDER}` }}
               >
-                <div className="relative aspect-[9/16] w-full" style={{ backgroundColor: "#000" }}>
+                <div className="relative aspect-[9/16] w-full" style={{ backgroundColor: "hsl(var(--background))" }}>
                   <video
                     src={v.asset.url}
                     className="h-full w-full object-cover"

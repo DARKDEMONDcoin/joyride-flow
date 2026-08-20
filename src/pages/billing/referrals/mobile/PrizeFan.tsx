@@ -139,7 +139,7 @@ export default function PrizeFan({ cards }: { cards: CreditCard[] }) {
             zIndex: 2,
             padding: 8,
             borderRadius: 22,
-            background: "#000",
+            background: "hsl(var(--background))",
             boxShadow: "0 30px 70px -26px rgba(160,200,255,0.30)",
           }}
         >

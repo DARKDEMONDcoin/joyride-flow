@@ -94,7 +94,7 @@ export default function MoonshotHero() {
         style={{ background: "hsl(0 0% 100% / 0.06)" }}
       >
         {stats.map((s) => (
-          <div key={s.label} className="px-1 py-3 text-center" style={{ background: "#0b0b0b" }}>
+          <div key={s.label} className="px-1 py-3 text-center" style={{ background: "hsl(var(--background))" }}>
             <p className="text-[15px] font-semibold text-foreground">{s.value}</p>
             <p className="mt-0.5 text-[10.5px] text-foreground/50">{s.label}</p>
           </div>
