@@ -165,7 +165,11 @@ export const preloadCommonRoutes = () => {
 
   // 1) Warm heavy shared chunks first — every real page uses them, so
   //    fetching them once here means later route loads are chunk-only.
-  const warmShared: Array<() => Promise<unknown>> = [() => import("lucide-react")];
+  //    NOTE: never `import("lucide-react")` here — a dynamic barrel import
+  //    defeats tree-shaking and drags the ENTIRE icon library (600 kB) into
+  //    the shared chunk. The `icons` chunk is warmed for free by the route
+  //    chunks below, which import only the icons they render.
+  const warmShared: Array<() => Promise<unknown>> = [];
 
   // 2) Then warm the most-likely destination routes.
   const routeTasks: Array<() => Promise<unknown>> = isMobile

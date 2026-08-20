@@ -9,8 +9,8 @@
          immediately — no spinner, no flash. -->
     <style>
       :root { color-scheme: dark; }
-      html, body { background-color: #0a0a0a; margin: 0; }
-      #root { min-height: 100dvh; background-color: #0a0a0a; }
+      html, body { background-color: #1c1c1c; margin: 0; }
+      #root { min-height: 100dvh; background-color: #1c1c1c; }
       #root[data-snapshot-preview="true"] { pointer-events: none; user-select: none; contain: paint; }
       #instant-shell {
         position: fixed;
@@ -53,7 +53,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- canonical is set per-route via SEOHead/Helmet to avoid every page pointing to homepage -->
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#1c1c1c" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="format-detection" content="telephone=no" />
@@ -79,15 +79,11 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" /></noscript>
-    <!-- Non-blocking secondary families (loaded after first paint via the print→all onload trick). -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&family=Almarai:wght@300;400;700;800&display=swap" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&family=Readex+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'" />
-    <!-- SEO landings (SynapseX-style): Space Mono, Anton SC, Bootstrap Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Anton+SC&display=swap" media="print" onload="this.media='all'" />
-    <!-- Landing pages typography: Sora (headings) + Manrope (body) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'" />
+    <!-- Every secondary family in ONE non-blocking request (was 5 separate
+         stylesheets + an unused icon font = 6 extra round-trips before the
+         browser could finish font loading). print→all keeps it off the
+         critical path. -->
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&family=Work+Sans:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Arabic:wght@400;600;700&family=Almarai:wght@300;400;700;800&family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;700&family=Readex+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Anton+SC&family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" />
 
     <!-- ITC Garamond Std Narrow (mobile showcase screens) -->
     <style>
