@@ -279,19 +279,29 @@ const knCss = `
 }
 .kn-save:disabled { opacity: 0.5; }
 
-.kn-fields { padding: 6px 14px 0; display: grid; gap: 6px; }
-.kn-label { margin-top: 12px; font-size: 13px; color: rgba(232,232,232,0.7); }
+.kn-fields { padding: 8px 16px 0; display: grid; gap: 4px; }
+.kn-label {
+  margin-top: 16px; font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: rgba(232,232,232,0.45);
+}
 .kn-req { color: var(--mn-danger); }
 .kn-input {
   width: 100%; box-sizing: border-box;
-  background: var(--mn-input); border: 1px solid transparent; border-radius: 12px;
-  padding: 12px 14px; color: var(--mn-fg); font: inherit; font-size: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 11px 13px; color: var(--mn-fg); font: inherit; font-size: 14px;
+  line-height: 1.45;
   outline: none; transition: border-color 160ms ease, background 160ms ease;
 }
-.kn-input::placeholder { color: var(--mn-muted); }
-.kn-input:focus { border-color: rgba(255,255,255,0.18); background: var(--mn-card-2); }
-.kn-area { min-height: 80px; resize: none; line-height: 1.5; }
-.kn-area-lg { min-height: 120px; }
+.kn-input::placeholder { color: rgba(232,232,232,0.32); }
+.kn-input:focus {
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+}
+.kn-area { min-height: 64px; resize: none; }
+.kn-area-lg { min-height: 92px; }
 
 @keyframes kn-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes kn-fade { from { opacity: 0; } to { opacity: 1; } }
