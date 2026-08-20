@@ -6,6 +6,7 @@ import { usePromoBanner } from "@/components/promo/usePromoBanner";
 import { useSidebarCollapsed } from "@/hooks/useSidebarCollapsed";
 import { useTrackInAppNavigation } from "@/hooks/useSmartBack";
 import { pathForZone, stripZonePrefix } from "@/lib/zoneRouting";
+import { bootstrapAuth, getAuthState, subscribeAuthState } from "@/lib/authStore";
 import { UnlimitedPromoBanner } from "./lazyPages";
 // Redirect legacy /tools/<slug> to /images/tools/<slug>
 export const LegacyToolsRedirect = () => {
