@@ -62,6 +62,7 @@ import {
   SwitchAccountPage,
   SkillsSettingsPage,
   SkillsNewPage,
+  SkillsLibraryPage,
   // marketing
   PricingPage,
 } from "./lazyPages";
@@ -165,6 +166,7 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/marketplace" element={<ProtectedRoute><MarketplacePage /></ProtectedRoute>} />
     <Route path="/settings/skills" element={<ProtectedRoute><SkillsSettingsPage /></ProtectedRoute>} />
     <Route path="/settings/skills/new" element={<ProtectedRoute><SkillsNewPage /></ProtectedRoute>} />
+    <Route path="/settings/skills/library" element={<ProtectedRoute><SkillsLibraryPage /></ProtectedRoute>} />
     <Route path="/skills" element={<ProtectedRoute><SkillsSettingsPage /></ProtectedRoute>} />
     <Route path="/settings/support" element={<ProtectedRoute><SettingsSupportPage /></ProtectedRoute>} />
     <Route path="/settings/support/help" element={<ProtectedRoute><SettingsHelpPage /></ProtectedRoute>} />
