@@ -61,7 +61,7 @@ export default function TierProgressCard() {
   const progress = Math.max(refsPct, mrrPct);
 
   return (
-    <div className="relative overflow-hidden rounded-[24px] bg-black ref-gold-hairline p-5">
+    <div className="relative overflow-hidden rounded-[24px] bg-background ref-gold-hairline p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <span
@@ -87,18 +87,18 @@ export default function TierProgressCard() {
           >
             {currentName} · {currentPct}%
           </h2>
-          <p className="mt-2 text-[12px] text-white/55">
+          <p className="mt-2 text-[12px] text-foreground/55">
             Lifetime cash on every payment your referrals make.
           </p>
         </div>
         <div className="text-right shrink-0">
-          <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-white/45">
+          <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
             Active refs
           </div>
-          <div className="mt-1 text-[20px] font-light tabular-nums text-white">
+          <div className="mt-1 text-[20px] font-light tabular-nums text-foreground">
             {loading ? "—" : activeRefs}
           </div>
-          <div className="mt-2 text-[9.5px] font-medium uppercase tracking-[0.2em] text-white/45">
+          <div className="mt-2 text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
             90-day MRR
           </div>
           <div
@@ -113,16 +113,16 @@ export default function TierProgressCard() {
       {nextName && nextPct !== null ? (
         <div className="mt-5">
           <div className="flex items-center justify-between text-[11.5px]">
-            <span className="inline-flex items-center gap-1.5 text-white/70">
+            <span className="inline-flex items-center gap-1.5 text-foreground/70">
               <TrendingUp className="h-3 w-3" style={{ color: GOLD }} strokeWidth={2} />
               Next · {nextName} · {nextPct}%
             </span>
-            <span className="tabular-nums text-white/45">{Math.round(progress)}%</span>
+            <span className="tabular-nums text-foreground/45">{Math.round(progress)}%</span>
           </div>
           <div className="mt-2 ref-rail">
             <div className="ref-rail__fill" style={{ width: `${progress}%` }} />
           </div>
-          <p className="mt-2 text-[11px] text-white/45 tabular-nums">
+          <p className="mt-2 text-[11px] text-foreground/45 tabular-nums">
             {Math.max(0, nextRefs - activeRefs)} more active refs · or · $
             {Math.max(0, nextMrrDollars - netMrr).toFixed(0)} more 90-day MRR
           </p>

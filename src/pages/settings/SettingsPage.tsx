@@ -191,7 +191,7 @@ const SettingsPage = () => {
           transition={{ ...iosSpring, delay: 0.12 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => go("/pricing")}
-          className="mt-6 w-full rounded-2xl px-4 py-3.5 flex items-center gap-3 text-left text-white border border-white/10"
+          className="mt-6 w-full rounded-2xl px-4 py-3.5 flex items-center gap-3 text-left text-foreground border border-foreground/10"
           style={{
             background: "linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #4F46E5 100%)",
             boxShadow: "0 12px 28px -12px rgba(99, 102, 241, 0.6)",
@@ -274,7 +274,7 @@ const SettingsPage = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setLangSheet(false)}
-              className="fixed inset-0 bg-black/50 z-40"
+              className="fixed inset-0 bg-background/50 z-40"
             />
             <motion.div
               initial={{ y: "100%" }}

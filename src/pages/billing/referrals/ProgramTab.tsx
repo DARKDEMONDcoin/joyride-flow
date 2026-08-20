@@ -36,7 +36,7 @@ export default function ProgramTab() {
   return (
     <section className="space-y-4 pb-16">
       {/* Program hero — obsidian */}
-      <div className="relative overflow-hidden rounded-[24px] bg-black ref-gold-hairline p-6">
+      <div className="relative overflow-hidden rounded-[24px] bg-background ref-gold-hairline p-6">
         <div className="ref-monogram">
           <MegsyStar className="h-full w-full" />
         </div>
@@ -68,7 +68,7 @@ export default function ProgramTab() {
             <br />
             For life.
           </h1>
-          <p className="mt-3 max-w-[300px] text-[13px] leading-relaxed text-white/60">
+          <p className="mt-3 max-w-[300px] text-[13px] leading-relaxed text-foreground/60">
             A baseline that grows with your reach. Every referral, every renewal — credited to
             your ledger, indefinitely.
           </p>
@@ -82,7 +82,7 @@ export default function ProgramTab() {
                 border: `1px solid ${GOLD}33`,
               }}
             >
-              <div className="flex items-center gap-1.5 text-white/60">
+              <div className="flex items-center gap-1.5 text-foreground/60">
                 <Check className="h-3.5 w-3.5" strokeWidth={2.4} style={{ color: GOLD }} />
                 <span className="text-[10.5px] font-medium uppercase tracking-[0.18em]">
                   Cash
@@ -94,7 +94,7 @@ export default function ProgramTab() {
               >
                 {COMMISSION_PCT}%
               </div>
-              <div className="text-[11px] text-white/45">Lifetime</div>
+              <div className="text-[11px] text-foreground/45">Lifetime</div>
             </div>
             <div
               className="rounded-2xl px-3 py-3"
@@ -103,7 +103,7 @@ export default function ProgramTab() {
                 border: `1px solid ${GOLD}33`,
               }}
             >
-              <div className="flex items-center gap-1.5 text-white/60">
+              <div className="flex items-center gap-1.5 text-foreground/60">
                 <Check className="h-3.5 w-3.5" strokeWidth={2.4} style={{ color: GOLD }} />
                 <span className="text-[10.5px] font-medium uppercase tracking-[0.18em]">
                   Credits
@@ -115,7 +115,7 @@ export default function ProgramTab() {
               >
                 +{CREDITS_PER_SIGNUP}
               </div>
-              <div className="text-[11px] text-white/45">Per signup</div>
+              <div className="text-[11px] text-foreground/45">Per signup</div>
             </div>
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function ProgramTab() {
       {/* How it works */}
       <div>
         <div className="mb-3 flex items-center justify-between px-1">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
             How it works
           </p>
-          <span className="inline-flex items-center gap-1 text-[10.5px] font-medium uppercase tracking-[0.18em] text-white/40">
+          <span className="inline-flex items-center gap-1 text-[10.5px] font-medium uppercase tracking-[0.18em] text-foreground/40">
             <TrendingUp className="h-3 w-3" style={{ color: GOLD }} />
             Compounding
           </span>
@@ -143,7 +143,7 @@ export default function ProgramTab() {
               className="flex items-center gap-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] px-4 py-3.5"
             >
               <span
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-xl text-white/85"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-xl text-foreground/85"
                 style={{
                   background: "hsl(0 0% 100% / 0.04)",
                   border: `1px solid ${GOLD}55`,
@@ -152,8 +152,8 @@ export default function ProgramTab() {
                 {s.icon}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[13.5px] font-medium leading-tight text-white">{s.t}</p>
-                <p className="mt-1 text-[11.5px] text-white/50">{s.d}</p>
+                <p className="text-[13.5px] font-medium leading-tight text-foreground">{s.t}</p>
+                <p className="mt-1 text-[11.5px] text-foreground/50">{s.d}</p>
               </div>
               <span
                 className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-[11px] font-mono tabular-nums"

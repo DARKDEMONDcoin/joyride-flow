@@ -31,7 +31,7 @@ export function SubShell({ title, subtitle, backTo = "/settings", action, childr
         <div className="relative z-10 mx-auto max-w-3xl settings-page-enter">
           <button
             onClick={goBack}
-            className="mb-6 inline-flex items-center gap-1.5 text-[12.5px] text-white/60 hover:text-[#e6c56a] transition-colors group"
+            className="mb-6 inline-flex items-center gap-1.5 text-[12.5px] text-foreground/60 hover:text-[#e6c56a] transition-colors group"
           >
             <ChevronLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" strokeWidth={2} />
             Settings
@@ -73,7 +73,7 @@ export function SubShell({ title, subtitle, backTo = "/settings", action, childr
               </div>
               {action && <div className="shrink-0">{action}</div>}
             </header>
-            <div className="px-8 py-6 space-y-2 text-white">{children}</div>
+            <div className="px-8 py-6 space-y-2 text-foreground">{children}</div>
           </div>
         </div>
       </DesktopSettingsLayout>
@@ -123,13 +123,13 @@ export function SubSection({ title, description, children }: SubSectionProps) {
     );
   }
   return (
-    <section className="py-5 border-t border-white/8 first:border-t-0 first:pt-2">
+    <section className="py-5 border-t border-foreground/8 first:border-t-0 first:pt-2">
       <div className="mb-2.5">
-        <h2 className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-white/55">
+        <h2 className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-foreground/55">
           {title}
         </h2>
         {description && (
-          <p className="mt-1.5 text-[11.5px] text-white/60 leading-relaxed">
+          <p className="mt-1.5 text-[11.5px] text-foreground/60 leading-relaxed">
             {description}
           </p>
         )}

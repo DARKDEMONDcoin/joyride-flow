@@ -83,15 +83,15 @@ export function CostEstimateDialog({
 
   return (
     <Dialog open={open} onOpenChange={(o) => (o ? onOpenChange(o) : cancel())}>
-      <DialogContent className="sm:max-w-[420px] bg-black/85 backdrop-blur-xl border-white/10">
+      <DialogContent className="sm:max-w-[420px] bg-background/85 backdrop-blur-xl border-foreground/10">
         <DialogHeader>
           <div className="flex items-center gap-2.5">
             <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 border border-emerald-500/30">
               <Zap className="h-4 w-4 text-emerald-400" />
             </div>
             <div className="text-left">
-              <DialogTitle className="text-white text-base">Confirm operation</DialogTitle>
-              <DialogDescription className="text-white/60 text-xs">
+              <DialogTitle className="text-foreground text-base">Confirm operation</DialogTitle>
+              <DialogDescription className="text-foreground/60 text-xs">
                 {operation}
               </DialogDescription>
             </div>
@@ -100,8 +100,8 @@ export function CostEstimateDialog({
 
         <div className="space-y-3 py-2">
           {/* Cost row */}
-          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5">
-            <span className="text-xs text-white/60">Estimated cost</span>
+          <div className="flex items-center justify-between rounded-xl border border-foreground/10 bg-white/[0.03] px-3.5 py-2.5">
+            <span className="text-xs text-foreground/60">Estimated cost</span>
             <span className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-400 tabular-nums">
               <Sparkles className="h-3.5 w-3.5" />
               {estimatedCost.toLocaleString()}
@@ -109,12 +109,12 @@ export function CostEstimateDialog({
           </div>
 
           {/* Balance row */}
-          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5">
-            <span className="text-xs text-white/60">Current balance</span>
+          <div className="flex items-center justify-between rounded-xl border border-foreground/10 bg-white/[0.03] px-3.5 py-2.5">
+            <span className="text-xs text-foreground/60">Current balance</span>
             <span
               className={cn(
                 "text-sm font-semibold tabular-nums",
-                loading ? "text-white/40" : enough ? "text-white/90" : "text-red-400",
+                loading ? "text-foreground/40" : enough ? "text-foreground/90" : "text-red-400",
               )}
             >
               {isPaid
@@ -127,7 +127,7 @@ export function CostEstimateDialog({
 
           {/* Remaining preview */}
           {!isPaid && remaining !== null && (
-            <div className="flex items-center justify-between px-3.5 text-[11px] text-white/50">
+            <div className="flex items-center justify-between px-3.5 text-[11px] text-foreground/50">
               <span>After this operation</span>
               <span className="tabular-nums">{remaining.toLocaleString()} credits</span>
             </div>
@@ -151,9 +151,9 @@ export function CostEstimateDialog({
             <Checkbox
               checked={suppress}
               onCheckedChange={(v) => setSuppress(Boolean(v))}
-              className="border-white/20 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500"
+              className="border-foreground/20 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500"
             />
-            <span className="text-[11px] text-white/60">Don't ask me again for this</span>
+            <span className="text-[11px] text-foreground/60">Don't ask me again for this</span>
           </label>
         </div>
 
@@ -161,7 +161,7 @@ export function CostEstimateDialog({
           <Button
             variant="ghost"
             onClick={cancel}
-            className="flex-1 sm:flex-none text-white/70 hover:text-white hover:bg-white/5"
+            className="flex-1 sm:flex-none text-foreground/70 hover:text-foreground hover:bg-foreground/5"
           >
             Cancel
           </Button>
@@ -169,7 +169,7 @@ export function CostEstimateDialog({
             onClick={confirm}
             disabled={!enough || loading}
             className={cn(
-              "flex-1 sm:flex-none bg-emerald-500 text-black hover:bg-emerald-400 font-semibold",
+              "flex-1 sm:flex-none bg-emerald-500 text-background hover:bg-emerald-400 font-semibold",
               "shadow-[0_0_24px_-6px_rgba(80,200,120,0.65)]",
             )}
           >

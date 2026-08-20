@@ -25,20 +25,20 @@ export function CleanCard({
   return (
     <section
       className={cn(
-        "rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-xl text-white shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]",
+        "rounded-2xl border border-foreground/10 bg-white/[0.05] backdrop-blur-xl text-foreground shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]",
         className,
       )}
     >
       {(title || description || action) && (
-        <header className="flex items-start justify-between gap-4 px-6 pt-5 pb-4 border-b border-white/10">
+        <header className="flex items-start justify-between gap-4 px-6 pt-5 pb-4 border-b border-foreground/10">
           <div className="min-w-0">
             {title && (
-              <h3 className="font-display text-[15px] font-bold tracking-tight text-white">
+              <h3 className="font-display text-[15px] font-bold tracking-tight text-foreground">
                 {title}
               </h3>
             )}
             {description && (
-              <p className="mt-1 text-[12.5px] text-white/60 leading-relaxed">
+              <p className="mt-1 text-[12.5px] text-foreground/60 leading-relaxed">
                 {description}
               </p>
             )}
@@ -66,12 +66,12 @@ export function CleanField({
     <div className="space-y-1.5">
       <label
         htmlFor={htmlFor}
-        className="block text-[12px] font-semibold text-white/90 tracking-tight"
+        className="block text-[12px] font-semibold text-foreground/90 tracking-tight"
       >
         {label}
       </label>
       {children}
-      {hint && <p className="text-[11.5px] text-white/55">{hint}</p>}
+      {hint && <p className="text-[11.5px] text-foreground/55">{hint}</p>}
     </div>
   );
 }
@@ -79,7 +79,7 @@ export function CleanField({
 /* ---------- Inputs ---------- */
 
 const inputCls =
-  "w-full h-10 px-3.5 rounded-lg border border-white/12 bg-white/[0.06] text-[13.5px] text-white placeholder:text-white/40 outline-none transition-colors focus:border-white/40 focus:bg-white/[0.09]";
+  "w-full h-10 px-3.5 rounded-lg border border-foreground/12 bg-white/[0.06] text-[13.5px] text-foreground placeholder:text-foreground/40 outline-none transition-colors focus:border-foreground/40 focus:bg-white/[0.09]";
 
 export function CleanInput(props: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={cn(inputCls, props.className)} />;

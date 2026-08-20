@@ -3,7 +3,7 @@ import type { ToolCallMessagePartComponent } from "@assistant-ui/react";
 
 /**
  * Fallback UI لأي tool call لا يمتلك makeAssistantToolUI مسجل.
- * يحافظ على نفس styling الـ ToolCard الحالي (bg-muted/40, border-white/10,
+ * يحافظ على نفس styling الـ ToolCard الحالي (bg-muted/40, border-foreground/10,
  * rounded-2xl) حتى تبقى الرسائل متسقة بصريًا.
  */
 export const ToolFallback: ToolCallMessagePartComponent = ({
@@ -13,7 +13,7 @@ export const ToolFallback: ToolCallMessagePartComponent = ({
   status,
 }) => {
   return (
-    <div className="my-2 rounded-2xl border border-white/10 bg-muted/40 p-3 text-sm">
+    <div className="my-2 rounded-2xl border border-foreground/10 bg-muted/40 p-3 text-sm">
       <div className="flex items-center gap-2 text-xs opacity-80">
         <Wrench className="h-3.5 w-3.5" />
         <span className="font-medium">{toolName}</span>

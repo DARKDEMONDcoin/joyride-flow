@@ -22,14 +22,14 @@ export default function WithdrawalsTab() {
   return (
     <div className="space-y-4 pb-16">
       {/* Reservoir hero */}
-      <div className="relative overflow-hidden rounded-[24px] bg-black ref-gold-hairline p-5">
+      <div className="relative overflow-hidden rounded-[24px] bg-background ref-gold-hairline p-5">
         <div className="ref-monogram">
           <MegsyStar className="h-full w-full" />
         </div>
 
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
               Ready to withdraw
             </p>
             <div
@@ -45,9 +45,9 @@ export default function WithdrawalsTab() {
             >
               ${available.toFixed(2)}
             </div>
-            <p className="mt-2 text-[12px] text-white/50">
+            <p className="mt-2 text-[12px] text-foreground/50">
               Minimum payout{" "}
-              <span className="tabular-nums text-white/75">${MIN_PAYOUT}</span>
+              <span className="tabular-nums text-foreground/75">${MIN_PAYOUT}</span>
             </p>
           </div>
           <ReservoirMeter value={available} target={MIN_PAYOUT} height={132} />
@@ -59,15 +59,15 @@ export default function WithdrawalsTab() {
             <div className="ref-rail__fill" style={{ width: `${pct}%` }} />
           </div>
           <div className="mt-2 flex items-center justify-between text-[11px]">
-            <span className="text-white/45 tabular-nums">${available.toFixed(2)}</span>
-            <span className="text-white/45 tabular-nums">${MIN_PAYOUT}</span>
+            <span className="text-foreground/45 tabular-nums">${available.toFixed(2)}</span>
+            <span className="text-foreground/45 tabular-nums">${MIN_PAYOUT}</span>
           </div>
         </div>
 
         <button
           onClick={() => navigate("/settings/withdraw")}
           disabled={!canWithdraw}
-          className="relative z-10 mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-[13.5px] font-semibold text-black transition active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
+          className="relative z-10 mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-[13.5px] font-semibold text-background transition active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
           style={{
             background: `linear-gradient(180deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #8B5E22 100%)`,
             boxShadow: `0 12px 32px -14px ${GOLD}80, inset 0 1px 0 rgba(255,255,255,0.45)`,
@@ -82,7 +82,7 @@ export default function WithdrawalsTab() {
 
       {/* Payout history */}
       <div>
-        <p className="mb-3 px-1 text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+        <p className="mb-3 px-1 text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
           Payout history
         </p>
 
@@ -120,7 +120,7 @@ export default function WithdrawalsTab() {
                     >
                       ${Number(w.amount).toFixed(2)}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-white/45">
+                    <p className="mt-0.5 text-[11px] text-foreground/45">
                       {w.method} · {fmtDate(w.created_at)}
                     </p>
                   </div>

@@ -37,13 +37,13 @@ const ImagePreviewModal = ({ url, alt, onClose }: ImagePreviewModalProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[1200] bg-black/80 backdrop-blur-xl flex items-center justify-center p-3"
+          className="fixed inset-0 z-[1200] bg-background/80 backdrop-blur-xl flex items-center justify-center p-3"
           onClick={onClose}
         >
           {/* Close button — floating top-right of screen */}
           <button
             onClick={onClose}
-            className="absolute top-[calc(env(safe-area-inset-top)+0.75rem)] right-3 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 text-foreground flex items-center justify-center hover:bg-white/20 transition shadow-lg"
+            className="absolute top-[calc(env(safe-area-inset-top)+0.75rem)] right-3 z-10 w-10 h-10 rounded-full bg-foreground/10 backdrop-blur-2xl border border-foreground/20 text-foreground flex items-center justify-center hover:bg-foreground/20 transition shadow-lg"
             aria-label="Close"
           >
             <X className="w-4 h-4" />

@@ -182,7 +182,7 @@ export const MobileOnboardingTour = () => {
         {open && (
           <motion.div
             key="tour-fade"
-            className="fixed inset-0 z-[120] bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-[120] bg-background/70 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -313,7 +313,7 @@ export const MobileOnboardingTour = () => {
           type="button"
           onClick={finish}
           aria-label="Skip tour"
-          className="absolute right-3 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 backdrop-blur-md hover:bg-white/20"
+          className="absolute right-3 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-foreground/10 text-foreground/80 backdrop-blur-md hover:bg-foreground/20"
           style={{ top: "max(env(safe-area-inset-top), 12px)" }}
         >
           <X className="h-4 w-4" />
@@ -327,7 +327,7 @@ export const MobileOnboardingTour = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.28, ease }}
-          className="absolute rounded-2xl border border-white/10 bg-surface-1/95 p-4 text-left shadow-2xl backdrop-blur-xl"
+          className="absolute rounded-2xl border border-foreground/10 bg-surface-1/95 p-4 text-left shadow-2xl backdrop-blur-xl"
           style={{
             left: tipX,
             top: tipY,
@@ -337,7 +337,7 @@ export const MobileOnboardingTour = () => {
           {/* Arrow */}
           <span
             aria-hidden
-            className="absolute h-3 w-3 rotate-45 border border-white/10 bg-surface-1/95"
+            className="absolute h-3 w-3 rotate-45 border border-foreground/10 bg-surface-1/95"
             style={{
               left: arrowX,
               ...(placement === "top"
@@ -347,7 +347,7 @@ export const MobileOnboardingTour = () => {
           />
 
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/45">
+            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/45">
               Step {step + 1} of {STEPS.length}
             </span>
             <div className="flex items-center gap-1.5">
@@ -368,11 +368,11 @@ export const MobileOnboardingTour = () => {
 
           <h3
             id="tour-title"
-            className="mt-2.5 text-[16px] font-semibold leading-tight text-white"
+            className="mt-2.5 text-[16px] font-semibold leading-tight text-foreground"
           >
             {current.title}
           </h3>
-          <p id="tour-text" className="mt-1.5 text-[13.5px] leading-6 text-white/70">
+          <p id="tour-text" className="mt-1.5 text-[13.5px] leading-6 text-foreground/70">
             {current.text}
           </p>
 
@@ -380,14 +380,14 @@ export const MobileOnboardingTour = () => {
             <button
               type="button"
               onClick={finish}
-              className="text-[13px] text-white/55 hover:text-white/85"
+              className="text-[13px] text-foreground/55 hover:text-foreground/85"
             >
               Skip
             </button>
             <button
               type="button"
               onClick={next}
-              className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-black transition-transform active:scale-95"
+              className="rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-background transition-transform active:scale-95"
             >
               {step >= STEPS.length - 1 ? "Got it" : "Next"}
             </button>

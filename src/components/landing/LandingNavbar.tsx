@@ -374,7 +374,7 @@ const LandingNavbar = () => {
                       >
                         <div className="flex gap-10">
                           {item.featured && (
-                            <div className="group w-[280px] shrink-0 rounded-2xl border border-white/10 flex flex-col items-start relative overflow-hidden">
+                            <div className="group w-[280px] shrink-0 rounded-2xl border border-foreground/10 flex flex-col items-start relative overflow-hidden">
                               <img loading="lazy" decoding="async"
                                 src={
                                   item.label === "Products"
@@ -396,7 +396,7 @@ const LandingNavbar = () => {
                                 )}
                                 <button
                                   onClick={() => handleNav(item.featured!.href)}
-                                  className="mt-auto rounded-xl bg-white/10 backdrop-blur-md text-foreground px-5 py-3 text-sm font-semibold hover:bg-white/20 transition-all w-full border border-white/20"
+                                  className="mt-auto rounded-xl bg-foreground/10 backdrop-blur-md text-foreground px-5 py-3 text-sm font-semibold hover:bg-foreground/20 transition-all w-full border border-foreground/20"
                                 >
                                   {tx(item.featured.cta)}
                                 </button>
@@ -485,14 +485,14 @@ const LandingNavbar = () => {
                   animation: "silver-spin 4s linear infinite",
                 }}
               >
-                <span className="relative block rounded-full bg-black px-5 py-2 text-sm font-medium text-foreground">
+                <span className="relative block rounded-full bg-background px-5 py-2 text-sm font-medium text-foreground">
                   {tx("Log in")}
                 </span>
               </button>
               <button
                 onClick={() => navigate("/auth")}
                 {...prefetch("/auth")}
-                className="rounded-full bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-black transition-all hover:scale-[1.03] hover:bg-yellow-300"
+                className="rounded-full bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-background transition-all hover:scale-[1.03] hover:bg-yellow-300"
               >
                 {tx("Start Creating")}
               </button>

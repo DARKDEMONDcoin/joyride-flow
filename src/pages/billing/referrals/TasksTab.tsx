@@ -35,7 +35,7 @@ const TaskIcon = ({
   task: { task_key?: string; action_url?: string | null; action_type?: string };
 }) => {
   const src = resolveTaskIconSrc(task);
-  if (!src) return <Gift className="h-4 w-4 text-white/70" strokeWidth={2} />;
+  if (!src) return <Gift className="h-4 w-4 text-foreground/70" strokeWidth={2} />;
   return (
     <img decoding="async"
       src={src}
@@ -64,10 +64,10 @@ export default function TasksTab() {
   return (
     <div className="space-y-4 pb-16">
       {/* Progress hero */}
-      <div className="relative overflow-hidden rounded-[24px] bg-black ref-gold-hairline p-5">
+      <div className="relative overflow-hidden rounded-[24px] bg-background ref-gold-hairline p-5">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
               Rituals
             </p>
             <h1
@@ -84,7 +84,7 @@ export default function TasksTab() {
               <br />
               standing rewards.
             </h1>
-            <p className="mt-2.5 max-w-[240px] text-[12.5px] leading-relaxed text-white/55">
+            <p className="mt-2.5 max-w-[240px] text-[12.5px] leading-relaxed text-foreground/55">
               Finish tasks to earn bonus credits — quietly compounding.
             </p>
           </div>
@@ -94,9 +94,9 @@ export default function TasksTab() {
               style={{ color: GOLD_SOFT }}
             >
               {completed}
-              <span className="text-white/40">/{tasks.length}</span>
+              <span className="text-foreground/40">/{tasks.length}</span>
             </div>
-            <div className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.2em] text-white/45">
+            <div className="mt-1 text-[10.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
               Complete
             </div>
           </div>
@@ -143,10 +143,10 @@ export default function TasksTab() {
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-[13.5px] font-medium leading-tight text-white">
+                <p className="truncate text-[13.5px] font-medium leading-tight text-foreground">
                   {t.title}
                 </p>
-                <p className="mt-1 inline-flex items-center gap-1.5 text-[11.5px] text-white/50">
+                <p className="mt-1 inline-flex items-center gap-1.5 text-[11.5px] text-foreground/50">
                   <span
                     className="rounded-full px-2 py-0.5 text-[10.5px] font-mono tabular-nums"
                     style={{
@@ -159,7 +159,7 @@ export default function TasksTab() {
                   </span>
                   <span>credits</span>
                   {t.action_type === "invite_friends" && (
-                    <span className="tabular-nums text-white/40">
+                    <span className="tabular-nums text-foreground/40">
                       · {progress}/{t.target_count}
                     </span>
                   )}

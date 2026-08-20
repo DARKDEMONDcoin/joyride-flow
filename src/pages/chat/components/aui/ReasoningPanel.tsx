@@ -15,7 +15,7 @@ export function ReasoningPanel({
   const [open, setOpen] = useState(false);
   if (!text) return null;
   return (
-    <div className="mb-2 rounded-lg border border-white/10 bg-muted/30 text-xs">
+    <div className="mb-2 rounded-lg border border-foreground/10 bg-muted/30 text-xs">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

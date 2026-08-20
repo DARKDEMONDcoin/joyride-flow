@@ -734,8 +734,8 @@ const MobileChatLanding = ({
       {/* Integrations bottom sheet — pure black, transparent brand icons */}
       <GlassSheet open={connectOpen} onOpenChange={setConnectOpen}>
         <GlassSheetContent
-          contentClassName="px-0 pt-2 bg-black"
-          className="bg-black"
+          contentClassName="px-0 pt-2 bg-background"
+          className="bg-background"
           style={{ background: "#000", backdropFilter: "none", WebkitBackdropFilter: "none" }}
         >
           <GlassSheetHeader className="px-5">
@@ -750,12 +750,12 @@ const MobileChatLanding = ({
               const isLoadingThis = connectingId === it.id;
               return (
                 <li key={it.id} className="flex items-center gap-3 px-5 py-3.5">
-                  <span className="w-9 h-9 flex items-center justify-center shrink-0 text-white">
+                  <span className="w-9 h-9 flex items-center justify-center shrink-0 text-foreground">
                     <BrandLogo id={it.id} className="w-7 h-7" />
                   </span>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[14px] font-semibold text-white truncate">{it.name}</div>
-                    <p className="text-[12px] text-white/55 line-clamp-2">{it.description}</p>
+                    <div className="text-[14px] font-semibold text-foreground truncate">{it.name}</div>
+                    <p className="text-[12px] text-foreground/55 line-clamp-2">{it.description}</p>
                   </div>
                   <button
                     type="button"
@@ -764,7 +764,7 @@ const MobileChatLanding = ({
                     className={`shrink-0 inline-flex items-center justify-center h-8 min-w-[88px] px-3.5 rounded-full text-[12.5px] font-semibold transition-colors ${
                       isConnected
                         ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                        : "theme-fixed bg-white text-black hover:opacity-90"
+                        : "theme-fixed bg-white text-background hover:opacity-90"
                     } disabled:opacity-70`}
                   >
                     {isLoadingThis ? (

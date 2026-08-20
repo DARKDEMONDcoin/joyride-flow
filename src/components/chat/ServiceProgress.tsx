@@ -53,13 +53,13 @@ export function ServiceProgress({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm p-3",
+        "rounded-2xl border border-foreground/10 bg-background/40 backdrop-blur-sm p-3",
         className,
       )}
     >
       {/* Top bar */}
       <div className="mb-3 flex items-center gap-3">
-        <div className="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden">
+        <div className="flex-1 h-1.5 rounded-full bg-foreground/5 overflow-hidden">
           <div
             className={cn(
               "h-full bg-gradient-to-r transition-[width] duration-500 ease-out",
@@ -69,7 +69,7 @@ export function ServiceProgress({
             style={{ width: `${computedPct}%` }}
           />
         </div>
-        <span className="text-[11px] tabular-nums text-white/60 min-w-[3ch] text-end">
+        <span className="text-[11px] tabular-nums text-foreground/60 min-w-[3ch] text-end">
           {computedPct}%
         </span>
       </div>
@@ -89,7 +89,7 @@ export function ServiceProgress({
                 "mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border shrink-0",
                 step.state === "done" && ACCENT[accent],
                 step.state === "active" && ACCENT[accent],
-                step.state === "pending" && "border-white/15 bg-white/[0.03] text-white/40",
+                step.state === "pending" && "border-foreground/15 bg-white/[0.03] text-foreground/40",
                 step.state === "error" && "border-red-500/40 bg-red-500/15 text-red-400",
               )}
             >
@@ -97,22 +97,22 @@ export function ServiceProgress({
               {step.state === "active" && <Loader2 className="h-3 w-3 animate-spin" />}
               {step.state === "error" && <AlertCircle className="h-3 w-3" />}
               {step.state === "pending" && (
-                <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/30" />
               )}
             </span>
             <div className="min-w-0 flex-1">
               <div
                 className={cn(
                   "text-xs font-medium leading-5",
-                  step.state === "pending" && "text-white/40",
-                  step.state !== "pending" && "text-white/85",
+                  step.state === "pending" && "text-foreground/40",
+                  step.state !== "pending" && "text-foreground/85",
                   step.state === "error" && "text-red-300",
                 )}
               >
                 {step.label}
               </div>
               {step.detail && step.state !== "pending" && (
-                <div className="text-[11px] text-white/50 leading-4 mt-0.5 truncate">
+                <div className="text-[11px] text-foreground/50 leading-4 mt-0.5 truncate">
                   {step.detail}
                 </div>
               )}

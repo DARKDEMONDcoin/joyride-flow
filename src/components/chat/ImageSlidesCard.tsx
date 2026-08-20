@@ -219,7 +219,7 @@ const PdfPreviewModal = ({ url, chatName, onClose }: ModalProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-toast bg-black flex flex-col"
+      className="fixed inset-0 z-toast bg-background flex flex-col"
     >
       <header className="flex items-center gap-3 px-4 py-3 shrink-0">
         <button

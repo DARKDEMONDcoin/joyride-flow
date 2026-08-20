@@ -484,29 +484,24 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* App background: pure black in dark mode, light surface in light mode. */
-html:not([data-theme="light"]),
-html:not([data-theme="light"]) body,
-html:not([data-theme="light"]) #root {
-  background-color: #000 !important;
-}
-html[data-theme="light"],
-html[data-theme="light"] body,
-html[data-theme="light"] #root {
-  background-color: hsl(var(--background)) !important;
+/* App background: always driven by the theme token, no per-mode overrides. */
+html,
+body,
+#root {
+  background-color: hsl(var(--background));
 }
 
 html.settings-page-active,
 html.settings-page-active body,
 html.settings-page-active #root {
-  background-color: var(--mn-bg, #1c1c1c) !important;
+  background-color: hsl(var(--background));
   overscroll-behavior-y: none;
 }
 html.settings-page-active body::before {
   content: "";
   position: fixed;
   inset: -50vh 0;
-  background: var(--mn-bg, #1c1c1c);
+  background: hsl(var(--background));
   z-index: -1;
   pointer-events: none;
 }
@@ -516,13 +511,6 @@ html.settings-page-active body::before {
 [data-chat-sidebar="true"] {
   background-color: transparent !important;
   background-image: none !important;
-}
-
-html:not([data-theme="light"]),
-[data-theme="dark"],
-[data-theme="ocean"],
-[data-theme="sunset"] {
-  --background: 0 0% 0% !important;
 }
 
 img,

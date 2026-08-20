@@ -615,7 +615,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
   return (
     <>
       {!hideCard && (
-      <div className="mt-3 group relative max-w-[420px] rounded-ios-xl overflow-hidden bg-zinc-950 border border-white/5 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] transition-all duration-700 hover:border-white/10">
+      <div className="mt-3 group relative max-w-[420px] rounded-ios-xl overflow-hidden bg-zinc-950 border border-foreground/5 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] transition-all duration-700 hover:border-foreground/10">
         <button
           onClick={() => {
             setIdx(0);
@@ -632,7 +632,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-black/50 backdrop-blur px-2.5 py-1 text-[11px] font-medium text-foreground opacity-0 group-hover:opacity-100 transition">
+          <div className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-background/50 backdrop-blur px-2.5 py-1 text-[11px] font-medium text-foreground opacity-0 group-hover:opacity-100 transition">
             <Maximize2 className="w-3 h-3" /> Open
           </div>
         </button>
@@ -655,7 +655,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
             <button
               onClick={handlePptx}
               disabled={exportingPptx}
-              className="flex-1 flex items-center justify-center gap-2 py-3 bg-zinc-900 text-zinc-400 hover:text-foreground font-medium rounded-2xl border border-white/5 transition-all hover:bg-zinc-800 active:scale-[0.97] disabled:opacity-50 text-[13px]"
+              className="flex-1 flex items-center justify-center gap-2 py-3 bg-zinc-900 text-zinc-400 hover:text-foreground font-medium rounded-2xl border border-foreground/5 transition-all hover:bg-zinc-800 active:scale-[0.97] disabled:opacity-50 text-[13px]"
             >
               {exportingPptx ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -668,7 +668,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
               onClick={handleHtml}
               disabled={exportingHtml}
               aria-label="HTML"
-              className="w-11 h-11 flex items-center justify-center bg-zinc-900 text-zinc-400 hover:text-foreground rounded-2xl border border-white/5 transition-all hover:bg-zinc-800 active:scale-[0.97] disabled:opacity-50"
+              className="w-11 h-11 flex items-center justify-center bg-zinc-900 text-zinc-400 hover:text-foreground rounded-2xl border border-foreground/5 transition-all hover:bg-zinc-800 active:scale-[0.97] disabled:opacity-50"
             >
               {exportingHtml ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -684,7 +684,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-modal bg-black/95 backdrop-blur flex flex-col"
+            className="fixed inset-0 z-modal bg-background/95 backdrop-blur flex flex-col"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -697,7 +697,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
                 <span className="text-sm font-semibold text-foreground truncate">{deck.title}</span>
               </div>
               <div className="flex items-center gap-1.5 shrink-0">
-                <div className="flex items-center rounded-full bg-white/10 p-0.5">
+                <div className="flex items-center rounded-full bg-foreground/10 p-0.5">
                   <button
                     onClick={() => setOrientation("horizontal")}
                     aria-label="Horizontal scroll"
@@ -717,7 +717,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
                 </div>
                 <button
                   onClick={closePreview}
-                  className="h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-foreground flex items-center justify-center"
+                  className="h-9 w-9 rounded-full bg-foreground/10 hover:bg-foreground/20 text-foreground flex items-center justify-center"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -729,7 +729,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
                 <button
                   onClick={() => setIdx((i) => Math.max(0, i - 1))}
                   disabled={idx === 0}
-                  className="absolute left-2 sm:left-4 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-foreground flex items-center justify-center z-10"
+                  className="absolute left-2 sm:left-4 h-11 w-11 rounded-full bg-foreground/10 hover:bg-foreground/20 disabled:opacity-30 text-foreground flex items-center justify-center z-10"
                 >
                   <ChevronLeft />
                 </button>
@@ -752,7 +752,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
                 <button
                   onClick={() => setIdx((i) => Math.min(total - 1, i + 1))}
                   disabled={idx === total - 1}
-                  className="absolute right-2 sm:right-4 h-11 w-11 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 text-foreground flex items-center justify-center z-10"
+                  className="absolute right-2 sm:right-4 h-11 w-11 rounded-full bg-foreground/10 hover:bg-foreground/20 disabled:opacity-30 text-foreground flex items-center justify-center z-10"
                 >
                   <ChevronRight />
                 </button>
@@ -782,7 +782,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
             )}
 
             {/* Filmstrip — quick navigation across slides */}
-            <div className="shrink-0 border-t border-white/10 bg-black/40 backdrop-blur px-3 py-2.5 overflow-x-auto">
+            <div className="shrink-0 border-t border-foreground/10 bg-background/40 backdrop-blur px-3 py-2.5 overflow-x-auto">
               <div className="flex items-center gap-2 min-w-min mx-auto w-fit">
                 {deck.slides.map((s, i) => (
                   <button
@@ -798,7 +798,7 @@ const SlidesDeckCard = ({ deck, hideCard = false, autoOpen = false, onClose }: P
                         <SlideRender slide={s} palette={deck.palette} dir={dir} />
                       </ScaledSlide>
                     </div>
-                    <span className="absolute bottom-0.5 right-1 text-[9px] font-mono text-foreground/80 bg-black/40 rounded px-1">
+                    <span className="absolute bottom-0.5 right-1 text-[9px] font-mono text-foreground/80 bg-background/40 rounded px-1">
                       {i + 1}
                     </span>
                   </button>

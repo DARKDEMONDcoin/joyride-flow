@@ -61,7 +61,7 @@ const CardImage = ({ src, alt }: { src: string; alt: string }) => {
 
   if (error) {
     return (
-      <div className="w-full h-28 bg-white/5 flex items-center justify-center">
+      <div className="w-full h-28 bg-foreground/5 flex items-center justify-center">
         <ImageOff className="w-6 h-6 text-foreground/20" />
       </div>
     );
@@ -69,7 +69,7 @@ const CardImage = ({ src, alt }: { src: string; alt: string }) => {
 
   return (
     <div className="w-full h-28 overflow-hidden relative">
-      {loading && <div className="absolute inset-0 bg-white/5 animate-pulse" />}
+      {loading && <div className="absolute inset-0 bg-foreground/5 animate-pulse" />}
       <img loading="lazy" decoding="async"
         src={fallbackDirect ? src : proxiedSrc}
         alt={alt}

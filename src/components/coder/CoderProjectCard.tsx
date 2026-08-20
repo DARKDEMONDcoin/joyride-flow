@@ -131,30 +131,30 @@ export default function CoderProjectCard({ files: initialFiles, summary, project
 
 
   return (
-    <div className="my-3 w-full rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-950/90 to-neutral-900/80 shadow-lg overflow-hidden">
-      <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10">
+    <div className="my-3 w-full rounded-2xl border border-foreground/10 bg-gradient-to-br from-neutral-950/90 to-neutral-900/80 shadow-lg overflow-hidden">
+      <div className="flex items-center gap-3 px-4 py-3 border-b border-foreground/10">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15">
           <Sparkles className="h-4.5 w-4.5 text-primary" />
         </div>
         <div className="min-w-0 flex-1">
-          <div className="text-sm font-semibold text-white">Megsy Coder project</div>
-          <div className="text-[11px] text-white/60">{files.length} files</div>
+          <div className="text-sm font-semibold text-foreground">Megsy Coder project</div>
+          <div className="text-[11px] text-foreground/60">{files.length} files</div>
         </div>
       </div>
 
       {fileNames.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 px-4 py-3 border-b border-white/10">
+        <div className="flex flex-wrap gap-1.5 px-4 py-3 border-b border-foreground/10">
           {fileNames.map((p) => (
             <span
               key={p}
-              className="inline-flex items-center gap-1 rounded-md bg-white/5 px-2 py-1 text-[11px] font-mono text-white/70 border border-white/5"
+              className="inline-flex items-center gap-1 rounded-md bg-foreground/5 px-2 py-1 text-[11px] font-mono text-foreground/70 border border-foreground/5"
             >
-              <FileCode className="h-3 w-3 text-white/40" />
+              <FileCode className="h-3 w-3 text-foreground/40" />
               {p}
             </span>
           ))}
           {remaining > 0 && (
-            <span className="text-[11px] text-white/40 self-center">+{remaining} more</span>
+            <span className="text-[11px] text-foreground/40 self-center">+{remaining} more</span>
           )}
         </div>
       )}
@@ -166,11 +166,11 @@ export default function CoderProjectCard({ files: initialFiles, summary, project
         <Button size="sm" variant="secondary" onClick={() => setStudioOpen(true)} className="h-8 text-xs">
           <Pencil className="h-3.5 w-3.5 mr-1" /> Open Studio
         </Button>
-        <Button size="sm" variant="ghost" onClick={handlePublish} disabled={publishing} className="h-8 text-xs text-white/80">
+        <Button size="sm" variant="ghost" onClick={handlePublish} disabled={publishing} className="h-8 text-xs text-foreground/80">
           <ExternalLink className="h-3.5 w-3.5 mr-1" />
           {publishing ? "Publishing…" : "Publish"}
         </Button>
-        <Button size="sm" variant="ghost" onClick={handleDeployFullStack} disabled={deploying} className="h-8 text-xs text-white/80">
+        <Button size="sm" variant="ghost" onClick={handleDeployFullStack} disabled={deploying} className="h-8 text-xs text-foreground/80">
           <Rocket className="h-3.5 w-3.5 mr-1" />
           {deploying ? "Deploying…" : "Deploy full-stack"}
         </Button>
@@ -178,7 +178,7 @@ export default function CoderProjectCard({ files: initialFiles, summary, project
           size="sm"
           variant="ghost"
           onClick={() => downloadProjectZip(files)}
-          className="h-8 text-xs text-white/80"
+          className="h-8 text-xs text-foreground/80"
         >
           <Download className="h-3.5 w-3.5 mr-1" /> Download ZIP
         </Button>
@@ -186,12 +186,12 @@ export default function CoderProjectCard({ files: initialFiles, summary, project
           size="sm"
           variant="ghost"
           onClick={() => pushProjectToGithub(files, (summary?.split("\n")[0] || "megsy-project").slice(0, 40))}
-          className="h-8 text-xs text-white/80"
+          className="h-8 text-xs text-foreground/80"
         >
           <Github className="h-3.5 w-3.5 mr-1" /> Push to GitHub
         </Button>
         {canUndo && (
-          <Button size="sm" variant="ghost" onClick={handleUndo} className="h-8 text-xs text-white/80">
+          <Button size="sm" variant="ghost" onClick={handleUndo} className="h-8 text-xs text-foreground/80">
             <Undo2 className="h-3.5 w-3.5 mr-1" /> Undo
           </Button>
         )}

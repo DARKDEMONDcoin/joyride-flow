@@ -84,7 +84,7 @@ const ClarifyDialog = ({ questions, onSubmit, onSkip }: Props) => {
         <button
           disabled={!allAnswered}
           onClick={() => onSubmit(answers)}
-          className="inline-flex items-center gap-1 rounded-lg bg-violet-500 hover:bg-violet-400 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs px-3 py-1.5 transition-colors"
+          className="inline-flex items-center gap-1 rounded-lg bg-violet-500 hover:bg-violet-400 disabled:opacity-40 disabled:cursor-not-allowed text-foreground text-xs px-3 py-1.5 transition-colors"
         >
           Continue <ArrowRight className="w-3 h-3" />
         </button>

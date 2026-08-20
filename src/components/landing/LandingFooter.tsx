@@ -65,7 +65,7 @@ const LandingFooter = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden font-sans selection:bg-white/20 selection:text-white"
+      className="relative w-full overflow-hidden font-sans selection:bg-foreground/20 selection:text-foreground"
       style={{ fontFamily: '"Helvetica Regular", ui-sans-serif, system-ui, sans-serif' }}
     >
       {/* Cinematic video backdrop */}
@@ -88,7 +88,7 @@ const LandingFooter = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="lumina-glass w-full rounded-3xl p-6 md:p-10 text-white/70"
+          className="lumina-glass w-full rounded-3xl p-6 md:p-10 text-foreground/70"
         >
           {/* Top grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
@@ -105,7 +105,7 @@ const LandingFooter = () => {
                   decoding="async"
                 />
 
-                <span className="text-xl font-medium text-white tracking-wide">MEGSY</span>
+                <span className="text-xl font-medium text-foreground tracking-wide">MEGSY</span>
               </div>
               <p className="text-sm leading-relaxed max-w-sm">
                 {tx("Megsy is the all-in-one AI workspace — chat, images, video, slides, docs and code, in one calm canvas.")}
@@ -116,7 +116,7 @@ const LandingFooter = () => {
             <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
               {columns.map((col) => (
                 <div key={col.title}>
-                  <h3 className="text-sm uppercase tracking-wider text-white font-medium mb-4">
+                  <h3 className="text-sm uppercase tracking-wider text-foreground font-medium mb-4">
                     {tx(col.title)}
                   </h3>
                   <ul className="text-xs space-y-2">
@@ -125,7 +125,7 @@ const LandingFooter = () => {
                         <button
                           type="button"
                           onClick={() => onNavigate(l.href, l.external)}
-                          className="text-left hover:text-white transition-colors"
+                          className="text-left hover:text-foreground transition-colors"
                         >
                           {tx(l.label)}
                         </button>

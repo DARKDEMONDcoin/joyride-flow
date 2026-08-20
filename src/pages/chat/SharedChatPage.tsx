@@ -143,7 +143,7 @@ const SharedChatPage = () => {
           </p>
           <button
             onClick={() => navigate("/")}
-            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white text-sm font-semibold hover:opacity-95 transition"
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-foreground text-sm font-semibold hover:opacity-95 transition"
           >
             {tx("Go to Megsy")}
           </button>
@@ -270,7 +270,7 @@ const SharedChatPage = () => {
               </p>
               <button
                 onClick={() => navigate("/auth")}
-                className="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white text-sm font-semibold hover:opacity-95 transition"
+                className="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-500 text-foreground text-sm font-semibold hover:opacity-95 transition"
               >
                 {tx("Join Megsy free")}
               </button>

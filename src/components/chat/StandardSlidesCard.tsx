@@ -191,7 +191,7 @@ export const PptxPreviewScreen = ({ url, chatName, onBack }: PreviewProps) => {
   }, [url]);
 
   return (
-    <div className="min-h-dvh bg-black flex flex-col">
+    <div className="min-h-dvh bg-background flex flex-col">
       <header className="flex items-center gap-3 px-4 py-3 shrink-0">
         <button
           onClick={onBack}

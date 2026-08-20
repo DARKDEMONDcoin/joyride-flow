@@ -105,7 +105,7 @@ const ChangePasswordPage = () => {
                     {[1, 2, 3, 4].map((i) => (
                       <div
                         key={i}
-                        className={cn("h-1.5 flex-1 rounded-full transition-all", i <= strength ? strengthTones[strength] : "bg-white/10")}
+                        className={cn("h-1.5 flex-1 rounded-full transition-all", i <= strength ? strengthTones[strength] : "bg-foreground/10")}
                       />
                     ))}
                   </div>

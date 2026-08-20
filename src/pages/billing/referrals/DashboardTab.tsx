@@ -61,9 +61,9 @@ export default function DashboardTab() {
     const progressPct = Math.min(100, (signups / progressTarget) * 100);
     const SectionLabel = ({ children }: { children: React.ReactNode }) => (
       <div className="flex items-center gap-2 justify-start">
-        <Sparkle className="h-3 w-3 text-white/80" strokeWidth={1.5} />
-        <span className="uppercase tracking-[0.22em] text-[11px] text-white/80">{children}</span>
-        <Sparkle className="h-3 w-3 text-white/80" strokeWidth={1.5} />
+        <Sparkle className="h-3 w-3 text-foreground/80" strokeWidth={1.5} />
+        <span className="uppercase tracking-[0.22em] text-[11px] text-foreground/80">{children}</span>
+        <Sparkle className="h-3 w-3 text-foreground/80" strokeWidth={1.5} />
       </div>
     );
     return (
@@ -94,11 +94,11 @@ export default function DashboardTab() {
                   paddingRight: "1.25rem",
                 }}
               >
-                <div className="text-[10.5px] uppercase tracking-[0.18em] mb-2 text-white/60">
+                <div className="text-[10.5px] uppercase tracking-[0.18em] mb-2 text-foreground/60">
                   {s.label}
                 </div>
                 <div
-                  className="text-[26px] font-light tracking-tight tabular-nums text-white"
+                  className="text-[26px] font-light tracking-tight tabular-nums text-foreground"
                   style={{ textShadow: "0 2px 20px var(--overlay-black-35)" }}
                 >
                   {s.value}
@@ -108,14 +108,14 @@ export default function DashboardTab() {
           </div>
           <div className="relative z-10 mt-auto p-5 md:p-6 flex items-center justify-between gap-3">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-white/60">VIP Promoter</p>
-              <p className="text-[13.5px] font-medium mt-1 text-white">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-foreground/60">VIP Promoter</p>
+              <p className="text-[13.5px] font-medium mt-1 text-foreground">
                 Reach up to 50% commission
               </p>
             </div>
             <button
               onClick={openPromoter}
-              className="lg-liquid-glass inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[12px] text-white"
+              className="lg-liquid-glass inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[12px] text-foreground"
             >
               Apply via WhatsApp <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} />
             </button>
@@ -127,15 +127,15 @@ export default function DashboardTab() {
           <div className="relative z-10">
             <SectionLabel>Referral Progress</SectionLabel>
             <div
-              className="mt-4 text-[40px] font-light tracking-tight tabular-nums text-white"
+              className="mt-4 text-[40px] font-light tracking-tight tabular-nums text-foreground"
               style={{ textShadow: "0 2px 20px var(--overlay-black-35)" }}
             >
-              {signups} <span className="text-white/45">/ {progressTarget}</span>
+              {signups} <span className="text-foreground/45">/ {progressTarget}</span>
             </div>
-            <p className="text-[12px] mt-1 mb-5 text-white/65">
+            <p className="text-[12px] mt-1 mb-5 text-foreground/65">
               Reach {progressTarget} referrals to unlock Pro tier perks
             </p>
-            <div className="h-1.5 w-full rounded-full overflow-hidden mb-2 bg-white/10">
+            <div className="h-1.5 w-full rounded-full overflow-hidden mb-2 bg-foreground/10">
               <div
                 className="h-full rounded-full transition-all"
                 style={{
@@ -146,15 +146,15 @@ export default function DashboardTab() {
                 }}
               />
             </div>
-            <div className="flex justify-between text-[10px] text-white/55">
+            <div className="flex justify-between text-[10px] text-foreground/55">
               <span>Starter</span>
               <span>Pro</span>
             </div>
           </div>
           <div className="lg-liquid-glass relative z-10 mt-5 p-3.5 rounded-xl flex items-center gap-3">
-            <span className="text-[12px] text-white/80">
+            <span className="text-[12px] text-foreground/80">
               Total earned:{" "}
-              <span className="font-semibold text-white">${totalEarned.toFixed(2)}</span>
+              <span className="font-semibold text-foreground">${totalEarned.toFixed(2)}</span>
             </span>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function DashboardTab() {
         {/* Activity — col-12 (obsidian card with noise overlay border lines) */}
         <div className="pf-noise-overlay relative overflow-hidden col-span-12 rounded-2xl bg-[#324444]">
           <div className="relative z-10 px-5 md:px-6 py-5 flex justify-between items-center">
-            <h3 className="font-medium text-[14px] text-white">
+            <h3 className="font-medium text-[14px] text-foreground">
               Recent Activity
             </h3>
             <div className="lg-liquid-glass flex gap-1 p-1 rounded-full">
@@ -200,7 +200,7 @@ export default function DashboardTab() {
               <table className="w-full text-left">
                 <thead>
                   <tr
-                    className="text-[10px] uppercase tracking-widest text-white/55"
+                    className="text-[10px] uppercase tracking-widest text-foreground/55"
                     style={{ borderBottom: "1px solid var(--overlay-white-12)" }}
                   >
                     <th className="px-6 py-3 font-medium">Referral</th>
@@ -213,11 +213,11 @@ export default function DashboardTab() {
                   {refs.map((r, i) => (
                     <tr
                       key={r.id}
-                      className="transition-colors hover:bg-white/5"
+                      className="transition-colors hover:bg-foreground/5"
                       style={{ borderBottom: i < refs.length - 1 ? "1px solid var(--overlay-white-08)" : undefined }}
                     >
-                      <td className="px-6 py-3.5 text-[13.5px] text-white">Friend #{i + 1}</td>
-                      <td className="px-6 py-3.5 text-[13px] text-white/55">
+                      <td className="px-6 py-3.5 text-[13.5px] text-foreground">Friend #{i + 1}</td>
+                      <td className="px-6 py-3.5 text-[13px] text-foreground/55">
                         {fmtDate(r.created_at)}
                       </td>
                       <td className="px-6 py-3.5">
@@ -241,7 +241,7 @@ export default function DashboardTab() {
                         </span>
                       </td>
                       <td
-                        className="px-6 py-3.5 text-right text-[13px] font-medium tabular-nums text-white"
+                        className="px-6 py-3.5 text-right text-[13px] font-medium tabular-nums text-foreground"
                       >
                         —
                       </td>
@@ -263,13 +263,13 @@ export default function DashboardTab() {
                     style={{ borderBottom: i < earns.length - 1 ? "1px solid var(--overlay-white-08)" : undefined }}
                   >
                     <div>
-                      <p className="text-[13.5px] font-medium text-white">{e.source_action}</p>
-                      <p className="text-[11px] text-white/55">
+                      <p className="text-[13.5px] font-medium text-foreground">{e.source_action}</p>
+                      <p className="text-[11px] text-foreground/55">
                         {fmtDate(e.created_at)}
                       </p>
                     </div>
                     <span
-                      className="text-[13px] font-semibold tabular-nums text-white"
+                      className="text-[13px] font-semibold tabular-nums text-foreground"
                     >
                       +${Number(e.amount).toFixed(2)}
                     </span>
@@ -294,11 +294,11 @@ export default function DashboardTab() {
                   >
                     <div>
                       <p
-                        className="text-[13.5px] font-semibold tabular-nums text-white"
+                        className="text-[13.5px] font-semibold tabular-nums text-foreground"
                       >
                         ${Number(w.amount).toFixed(2)}
                       </p>
-                      <p className="text-[11px] text-white/55">
+                      <p className="text-[11px] text-foreground/55">
                         {w.method} · {fmtDate(w.created_at)}
                       </p>
                     </div>

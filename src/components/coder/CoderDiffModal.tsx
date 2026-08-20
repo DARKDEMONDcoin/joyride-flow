@@ -67,37 +67,37 @@ export default function CoderDiffModal({ open, onClose, baseline, current }: Pro
     kind === "added" ? <Plus className="w-3 h-3 text-emerald-400" /> :
     kind === "removed" ? <Minus className="w-3 h-3 text-red-400" /> :
     kind === "modified" ? <Edit3 className="w-3 h-3 text-amber-400" /> :
-    <span className="w-3 h-3 rounded-full border border-white/20 inline-block" />;
+    <span className="w-3 h-3 rounded-full border border-foreground/20 inline-block" />;
 
   return createPortal(
-    <div className="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
-      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-white/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
-        <div className="flex items-center justify-between px-4 h-12 border-b border-white/10 bg-black/40">
+    <div className="fixed inset-0 z-[110] bg-background/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
+        <div className="flex items-center justify-between px-4 h-12 border-b border-foreground/10 bg-background/40">
           <div className="flex items-center gap-2 min-w-0">
-            <FileDiff className="w-4 h-4 text-white/70" />
-            <span className="text-[13px] font-semibold text-white">Diff Viewer</span>
-            <span className="text-[11px] text-white/50 ml-2">
+            <FileDiff className="w-4 h-4 text-foreground/70" />
+            <span className="text-[13px] font-semibold text-foreground">Diff Viewer</span>
+            <span className="text-[11px] text-foreground/50 ml-2">
               <span className="text-emerald-400">+{counts.added}</span>{" "}
               <span className="text-amber-400">~{counts.modified}</span>{" "}
               <span className="text-red-400">−{counts.removed}</span>
             </span>
           </div>
-          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white">
+          <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-foreground/10 text-foreground/70 hover:text-foreground">
             <X className="w-4 h-4" />
           </button>
         </div>
 
         <div className="flex-1 min-h-0 flex">
-          <aside className="w-64 shrink-0 border-l border-white/10 bg-black/30 overflow-y-auto py-1 text-[12.5px]">
+          <aside className="w-64 shrink-0 border-l border-foreground/10 bg-background/30 overflow-y-auto py-1 text-[12.5px]">
             {changes.length === 0 && (
-              <div className="px-3 py-4 text-[12px] text-white/40">No files</div>
+              <div className="px-3 py-4 text-[12px] text-foreground/40">No files</div>
             )}
             {changes.map((c) => (
               <button
                 key={c.path}
                 onClick={() => setSelected(c.path)}
                 className={`w-full text-right px-3 py-1.5 truncate flex items-center gap-2 ${
-                  selected === c.path ? "bg-white/10 text-white" : "text-white/70 hover:bg-white/5"
+                  selected === c.path ? "bg-foreground/10 text-foreground" : "text-foreground/70 hover:bg-foreground/5"
                 } ${c.kind === "unchanged" ? "opacity-50" : ""}`}
                 dir="ltr"
               >
@@ -108,7 +108,7 @@ export default function CoderDiffModal({ open, onClose, baseline, current }: Pro
           </aside>
           <section className="flex-1 min-w-0 min-h-0">
             {active ? (
-              <Suspense fallback={<div className="p-3 text-xs text-white/50">Loading diff…</div>}>
+              <Suspense fallback={<div className="p-3 text-xs text-foreground/50">Loading diff…</div>}>
                 <DiffEditor
                   height="100%"
                   theme="vs-dark"
@@ -127,7 +127,7 @@ export default function CoderDiffModal({ open, onClose, baseline, current }: Pro
                 />
               </Suspense>
             ) : (
-              <div className="p-4 text-xs text-white/50">Select a file</div>
+              <div className="p-4 text-xs text-foreground/50">Select a file</div>
             )}
           </section>
         </div>

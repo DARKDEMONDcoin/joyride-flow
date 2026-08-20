@@ -19,7 +19,7 @@ export default function SlidesTemplateButton({
     <button
       type="button"
       onClick={onOpenPicker}
-      className="inline-flex items-center gap-2 h-8 pl-1 pr-2.5 rounded-full border-2 border-surface-4 bg-surface-2 text-white hover:border-[#3A3A3A] transition-colors text-[12px] font-black"
+      className="inline-flex items-center gap-2 h-8 pl-1 pr-2.5 rounded-full border-2 border-surface-4 bg-surface-2 text-foreground hover:border-[#3A3A3A] transition-colors text-[12px] font-black"
       aria-label="Choose template"
     >
       <span className="w-6 h-6 rounded-full overflow-hidden border border-brand-ink bg-brand-ink shrink-0">

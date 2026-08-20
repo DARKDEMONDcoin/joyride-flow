@@ -11,13 +11,13 @@ export default function EmptyConnectors({
 }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 py-20">
-      <Plug className="h-8 w-8 text-white/25" />
-      <p className="text-[13.5px] text-white/45">{label}</p>
+      <Plug className="h-8 w-8 text-foreground/25" />
+      <p className="text-[13.5px] text-foreground/45">{label}</p>
       {actionLabel && (
         <button
           type="button"
           onClick={onAction}
-          className="rounded-[12px] bg-white/[0.08] px-4 py-2 text-[13px] text-white/80"
+          className="rounded-[12px] bg-white/[0.08] px-4 py-2 text-[13px] text-foreground/80"
           style={{ border: 0 }}
         >
           {actionLabel}

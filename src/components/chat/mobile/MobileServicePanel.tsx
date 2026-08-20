@@ -40,7 +40,7 @@ export default function MobileServicePanel({ label, Icon, onClose, children, hea
           type="button"
           aria-label={`Close ${label}`}
           onClick={onClose}
-          className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md transition-colors hover:bg-white/10"
+          className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md transition-colors hover:bg-foreground/10"
           style={{ color: "var(--megsy-blue)" }}
         >
           <X className="h-3.5 w-3.5" />

@@ -34,11 +34,11 @@ export default function TasksMenu({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-5 pt-4">
-          <span className="text-[15px] font-medium text-white">Tasks & rewards</span>
+          <span className="text-[15px] font-medium text-foreground">Tasks & rewards</span>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="grid h-8 w-8 place-items-center rounded-full text-white/70"
+            className="grid h-8 w-8 place-items-center rounded-full text-foreground/70"
             style={{ background: "hsl(0 0% 100% / 0.08)" }}
           >
             <X className="h-4 w-4" strokeWidth={2} />
@@ -53,9 +53,9 @@ export default function TasksMenu({
                   if (it.to) navigate(it.to);
                   else it.action?.();
                 }}
-                className="flex w-full items-center gap-3 rounded-2xl px-3 py-3.5 text-left text-[15px] text-white/90 transition active:bg-white/[0.06]"
+                className="flex w-full items-center gap-3 rounded-2xl px-3 py-3.5 text-left text-[15px] text-foreground/90 transition active:bg-white/[0.06]"
               >
-                <it.icon className="h-[18px] w-[18px] text-white/70" strokeWidth={1.8} />
+                <it.icon className="h-[18px] w-[18px] text-foreground/70" strokeWidth={1.8} />
                 {it.label}
               </button>
             </li>

@@ -31,7 +31,7 @@ function ToolShell({
 }) {
   const state = status?.type ?? "complete";
   return (
-    <div className="my-2 rounded-2xl border border-white/10 bg-muted/40 p-3 text-sm">
+    <div className="my-2 rounded-2xl border border-foreground/10 bg-muted/40 p-3 text-sm">
       <div className="flex items-center gap-2 text-xs opacity-80">
         <Icon className="h-3.5 w-3.5" />
         <span className="font-medium">{label}</span>

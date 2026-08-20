@@ -23,7 +23,7 @@ const SlidesFilePreviewPage = () => {
 
   if (notFound) {
     return (
-      <main className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-black text-white">
+      <main className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-background text-foreground">
         <p className="text-sm opacity-80">Preview not available. Please regenerate the deck.</p>
         <button
           onClick={() => navigate("/chat")}
@@ -37,7 +37,7 @@ const SlidesFilePreviewPage = () => {
     );
   }
 
-  if (!payload) return <main className="min-h-dvh bg-black" />;
+  if (!payload) return <main className="min-h-dvh bg-background" />;
 
   return <PptxPreviewScreen url={payload.url} chatName={payload.chatName || payload.title} onBack={goBack} />;
 };

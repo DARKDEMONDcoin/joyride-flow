@@ -100,37 +100,37 @@ export function DesktopSettingsHome() {
     <div className="relative z-10 mx-auto w-full max-w-xl space-y-8 pb-16">
       {/* Profile block — centered, mobile-inspired */}
       <section className="flex flex-col items-center pt-4">
-        <div className="h-[104px] w-[104px] rounded-full overflow-hidden ring-2 ring-white/20 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.7)]">
+        <div className="h-[104px] w-[104px] rounded-full overflow-hidden ring-2 ring-foreground/20 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.7)]">
           {avatarUrl ? (
             <img loading="lazy" decoding="async" src={avatarUrl} alt="" className="h-full w-full object-cover" />
           ) : (
             <OliveAvatar seed={userEmail || userName} className="h-full w-full" />
           )}
         </div>
-        <p className="mt-4 text-[22px] font-semibold tracking-tight text-white">{userName}</p>
-        <p className="mt-1 text-[13.5px] text-white/60">{userEmail || "—"}</p>
+        <p className="mt-4 text-[22px] font-semibold tracking-tight text-foreground">{userName}</p>
+        <p className="mt-1 text-[13.5px] text-foreground/60">{userEmail || "—"}</p>
       </section>
 
       {/* Upgrade CTA */}
       {isFree && (
         <button
           onClick={() => go("/settings/billing")}
-          className="group relative w-full rounded-2xl px-5 py-4 flex items-center gap-3.5 text-left text-white overflow-hidden border border-white/12 shadow-[0_18px_50px_-18px_rgba(99,102,241,0.7)] transition-transform hover:-translate-y-0.5"
+          className="group relative w-full rounded-2xl px-5 py-4 flex items-center gap-3.5 text-left text-foreground overflow-hidden border border-foreground/12 shadow-[0_18px_50px_-18px_rgba(99,102,241,0.7)] transition-transform hover:-translate-y-0.5"
           style={{
             background:
               "linear-gradient(135deg, rgba(139,92,246,0.95) 0%, rgba(99,102,241,0.95) 55%, rgba(59,130,246,0.95) 100%)",
           }}
         >
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/15 border border-white/25 backdrop-blur">
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-foreground/15 border border-foreground/25 backdrop-blur">
             <MegsyStar className="h-6 w-6" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-[15.5px] font-semibold leading-tight">{tx("Upgrade to Premium")}</p>
-            <p className="mt-0.5 text-[12.5px] text-white/85 leading-snug">
+            <p className="mt-0.5 text-[12.5px] text-foreground/85 leading-snug">
               {tx("Higher credits, priority models and early features.")}
             </p>
           </div>
-          <Sparkles className="h-4 w-4 text-white/85 shrink-0" />
+          <Sparkles className="h-4 w-4 text-foreground/85 shrink-0" />
         </button>
       )}
 
@@ -138,10 +138,10 @@ export function DesktopSettingsHome() {
       <div className="space-y-6">
         {groups.map((group) => (
           <section key={group.title}>
-            <h2 className="mb-2.5 px-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">
+            <h2 className="mb-2.5 px-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/55">
               {group.title}
             </h2>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-xl overflow-hidden divide-y divide-white/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]">
+            <div className="rounded-2xl border border-foreground/10 bg-white/[0.05] backdrop-blur-xl overflow-hidden divide-y divide-white/[0.06] shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]">
               {group.rows.map((row) => {
                 const Icon = row.icon;
                 return (
@@ -150,12 +150,12 @@ export function DesktopSettingsHome() {
                     onClick={() => (row.onClick ? row.onClick() : row.path && go(row.path))}
                     className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-white/[0.05] active:bg-white/[0.08] transition-colors"
                   >
-                    <Icon className="w-[18px] h-[18px] text-white/75 shrink-0" />
-                    <span className="flex-1 text-[14.5px] font-medium text-white">{row.label}</span>
+                    <Icon className="w-[18px] h-[18px] text-foreground/75 shrink-0" />
+                    <span className="flex-1 text-[14.5px] font-medium text-foreground">{row.label}</span>
                     {row.trailing && (
-                      <span className="text-[12.5px] text-white/55 shrink-0">{row.trailing}</span>
+                      <span className="text-[12.5px] text-foreground/55 shrink-0">{row.trailing}</span>
                     )}
-                    <ChevronRight className="w-4 h-4 text-white/40 shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-foreground/40 shrink-0" />
                   </button>
                 );
               })}
@@ -165,7 +165,7 @@ export function DesktopSettingsHome() {
 
         {/* Logout group */}
         <section>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-xl overflow-hidden shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]">
+          <div className="rounded-2xl border border-foreground/10 bg-white/[0.05] backdrop-blur-xl overflow-hidden shadow-[0_20px_60px_-30px_rgba(0,0,0,0.7)]">
             <button
               onClick={handleLogout}
               className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-white/[0.05] active:bg-white/[0.08] transition-colors"

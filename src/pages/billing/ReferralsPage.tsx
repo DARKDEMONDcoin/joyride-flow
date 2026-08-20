@@ -479,16 +479,16 @@ const ReferralsPage = () => {
         >
         <div
           dir="ltr"
-          className="min-h-[100dvh] antialiased bg-black text-white"
+          className="min-h-[100dvh] antialiased bg-background text-foreground"
           style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
         >
-          <header className="sticky top-0 z-40 bg-black/85 backdrop-blur-xl">
+          <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-xl">
             <div className="mx-auto grid h-14 w-full grid-cols-[44px_1fr_44px] items-center px-3">
               {isMobileSubRoute ? (
                 <button
                   onClick={() => navigate("/settings/referrals")}
                   aria-label="Back"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white transition active:scale-90"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-foreground/10 bg-white/[0.05] text-foreground transition active:scale-90"
                 >
                   <ChevronLeft className="h-5 w-5" strokeWidth={2.2} />
                 </button>
@@ -498,13 +498,13 @@ const ReferralsPage = () => {
                   testId="mobile-open-sidebar"
                 />
               )}
-              <h1 className="text-center text-[15px] font-medium tracking-tight text-white">
+              <h1 className="text-center text-[15px] font-medium tracking-tight text-foreground">
                 {mobileTitle}
               </h1>
               <button
                 onClick={() => setTasksMenuOpen(true)}
                 aria-label="Tasks menu"
-                className="grid h-10 w-10 place-items-center justify-self-end rounded-full border border-white/10 bg-white/[0.05] text-white transition active:scale-90"
+                className="grid h-10 w-10 place-items-center justify-self-end rounded-full border border-foreground/10 bg-white/[0.05] text-foreground transition active:scale-90"
               >
                 <FileText className="h-[18px] w-[18px]" strokeWidth={2} />
               </button>
@@ -551,7 +551,7 @@ const ReferralsPage = () => {
           >
             <button
               onClick={() => setQrOpen(false)}
-              className="lg-liquid-glass absolute top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-white/85 hover:text-white transition ltr:right-4 rtl:left-4"
+              className="lg-liquid-glass absolute top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-foreground/85 hover:text-foreground transition ltr:right-4 rtl:left-4"
               aria-label="Close"
             >
               <X className="h-4 w-4" strokeWidth={1.8} />
@@ -559,12 +559,12 @@ const ReferralsPage = () => {
 
             <div className="px-12 pt-1 text-center">
               <h2
-                className="text-[22px] leading-tight text-white"
+                className="text-[22px] leading-tight text-foreground"
                 style={{ fontWeight: 500, letterSpacing: "-0.02em" }}
               >
                 Your QR code
               </h2>
-              <p className="mx-auto mt-1.5 max-w-[240px] text-[13px] leading-[1.6] text-white/60">
+              <p className="mx-auto mt-1.5 max-w-[240px] text-[13px] leading-[1.6] text-foreground/60">
                 Scan to join Megsy AI with your referral link.
               </p>
             </div>
@@ -574,7 +574,7 @@ const ReferralsPage = () => {
               style={{ backgroundColor: "#FFFFFF" }}
             >
               {link ? (
-                <Suspense fallback={<div className="h-[200px] w-[200px] animate-pulse rounded-xl bg-black/10" />}>
+                <Suspense fallback={<div className="h-[200px] w-[200px] animate-pulse rounded-xl bg-background/10" />}>
                   <QRCodeSVG
                     ref={qrRef}
                     value={link}
@@ -594,18 +594,18 @@ const ReferralsPage = () => {
                   />
                 </Suspense>
               ) : (
-                <div className="h-[200px] w-[200px] animate-pulse rounded-xl bg-black/10" />
+                <div className="h-[200px] w-[200px] animate-pulse rounded-xl bg-background/10" />
               )}
             </div>
 
-            <p className="mx-auto mt-5 max-w-[260px] truncate text-center text-[12px] text-white/55">
+            <p className="mx-auto mt-5 max-w-[260px] truncate text-center text-[12px] text-foreground/55">
               {link || "—"}
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               <button
                 onClick={copyQRLink}
-                className="lg-liquid-glass flex items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-medium text-white transition hover:text-white"
+                className="lg-liquid-glass flex items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-medium text-foreground transition hover:text-foreground"
               >
                 {justCopied ? (
                   <Check className="h-4 w-4" strokeWidth={1.8} />
@@ -616,7 +616,7 @@ const ReferralsPage = () => {
               </button>
               <button
                 onClick={downloadQR}
-                className="lg-liquid-glass flex items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-medium text-white transition hover:text-white"
+                className="lg-liquid-glass flex items-center justify-center gap-2 rounded-full px-4 py-3 text-[13px] font-medium text-foreground transition hover:text-foreground"
               >
                 <Download className="h-4 w-4" strokeWidth={1.8} />
                 Download

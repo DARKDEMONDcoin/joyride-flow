@@ -148,7 +148,7 @@ const TONE = {
     softBg: "bg-emerald-500/10",
     softBgHover: "hover:bg-emerald-500/15",
     softBorder: "border-emerald-400/50",
-    solid: "bg-emerald-500 hover:bg-emerald-500/90 text-white",
+    solid: "bg-emerald-500 hover:bg-emerald-500/90 text-foreground",
     glow: "shadow-[0_0_0_1px_rgba(16,185,129,0.25),0_10px_30px_-12px_rgba(16,185,129,0.35)]",
   },
   blue: {
@@ -159,7 +159,7 @@ const TONE = {
     softBg: "bg-blue-500/10",
     softBgHover: "hover:bg-blue-500/15",
     softBorder: "border-blue-400/50",
-    solid: "bg-blue-500 hover:bg-blue-500/90 text-white",
+    solid: "bg-blue-500 hover:bg-blue-500/90 text-foreground",
     glow: "shadow-[0_0_0_1px_rgba(59,130,246,0.25),0_10px_30px_-12px_rgba(59,130,246,0.35)]",
   },
   amber: {
@@ -170,7 +170,7 @@ const TONE = {
     softBg: "bg-amber-500/10",
     softBgHover: "hover:bg-amber-500/15",
     softBorder: "border-amber-400/50",
-    solid: "bg-amber-500 hover:bg-amber-500/90 text-white",
+    solid: "bg-amber-500 hover:bg-amber-500/90 text-foreground",
     glow: "shadow-[0_0_0_1px_rgba(245,158,11,0.25),0_10px_30px_-12px_rgba(245,158,11,0.35)]",
   },
   rose: {
@@ -181,7 +181,7 @@ const TONE = {
     softBg: "bg-rose-500/10",
     softBgHover: "hover:bg-rose-500/15",
     softBorder: "border-rose-400/50",
-    solid: "bg-rose-500 hover:bg-rose-500/90 text-white",
+    solid: "bg-rose-500 hover:bg-rose-500/90 text-foreground",
     glow: "shadow-[0_0_0_1px_rgba(244,63,94,0.25),0_10px_30px_-12px_rgba(244,63,94,0.35)]",
   },
   violet: {
@@ -192,7 +192,7 @@ const TONE = {
     softBg: "bg-violet-500/10",
     softBgHover: "hover:bg-violet-500/15",
     softBorder: "border-violet-400/50",
-    solid: "bg-violet-500 hover:bg-violet-500/90 text-white",
+    solid: "bg-violet-500 hover:bg-violet-500/90 text-foreground",
     glow: "shadow-[0_0_0_1px_rgba(139,92,246,0.25),0_10px_30px_-12px_rgba(139,92,246,0.35)]",
   },
 } as const;
@@ -322,7 +322,7 @@ const TeacherNoteInput = ({ onSend, locale }: { onSend: (text: string) => void; 
           }
         }}
         disabled={!val.trim()}
-        className="shrink-0 w-9 h-9 rounded-xl bg-emerald-500 text-white grid place-items-center disabled:opacity-40 hover:bg-emerald-500/90 transition-colors"
+        className="shrink-0 w-9 h-9 rounded-xl bg-emerald-500 text-foreground grid place-items-center disabled:opacity-40 hover:bg-emerald-500/90 transition-colors"
       >
         <ArrowUp className="w-4 h-4" />
       </button>
@@ -523,7 +523,7 @@ const MCQCard = ({ card, onAnswer }: BaseProps) => {
           if (revealed && (ungradedSetupChoice || !gradedMcq)) {
             if (isPicked) {
               cls = "border-emerald-400/70 bg-emerald-500/[0.10] text-emerald-800 dark:text-emerald-100 " + TONE.emerald.glow;
-              chipCls = "bg-emerald-500 text-white";
+              chipCls = "bg-emerald-500 text-foreground";
               icon = <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-300" />;
             } else {
               cls = "border-border/40 bg-card/40 text-muted-foreground opacity-60";
@@ -534,11 +534,11 @@ const MCQCard = ({ card, onAnswer }: BaseProps) => {
               cls =
                 "border-emerald-400/70 bg-emerald-500/[0.10] text-emerald-800 dark:text-emerald-100 " +
                 TONE.emerald.glow;
-              chipCls = "bg-emerald-500 text-white";
+              chipCls = "bg-emerald-500 text-foreground";
               icon = <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-300" />;
             } else if (isPicked) {
               cls = "border-rose-400/60 bg-rose-500/[0.10] text-rose-800 dark:text-rose-100";
-              chipCls = "bg-rose-500 text-white";
+              chipCls = "bg-rose-500 text-foreground";
               icon = <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-300" />;
             } else {
               cls = "border-border/40 bg-card/40 text-muted-foreground opacity-60";
@@ -637,14 +637,14 @@ const MultiCard = ({ card, onAnswer }: BaseProps) => {
           if (submitted) {
             if (isCorrect) {
               cls = "border-emerald-400/70 bg-emerald-500/[0.10] text-emerald-800 dark:text-emerald-100";
-              box = "bg-emerald-500 border-emerald-500 text-white";
+              box = "bg-emerald-500 border-emerald-500 text-foreground";
             } else if (isPicked) {
               cls = "border-rose-400/60 bg-rose-500/[0.10] text-rose-800 dark:text-rose-100";
-              box = "bg-rose-500 border-rose-500 text-white";
+              box = "bg-rose-500 border-rose-500 text-foreground";
             }
           } else if (isPicked) {
             cls = "border-emerald-400/60 bg-emerald-500/[0.08] text-foreground";
-            box = "bg-emerald-500 border-emerald-500 text-white";
+            box = "bg-emerald-500 border-emerald-500 text-foreground";
           }
           return (
             <motion.button
@@ -695,7 +695,7 @@ const MultiCard = ({ card, onAnswer }: BaseProps) => {
               : `[LEARN_ANSWER] type=multi result=incorrect chosen=[${chosenText}] correct=[${correctText}]`;
             setTimeout(() => onAnswer?.(payload), 120);
           }}
-          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           {tt.confirm}
         </button>
@@ -834,7 +834,7 @@ const ExplainCard = ({ card, onAnswer }: BaseProps) => {
               setSent(true);
               onAnswer?.(tt.my_answer_prefix(val.trim()));
             }}
-            className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(59,130,246,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+            className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(59,130,246,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           >
             {tt.submit_grading}
           </button>
@@ -895,7 +895,7 @@ const FillCard = ({ card, onAnswer }: BaseProps) => {
             type="button"
             disabled={!val.trim()}
             onClick={submit}
-            className="px-5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 transition-all"
+            className="px-5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 transition-all"
           >
             {tt.confirm}
           </button>
@@ -998,7 +998,7 @@ const MatchCard = ({ card, onAnswer }: BaseProps) => {
             const payload = `[LEARN_ANSWER] type=match result=${allRight ? "correct" : "incorrect"} pairs=[${results}]`;
             setTimeout(() => onAnswer?.(payload), 120);
           }}
-          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-violet-500 to-violet-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(139,92,246,0.5)] hover:brightness-110 disabled:opacity-40 transition-all"
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-violet-500 to-violet-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(139,92,246,0.5)] hover:brightness-110 disabled:opacity-40 transition-all"
         >
           {tt.confirm}
         </button>
@@ -1101,7 +1101,7 @@ const RoadmapCard = ({ card, onAnswer }: BaseProps) => {
             key={i}
             className="relative rounded-2xl border border-border/50 bg-card/60 p-3.5 ps-10 space-y-1.5"
           >
-            <span className="absolute start-[3px] top-[14px] w-6 h-6 rounded-full bg-blue-500 text-white text-[11px] font-bold flex items-center justify-center shadow-[0_0_0_3px_hsl(var(--card))]">
+            <span className="absolute start-[3px] top-[14px] w-6 h-6 rounded-full bg-blue-500 text-foreground text-[11px] font-bold flex items-center justify-center shadow-[0_0_0_3px_hsl(var(--card))]">
               {i + 1}
             </span>
             <div className="text-sm font-semibold text-foreground">{s.title}</div>
@@ -1234,7 +1234,7 @@ const ExamSetupCard = ({ card, onAnswer }: BaseProps) => {
           type="button"
           onClick={submit}
           disabled={!topic.trim() || types.length === 0}
-          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-rose-500 to-rose-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-rose-500 to-rose-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           {tt.start_exam}
         </button>
@@ -1368,7 +1368,7 @@ const ExamRunnerCard = ({ card, onAnswer }: BaseProps) => {
         <button
           type="button"
           onClick={() => onAnswer?.(tt.score_analysis(correct, questions.length))}
-          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-rose-500 to-rose-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 transition-all"
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-rose-500 to-rose-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 transition-all"
         >
           {tt.analyze_result}
         </button>
@@ -1427,7 +1427,7 @@ const ExamRunnerCard = ({ card, onAnswer }: BaseProps) => {
               >
                 <span
                   className={`w-6 h-6 rounded-lg text-[11px] font-bold grid place-items-center shrink-0 ${
-                    picked ? "bg-rose-500 text-white" : "bg-muted/60 text-muted-foreground"
+                    picked ? "bg-rose-500 text-foreground" : "bg-muted/60 text-muted-foreground"
                   }`}
                 >
                   {String.fromCharCode(65 + i)}
@@ -1461,7 +1461,7 @@ const ExamRunnerCard = ({ card, onAnswer }: BaseProps) => {
           <button
             type="button"
             onClick={finish}
-            className="flex-1 py-2 rounded-xl bg-gradient-to-b from-rose-500 to-rose-600 text-white text-xs font-semibold shadow-[0_6px_16px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 transition-all"
+            className="flex-1 py-2 rounded-xl bg-gradient-to-b from-rose-500 to-rose-600 text-foreground text-xs font-semibold shadow-[0_6px_16px_-8px_rgba(244,63,94,0.5)] hover:brightness-110 transition-all"
           >
             {tt.finish_view_score}
           </button>
@@ -1562,7 +1562,7 @@ const OnboardingCard = ({ card, onAnswer }: BaseProps) => {
             `My info: hobbies ${interests}, level ${level}. Use analogies from my interests in every explanation from now on.`,
           )
         }
-        className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+        className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(16,185,129,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
       >
         {tt.confirm} →
       </button>
@@ -1771,7 +1771,7 @@ const OrderingCard = ({ card, onAnswer }: BaseProps) => {
         <button
           type="button"
           onClick={submit}
-          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(59,130,246,0.5)] hover:brightness-110 transition-all"
+          className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(59,130,246,0.5)] hover:brightness-110 transition-all"
         >
           {tt.ordering_check}
         </button>
@@ -1835,7 +1835,7 @@ const SummaryWriteCard = ({ card, onAnswer }: BaseProps) => {
         type="button"
         onClick={submit}
         disabled={val.trim().length < 5 || sent}
-        className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-violet-500 to-violet-600 text-white text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(139,92,246,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+        className="w-full py-2.5 rounded-2xl bg-gradient-to-b from-violet-500 to-violet-600 text-foreground text-sm font-semibold shadow-[0_8px_20px_-8px_rgba(139,92,246,0.5)] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
       >
         {sent ? tt.sent_grading : tt.summary_submit}
       </button>

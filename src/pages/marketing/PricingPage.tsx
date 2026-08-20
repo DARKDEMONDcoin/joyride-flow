@@ -449,13 +449,13 @@ const PricingPage = () => {
           matches the chat light surface in light mode. */}
       <div
         data-pricing-scope
-        className="flex min-h-[100dvh] w-full overflow-x-hidden rtl:flex-row-reverse bg-black light-scope:bg-[hsl(var(--background))]"
+        className="flex min-h-[100dvh] w-full overflow-x-hidden rtl:flex-row-reverse bg-background light-scope:bg-[hsl(var(--background))]"
       >
         {/* Desktop app sidebar — persistent on the left */}
         <aside
           data-chat-sidebar="true"
           style={{ width: !sidebarCollapsed ? 280 : 60 }}
-          className="hidden md:flex shrink-0 overflow-hidden border-e border-white/10 transition-[width] duration-200 ease-out"
+          className="hidden md:flex shrink-0 overflow-hidden border-e border-foreground/10 transition-[width] duration-200 ease-out"
         >
           <AppSidebar
             inline
@@ -474,7 +474,7 @@ const PricingPage = () => {
             style={{ scrollBehavior: "smooth" }}
           >
             <div
-              className="min-h-dvh w-full text-white"
+              className="min-h-dvh w-full text-foreground"
               style={{
                 fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, sans-serif",
               }}
@@ -485,10 +485,10 @@ const PricingPage = () => {
         /* ---- Light-theme remap: match the chat light surface ---- */
         html[data-theme="light"] [data-pricing-scope] { background: hsl(var(--background)) !important; }
         html[data-theme="light"] [data-pricing-scope] main > div > div { background: hsl(var(--background)) !important; color: hsl(var(--foreground)) !important; }
-        html[data-theme="light"] [data-pricing-scope] .text-white,
-        html[data-theme="light"] [data-pricing-scope] [class*="text-white/"] { color: hsl(var(--foreground)) !important; }
-        html[data-theme="light"] [data-pricing-scope] .bg-black,
-        html[data-theme="light"] [data-pricing-scope] [class*="bg-black/"] { background-color: hsl(var(--background)) !important; }
+        html[data-theme="light"] [data-pricing-scope] .text-foreground,
+        html[data-theme="light"] [data-pricing-scope] [class*="text-foreground/"] { color: hsl(var(--foreground)) !important; }
+        html[data-theme="light"] [data-pricing-scope] .bg-background,
+        html[data-theme="light"] [data-pricing-scope] [class*="bg-background/"] { background-color: hsl(var(--background)) !important; }
         html[data-theme="light"] [data-pricing-scope] [class*="bg-white/"] { background-color: hsl(var(--muted)) !important; }
         html[data-theme="light"] [data-pricing-scope] [class*="border-white/"] { border-color: hsl(var(--border)) !important; }
         html[data-theme="light"] [data-pricing-scope] .liquid-glass {
@@ -500,8 +500,8 @@ const PricingPage = () => {
 
         /* Force light surfaces on every hardcoded-dark element inside the pricing scope */
         html[data-theme="light"] [data-pricing-scope] .section-bg,
-        html[data-theme="light"] [data-pricing-scope] section.bg-black,
-        html[data-theme="light"] [data-pricing-scope] section[class*="bg-black"] {
+        html[data-theme="light"] [data-pricing-scope] section.bg-background,
+        html[data-theme="light"] [data-pricing-scope] section[class*="bg-background"] {
           background: hsl(var(--background)) !important;
         }
         html[data-theme="light"] [data-pricing-scope] .hero-vignette { background: transparent !important; }
@@ -678,7 +678,7 @@ const PricingPage = () => {
         {/* Hero content */}
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-5 sm:px-8 pt-4 sm:pt-6 pb-6 sm:pb-8">
           <h1
-            className="font-garamond font-normal text-white tracking-tight mb-4 sm:mb-6 text-4xl sm:text-6xl md:text-8xl lg:text-9xl"
+            className="font-garamond font-normal text-foreground tracking-tight mb-4 sm:mb-6 text-4xl sm:text-6xl md:text-8xl lg:text-9xl"
             style={{ lineHeight: 1.08 }}
           >
             <StaggeredFade text="CHOOSE YOUR" className="block" />
@@ -689,7 +689,7 @@ const PricingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
-            className="text-white/70 font-light leading-relaxed max-w-xs sm:max-w-md text-sm sm:text-base md:text-lg"
+            className="text-foreground/70 font-light leading-relaxed max-w-xs sm:max-w-md text-sm sm:text-base md:text-lg"
             dir={"ltr"}
             data-no-translate="true"
           >
@@ -713,12 +713,12 @@ const PricingPage = () => {
             >
               <div className="flex flex-col items-center md:items-start text-center md:text-start gap-1.5">
                 <span
-                  className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase font-medium text-white bg-white/10 border border-white/10"
+                  className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] uppercase font-medium text-foreground bg-foreground/10 border border-foreground/10"
                   style={{ letterSpacing: "0.18em" }}
                 >
                   {"Limited Launch Offer"}
                 </span>
-                <p className="text-[13px] text-white/90 leading-relaxed max-w-[16rem] sm:max-w-[18rem]">
+                <p className="text-[13px] text-foreground/90 leading-relaxed max-w-[16rem] sm:max-w-[18rem]">
                   {"Pro first month $5 — 75% OFF the rest"}
                 </p>
 
@@ -739,9 +739,9 @@ const PricingPage = () => {
                   { v: pad2(promo.seconds), l: "Sec" },
                 ].map((t) => (
                   <div key={t.l} className="flex flex-col items-center min-w-[2.5rem]">
-                    <span className="text-[26px] sm:text-2xl text-white leading-none">{t.v}</span>
+                    <span className="text-[26px] sm:text-2xl text-foreground leading-none">{t.v}</span>
                     <span
-                      className="text-[10px] uppercase mt-1.5 text-white/80 whitespace-nowrap"
+                      className="text-[10px] uppercase mt-1.5 text-foreground/80 whitespace-nowrap"
                       style={{ letterSpacing: "0.22em" }}
                       data-no-translate="true"
                     >
@@ -768,13 +768,13 @@ const PricingPage = () => {
           className="text-center mb-10"
         >
           <h2
-            className="font-garamond text-white"
+            className="font-garamond text-foreground"
             style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.1 }}
           >
             The Plans
           </h2>
           <p
-            className="mt-3 text-white/85 text-xs sm:text-sm uppercase font-light"
+            className="mt-3 text-foreground/85 text-xs sm:text-sm uppercase font-light"
             style={{ letterSpacing: "0.3em" }}
           >
             Unlock your creative power — start today
@@ -783,7 +783,7 @@ const PricingPage = () => {
           {/* Billing toggle */}
           <div className="mt-6 inline-flex items-center gap-4">
             <span
-              className={`text-xs uppercase transition-colors ${isYearly ? "text-white/80" : "text-white"}`}
+              className={`text-xs uppercase transition-colors ${isYearly ? "text-foreground/80" : "text-foreground"}`}
               style={{ letterSpacing: "0.2em" }}
             >
               Monthly
@@ -794,7 +794,7 @@ const PricingPage = () => {
               aria-checked={isYearly}
               aria-label={isYearly ? "Switch to monthly billing" : "Switch to yearly billing"}
               onClick={() => setIsYearly((v) => !v)}
-              className="relative w-14 h-7 rounded-full border border-white/40 backdrop-blur-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="relative w-14 h-7 rounded-full border border-foreground/40 backdrop-blur-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               style={{
                 background: "var(--overlay-white-18)",
                 boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 4px 16px var(--overlay-white-08)",
@@ -810,12 +810,12 @@ const PricingPage = () => {
               />
             </button>
             <span
-              className={`text-xs uppercase flex items-center gap-2 transition-colors ${isYearly ? "text-white" : "text-white/80"}`}
+              className={`text-xs uppercase flex items-center gap-2 transition-colors ${isYearly ? "text-foreground" : "text-foreground/80"}`}
               style={{ letterSpacing: "0.2em" }}
             >
               Yearly
               <span
-                className="text-[9px] px-2 py-0.5 rounded-full border border-white/25 text-white/85 font-normal"
+                className="text-[9px] px-2 py-0.5 rounded-full border border-foreground/25 text-foreground/85 font-normal"
                 style={{ letterSpacing: "0.15em" }}
               >
                 −20%
@@ -864,29 +864,29 @@ const PricingPage = () => {
 
                 <div className="relative z-10 p-7 sm:p-8 flex flex-col flex-1">
                   <h3
-                    className="font-garamond text-3xl text-white mb-4"
+                    className="font-garamond text-3xl text-foreground mb-4"
                     style={{ letterSpacing: "0.02em" }}
                   >
                     {p.name}
                   </h3>
 
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-garamond text-2xl text-white">$</span>
+                    <span className="font-garamond text-2xl text-foreground">$</span>
                     <CountUp
                       value={price}
-                      className="font-garamond text-6xl leading-none text-white tabular-nums"
+                      className="font-garamond text-6xl leading-none text-foreground tabular-nums"
                     />
-                    <span className="text-white text-xs ml-1 uppercase" style={{ letterSpacing: "0.2em" }}>
+                    <span className="text-foreground text-xs ml-1 uppercase" style={{ letterSpacing: "0.2em" }}>
                       /{isProFirstMonth ? "1st mo" : isYearly ? "year" : "month"}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 mt-3">
-                    <span className="text-xs text-white/85 line-through tabular-nums">
+                    <span className="text-xs text-foreground/85 line-through tabular-nums">
                       $<CountUp value={strikePrice} />
                     </span>
                     <span
-                      className="text-[10px] uppercase px-2 py-0.5 rounded-full border border-white/40 text-white font-light"
+                      className="text-[10px] uppercase px-2 py-0.5 rounded-full border border-foreground/40 text-foreground font-light"
                       style={{ letterSpacing: "0.18em" }}
                     >
                       {discountLabel}
@@ -894,7 +894,7 @@ const PricingPage = () => {
                   </div>
 
                   {isProFirstMonth && (
-                    <p className="text-[10px] uppercase text-white/70 mt-2 font-light" style={{ letterSpacing: "0.18em" }}>
+                    <p className="text-[10px] uppercase text-foreground/70 mt-2 font-light" style={{ letterSpacing: "0.18em" }}>
                       Then ${rawPrice}/month
                     </p>
                   )}
@@ -903,7 +903,7 @@ const PricingPage = () => {
 
                   {credits && (
                     <p
-                      className="text-white text-[11px] mt-5 uppercase font-light"
+                      className="text-foreground text-[11px] mt-5 uppercase font-light"
                       style={{ letterSpacing: "0.22em" }}
                     >
                       {credits}
@@ -923,7 +923,7 @@ const PricingPage = () => {
                       type="button"
                       onClick={() => handleSubscribe(p.tier)}
                       disabled={loadingTier !== null || isCurrent}
-                      className={`liquid-glass w-full py-3.5 rounded-full text-xs uppercase font-normal text-white disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 ${isElite ? "bg-white/[0.04]" : ""}`}
+                      className={`liquid-glass w-full py-3.5 rounded-full text-xs uppercase font-normal text-foreground disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 ${isElite ? "bg-white/[0.04]" : ""}`}
                       style={{ letterSpacing: "0.2em" }}
                     >
                       {loadingTier === p.tier ? (
@@ -985,7 +985,7 @@ const PricingPage = () => {
                                 {isUnlimited ? (
                                   <MegsyStar className="w-3.5 h-3.5" />
                                 ) : (
-                                  <Check className="w-3.5 h-3.5 text-white" strokeWidth={2} />
+                                  <Check className="w-3.5 h-3.5 text-foreground" strokeWidth={2} />
                                 )}
                               </motion.span>
                               <span className="flex-1">{f}</span>
@@ -1006,7 +1006,7 @@ const PricingPage = () => {
       </section>
 
       {/* ============================ FAQ ============================ */}
-      <section id="pricing-faq" className="relative overflow-hidden bg-black py-16 md:py-28 scroll-mt-8">
+      <section id="pricing-faq" className="relative overflow-hidden bg-background py-16 md:py-28 scroll-mt-8">
         {/* Massive FAQS headline */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -1022,20 +1022,20 @@ const PricingPage = () => {
 
         {/* Question list */}
         <div className="mx-auto mt-16 max-w-6xl px-6">
-          <ul className="border-t border-white/10">
+          <ul className="border-t border-foreground/10">
             {FAQS.map((item, i) => {
               const isOpen = openFaq === i;
               return (
-                <li key={item.q} className="border-b border-white/10">
+                <li key={item.q} className="border-b border-foreground/10">
                   <button
                     type="button"
                     onClick={() => setOpenFaq(isOpen ? null : i)}
                     aria-expanded={isOpen}
                     aria-controls={`pricing-faq-panel-${i}`}
                     id={`pricing-faq-trigger-${i}`}
-                    className="flex w-full items-center justify-between gap-6 py-7 text-left transition-colors hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
+                    className="flex w-full items-center justify-between gap-6 py-7 text-left transition-colors hover:text-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
                   >
-                    <span className="font-display text-lg font-bold text-white md:text-2xl">
+                    <span className="font-display text-lg font-bold text-foreground md:text-2xl">
                       {item.q}
                     </span>
                     <span className="shrink-0 text-violet-400" aria-hidden="true">
@@ -1056,7 +1056,7 @@ const PricingPage = () => {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-7 pr-12 text-base leading-relaxed text-white/60 md:text-lg">
+                        <p className="pb-7 pr-12 text-base leading-relaxed text-foreground/60 md:text-lg">
                           {item.a}
                         </p>
                       </motion.div>
@@ -1067,18 +1067,18 @@ const PricingPage = () => {
             })}
           </ul>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs uppercase font-light text-white/70" style={{ letterSpacing: "0.18em" }}>
-            <a href="mailto:support@megsyai.com" className="hover:text-white transition-colors">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs uppercase font-light text-foreground/70" style={{ letterSpacing: "0.18em" }}>
+            <a href="mailto:support@megsyai.com" className="hover:text-foreground transition-colors">
               support@megsyai.com
             </a>
-            <span className="hidden sm:inline text-white/20">·</span>
-            <a href="tel:+201098821812" className="hover:text-white transition-colors">
+            <span className="hidden sm:inline text-foreground/20">·</span>
+            <a href="tel:+201098821812" className="hover:text-foreground transition-colors">
               +20 109 882 1812
             </a>
-            <span className="hidden sm:inline text-white/20">·</span>
+            <span className="hidden sm:inline text-foreground/20">·</span>
             <button
               onClick={() => navigate("/refund")}
-              className="hover:text-white transition-colors"
+              className="hover:text-foreground transition-colors"
             >
               Refund Policy
             </button>

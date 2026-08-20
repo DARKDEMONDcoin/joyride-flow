@@ -415,7 +415,7 @@ export default function MobileChatHeader({
                         type="button"
                         onClick={inlineInvite.onSend}
                         disabled={inlineInvite.loading || !inlineInvite.email.trim()}
-                        className="w-full h-10 rounded-xl text-[13px] font-semibold bg-white text-black shadow-sm active:opacity-90 disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap theme-fixed"
+                        className="w-full h-10 rounded-xl text-[13px] font-semibold bg-white text-background shadow-sm active:opacity-90 disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap theme-fixed"
                       >
                         {inlineInvite.loading ? (
                           <>
@@ -547,7 +547,7 @@ export default function MobileChatHeader({
                         type="button"
                         onClick={confirmDelete}
                         disabled={isDeleting}
-                        className="flex-1 rounded-xl px-3 py-2 text-[12px] font-semibold bg-destructive text-white transition-opacity active:opacity-90 disabled:opacity-50 flex items-center justify-center gap-1.5"
+                        className="flex-1 rounded-xl px-3 py-2 text-[12px] font-semibold bg-destructive text-foreground transition-opacity active:opacity-90 disabled:opacity-50 flex items-center justify-center gap-1.5"
                       >
                         {isDeleting && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                         Delete

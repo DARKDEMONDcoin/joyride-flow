@@ -189,7 +189,7 @@ const DeleteAccountPage = () => {
             <button
               onClick={handleDeleteAccount}
               disabled={isDeleting || confirmText !== "DELETE"}
-              className="px-4 py-2 rounded-lg text-[13px] font-medium bg-rose-500 text-white hover:bg-rose-500/90 disabled:opacity-40 transition-colors"
+              className="px-4 py-2 rounded-lg text-[13px] font-medium bg-rose-500 text-foreground hover:bg-rose-500/90 disabled:opacity-40 transition-colors"
             >
               {isDeleting ? "Deleting…" : "Delete my account"}
             </button>

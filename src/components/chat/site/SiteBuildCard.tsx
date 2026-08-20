@@ -262,7 +262,7 @@ function CodeViewer({
   const lines = useMemo(() => (file.content || "").split("\n"), [file.content]);
   return (
     <div
-      className="fixed inset-0 z-[120] bg-black/70 backdrop-blur flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-[120] bg-background/70 backdrop-blur flex items-center justify-center p-3 sm:p-6"
       onClick={onClose}
     >
       <motion.div
