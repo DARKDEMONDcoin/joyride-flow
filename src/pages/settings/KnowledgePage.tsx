@@ -144,9 +144,9 @@ const KnowledgePage = () => {
       </main>
 
       {sheetOpen && (
-        <div className="kn-sheet-wrap" role="dialog" aria-modal="true" aria-label="Add knowledge">
+        <div className="kn-sheet-wrap">
           <div className="kn-scrim" onClick={() => setSheetOpen(false)} />
-          <div className="kn-sheet">
+          <div className="kn-sheet" aria-label="Add knowledge">
             <header className="kn-sheet-top">
               <button className="kn-icon-btn" aria-label="Close" onClick={() => setSheetOpen(false)}>
                 <X className="w-5 h-5" strokeWidth={2} />
@@ -259,20 +259,33 @@ const knCss = `
 .kn-dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
 .kn-time { font-size: 12.5px; color: rgba(232,232,232,0.4); }
 
-.kn-sheet-wrap { position: fixed; inset: 0; z-index: 60; }
-.kn-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0.45); animation: kn-fade 200ms ease both; }
+.kn-sheet-wrap {
+  position: fixed; inset: 0; z-index: 60;
+  background: transparent; border: 0; padding: 0;
+}
+.kn-scrim {
+  position: absolute; inset: 0;
+  background: hsl(var(--background) / 0.18);
+  animation: kn-fade 200ms ease both;
+}
 .kn-sheet {
-  position: absolute; inset: 7dvh 0 0;
-  background: hsl(0 0% 14%);
-  border-radius: 22px 22px 0 0; overflow-y: auto;
-  box-shadow: 0 -18px 40px rgba(0,0,0,0.45);
+  position: absolute; inset: 13dvh 0 0;
+  background: var(--mn-sheet);
+  border: 0 !important; border-radius: 22px 22px 0 0; overflow-y: auto;
+  box-shadow: 0 -16px 34px hsl(var(--background) / 0.32);
   animation: kn-up 300ms cubic-bezier(0.16,1,0.3,1) both;
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
 }
 .kn-sheet-top {
-  position: sticky; top: 0; z-index: 2; background: hsl(0 0% 14%);
+  position: sticky; top: 0; z-index: 2; background: var(--mn-sheet);
   display: grid; grid-template-columns: 34px 1fr auto; align-items: center;
   padding: 14px 12px 10px;
+}
+.kn-sheet .kn-icon-btn {
+  background: transparent !important;
+  color: var(--mn-fg) !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 .kn-sheet-title { margin: 0; text-align: center; font-size: 15.5px; font-weight: 600; }
 .kn-save {
@@ -289,18 +302,19 @@ const knCss = `
 .kn-req { color: var(--mn-danger); }
 .kn-input {
   width: 100%; box-sizing: border-box;
-  background: hsl(0 0% 18%) !important;
-  border: 0;
+  background: var(--mn-input) !important;
+  border: 0 !important;
   border-radius: 13px;
   padding: 11px 13px !important; color: var(--mn-fg); font-family: inherit;
   font-size: 14.5px !important;
   line-height: 1.4;
-  outline: none; transition: background 160ms ease, box-shadow 160ms ease;
+  outline: none !important; box-shadow: none !important;
+  appearance: none; transition: background 160ms ease, box-shadow 160ms ease;
 }
 .kn-input::placeholder { color: rgba(232,232,232,0.34); font-size: 14.5px; }
 .kn-input:focus {
-  background: hsl(0 0% 21%) !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+  background: var(--mn-card-2) !important;
+  box-shadow: inset 0 0 0 1px hsl(var(--foreground) / 0.1) !important;
 }
 .kn-area { min-height: 64px; resize: none; }
 .kn-area-lg { min-height: 88px; }
