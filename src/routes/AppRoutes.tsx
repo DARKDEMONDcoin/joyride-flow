@@ -59,7 +59,6 @@ import {
   DataCategoryPage,
   CapabilitiesPage,
   SystemStatusPage,
-  SwitchAccountPage,
   SkillsSettingsPage,
   SkillsNewPage,
   SkillsLibraryPage,
@@ -84,9 +83,7 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/login" element={<AuthPage />} />
       <Route path="/signin" element={<AuthPage />} />
-      <Route path="/sign-in" element={<AuthPage />} />
       <Route path="/signup" element={<AuthPage />} />
-      <Route path="/sign-up" element={<AuthPage />} />
       <Route path="/register" element={<AuthPage />} />
       <Route path="/auth/callback/:provider" element={<OAuthCallbackPage />} />
       <Route path="/auth/mfa" element={<MfaChallengePage />} />
@@ -141,8 +138,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     </Route>
 
     {/* Integrations are managed from the chat composer sheet now. */}
-    <Route path="/settings/integrations" element={<Navigate to="/chat?integrations=1" replace />} />
-    <Route path="/settings/integrations/:id" element={<Navigate to="/chat?integrations=1" replace />} />
 
     {/* ── Settings ──────────────────────────────────────────── */}
     <Route path="/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
@@ -156,7 +151,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/security" element={<ProtectedRoute><SecuritySettingsPage /></ProtectedRoute>} />
     <Route path="/settings/language" element={<ProtectedRoute><LanguagePage /></ProtectedRoute>} />
     <Route path="/settings/mcp" element={<ProtectedRoute><McpSettingsPage /></ProtectedRoute>} />
-    <Route path="/settings/knowledge" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
     <Route path="/settings/memory" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
     <Route path="/settings/api-keys" element={<ProtectedRoute><ApiKeysPage /></ProtectedRoute>} />
     <Route path="/settings/costs" element={<ProtectedRoute><CostDashboardPage /></ProtectedRoute>} />
@@ -176,7 +170,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/privacy" element={<ProtectedRoute><SettingsPrivacyPage /></ProtectedRoute>} />
     <Route path="/settings/capabilities" element={<ProtectedRoute><CapabilitiesPage /></ProtectedRoute>} />
     <Route path="/settings/system-status" element={<ProtectedRoute><SystemStatusPage /></ProtectedRoute>} />
-    <Route path="/settings/switch" element={<ProtectedRoute><SwitchAccountPage /></ProtectedRoute>} />
 
     {/* ── Research previews ─────────────────────────────────── */}
     <Route path="/research/preview/new" element={<ProtectedRoute><ResearchPreviewPage /></ProtectedRoute>} />
@@ -189,7 +182,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/document/:artifactId" element={<DocumentPreviewPage />} />
 
     {/* ── Retired routes ────────────────────────────────────── */}
-    <Route path="/recap" element={<Navigate to="/chat" replace />} />
 
 
     {/* ── Pricing (only surviving marketing page) ───────────── */}
@@ -215,45 +207,33 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/contact" element={toChat} />
     <Route path="/support" element={toChat} />
     <Route path="/enterprise" element={toPricing} />
-    <Route path="/egypt" element={toChat} />
     <Route path="/trust" element={toChat} />
     <Route path="/terms" element={toChat} />
     <Route path="/privacy" element={toChat} />
     <Route path="/cookies" element={toChat} />
     <Route path="/refund" element={toChat} />
     <Route path="/policies/*" element={toChat} />
-    <Route path="/acceptable-use" element={toChat} />
     <Route path="/legal/*" element={toChat} />
 
 
     {/* ── Legacy aliases — everything retired now redirects ──── */}
     <Route path="/landing" element={toChat} />
-    <Route path="/home" element={toChat} />
     <Route path="/showcase" element={toChat} />
     <Route path="/welcome" element={toChat} />
     <Route path="/code" element={toChat} />
     <Route path="/build" element={toChat} />
-    <Route path="/build/anything" element={toChat} />
     <Route path="/anything" element={toChat} />
     <Route path="/apps" element={toChat} />
     <Route path="/library" element={toChat} />
     <Route path="/learn" element={toChat} />
     <Route path="/agent" element={toChat} />
-    <Route path="/agent/devtools" element={toChat} />
-    <Route path="/agents/skills" element={<Navigate to="/settings/skills" replace />} />
-    <Route path="/agents/skills/new" element={<Navigate to="/settings/skills/new" replace />} />
     <Route path="/settings/traces" element={<Navigate to="/settings/costs" replace />} />
     <Route path="/settings/workspaces" element={<Navigate to="/settings" replace />} />
     <Route path="/settings/workspaces/*" element={<Navigate to="/settings" replace />} />
     <Route path="/workspaces" element={<Navigate to="/settings" replace />} />
     <Route path="/workspaces/*" element={<Navigate to="/settings" replace />} />
     <Route path="/workspace" element={<Navigate to="/settings" replace />} />
-    <Route path="/invite/workspace/:token" element={<Navigate to="/settings" replace />} />
-    <Route path="/marketing-automation" element={toChat} />
-    <Route path="/lithos" element={toChat} />
     <Route path="/x" element={toChat} />
-    <Route path="/masr" element={toChat} />
-    <Route path="/promo-masr" element={toChat} />
     <Route path="/promo/:code" element={toPricing} />
     <Route path="/eg" element={toChat} />
     <Route path="/eg/*" element={toChat} />
@@ -261,8 +241,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/l/*" element={toPricing} />
     <Route path="/ai/*" element={<LegacyAiRedirect />} />
     <Route path="/tools/*" element={<LegacyToolsRedirect />} />
-    <Route path="/landing-gallery" element={toPricing} />
-    <Route path="/community" element={toPricing} />
     <Route path="/services" element={toPricing} />
     <Route path="/media" element={toPricing} />
     <Route path="/gallery" element={toPricing} />
@@ -279,18 +257,12 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/templates" element={toPricing} />
     <Route path="/templates/*" element={toPricing} />
     <Route path="/models" element={toPricing} />
-    <Route path="/models/megsy" element={<Navigate to="/megsy-model" replace />} />
-    <Route path="/models/megay" element={<Navigate to="/megay" replace />} />
     <Route path="/models/*" element={toPricing} />
     <Route path="/solutions" element={toPricing} />
     <Route path="/solutions/*" element={toPricing} />
     <Route path="/tools" element={toPricing} />
-    <Route path="/hub" element={toPricing} />
-    <Route path="/seo-hub" element={toPricing} />
     <Route path="/comparison" element={toPricing} />
-    <Route path="/plans-models" element={toPricing} />
     <Route path="/megsy" element={<Navigate to="/megsy-model" replace />} />
-    <Route path="/megay-3.9" element={<Navigate to="/megay" replace />} />
     <Route path="/features" element={<Navigate to="/features-guide" replace />} />
     <Route path="/compliance" element={<Navigate to="/legal/compliance" replace />} />
     <Route path="/billing" element={<Navigate to="/settings/billing" replace />} />
@@ -299,9 +271,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/integrations" element={<Navigate to="/chat?integrations=1" replace />} />
     <Route path="/integration" element={<Navigate to="/chat?integrations=1" replace />} />
     <Route path="/settings/help" element={<Navigate to="/settings/support/help" replace />} />
-    <Route path="/settings/contact" element={<Navigate to="/settings/support/contact" replace />} />
-    <Route path="/settings/switch-account" element={<Navigate to="/settings/switch" replace />} />
-    <Route path="/settings/status" element={<Navigate to="/settings/system-status" replace />} />
 
     {/* ── Anything else lands in the app ───────────────────── */}
     <Route path="*" element={toChat} />
