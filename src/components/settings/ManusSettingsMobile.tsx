@@ -155,9 +155,6 @@ const ManusSettingsMobile = () => {
       <style>{manusCss}</style>
       <div className="ms-screen">
         <header className="ms-header">
-          <button type="button" className="ms-hbtn" aria-label={isAr ? "الإشعارات" : "Notifications"} onClick={() => navigate("/notifications")}>
-            <Bell className="ms-hicon" />
-          </button>
           <h1 className="ms-brand">megsy</h1>
           <button type="button" className="ms-hbtn" aria-label={authT("back")} onClick={() => goBackOr(navigate, "/chat")}>
             {isAr ? <ChevronLeft className="ms-hicon" /> : <ChevronRight className="ms-hicon" />}
