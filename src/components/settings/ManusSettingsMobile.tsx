@@ -7,7 +7,6 @@ import {
   ChevronRight,
   Clock,
   Lightbulb,
-  Mail,
   Database,
   PanelBottom,
   Puzzle,
@@ -94,7 +93,7 @@ const ManusSettingsMobile = () => {
   const mainRows: Row[] = [
     { icon: Clock, label: isAr ? "المهام المجدولة" : "Scheduled tasks", path: "/settings/tasks" },
     { icon: Lightbulb, label: isAr ? "معرفة" : "Knowledge", path: "/settings/memory" },
-    { icon: Mail, label: isAr ? "الإشعارات" : "Notifications", path: "/settings/notifications" },
+    { icon: Bell, label: isAr ? "الإشعارات" : "Notifications", path: "/notifications" },
     { icon: Database, label: isAr ? "ضوابط البيانات" : "Data controls", path: "/settings/privacy" },
     { icon: PanelBottom, label: isAr ? "متصفح السحابة" : "Cloud browser", path: "/settings/capabilities" },
     { icon: Puzzle, label: isAr ? "المهارات" : "Skills", path: "/settings/skills" },
@@ -155,9 +154,6 @@ const ManusSettingsMobile = () => {
       <style>{manusCss}</style>
       <div className="ms-screen">
         <header className="ms-header">
-          <button type="button" className="ms-hbtn" aria-label={isAr ? "الإشعارات" : "Notifications"} onClick={() => navigate("/notifications")}>
-            <Bell className="ms-hicon" />
-          </button>
           <h1 className="ms-brand">megsy</h1>
           <button type="button" className="ms-hbtn" aria-label={authT("back")} onClick={() => goBackOr(navigate, "/chat")}>
             {isAr ? <ChevronLeft className="ms-hicon" /> : <ChevronRight className="ms-hicon" />}
