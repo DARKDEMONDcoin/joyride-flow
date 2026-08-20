@@ -355,6 +355,11 @@ export default defineConfig({
         // into the entry graph. This is the fix for the "landing page loads
         // 3.9 MB of JS" regression.
         manualChunks(id) {
+          // Vite's dynamic-import preload helper is a virtual module. Left to
+          // Rollup it got parked inside a random async chunk (assistant-ui),
+          // which then had to be downloaded before first paint. Pin it next to
+          // the React runtime so the shell never drags a route chunk with it.
+          if (id.includes("vite/preload-helper")) return "react-vendor";
           if (!id.includes("node_modules")) return;
 
           // MUST come before the react-vendor rule below: the substring
