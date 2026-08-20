@@ -44,3 +44,20 @@ agent_runs 15 MB / 12 rows.
 3. Add retention cron for edge_audit_log / edge_rate_limits / agent_proposals (keep 30 days).
 4. Move `service_secrets` contents to Supabase secrets, then drop the table.
 5. Audit the remote edge functions that are not in the repo and remove the non-Telegram dead ones.
+
+## Addendum — Edge functions & secrets (2026-08-20)
+Functions the app/cron actually call (25): chat-alibaba, chat-slides-stream, crawl-url,
+create-scheduled-message, deep-research-job, docs-generate, generate-skill, github-push,
+i18n-translate, import-skill, kimi-coder, media-image, media-video, media-video-poll,
+memory-extract, oauth-authorize, oauth-github-connect, operator-orchestrator, pipedream-connect,
+report-error, send-email, slides-api, telegram-admin-notify, telegram-tasks-bot, telegram-webhook.
+Plus cron-only: health-check, weekly-learn-recap, blog-daily-publish, marketing-publisher,
+code-v0-poll, send-scheduled-messages, telegram-bot.
+Only `anything-api` exists in the repo; everything else lives remotely and cannot be listed
+from here — the deployed list must be read from the Supabase dashboard before removing any.
+
+Secrets:
+- Lovable secrets: LOVABLE_API_KEY, LOVABLE_CRON_SECRET (both managed, keep).
+- Keys stored in DB tables (risk): api_keys 60 rows, media_provider_keys 7, alibaba_keys 5,
+  wavespeed_keys 5, v0_api_keys 2, e2b_keys 1, runbase_keys 1, service_secrets 1,
+  oauth_tokens 15. Empty key tables with no code refs: brave_keys, apify_keys, manus_keys.
