@@ -15,13 +15,16 @@ type Incident = {
   resolved_at: string | null;
 };
 
+const OK_BASE = "hsl(var(--success))";
+const OK_GLOW = "hsl(var(--success) / 0.55)";
+
 const SERVICES: { name: string; base: string; glow: string }[] = [
-  { name: "Chat", base: "#7a5af8", glow: "rgba(196, 181, 253, 0.75)" },
-  { name: "Images", base: "#e07a5f", glow: "rgba(252, 190, 165, 0.75)" },
-  { name: "Videos", base: "#c9668a", glow: "rgba(244, 182, 200, 0.75)" },
-  { name: "Codes", base: "#4a90a4", glow: "rgba(147, 197, 214, 0.75)" },
-  { name: "Database", base: "#6ba368", glow: "rgba(167, 216, 165, 0.75)" },
-  { name: "Website", base: "#c9a94a", glow: "rgba(238, 216, 149, 0.75)" },
+  { name: "Chat", base: OK_BASE, glow: OK_GLOW },
+  { name: "Images", base: OK_BASE, glow: OK_GLOW },
+  { name: "Videos", base: OK_BASE, glow: OK_GLOW },
+  { name: "Codes", base: OK_BASE, glow: OK_GLOW },
+  { name: "Database", base: OK_BASE, glow: OK_GLOW },
+  { name: "Website", base: OK_BASE, glow: OK_GLOW },
 ];
 
 const WINDOW_DAYS = 90;
@@ -105,7 +108,11 @@ const SystemStatusPage = () => {
           <div className="relative flex h-20 w-20 items-center justify-center">
             <div
               className="status-check-badge relative flex h-20 w-20 items-center justify-center rounded-full"
-              style={{ background: allOperational ? "#34C759" : "#FF3B30" }}
+              style={{
+                background: allOperational
+                  ? "hsl(var(--success))"
+                  : "hsl(var(--destructive))",
+              }}
             >
               <svg
                 className="status-check-svg h-11 w-11"
@@ -138,8 +145,8 @@ const SystemStatusPage = () => {
           {SERVICES.map((svc) => {
             const uptime = uptimeByService[svc.name] ?? 100;
             const isDown = currentlyDown.includes(svc.name);
-            const base = isDown ? "#f43f5e" : svc.base;
-            const glow = isDown ? "rgba(255, 113, 143, 0.85)" : svc.glow;
+            const base = isDown ? "hsl(var(--destructive))" : svc.base;
+            const glow = isDown ? "hsl(var(--destructive) / 0.6)" : svc.glow;
             return (
               <div key={svc.name}>
                 <div className="mb-2 flex items-center justify-between px-0.5">
