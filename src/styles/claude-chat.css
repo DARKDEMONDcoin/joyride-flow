@@ -15,7 +15,7 @@
 [data-skin="claude"] [data-testid="modes-toggle"],
 [data-skin="claude"] [data-plus-trigger],
 [data-skin="claude"] [data-plus-menu] {
-  background: var(--chat-claude-composer, #1c1c1c) !important;
+  background: var(--chat-claude-composer, hsl(var(--background))) !important;
   background-blend-mode: normal;
   backdrop-filter: none !important;
   border: 0 !important;
@@ -124,8 +124,8 @@
   [data-skin="claude"] .chat-surface-dark[data-chat-main="true"][data-chat-empty="true"],
   [data-skin="claude"] [role="log"].bg-black,
   [data-skin="claude"] [role="log"] {
-    background: var(--chat-reference-bg, #1f1f1f) !important;
-    background-color: var(--chat-reference-bg, #1f1f1f) !important;
+    background: var(--chat-reference-bg, hsl(var(--background))) !important;
+    background-color: var(--chat-reference-bg, hsl(var(--background))) !important;
     background-image: none !important;
   }
 
@@ -464,7 +464,7 @@
 /* Mobile input: same exact dark surface as the mode chips. */
 .composer-shell > div:last-child,
 .composer-shell .chat-composer-frame {
-  background: var(--chat-claude-composer, #1c1c1c) !important;
+  background: var(--chat-claude-composer, hsl(var(--background))) !important;
   border: 1px solid var(--chat-claude-border, #3a3a3a) !important;
   border-radius: 24px !important;
   box-shadow: none !important;
@@ -520,8 +520,8 @@
   [data-skin="claude"] .chat-composer-frame,
   [data-skin="claude"] .composer-card,
   [data-skin="claude"] .composer-shell > div:last-child {
-    background: var(--chat-claude-composer, #1c1c1c) !important;
-    background-color: var(--chat-claude-composer, #1c1c1c) !important;
+    background: var(--chat-claude-composer, hsl(var(--background))) !important;
+    background-color: var(--chat-claude-composer, hsl(var(--background))) !important;
     border: 1px solid var(--chat-claude-border, #3a3a3a) !important;
     box-shadow: none !important;
   }
@@ -643,9 +643,9 @@ html[data-theme="dark"] [data-skin="claude"] [data-plus-trigger]:hover {
 :root,
 [data-shell="manus"][data-skin="claude"],
 body:has([data-shell="manus"][data-skin="claude"]) {
-  --chat-claude-bg: #1a1a1a;
+  --chat-claude-bg: hsl(var(--background));
   --chat-claude-composer: #262627;
-  --chat-claude-control: #1a1a1a;
+  --chat-claude-control: hsl(var(--background));
 }
 
 .chat-composer-frame,
@@ -676,8 +676,8 @@ body:has([data-shell="manus"][data-skin="claude"]) {
   [data-shell="manus"][data-skin="claude"] [data-chat-main="true"],
   body:has([data-shell="manus"][data-skin="claude"]),
   body:has([data-shell="manus"][data-skin="claude"]) #root {
-    background: #1a1a1a !important;
-    background-color: #1a1a1a !important;
+    background: hsl(var(--background)) !important;
+    background-color: hsl(var(--background)) !important;
   }
 }
 
@@ -699,8 +699,8 @@ body:has([data-shell="manus"][data-skin="claude"]) {
 [data-shell="manus"][data-skin="claude"] [data-chat-main="true"],
 body:has([data-shell="manus"][data-skin="claude"]),
 body:has([data-shell="manus"][data-skin="claude"]) #root {
-  background: var(--chat-claude-bg, #1a1a1a) !important;
-  background-color: var(--chat-claude-bg, #1a1a1a) !important;
+  background: var(--chat-claude-bg, hsl(var(--background))) !important;
+  background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
 
 /* Fallback: shell present without the claude skin attribute. */
@@ -708,8 +708,8 @@ html:has([data-shell="manus"]),
 body:has([data-shell="manus"]),
 body:has([data-shell="manus"]) #root,
 [data-shell="manus"] {
-  background: var(--chat-claude-bg, #1a1a1a) !important;
-  background-color: var(--chat-claude-bg, #1a1a1a) !important;
+  background: var(--chat-claude-bg, hsl(var(--background))) !important;
+  background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
 
 /* Inner chat layers that hardcode pure black. */
@@ -718,8 +718,8 @@ body:has([data-shell="manus"]) #root,
 [data-shell="manus"] [role="log"].bg-black,
 [data-shell="manus"] .bg-black,
 [data-shell="manus"] .bg-background {
-  background: var(--chat-claude-bg, #1a1a1a) !important;
-  background-color: var(--chat-claude-bg, #1a1a1a) !important;
+  background: var(--chat-claude-bg, hsl(var(--background))) !important;
+  background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
 
 /* Mobile chat model dropdown — same solid palette as composer and chips. */
@@ -788,8 +788,8 @@ body:has([data-shell="manus"]) #root,
   [data-shell="manus"] [role="log"].bg-black,
   [data-shell="manus"] .bg-black,
   [data-shell="manus"] .bg-background {
-    background: var(--chat-reference-bg, var(--chat-claude-bg, #1a1a1a)) !important;
-    background-color: var(--chat-reference-bg, var(--chat-claude-bg, #1a1a1a)) !important;
+    background: var(--chat-reference-bg, var(--chat-claude-bg, hsl(var(--background)))) !important;
+    background-color: var(--chat-reference-bg, var(--chat-claude-bg, hsl(var(--background)))) !important;
     background-image: none !important;
   }
 }

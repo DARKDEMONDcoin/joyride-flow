@@ -88,7 +88,7 @@ export default function MobilePricingScreen({
         ctaText: "#ffffff",
       }
     : {
-        bg: "#1a1a1a",
+        bg: "hsl(var(--background))",
         text: "#f5f5f5",
         muted: "#a3a3a3",
         faint: "#737373",
@@ -96,10 +96,10 @@ export default function MobilePricingScreen({
         card: "rgba(255,255,255,0.055)",
         switchBg: "rgba(255,255,255,0.08)",
         switchOn: "#f5f5f5",
-        switchOnText: "#1a1a1a",
+        switchOnText: "hsl(var(--background))",
         selBorder: "#f5f5f5",
         ctaBg: "#f5f5f5",
-        ctaText: "#1a1a1a",
+        ctaText: "hsl(var(--background))",
       };
 
   return (

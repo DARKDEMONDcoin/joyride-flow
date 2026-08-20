@@ -776,7 +776,7 @@ button[data-slides-preview-button] svg,
 
   /* Onyx & Bone — pure black with a neutral bone-white accent (unified brand) */
   [data-theme="dark"] {
-    --background: 0 0% 11%;             /* #1c1c1c — matches chat surface */
+    --background: 0 0% 11%;             /* hsl(var(--background)) — matches chat surface */
     --foreground: 0 0% 96%;             /* off-white */
     --card: 0 0% 15%;                   /* #262626 */
     --card-foreground: 0 0% 96%;
@@ -1056,11 +1056,11 @@ html[data-theme="light"] .text-\[\#6b6b6b\] {
   color: hsl(var(--muted-foreground)) !important;
 }
 html[data-theme="light"] .bg-\[\#0d0d0d\],
-html[data-theme="light"] .bg-\[\#1a1a1a\],
-html[data-theme="light"] [class*="bg-\[\#1a1a1a\]\/"] {
+html[data-theme="light"] .bg-\[\hsl(var(--background))\],
+html[data-theme="light"] [class*="bg-\[\hsl(var(--background))\]\/"] {
   background-color: hsl(var(--card)) !important;
 }
-html[data-theme="light"] .border-\[\#1a1a1a\],
+html[data-theme="light"] .border-\[\hsl(var(--background))\],
 html[data-theme="light"] .border-\[\#333\] {
   border-color: hsl(var(--border)) !important;
 }

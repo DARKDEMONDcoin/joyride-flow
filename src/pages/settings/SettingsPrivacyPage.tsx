@@ -138,7 +138,7 @@ export default function SettingsPrivacyPage() {
 const mobileCss = `
 .privacy-root {
   min-height: 100dvh;
-  background: #1c1c1c;
+  background: hsl(var(--background));
   color: #e8e8e8;
   font-family: "Neue Haas Unica", "Helvetica Now Display", -apple-system, "SF Pro Display", Inter, "Segoe UI", Roboto, sans-serif;
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -148,7 +148,7 @@ const mobileCss = `
   display: grid; grid-template-columns: 44px 1fr 44px;
   align-items: center;
   padding: calc(env(safe-area-inset-top, 0px) + 10px) 14px 12px;
-  background: #1c1c1c;
+  background: hsl(var(--background));
 }
 .privacy-title {
   margin: 0;
