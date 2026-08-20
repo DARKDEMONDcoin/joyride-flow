@@ -108,11 +108,7 @@ export function useActiveAccount(): ActiveAccount {
       }
 
       try {
-        const { data: profile } = await supabase
-          .from("profiles")
-          .select("credits, avatar_url, display_name")
-          .eq("id", user.id)
-          .maybeSingle();
+        const profile = await getOwnProfile(user.id);
 
         if (cancelled) return;
 
