@@ -252,7 +252,7 @@ export default function ScheduledTasksPage() {
                     <ChevronsUpDown className="st-row-chev" />
                   </span>
                 </label>
-                <button type="button" className="st-row" onClick={() => navigate("/settings/connectors")}>
+                <button type="button" className="st-row" onClick={() => navigate("/settings/mcp")}>
                   <span className="st-row-label">Connectors</span>
                   <span className="st-row-value">
                     <Zap className="w-4 h-4 st-accent" />
