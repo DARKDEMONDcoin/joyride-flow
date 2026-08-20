@@ -3,6 +3,7 @@ import { useNavigate, useLocation, type NavigateOptions } from "react-router-dom
 import { Plus, PanelLeft, LogIn, Cloud, Sparkles, Boxes, Settings, ChevronDown } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getUserSafe } from "@/lib/authSafe";
+import { getOwnProfile } from "@/lib/ownProfile";
 
 import { AnimatePresence, m as motion } from "framer-motion";
 import { useSidebarCollapsed } from "@/hooks/useSidebarCollapsed";
