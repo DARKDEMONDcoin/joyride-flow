@@ -217,7 +217,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/library" element={toChat} />
     <Route path="/learn" element={toChat} />
     <Route path="/agent" element={toChat} />
-    <Route path="/settings/traces" element={<Navigate to="/settings/costs" replace />} />
     <Route path="/settings/workspaces" element={<Navigate to="/settings" replace />} />
     <Route path="/settings/workspaces/*" element={<Navigate to="/settings" replace />} />
     <Route path="/workspaces" element={<Navigate to="/settings" replace />} />
