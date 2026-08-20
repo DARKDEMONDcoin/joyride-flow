@@ -94,7 +94,7 @@ const ManusSettingsMobile = () => {
     { icon: Clock, label: isAr ? "المهام المجدولة" : "Scheduled tasks", path: "/settings/tasks" },
     { icon: Lightbulb, label: isAr ? "معرفة" : "Knowledge", path: "/settings/memory" },
     { icon: Bell, label: isAr ? "الإشعارات" : "Notifications", path: "/notifications" },
-    { icon: Database, label: isAr ? "ضوابط البيانات" : "Data controls", path: "/settings/privacy" },
+    { icon: Database, label: isAr ? "ضوابط البيانات" : "Data controls", path: "/settings/data" },
     { icon: PanelBottom, label: isAr ? "متصفح السحابة" : "Cloud browser", path: "/settings/capabilities" },
     { icon: Puzzle, label: isAr ? "المهارات" : "Skills", path: "/settings/skills" },
     { icon: Cable, label: isAr ? "الموصلات" : "Connectors", path: "/settings/mcp" },
