@@ -721,7 +721,7 @@ const MobileChatLanding = ({
   void modelControlSlot;
 
   return (
-    <div className="md:hidden relative w-full h-full overflow-hidden text-foreground" style={{ background: "var(--chat-reference-bg, #1f1f1f)" }}>
+    <div className="md:hidden relative w-full h-full overflow-hidden text-foreground" style={{ background: "var(--chat-reference-bg, hsl(var(--background)))" }}>
       {/* Empty canvas — no hero star, no greeting text */}
       <div
         className="absolute inset-0 overflow-y-auto overflow-x-hidden overscroll-contain touch-pan-y pt-[max(env(safe-area-inset-top),16px)] px-5"

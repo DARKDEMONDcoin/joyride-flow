@@ -448,7 +448,7 @@ html[data-theme="light"] .bg-\[\#0d0d0d\],
 html[data-theme="light"] .bg-\[\#111\],
 html[data-theme="light"] .bg-\[\#111112\],
 html[data-theme="light"] .bg-\[\#141414\],
-html[data-theme="light"] .bg-\[\#1a1a1a\],
+html[data-theme="light"] .bg-\[\hsl(var(--background))\],
 html[data-theme="light"] .bg-\[\#1C1C1E\],
 html[data-theme="light"] .bg-\[\#1c1c1e\],
 html[data-theme="light"] .bg-\[\#202020\],
@@ -457,8 +457,8 @@ html[data-theme="light"] .bg-\[\#2a2a2a\] {
   background-color: hsl(var(--card)) !important;
 }
 
-html[data-theme="light"] [class*="bg-\[\#1a1a1a\]\/40"],
-html[data-theme="light"] [class*="bg-\[\#1a1a1a\]\/60"],
+html[data-theme="light"] [class*="bg-\[\hsl(var(--background))\]\/40"],
+html[data-theme="light"] [class*="bg-\[\hsl(var(--background))\]\/60"],
 html[data-theme="light"] [class*="bg-black\/40"],
 html[data-theme="light"] [class*="bg-black\/50"],
 html[data-theme="light"] [class*="bg-black\/60"] {
@@ -483,7 +483,7 @@ html[data-theme="light"] .text-\[\#c0c0c0\] {
   color: hsl(var(--muted-foreground)) !important;
 }
 
-html[data-theme="light"] .border-\[\#1a1a1a\],
+html[data-theme="light"] .border-\[\hsl(var(--background))\],
 html[data-theme="light"] .border-\[\#2a2a2a\],
 html[data-theme="light"] .border-\[\#333\],
 html[data-theme="light"] .border-\[\#3A3A3C\],
@@ -575,7 +575,7 @@ html[data-theme="light"] [data-app-sidebar-panel="true"] button:hover {
 
 /* ============================================================
    SETTINGS PAGES — force light backgrounds & readable text
-   Many settings pages use hardcoded #0d0d0d / #1a1a1a / #08080a /
+   Many settings pages use hardcoded #0d0d0d / hsl(var(--background)) / #08080a /
    inline styles or the "brand-parchment" token, all of which stay
    dark until we intercept them here.
    ============================================================ */
@@ -587,7 +587,7 @@ html[data-theme="light"] [style*="#08080a"],
 html[data-theme="light"] [style*="#060607"],
 html[data-theme="light"] [style*="#0b0b0d"],
 html[data-theme="light"] [style*="#111112"],
-html[data-theme="light"] [style*="#1a1a1a"],
+html[data-theme="light"] [style*="hsl(var(--background))"],
 html[data-theme="light"] [style*="#1C1C1E"],
 html[data-theme="light"] [style*="#2a2a2a"],
 html[data-theme="light"] [style*="#000000"] {
@@ -625,7 +625,7 @@ html[data-theme="light"] .bg-\[\#0a0a0b\],
 html[data-theme="light"] .bg-\[\#0b0b0d\],
 html[data-theme="light"] .bg-\[\#0d0d0d\],
 html[data-theme="light"] .bg-\[\#111112\],
-html[data-theme="light"] .bg-\[\#1a1a1a\],
+html[data-theme="light"] .bg-\[\hsl(var(--background))\],
 html[data-theme="light"] .bg-\[\#1C1C1E\],
 html[data-theme="light"] .bg-\[\#2a2a2a\],
 html[data-theme="light"] .bg-\[\#060607\] {
@@ -634,7 +634,7 @@ html[data-theme="light"] .bg-\[\#060607\] {
 }
 
 html[data-theme="light"] .border-\[\#0d0d0d\],
-html[data-theme="light"] .border-\[\#1a1a1a\],
+html[data-theme="light"] .border-\[\hsl(var(--background))\],
 html[data-theme="light"] .border-\[\#2a2a2a\],
 html[data-theme="light"] .border-\[\#3A3A3C\] {
   border-color: hsl(var(--border)) !important;
@@ -673,10 +673,10 @@ html[data-theme="light"] body.ms-theme .bg-black,
 html[data-theme="light"] body.ms-theme [class*="bg-black/"],
 html[data-theme="light"] body.ms-theme .bg-\[\#0d0d0d\],
 html[data-theme="light"] body.ms-theme .bg-\[\#111112\],
-html[data-theme="light"] body.ms-theme .bg-\[\#1a1a1a\],
+html[data-theme="light"] body.ms-theme .bg-\[\hsl(var(--background))\],
 html[data-theme="light"] body.ms-theme .bg-\[\#1C1C1E\],
 html[data-theme="light"] body.ms-theme .bg-\[\#1c1c1e\],
-html[data-theme="light"] body.ms-theme [class*="bg-\[\#1a1a1a\]\/"],
+html[data-theme="light"] body.ms-theme [class*="bg-\[\hsl(var(--background))\]\/"],
 html[data-theme="light"] body.ms-theme [class*="bg-\[\#0d0d0d\]\/"] {
   background-color: hsl(var(--card)) !important;
   color: hsl(var(--card-foreground)) !important;
@@ -704,7 +704,7 @@ html[data-theme="light"] body.ms-theme .text-\[color\:var\(--amb-cream-dim\)\] {
   color: hsl(var(--muted-foreground)) !important;
 }
 
-html[data-theme="light"] body.ms-theme .border-\[\#1a1a1a\],
+html[data-theme="light"] body.ms-theme .border-\[\hsl(var(--background))\],
 html[data-theme="light"] body.ms-theme .border-\[\#2a2a2a\],
 html[data-theme="light"] body.ms-theme .border-\[\#333\],
 html[data-theme="light"] body.ms-theme [class*="border-white\/"] {

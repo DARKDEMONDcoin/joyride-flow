@@ -88,7 +88,7 @@ export default function MobilePricingScreen({
         ctaText: "#ffffff",
       }
     : {
-        bg: "#1a1a1a",
+        bg: "hsl(var(--background))",
         text: "#f5f5f5",
         muted: "#a3a3a3",
         faint: "#737373",
