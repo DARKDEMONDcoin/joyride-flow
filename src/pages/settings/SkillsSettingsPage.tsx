@@ -1,7 +1,7 @@
 /** @doc Browse and manage installed skills. */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ArrowLeft, ArrowUp, Pencil, Trash2, X, Plus, Paperclip, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowUp, Pencil, Trash2, X, Plus, Paperclip, Loader2, Sparkles, Search, SlidersHorizontal, ShieldCheck, ChevronRight, MoreHorizontal } from "lucide-react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -16,7 +16,7 @@ import MegsyStar from "@/components/files/MegsyStar";
 import { getActiveWorkspaceId } from "@/lib/activeWorkspace";
 import { SubShell, SubSection, SubCard, SubStatStrip } from "@/components/settings/SubShell";
 import { cn } from "@/lib/utils";
-import { SkillsHeroGlassCard, SkillsAddMenu } from "./components/SkillsExtras";
+import { SkillsAddMenu } from "./components/SkillsExtras";
 
 import { sanitizeErrorMessage } from "@/lib/sanitizeError";
 type DraftSkill = Partial<Skill> & {
@@ -55,7 +55,8 @@ export default function SkillsSettingsPage() {
   const [saving, setSaving] = useState(false);
   const [importing, setImporting] = useState(false);
   const [triggerInput, setTriggerInput] = useState("");
-  const [tab, setTab] = useState<"mine" | "library">("mine");
+  const [query, setQuery] = useState("");
+  const [onlyEnabled, setOnlyEnabled] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Open the designer when arriving with a seed prompt from /settings/skills/new
