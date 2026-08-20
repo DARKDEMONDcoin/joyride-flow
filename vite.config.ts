@@ -447,12 +447,14 @@ export default defineConfig({
             return "lobehub-core";
           }
 
-          // lucide-react: do NOT force every icon into one shared chunk.
-          // The barrel pulls ~580 KB and, because the app shell imports a few
-          // icons, that whole chunk was downloaded before first paint. Letting
-          // Rollup split it means each route chunk carries only the handful of
-          // icon modules it actually renders.
-
+          // lucide-react: one shared "icons" chunk containing ONLY the icons
+          // the app actually imports (the `import * as Lucide` barrel that
+          // used to defeat tree-shaking is gone). Left to Rollup, every icon
+          // became its own ~1 kB chunk and the first load fired 60+ extra HTTP
+          // requests — pure latency with no payload benefit.
+          if (/[\\/]node_modules[\\/]lucide-react[\\/]/.test(id)) {
+            return "icons";
+          }
 
           if (
             id.includes("react-markdown") ||
