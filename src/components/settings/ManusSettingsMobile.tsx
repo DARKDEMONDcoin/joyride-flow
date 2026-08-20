@@ -311,10 +311,10 @@ button.ms-card { cursor: pointer; }
   content: "";
   position: absolute;
   top: 0;
-  left: 56px;
-  right: 0;
+  left: 44px;
+  right: 14px;
   height: 1px;
-  background: var(--mn-sep);
+  background: rgba(255, 255, 255, 0.055);
 }
 .ms-row-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--mn-fg); opacity: 0.95; }
 .ms-row-label { flex: 1; font-size: 14px; font-weight: 500; }

@@ -190,9 +190,9 @@ const desktopRowCss = `
     position: absolute;
     top: 0;
     left: 50px;
-    right: 0;
+    right: 20px;
     height: 1px;
-    background: hsl(var(--foreground) / 0.08);
+    background: hsl(var(--foreground) / 0.055);
   }
 `;
 
