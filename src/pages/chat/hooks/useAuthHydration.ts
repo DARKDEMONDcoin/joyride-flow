@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { getUserSafe } from "@/lib/authSafe";
+import { getOwnProfile } from "@/lib/ownProfile";
 import type { MegsyTier } from "./useChatTier";
 
 
@@ -38,11 +39,7 @@ export function useAuthHydration(setters: {
       }
       if (cancelled) return;
       setChatUserId(user.id);
-      const { data: profile } = await supabase
-        .from("profiles")
-        .select("display_name, plan")
-        .eq("id", user.id)
-        .maybeSingle();
+      const profile = await getOwnProfile(user.id);
       const name =
         (profile as any)?.display_name ||
         (user.user_metadata?.full_name as string) ||
@@ -60,12 +57,7 @@ export function useAuthHydration(setters: {
       if (!cancelled && prefTier && ["lite", "pro", "max"].includes(prefTier)) {
         setMegsyTier(prefTier as MegsyTier);
       }
-      const { data: prof } = await supabase
-        .from("profiles")
-        .select("chat_greeted")
-        .eq("id", user.id)
-        .maybeSingle();
-      if (!cancelled && !(prof as any)?.chat_greeted) {
+      if (!cancelled && !(profile as any)?.chat_greeted) {
         setIsFirstVisit(true);
         await supabase
           .from("profiles")
