@@ -10,7 +10,6 @@ import {
   Database,
   PanelBottom,
   Puzzle,
-  Cable,
   Plug,
   UserRound,
   Moon,
