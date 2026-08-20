@@ -243,8 +243,8 @@ const Switch = ({ checked, onChange }: { checked: boolean; onChange: (v: boolean
 const npgCss = `
 .npg-root {
   min-height: 100dvh;
-  background: #1c1c1c;
-  color: #e8e8e8;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: "Neue Haas Unica", "Helvetica Now Display", -apple-system, "SF Pro Display", Inter, "Segoe UI", Roboto, sans-serif;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -253,12 +253,12 @@ const npgCss = `
   display: grid; grid-template-columns: 44px 1fr 44px;
   align-items: center;
   padding: calc(env(safe-area-inset-top, 0px) + 10px) 14px 12px;
-  background: #1c1c1c;
+  background: hsl(var(--background));
 }
 .npg-title {
   margin: 0; text-align: center;
   font-size: 17px; font-weight: 600;
-  letter-spacing: -0.01em; color: #e8e8e8;
+  letter-spacing: -0.01em; color: hsl(var(--foreground));
 }
 .npg-status { display: flex; justify-content: flex-end; padding-right: 4px; }
 .npg-icon-btn {
@@ -267,7 +267,7 @@ const npgCss = `
   border-radius: 999px;
   background: transparent;
   border: 0;
-  color: #e8e8e8; cursor: pointer;
+  color: hsl(var(--foreground)); cursor: pointer;
   transition: transform 160ms ease;
 }
 .npg-icon-btn:active { transform: scale(0.94); }
@@ -280,7 +280,7 @@ const npgCss = `
   letter-spacing: -0.005em;
 }
 .npg-card {
-  background: #292929;
+  background: hsl(var(--card));
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 18px;
   overflow: hidden;
@@ -293,7 +293,7 @@ const npgCss = `
 .npg-row-text { flex: 1; min-width: 0; }
 .npg-row-title {
   font-size: 15.5px; font-weight: 600;
-  color: #e8e8e8;
+  color: hsl(var(--foreground));
   letter-spacing: -0.005em;
 }
 .npg-row-desc {
@@ -319,7 +319,7 @@ const npgCss = `
   cursor: pointer;
   transition: background 180ms ease;
 }
-.npg-switch.is-on { background: #e8e8e8; }
+.npg-switch.is-on { background: hsl(var(--primary)); }
 .npg-switch-thumb {
   position: absolute;
   top: 2px; left: 2px;
@@ -329,7 +329,7 @@ const npgCss = `
   box-shadow: 0 2px 4px rgba(0,0,0,0.35);
   transition: transform 180ms ease;
 }
-.npg-switch.is-on .npg-switch-thumb { transform: translateX(20px); background: #1c1c1c; }
+.npg-switch.is-on .npg-switch-thumb { transform: translateX(20px); background: hsl(var(--primary-foreground)); }
 `;
 
 export default NotificationsPage;
