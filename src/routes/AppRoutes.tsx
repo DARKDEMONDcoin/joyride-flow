@@ -53,6 +53,7 @@ import {
   DataControlsPage,
   DataCategoryPage,
   CapabilitiesPage,
+  CloudBrowserPage,
   SystemStatusPage,
   SkillsSettingsPage,
   SkillsNewPage,
@@ -159,6 +160,7 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/data/:category" element={<ProtectedRoute><DataCategoryPage /></ProtectedRoute>} />
     <Route path="/settings/privacy" element={<ProtectedRoute><SettingsPrivacyPage /></ProtectedRoute>} />
     <Route path="/settings/capabilities" element={<ProtectedRoute><CapabilitiesPage /></ProtectedRoute>} />
+    <Route path="/settings/cloud-browser" element={<ProtectedRoute><CloudBrowserPage /></ProtectedRoute>} />
     <Route path="/settings/system-status" element={<ProtectedRoute><SystemStatusPage /></ProtectedRoute>} />
 
     {/* ── Research previews ─────────────────────────────────── */}
