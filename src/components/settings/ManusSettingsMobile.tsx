@@ -304,7 +304,18 @@ button.ms-card { cursor: pointer; }
 }
 .ms-row:disabled { cursor: default; }
 .ms-row:active:not(:disabled) { background: var(--mn-sep); }
-.ms-row-div { box-shadow: inset 0 1px 0 var(--mn-sep); }
+.ms-row-div {
+  position: relative;
+}
+.ms-row-div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 56px;
+  right: 0;
+  height: 1px;
+  background: var(--mn-sep);
+}
 .ms-row-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--mn-fg); opacity: 0.95; }
 .ms-row-label { flex: 1; font-size: 14px; font-weight: 500; }
 .ms-row-trailing { font-size: 13px; color: var(--mn-muted); flex-shrink: 0; }
