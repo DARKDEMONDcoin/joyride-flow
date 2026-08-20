@@ -636,10 +636,10 @@ const MobileChatLanding = ({
     if (isRtl) {
       if (firstName) {
         return [
-          `${firstName}، Where should we start today?`,
-          `${firstName}، What are we building together?`,
-          `${firstName}، Tell me your first idea`,
-          `${firstName}، Ready when you are`,
+          `${firstName}, where should we start today?`,
+          `${firstName}, what are we building together?`,
+          `${firstName}, tell me your first idea`,
+          `${firstName}, ready when you are`,
         ];
       }
       return [

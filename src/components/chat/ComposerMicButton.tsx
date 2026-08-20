@@ -37,7 +37,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar-
     const Ctor =
       (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!Ctor) {
-      toast.error("المتصفح لا يدعم الإدخال الصوتي");
+      toast.error("Your browser does not support voice input");
       return;
     }
     const rec = new Ctor();

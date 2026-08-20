@@ -338,7 +338,7 @@ export default function ComposerModelMenu({
                         type="button"
                         onClick={() => {
                           if (locked) {
-                            toast.info(`${item.label} متاح في الباقات المدفوعة فقط`);
+                            toast.info(`${item.label} is available on paid plans only`);
                             return;
                           }
                           if (item.kind === "tier") onTierSelect(item.id as "lite" | "pro" | "max");

@@ -67,7 +67,7 @@ export default function IntegrationRow({ item, connected, busy, onOpen }: RowPro
           dir="auto"
           className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40"
         >
-          {`استخدم ${item.name} مباشرة داخل محادثاتك`}
+          {`Use ${item.name} right inside your chats`}
         </span>
       </span>
       <span className="shrink-0 text-foreground/35">

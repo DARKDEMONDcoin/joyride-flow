@@ -42,7 +42,7 @@ const CONFIGS: Record<string, Cfg> = {
   },
   videos: {
     table: "media_assets",
-    titleAr: "الفيديوهات",
+    titleAr: "Videos",
     titleEn: "Videos",
     emptyAr: "No videos yet",
     emptyEn: "No videos yet",
@@ -59,7 +59,7 @@ const CONFIGS: Record<string, Cfg> = {
   },
   files: {
     table: "user_assets",
-    titleAr: "الملفات",
+    titleAr: "Files",
     titleEn: "Files",
     emptyAr: "No files yet",
     emptyEn: "No files yet",
@@ -77,7 +77,7 @@ const CONFIGS: Record<string, Cfg> = {
   },
   sites: {
     table: "generated_sites",
-    titleAr: "المواقع المنشورة",
+    titleAr: "Published sites",
     titleEn: "Published sites",
     emptyAr: "No published sites",
     emptyEn: "No published sites",
@@ -93,7 +93,7 @@ const CONFIGS: Record<string, Cfg> = {
   },
   shared: {
     table: "conversations",
-    titleAr: "المحادثات المشتركة",
+    titleAr: "Shared chats",
     titleEn: "Shared chats",
     emptyAr: "No shared chats",
     emptyEn: "No shared chats",

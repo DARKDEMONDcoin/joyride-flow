@@ -86,14 +86,14 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         <IntegrationLogo item={item} size={72} />
         <h3 className="mt-3 text-[19px] font-semibold text-foreground">{item.name}</h3>
         <p className="mt-2 max-w-[34ch] text-[13px] leading-[1.7] text-foreground/50">
-          {`اربط حساب ${item.name} لاستخدامه بأمان وتنفيذ المهام من داخل المحادثة.`}
+          {`Connect your ${item.name} account to use it securely and run tasks from chat.`}
         </p>
       </div>
 
       {connected && (
         <div className="mt-5 flex items-center justify-between gap-2 rounded-[14px] bg-foreground/[0.05] px-4 py-3">
           <span className="truncate text-[13px] text-foreground/70">
-            متصل بـ {site ?? item.name}
+            Connected to {site ?? item.name}
           </span>
           <Check className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
         </div>

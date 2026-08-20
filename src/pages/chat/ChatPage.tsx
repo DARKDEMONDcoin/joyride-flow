@@ -1114,7 +1114,7 @@ const ChatPage = () => {
       if (!step) {
         toast.error(
           plan.language === "ar"
-            ? `لا توجد شريحة رقم ${intent.slideNumber}`
+            ? `There is no slide number ${intent.slideNumber}`
             : `There is no slide ${intent.slideNumber}`,
         );
         setIsLoading(false);
@@ -1132,7 +1132,7 @@ const ChatPage = () => {
         userId: chatUserId || undefined,
       }).catch(() => null);
       if (!revised) {
-        toast.error(plan.language === "ar" ? "تعذّر تعديل الشريحة" : "Could not edit that slide");
+        toast.error(plan.language === "ar" ? "Could not edit that slide" : "Could not edit that slide");
         setIsLoading(false);
         setIsThinking(false);
         return;
@@ -1156,7 +1156,7 @@ const ChatPage = () => {
                 ...m,
                 content:
                   plan.language === "ar"
-                    ? `عدّلت الشريحة ${intent.slideNumber} وأعيد توليد العرض بنفس بقية المحتوى.`
+                    ? `Updated slide ${intent.slideNumber} and regenerated the deck with the rest unchanged.`
                     : `Updated slide ${intent.slideNumber} and regenerating the deck.`,
                 slidesPlan: { ...nextPlan, stage: "generating" },
                 mode: "slides",

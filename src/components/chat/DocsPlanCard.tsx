@@ -216,7 +216,7 @@ export default function DocsPlanCard({
       {plan.sourceFiles?.length ? (
         <p className="mb-2 text-[11px] text-muted-foreground">
           {"Imported data: "}
-          {plan.sourceFiles.map((f) => f.name).join("، ")}
+          {plan.sourceFiles.map((f) => f.name).join(", ")}
         </p>
       ) : null}
 

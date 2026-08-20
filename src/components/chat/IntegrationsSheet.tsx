@@ -92,7 +92,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
       if (connected[item.app]) {
         await disconnectIntegration(item);
         await refresh();
-        toast.success(`تم فصل ${item.name}`);
+        toast.success(`Disconnected ${item.name}`);
       } else {
         const res = await startIntegrationConnection(item);
         if ("popup" in res && res.popup) {
@@ -103,7 +103,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
         } else {
           await refresh();
         }
-        toast.success(`تم ربط ${item.name}`);
+        toast.success(`Connected ${item.name}`);
       }
     } catch (e: any) {
       toast.error(e?.message || "Couldn't complete the action");

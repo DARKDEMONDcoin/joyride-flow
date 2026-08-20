@@ -39,7 +39,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
       const { dataUrl } = await compressImageToDataUrl(file);
       onAttach({ name: file.name, type: "image", data: dataUrl });
     } catch {
-      toast.error("تعذر إرفاق Imagesة");
+      toast.error("Couldn't attach the image");
     }
   };
 
@@ -66,7 +66,7 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
     e.target.value = "";
     if (!file) return;
     setBusy(true);
-    const toastId = toast.loading(`جاري Upscale ×${upscaleFactor}…`);
+    const toastId = toast.loading(`Upscaling ×${upscaleFactor}…`);
     try {
       const res = await upscaleImage(file, upscaleFactor);
       onAttach({
@@ -74,9 +74,9 @@ export default function ImageToolsBar({ onAttach, onUseCharacter }: Props) {
         type: "image",
         data: res.dataUrl,
       });
-      toast.success(`تم Upscale إلى ${res.width}×${res.height}`, { id: toastId });
+      toast.success(`Upscaled to ${res.width}×${res.height}`, { id: toastId });
     } catch {
-      toast.error("تعذر رفع دقة Imagesة، جرّب صورة أخرى", { id: toastId });
+      toast.error("Couldn't upscale the image, try another one", { id: toastId });
     } finally {
       setBusy(false);
     }
