@@ -1,4 +1,5 @@
-import { ChevronRight, Loader2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpLeft, Check, ChevronRight, Loader2, MoreHorizontal, SlidersHorizontal, Trash2 } from "lucide-react";
 import type { Integration } from "@/lib/integrationsData";
 import { IntegrationLogo } from "./IntegrationRow";
 
@@ -12,9 +13,23 @@ interface Props {
 
 /** Level 2 — connector detail. Scrolling is owned by the sheet container. */
 export default function IntegrationDetail({ item, connected, busy, onBack, onToggle }: Props) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
+  }, [menuOpen]);
+
+  const site = item.domain ? `https://${item.domain}` : undefined;
+
   return (
     <div className="flex min-h-full flex-col">
-      <div className="flex shrink-0 items-center justify-between pb-1">
+      <div className="relative flex shrink-0 items-center justify-between pb-1">
         <button
           type="button"
           onClick={onBack}
@@ -25,7 +40,46 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           <ChevronRight className="h-5 w-5" />
         </button>
         <span className="text-[15px] font-semibold text-foreground">{item.name}</span>
-        <span className="h-8 w-8" />
+        <div ref={menuRef} className="relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="خيارات"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-foreground/70"
+            style={{ border: 0 }}
+          >
+            <MoreHorizontal className="h-5 w-5" />
+          </button>
+          {menuOpen && (
+            <div className="absolute left-0 top-9 z-20 w-48 overflow-hidden rounded-[16px] bg-card p-1 shadow-lg">
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  if (site) window.open(site, "_blank", "noopener");
+                }}
+                className="flex w-full items-center justify-between gap-2 rounded-[12px] bg-transparent px-3 py-2.5 text-[14px] text-foreground"
+                style={{ border: 0 }}
+              >
+                <span>تكوين</span>
+                <SlidersHorizontal className="h-[18px] w-[18px] text-foreground/60" />
+              </button>
+              <button
+                type="button"
+                disabled={!connected}
+                onClick={() => {
+                  setMenuOpen(false);
+                  onToggle();
+                }}
+                className="flex w-full items-center justify-between gap-2 rounded-[12px] bg-transparent px-3 py-2.5 text-[14px] text-destructive disabled:opacity-40"
+                style={{ border: 0 }}
+              >
+                <span>قطع الاتصال</span>
+                <Trash2 className="h-[18px] w-[18px]" />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="flex flex-col items-center pt-4 text-center">
@@ -36,30 +90,37 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         </p>
       </div>
 
+      {connected && (
+        <div className="mt-5 flex items-center justify-between gap-2 rounded-[14px] bg-foreground/[0.05] px-4 py-3">
+          <span className="truncate text-[13px] text-foreground/70">
+            متصل بـ {site ?? item.name}
+          </span>
+          <Check className="h-[18px] w-[18px] shrink-0 text-foreground/70" />
+        </div>
+      )}
+
       <p className="mb-1 mt-6 px-2 text-[12.5px] text-foreground/40">التفاصيل</p>
-      <div className="overflow-hidden rounded-[18px]">
-        <DetailRow label="نوع التكامل" value={typeLabel(item.type)} />
-        <DetailRow label="الفئة" value={item.category} />
-        {item.domain && <DetailRow label="الموقع" value={item.domain} />}
-        <DetailRow label="المعرّف" value={item.app} last />
+      <div className="overflow-hidden rounded-[18px] bg-card">
+        <DetailRow label="نوع الموصل" value={typeLabel(item.type)} />
+        <DetailRow label="المؤلف" value={item.name} />
+        <LinkRow label="موقع إلكتروني" href={site} />
+        <LinkRow label="التوثيق" href={site ? `${site}/docs` : undefined} />
+        <LinkRow label="سياسة الخصوصية" href={site ? `${site}/privacy` : undefined} last />
       </div>
 
+      <div className="mt-4 overflow-hidden rounded-[18px] bg-card">
+        <LinkRow label="تقديم ملاحظات" href="mailto:support@example.com" last />
+      </div>
 
       <div className="mt-6 pb-2">
         <button
           type="button"
           onClick={onToggle}
           disabled={busy}
-          className="inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-transparent text-[14.5px] font-semibold transition-opacity active:opacity-80"
-          style={{ border: 0, color: connected ? undefined : "hsl(var(--primary))" }}
+          className="inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-foreground text-[14.5px] font-semibold text-background transition-opacity active:opacity-80"
+          style={{ border: 0 }}
         >
-          {busy ? (
-            <Loader2 className="h-[18px] w-[18px] animate-spin" />
-          ) : connected ? (
-            <span className="text-foreground/70">فصل</span>
-          ) : (
-            "اتصال"
-          )}
+          {busy ? <Loader2 className="h-[18px] w-[18px] animate-spin" /> : connected ? "جرّبه" : "اتصال"}
         </button>
       </div>
     </div>
@@ -85,8 +146,26 @@ function typeLabel(t: Integration["type"]) {
     case "notification":
       return "إشعارات";
     case "service":
-      return "خدمة";
+      return "MCP";
     default:
       return "تطبيق";
   }
+}
+
+function LinkRow({ label, href, last }: { label: string; href?: string; last?: boolean }) {
+  return (
+    <button
+      type="button"
+      disabled={!href}
+      onClick={() => href && window.open(href, "_blank", "noopener")}
+      className="flex w-full items-center justify-between bg-transparent px-4 py-3.5 text-right disabled:opacity-40"
+      style={{
+        border: 0,
+        ...(last ? {} : { boxShadow: "inset 0 -1px 0 hsl(var(--foreground) / 0.06)" }),
+      }}
+    >
+      <span className="text-[13px] text-foreground/45">{label}</span>
+      <ArrowUpLeft className="h-[18px] w-[18px] text-foreground/40" />
+    </button>
+  );
 }
