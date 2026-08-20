@@ -286,11 +286,7 @@ const AppSidebar = ({
       user.user_metadata?.user_name ||
       emailPrefix;
     setUserName(fallbackName);
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("credits, avatar_url, display_name")
-      .eq("id", user.id)
-      .maybeSingle();
+    const profile = await getOwnProfile(user.id);
     const next = { userName: fallbackName, avatarUrl: user.user_metadata?.avatar_url || null };
     let nextCredits = 0;
     if (profile) {
