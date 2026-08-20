@@ -146,7 +146,7 @@ const KnowledgePage = () => {
       {sheetOpen && (
         <div className="kn-sheet-wrap">
           <div className="kn-scrim" onClick={() => setSheetOpen(false)} />
-          <div className="kn-sheet" role="dialog" aria-modal="true" aria-label="Add knowledge">
+          <div className="kn-sheet" aria-label="Add knowledge">
             <header className="kn-sheet-top">
               <button className="kn-icon-btn" aria-label="Close" onClick={() => setSheetOpen(false)}>
                 <X className="w-5 h-5" strokeWidth={2} />
