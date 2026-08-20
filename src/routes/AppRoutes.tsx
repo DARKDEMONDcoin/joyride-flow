@@ -45,12 +45,7 @@ import {
   McpSettingsPage,
   AIPersonalizationPage,
   KnowledgePage,
-  ApiKeysPage,
-  CostDashboardPage,
-  ApprovalsPage,
-  DiffPlaygroundPage,
   ScheduledTasksPage,
-  MarketplacePage,
   SettingsSupportPage,
   SettingsHelpPage,
   SettingsContactPage,
@@ -152,12 +147,7 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
     <Route path="/settings/language" element={<ProtectedRoute><LanguagePage /></ProtectedRoute>} />
     <Route path="/settings/mcp" element={<ProtectedRoute><McpSettingsPage /></ProtectedRoute>} />
     <Route path="/settings/memory" element={<ProtectedRoute><KnowledgePage /></ProtectedRoute>} />
-    <Route path="/settings/api-keys" element={<ProtectedRoute><ApiKeysPage /></ProtectedRoute>} />
-    <Route path="/settings/costs" element={<ProtectedRoute><CostDashboardPage /></ProtectedRoute>} />
-    <Route path="/settings/approvals" element={<ProtectedRoute><ApprovalsPage /></ProtectedRoute>} />
-    <Route path="/settings/diff" element={<ProtectedRoute><DiffPlaygroundPage /></ProtectedRoute>} />
     <Route path="/settings/tasks" element={<ProtectedRoute><ScheduledTasksPage /></ProtectedRoute>} />
-    <Route path="/settings/marketplace" element={<ProtectedRoute><MarketplacePage /></ProtectedRoute>} />
     <Route path="/settings/skills" element={<ProtectedRoute><SkillsSettingsPage /></ProtectedRoute>} />
     <Route path="/settings/skills/new" element={<ProtectedRoute><SkillsNewPage /></ProtectedRoute>} />
     <Route path="/settings/skills/library" element={<ProtectedRoute><SkillsLibraryPage /></ProtectedRoute>} />
