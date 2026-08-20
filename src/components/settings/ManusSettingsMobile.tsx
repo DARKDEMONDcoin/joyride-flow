@@ -7,7 +7,6 @@ import {
   ChevronRight,
   Clock,
   Lightbulb,
-  Lightbulb,
   Database,
   PanelBottom,
   Puzzle,
