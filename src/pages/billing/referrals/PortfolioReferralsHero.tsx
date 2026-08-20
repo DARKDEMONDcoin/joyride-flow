@@ -452,7 +452,7 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
 
   return (
     <section
-      className="w-full bg-[#0a0a0a] text-foreground antialiased lg:rounded-2xl overflow-hidden"
+      className="w-full bg-background text-foreground antialiased lg:rounded-2xl overflow-hidden"
       style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
     >
       <div className="px-3 sm:px-6 md:px-10 lg:px-14 py-4 sm:py-8 md:py-10">

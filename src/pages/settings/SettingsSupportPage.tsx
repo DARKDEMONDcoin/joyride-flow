@@ -15,7 +15,7 @@ export default function SettingsSupportPage() {
           <button
             onClick={goBack}
             aria-label="Back"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-[#1a1a1a]/40 text-[#f5f5f5] transition-colors hover:bg-[#1a1a1a]/60 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-background/40 text-[#f5f5f5] transition-colors hover:bg-background/60 active:scale-95"
           >
             <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
           </button>
@@ -104,7 +104,7 @@ function SupportCard({
   return (
     <button
       onClick={onClick}
-      className="group flex items-center justify-between rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40 p-5 text-left transition-all hover:bg-[#1a1a1a]/60 active:scale-[0.98]"
+      className="group flex items-center justify-between rounded-[24px] border border-[#1a1a1a] bg-background/40 p-5 text-left transition-all hover:bg-background/60 active:scale-[0.98]"
     >
       <div className="flex flex-col items-start gap-1">
         <div className="flex items-center gap-2">

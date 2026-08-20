@@ -56,7 +56,7 @@ export default function SettingsContactPage() {
   const canSend = !!(name.trim() && email.trim() && message.trim() && !sending);
 
   const inputCls =
-    "w-full rounded-[16px] border border-[#1a1a1a] bg-[#262626] px-4 py-3 text-[14.5px] text-[#f5f5f5] outline-none transition-colors placeholder:text-[#6b6b6b] focus:border-[#333]";
+    "w-full rounded-[16px] border border-[#1a1a1a] bg-card px-4 py-3 text-[14.5px] text-[#f5f5f5] outline-none transition-colors placeholder:text-[#6b6b6b] focus:border-[#333]";
   const labelCls =
     "mb-2 block px-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#a0a0a0]";
 
@@ -71,7 +71,7 @@ export default function SettingsContactPage() {
           <button
             onClick={() => goBackOr(navigate, "/settings/support")}
             aria-label="Back"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-[#1a1a1a]/40 text-[#f5f5f5] transition-colors hover:bg-[#1a1a1a]/60 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-background/40 text-[#f5f5f5] transition-colors hover:bg-background/60 active:scale-95"
           >
             <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
           </button>
@@ -91,8 +91,8 @@ export default function SettingsContactPage() {
         </header>
 
         {sent ? (
-          <div className="rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40 p-8 text-center">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-[#2a2a2a] bg-[#262626]">
+          <div className="rounded-[24px] border border-[#1a1a1a] bg-background/40 p-8 text-center">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-[#2a2a2a] bg-card">
               <CheckCircle2 className="h-6 w-6 text-[#f5f5f5]" strokeWidth={1.8} />
             </div>
             <p className="text-[17px] font-semibold text-[#f5f5f5]">{tx("Message sent")}</p>
@@ -115,7 +115,7 @@ export default function SettingsContactPage() {
               <h2 className={labelCls}>{tx("Direct")}</h2>
               <a
                 href="mailto:support@megsyai.com"
-                className="group flex items-center justify-between rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40 p-5 transition-all hover:bg-[#1a1a1a]/60 active:scale-[0.98]"
+                className="group flex items-center justify-between rounded-[24px] border border-[#1a1a1a] bg-background/40 p-5 transition-all hover:bg-background/60 active:scale-[0.98]"
               >
                 <div className="flex flex-col">
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#a0a0a0]">
@@ -125,7 +125,7 @@ export default function SettingsContactPage() {
                     support@megsyai.com
                   </span>
                 </div>
-                <span className="rounded-full border border-[#2a2a2a] bg-[#262626] px-3 py-1 text-[11px] font-medium text-[#a0a0a0]">
+                <span className="rounded-full border border-[#2a2a2a] bg-card px-3 py-1 text-[11px] font-medium text-[#a0a0a0]">
                   ~24h
                 </span>
               </a>
@@ -134,7 +134,7 @@ export default function SettingsContactPage() {
             {/* Form */}
             <section className="mb-8">
               <h2 className={labelCls}>{tx("Send a message")}</h2>
-              <div className="flex flex-col gap-4 rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40 p-5">
+              <div className="flex flex-col gap-4 rounded-[24px] border border-[#1a1a1a] bg-background/40 p-5">
                 <div>
                   <label className={labelCls}>{tx("Name")}</label>
                   <input
@@ -179,7 +179,7 @@ export default function SettingsContactPage() {
             <button
               onClick={submit}
               disabled={!canSend}
-              className="flex w-full items-center justify-center gap-2 rounded-[24px] border border-[#f5f5f5] bg-[#f5f5f5] px-6 py-4 text-[15px] font-semibold text-background transition-all hover:bg-white active:scale-[0.98] disabled:cursor-not-allowed disabled:border-[#1a1a1a] disabled:bg-[#1a1a1a]/40 disabled:text-[#6b6b6b]"
+              className="flex w-full items-center justify-center gap-2 rounded-[24px] border border-[#f5f5f5] bg-[#f5f5f5] px-6 py-4 text-[15px] font-semibold text-background transition-all hover:bg-white active:scale-[0.98] disabled:cursor-not-allowed disabled:border-[#1a1a1a] disabled:bg-background/40 disabled:text-[#6b6b6b]"
             >
               {sending ? (
                 <>

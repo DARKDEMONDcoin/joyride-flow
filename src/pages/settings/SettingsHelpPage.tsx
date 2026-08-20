@@ -96,7 +96,7 @@ export default function SettingsHelpPage() {
           <button
             onClick={() => goBackOr(navigate, "/settings/support")}
             aria-label="Back"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-[#1a1a1a]/40 text-[#f5f5f5] transition-colors hover:bg-[#1a1a1a]/60 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1a1a1a] bg-background/40 text-[#f5f5f5] transition-colors hover:bg-background/60 active:scale-95"
           >
             <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
           </button>
@@ -113,7 +113,7 @@ export default function SettingsHelpPage() {
         </header>
 
         {/* Search */}
-        <div className="mb-8 flex items-center gap-3 rounded-[18px] border border-[#1a1a1a] bg-[#262626] px-4 py-3">
+        <div className="mb-8 flex items-center gap-3 rounded-[18px] border border-[#1a1a1a] bg-card px-4 py-3">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0 text-[#a0a0a0]">
             <circle cx="11" cy="11" r="7" />
             <path strokeLinecap="round" d="m20 20-3.5-3.5" />
@@ -135,7 +135,7 @@ export default function SettingsHelpPage() {
             >
               {sec.title}
             </h2>
-            <div className="overflow-hidden rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40">
+            <div className="overflow-hidden rounded-[24px] border border-[#1a1a1a] bg-background/40">
               {sec.items.map((it, i) => {
                 const key = `${sec.title}-${i}`;
                 const open = openKey === key;
@@ -146,7 +146,7 @@ export default function SettingsHelpPage() {
                   >
                     <button
                       onClick={() => setOpenKey(open ? null : key)}
-                      className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-[#1a1a1a]/60 active:scale-[0.99]"
+                      className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-background/60 active:scale-[0.99]"
                     >
                       <span className="text-[14.5px] font-medium text-[#f5f5f5]">{it.q}</span>
                       <ChevronDown
@@ -170,7 +170,7 @@ export default function SettingsHelpPage() {
         ))}
 
         {filtered.length === 0 && (
-          <div className="rounded-[24px] border border-[#1a1a1a] bg-[#1a1a1a]/40 p-8 text-center">
+          <div className="rounded-[24px] border border-[#1a1a1a] bg-background/40 p-8 text-center">
             <p className="text-[15px] font-semibold text-[#f5f5f5]">No matches</p>
             <span className="mt-1 block text-[13px] text-[#a0a0a0]">Try a different keyword.</span>
           </div>
