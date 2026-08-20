@@ -56,7 +56,6 @@ export const UsagePage = lazy(() => import("@/pages/usage/UsagePage"));
 export const NotificationsInboxPage = lazy(() => import("@/pages/notifications/NotificationsInboxPage"));
 export const McpSettingsPage = lazy(() => import("@/pages/settings/McpSettingsPage"));
 export const AIPersonalizationPage = lazy(() => import("@/pages/settings/AIPersonalizationPage"));
-export const MemoryPage = lazy(() => import("@/pages/settings/MemoryPage"));
 export const ApiKeysPage = lazy(() => import("@/pages/settings/ApiKeysPage"));
 export const CostDashboardPage = lazy(() => import("@/pages/settings/CostDashboardPage"));
 export const ApprovalsPage = lazy(() => import("@/pages/settings/ApprovalsPage"));

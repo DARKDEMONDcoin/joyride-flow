@@ -93,7 +93,6 @@ describe("App router audit", () => {
         "Route",
         "Routes",
         "BrowserRouter",
-        "RootRoute",
       ]);
 
       for (const id of ids) {

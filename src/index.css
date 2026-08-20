@@ -176,26 +176,26 @@ html.lenis body {
   /* ── Overlay tokens (glass/sidebar/profile shell) ─────────────
      Centralized rgba constants so we don't scatter hex/rgba in TSX.
      Naming: --overlay-{white|black}-{opacity*100}. */
-  --overlay-white-03: var(--overlay-white-03);
-  --overlay-white-04: var(--overlay-white-04);
-  --overlay-white-05: var(--overlay-white-05);
-  --overlay-white-06: var(--overlay-white-06);
-  --overlay-white-08: var(--overlay-white-08);
-  --overlay-white-10: var(--overlay-white-10);
-  --overlay-white-12: var(--overlay-white-12);
-  --overlay-white-14: var(--overlay-white-14);
+  --overlay-white-03: rgba(255, 255, 255, 0.03);
+  --overlay-white-04: rgba(255, 255, 255, 0.04);
+  --overlay-white-05: rgba(255, 255, 255, 0.05);
+  --overlay-white-06: rgba(255, 255, 255, 0.06);
+  --overlay-white-08: rgba(255, 255, 255, 0.08);
+  --overlay-white-10: rgba(255, 255, 255, 0.10);
+  --overlay-white-12: rgba(255, 255, 255, 0.12);
+  --overlay-white-14: rgba(255, 255, 255, 0.14);
   --overlay-white-16: rgba(255, 255, 255, 0.16);
   --overlay-white-22: rgba(255, 255, 255, 0.22);
   --overlay-white-45: rgba(255, 255, 255, 0.45);
-  --overlay-white-60: var(--overlay-white-60);
+  --overlay-white-60: rgba(255, 255, 255, 0.60);
   --overlay-white-62: rgba(255, 255, 255, 0.62);
-  --overlay-white-70: var(--overlay-white-70);
+  --overlay-white-70: rgba(255, 255, 255, 0.70);
   --overlay-white-92: rgba(255, 255, 255, 0.92);
   --overlay-white-95: rgba(255, 255, 255, 0.95);
   --overlay-white-100: #ffffff;
-  --overlay-black-22: var(--overlay-black-22);
+  --overlay-black-22: rgba(0, 0, 0, 0.22);
   --overlay-black-50: rgba(0, 0, 0, 0.50);
-  --overlay-black-55: var(--overlay-black-55);
+  --overlay-black-55: rgba(0, 0, 0, 0.55);
   --page-bg: #000000;
   /* Megsy brand blue — used across ThinkingLoader, AgentStatusLine, ChatMessage sources, MegsyStar */
   --megsy-blue: #5b8def;

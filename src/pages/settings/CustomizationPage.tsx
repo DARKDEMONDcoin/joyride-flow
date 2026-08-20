@@ -21,8 +21,6 @@ const ACCENTS = [
 ];
 
 const GOLD_HSL = "45 90% 55%";
-const GOLD_HEX = "#c9a84c";
-
 const CustomizationPage = () => {
   const navigate = useNavigate();
   const goBack = useSmartBack("/settings");
@@ -31,12 +29,12 @@ const CustomizationPage = () => {
 
   useEffect(() => {
     document.body.classList.add("ms-theme");
-    document.documentElement.style.setProperty("--primary", GOLD_HSL);
-    document.documentElement.style.setProperty("--user-bubble", GOLD_HEX);
+    document.documentElement.style.setProperty("--primary", accent);
+    document.documentElement.style.setProperty("--user-bubble", `hsl(${accent})`);
     return () => {
       document.body.classList.remove("ms-theme");
     };
-  }, []);
+  }, [accent]);
 
   const changeAccent = useCallback((hsl: string) => {
     document.documentElement.style.setProperty("--primary", hsl);
