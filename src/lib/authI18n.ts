@@ -1066,28 +1066,7 @@ export async function initUserLang(): Promise<AuthLang> {
   applyHtmlLang(lang);
   emitChange(lang);
 
-  // Best-effort remote sync for signed-in users.
-  try {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (user?.id) {
-      const { data } = await supabase
-        .from("user_chat_settings")
-        .select("preferred_language")
-        .eq("user_id", user.id)
-        .maybeSingle();
-      const remote = (data?.preferred_language || "").toLowerCase();
-      if (remote && isSupportedLang(remote) && remote !== lang) {
-        persistLangLocally(remote as AuthLang);
-        applyHtmlLang(remote as AuthLang);
-        emitChange(remote as AuthLang);
-        return remote as AuthLang;
-      }
-    }
-  } catch {
-    // ignore — offline is fine
-  }
+  // English-only product: no remote language override.
   return lang;
 }
 
