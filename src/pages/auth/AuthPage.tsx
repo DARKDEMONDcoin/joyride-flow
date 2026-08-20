@@ -715,19 +715,19 @@ const AuthPage = () => {
 
   // Borderless input — only a thin bottom rule, no fill
   const inputCls =
-    "auth-input-white w-full bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-3 text-[15px] text-start !text-white placeholder:!text-white/40 outline-none focus:border-white/70 transition-colors duration-200";
+    "auth-input-white w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 text-[15px] text-start !text-foreground placeholder:!text-foreground/40 outline-none focus:border-foreground/70 transition-colors duration-200";
 
   // Primary CTA — white only after the related field has text.
   const btnCls = (hasValue: boolean) =>
     `w-full py-3 rounded-full border text-[14px] font-semibold active:scale-[0.97] transition-[transform,border-color,background-color,color,opacity] duration-[280ms] [transition-timing-function:cubic-bezier(0.34,1.35,0.64,1)] disabled:opacity-50 disabled:pointer-events-none will-change-transform ${
       hasValue
-        ? "theme-fixed bg-white text-black border-white hover:bg-white/90"
-        : "bg-transparent text-white border-white/30"
+        ? "theme-fixed bg-white text-background border-white hover:bg-foreground/90"
+        : "bg-transparent text-foreground border-foreground/30"
     }`;
 
   // Secondary — bare outline pill with iOS press
   const socialCls =
-    "w-full flex items-center justify-center gap-2.5 py-3 rounded-full border border-white/15 bg-transparent text-foreground/90 text-[14px] font-medium hover:border-foreground/40 hover:bg-foreground/[0.03] active:scale-[0.97] transition-[transform,border-color,background-color] duration-[280ms] [transition-timing-function:cubic-bezier(0.34,1.35,0.64,1)] will-change-transform";
+    "w-full flex items-center justify-center gap-2.5 py-3 rounded-full border border-foreground/15 bg-transparent text-foreground/90 text-[14px] font-medium hover:border-foreground/40 hover:bg-foreground/[0.03] active:scale-[0.97] transition-[transform,border-color,background-color] duration-[280ms] [transition-timing-function:cubic-bezier(0.34,1.35,0.64,1)] will-change-transform";
 
   // ─── Mobile intro — inline expandable email/password flow ──
   if (isMobile && (step === "intro1" || step === "email" || step === "password")) {
@@ -818,9 +818,9 @@ const AuthPage = () => {
         path="/auth"
         noindex
       />
-      <div className="auth-desktop-split relative min-h-dvh w-full overflow-hidden bg-black text-foreground flex flex-col lg:flex-row">
+      <div className="auth-desktop-split relative min-h-dvh w-full overflow-hidden bg-background text-foreground flex flex-col lg:flex-row">
         {/* Plain black backdrop */}
-        <div className="absolute inset-0 -z-10 bg-black" />
+        <div className="absolute inset-0 -z-10 bg-background" />
 
         {/* Left half wrapper (desktop) / bottom panel (mobile) */}
         <div className="relative w-full lg:w-1/2 lg:min-h-dvh flex-1 flex flex-col">
@@ -962,17 +962,17 @@ const AuthPage = () => {
                       </div>
 
                       <div className="flex items-center gap-3 my-5">
-                        <div className="flex-1 h-px bg-white/10" />
+                        <div className="flex-1 h-px bg-foreground/10" />
                         <span className="text-[10px] text-foreground/35 uppercase tracking-[0.25em]">
                           {authT("or")}
                         </span>
-                        <div className="flex-1 h-px bg-white/10" />
+                        <div className="flex-1 h-px bg-foreground/10" />
                       </div>
 
                       <div className="space-y-2.5">
                         <button
                           onClick={handleGoogleLogin}
-                          className={`theme-fixed ${socialCls} !bg-white !text-black hover:!bg-white/90 border-white/30`}
+                          className={`theme-fixed ${socialCls} !bg-white !text-background hover:!bg-foreground/90 border-foreground/30`}
                         >
                           <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24">
                             <path
@@ -1101,7 +1101,7 @@ const AuthPage = () => {
                               <InputOTPSlot
                                 key={`otp-${step}-${i}`}
                                 index={i}
-                                className="w-11 h-12 sm:w-12 sm:h-14 text-2xl font-display font-bold text-foreground bg-transparent border-0 border-b-2 border-white/15 rounded-none first:rounded-none last:rounded-none focus-within:border-foreground/70 transition-colors"
+                                className="w-11 h-12 sm:w-12 sm:h-14 text-2xl font-display font-bold text-foreground bg-transparent border-0 border-b-2 border-foreground/15 rounded-none first:rounded-none last:rounded-none focus-within:border-foreground/70 transition-colors"
                               />
                             ))}
                           </InputOTPGroup>
@@ -1261,7 +1261,7 @@ const AuthPage = () => {
                 {clipboardMenu && (
                   <div
                     ref={clipboardMenuRef}
-                    className="fixed z-toast flex overflow-hidden rounded-xl border border-white/15 bg-popover/95 text-popover-foreground shadow-2xl backdrop-blur-xl"
+                    className="fixed z-toast flex overflow-hidden rounded-xl border border-foreground/15 bg-popover/95 text-popover-foreground shadow-2xl backdrop-blur-xl"
                     style={{
                       left: `min(${clipboardMenu.x}px, calc(100vw - 168px))`,
                       top: `max(12px, ${clipboardMenu.y - 52}px)`,
@@ -1277,7 +1277,7 @@ const AuthPage = () => {
                     <button
                       type="button"
                       onClick={handleClipboardPaste}
-                      className="border-s border-white/10 px-4 py-2.5 text-[13px] font-medium hover:bg-foreground/10"
+                      className="border-s border-foreground/10 px-4 py-2.5 text-[13px] font-medium hover:bg-foreground/10"
                     >
                       {authT("paste")}
                     </button>

@@ -87,7 +87,7 @@ export default function SettingsHelpPage() {
 
   return (
     <div
-      className="min-h-screen w-full bg-black text-[#f5f5f5]"
+      className="min-h-screen w-full bg-background text-[#f5f5f5]"
       style={{ fontFamily: '"DM Sans", "Inter", system-ui, sans-serif' }}
     >
       <div className="mx-auto w-full max-w-md px-6 py-8">

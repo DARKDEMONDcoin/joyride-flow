@@ -133,7 +133,7 @@ const ResetPasswordPage = () => {
         >
           {done ? (
             <div className="text-center py-8">
-              <div className="w-14 h-14 rounded-full border border-white/15 flex items-center justify-center mx-auto mb-6">
+              <div className="w-14 h-14 rounded-full border border-foreground/15 flex items-center justify-center mx-auto mb-6">
                 <Check className="w-5 h-5 text-foreground" strokeWidth={2.25} />
               </div>
               <h1 className="text-[22px] leading-[1.25] font-medium tracking-tight text-foreground">
@@ -177,7 +177,7 @@ const ResetPasswordPage = () => {
                     onKeyDown={(e) => e.key === "Enter" && handleReset()}
                     autoFocus
                     autoComplete="new-password"
-                    className="w-full bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-3 pr-10 text-[15px] text-foreground placeholder:text-foreground/30 outline-none focus:border-foreground/70 transition-colors duration-200"
+                    className="w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 pr-10 text-[15px] text-foreground placeholder:text-foreground/30 outline-none focus:border-foreground/70 transition-colors duration-200"
                   />
                   <button
                     type="button"
@@ -205,7 +205,7 @@ const ResetPasswordPage = () => {
               </div>
               {clipboardMenu && (
                 <div
-                  className="fixed z-toast flex overflow-hidden rounded-xl border border-white/15 bg-popover/95 text-popover-foreground shadow-2xl backdrop-blur-xl"
+                  className="fixed z-toast flex overflow-hidden rounded-xl border border-foreground/15 bg-popover/95 text-popover-foreground shadow-2xl backdrop-blur-xl"
                   style={{
                     left: `min(${clipboardMenu.x}px, calc(100vw - 168px))`,
                     top: `max(12px, ${clipboardMenu.y - 52}px)`,
@@ -221,7 +221,7 @@ const ResetPasswordPage = () => {
                   <button
                     type="button"
                     onClick={handleClipboardPaste}
-                    className="border-l border-white/10 px-4 py-2.5 text-[13px] font-medium hover:bg-foreground/10"
+                    className="border-l border-foreground/10 px-4 py-2.5 text-[13px] font-medium hover:bg-foreground/10"
                   >
                     Paste
                   </button>

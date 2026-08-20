@@ -98,7 +98,7 @@ export function SkillsAddMenu({
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Overlay className="fixed inset-0 z-overlay bg-black/30" />
+          <Drawer.Overlay className="fixed inset-0 z-overlay bg-background/30" />
           <Drawer.Content
             className="fixed bottom-0 left-0 right-0 z-overlay rounded-t-[28px] outline-none flex flex-col bg-popover text-popover-foreground"
             style={{

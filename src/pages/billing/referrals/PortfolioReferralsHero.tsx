@@ -65,7 +65,7 @@ function SectionLabel({
     <div
       className={`flex items-center gap-2 ${align === "center" ? "justify-center" : "justify-start"}`}
     >
-      <span className="uppercase tracking-[0.22em] text-[11px] font-medium text-white">
+      <span className="uppercase tracking-[0.22em] text-[11px] font-medium text-foreground">
         {children}
       </span>
     </div>
@@ -92,7 +92,7 @@ function BgVideo({ src }: { src: string }) {
 function IconTile({ Icon }: { Icon: typeof Twitter }) {
   return (
     <div className="lg-liquid-glass h-14 w-14 md:h-16 md:w-16 rounded-xl shrink-0 flex items-center justify-center">
-      <Icon className="h-6 w-6 md:h-7 md:w-7 text-white" strokeWidth={1.8} />
+      <Icon className="h-6 w-6 md:h-7 md:w-7 text-foreground" strokeWidth={1.8} />
     </div>
   );
 }
@@ -163,11 +163,11 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
   return (
     <section
       dir="ltr"
-      className="px-4 pt-3 pb-24 text-white antialiased"
+      className="px-4 pt-3 pb-24 text-foreground antialiased"
       style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
     >
       {/* Eyebrow — sets a private, invitation-only tone */}
-      <div className="mb-4 flex items-center gap-2 text-white/45">
+      <div className="mb-4 flex items-center gap-2 text-foreground/45">
         <span className="ref-scarcity-dot" />
         <span className="text-[10.5px] font-medium uppercase tracking-[0.24em]">
           Partner · Private
@@ -176,7 +176,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- Balance hero with reservoir -------- */}
       <div
-        className="relative overflow-hidden rounded-[24px] bg-black ref-gold-hairline p-5"
+        className="relative overflow-hidden rounded-[24px] bg-background ref-gold-hairline p-5"
       >
         {/* Monogram wax-seal watermark */}
         <div className="ref-monogram">
@@ -185,7 +185,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[10.5px] font-medium uppercase tracking-[0.24em] text-white/50">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.24em] text-foreground/50">
               Available
             </p>
             <div
@@ -201,8 +201,8 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
             >
               {availableDisplay}
             </div>
-            <p className="mt-2 text-[12px] text-white/45">
-              Lifetime earned <span className="text-white/70 tabular-nums">{earnedDisplay}</span>
+            <p className="mt-2 text-[12px] text-foreground/45">
+              Lifetime earned <span className="text-foreground/70 tabular-nums">{earnedDisplay}</span>
             </p>
           </div>
 
@@ -213,7 +213,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
         <div className="relative z-10 mt-5 grid grid-cols-2 gap-2">
           <Link
             to="/settings/referrals/withdrawals"
-            className="inline-flex items-center justify-center gap-2 rounded-full py-3 text-[13px] font-semibold text-black transition active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-2 rounded-full py-3 text-[13px] font-semibold text-background transition active:scale-[0.98]"
             style={{
               background: `linear-gradient(180deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #8B5E22 100%)`,
               boxShadow: `0 12px 32px -14px ${GOLD}80, inset 0 1px 0 rgba(255,255,255,0.45)`,
@@ -225,7 +225,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
           <button
             type="button"
             onClick={doShare}
-            className="inline-flex items-center justify-center gap-2 rounded-full py-3 text-[13px] font-semibold text-white transition active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-2 rounded-full py-3 text-[13px] font-semibold text-foreground transition active:scale-[0.98]"
             style={{
               background: "hsl(0 0% 100% / 0.05)",
               border: `1px solid ${GOLD}55`,
@@ -249,10 +249,10 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
             className="px-3 py-3.5"
             style={{ borderLeft: i === 0 ? undefined : "1px solid var(--overlay-white-06)" }}
           >
-            <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-white/45">
+            <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
               {s.label}
             </div>
-            <div className="mt-1.5 text-[18px] font-light tracking-tight tabular-nums text-white">
+            <div className="mt-1.5 text-[18px] font-light tracking-tight tabular-nums text-foreground">
               {s.value}
             </div>
           </div>
@@ -261,13 +261,13 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- Your link -------- */}
       <div className="mt-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-4">
-        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
           Your link
         </p>
         <div className="mt-2.5 flex items-center gap-3">
           <div
             dir="ltr"
-            className="flex-1 min-w-0 truncate font-mono text-[12.5px] text-white/85"
+            className="flex-1 min-w-0 truncate font-mono text-[12.5px] text-foreground/85"
           >
             {shortLink}
           </div>
@@ -293,13 +293,13 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- Scarcity metadata line -------- */}
       <div className="mt-3 flex items-center justify-between rounded-2xl bg-white/[0.02] border border-white/[0.05] px-4 py-3">
-        <div className="flex items-center gap-2 text-white/65">
+        <div className="flex items-center gap-2 text-foreground/65">
           <Clock3 className="h-3.5 w-3.5" style={{ color: GOLD }} strokeWidth={2} />
           <span className="text-[12px] font-medium tabular-nums">
             Tier window resets in {daysUntilReset}d
           </span>
         </div>
-        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
+        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-foreground/40">
           {COMMISSION_PCT}% baseline
         </span>
       </div>
@@ -307,12 +307,12 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
       {/* -------- Ways to share (marquee) -------- */}
       <div className="mt-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] py-4">
         <div className="px-4 mb-3 flex items-center justify-between">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
             Ways to share
           </p>
           <button
             onClick={doShare}
-            className="inline-flex items-center gap-1 text-[12px] font-medium text-white/70 hover:text-white transition"
+            className="inline-flex items-center gap-1 text-[12px] font-medium text-foreground/70 hover:text-foreground transition"
           >
             Open <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} />
           </button>
@@ -325,10 +325,10 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- How it works -------- */}
       <div className="mt-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-5">
-        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/45">
+        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
           How it works
         </p>
-        <p className="mt-3 text-[13.5px] leading-relaxed text-white/85">
+        <p className="mt-3 text-[13.5px] leading-relaxed text-foreground/85">
           Earn{" "}
           <span className="font-semibold" style={{ color: GOLD_SOFT }}>
             {COMMISSION_PCT}% cash
@@ -336,7 +336,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
           from every subscription paid through your link — for life.
         </p>
 
-        <ol className="mt-4 space-y-3.5 text-[13px] leading-[1.5] text-white/85">
+        <ol className="mt-4 space-y-3.5 text-[13px] leading-[1.5] text-foreground/85">
           {[
             "Share your referral link.",
             "They sign up and upgrade.",
@@ -387,7 +387,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
               >
                 {k.v}
               </div>
-              <div className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.18em] text-white/45">
+              <div className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.18em] text-foreground/45">
                 {k.l}
               </div>
             </div>
@@ -405,7 +405,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
           <Link
             key={n.to}
             to={n.to}
-            className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-3 py-3 text-center text-[12px] font-medium text-white/80 hover:text-white transition active:scale-[0.98]"
+            className="rounded-xl bg-white/[0.03] border border-white/[0.06] px-3 py-3 text-center text-[12px] font-medium text-foreground/80 hover:text-foreground transition active:scale-[0.98]"
           >
             {n.label}
             <ArrowUpRight
@@ -418,7 +418,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
       </div>
 
       {/* Fine print */}
-      <p className="mt-6 text-center text-[10.5px] leading-relaxed text-white/30">
+      <p className="mt-6 text-center text-[10.5px] leading-relaxed text-foreground/30">
         Rewards are lifetime and paid in USD. Details in the affiliate terms.
       </p>
     </section>
@@ -452,19 +452,19 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
 
   return (
     <section
-      className="w-full bg-[#0a0a0a] text-white antialiased lg:rounded-2xl overflow-hidden"
+      className="w-full bg-[#0a0a0a] text-foreground antialiased lg:rounded-2xl overflow-hidden"
       style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
     >
       <div className="px-3 sm:px-6 md:px-10 lg:px-14 py-4 sm:py-8 md:py-10">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-5 mb-5 md:mb-8">
           <div className="max-w-3xl">
             <h1
-              className="text-[22px] sm:text-3xl md:text-4xl lg:text-[44px] font-normal tracking-tight text-white"
+              className="text-[22px] sm:text-3xl md:text-4xl lg:text-[44px] font-normal tracking-tight text-foreground"
               style={{ lineHeight: 1.15 }}
             >
               Invite friends, earn together.
             </h1>
-            <p className="mt-2.5 text-[13px] sm:text-sm md:text-[15px] leading-[1.6] text-white/60 max-w-3xl">
+            <p className="mt-2.5 text-[13px] sm:text-sm md:text-[15px] leading-[1.6] text-foreground/60 max-w-3xl">
               Share your personal link and earn real cash every time a new creator joins and
               upgrades. Track signups, payouts, and progress all in one place — the more you
               share, the more you make.
@@ -476,7 +476,7 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
               if (onShareClick) onShareClick();
               else void shareLink();
             }}
-            className="lg-liquid-glass hidden lg:inline-flex self-start items-center gap-2 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-[13px] sm:text-sm font-semibold text-white whitespace-nowrap"
+            className="lg-liquid-glass hidden lg:inline-flex self-start items-center gap-2 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-[13px] sm:text-sm font-semibold text-foreground whitespace-nowrap"
           >
             Share your link
             <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
@@ -485,17 +485,17 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
 
         <div className="grid grid-cols-2 lg:grid-cols-3 lg:grid-rows-[auto_1fr] gap-3 sm:gap-4 md:gap-5">
           {/* Total earned */}
-          <div className="order-1 lg:order-none col-span-1 lg:col-span-1 lg:col-start-2 lg:row-start-2 relative overflow-hidden rounded-2xl bg-black min-h-[200px] sm:min-h-[220px] flex flex-col items-center justify-center p-3 sm:p-6">
-            <div className="text-3xl sm:text-6xl md:text-7xl lg:text-[88px] font-light tracking-tight text-white">
+          <div className="order-1 lg:order-none col-span-1 lg:col-span-1 lg:col-start-2 lg:row-start-2 relative overflow-hidden rounded-2xl bg-background min-h-[200px] sm:min-h-[220px] flex flex-col items-center justify-center p-3 sm:p-6">
+            <div className="text-3xl sm:text-6xl md:text-7xl lg:text-[88px] font-light tracking-tight text-foreground">
               {earnedDisplay}
             </div>
-            <div className="text-[11px] sm:text-[13px] text-white/80 mt-2 sm:mt-4">
+            <div className="text-[11px] sm:text-[13px] text-foreground/80 mt-2 sm:mt-4">
               Available balance
             </div>
             {totalEarned > 0 ? (
               <Link
                 to="/settings/referrals/withdrawals"
-                className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-sm font-medium text-black hover:bg-white/90 transition-colors"
+                className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-sm font-medium text-background hover:bg-foreground/90 transition-colors"
               >
                 Withdraw
                 <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.8} />
@@ -504,7 +504,7 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
               <button
                 type="button"
                 disabled
-                className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-sm font-semibold text-black opacity-70 cursor-not-allowed"
+                className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white px-3 sm:px-5 py-2 sm:py-2.5 text-[12px] sm:text-sm font-semibold text-background opacity-70 cursor-not-allowed"
               >
                 Withdraw
                 <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
@@ -513,7 +513,7 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
           </div>
 
           {/* Your Program */}
-          <div className="order-2 lg:order-none col-span-1 lg:col-span-1 lg:col-start-1 lg:row-span-2 relative overflow-hidden rounded-2xl bg-black lg:min-h-[520px] flex flex-col">
+          <div className="order-2 lg:order-none col-span-1 lg:col-span-1 lg:col-start-1 lg:row-span-2 relative overflow-hidden rounded-2xl bg-background lg:min-h-[520px] flex flex-col">
             <BgVideo src={VIDEO_BACKGROUND} />
             <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black/95" />
             <div className="relative z-10 p-3 sm:p-6">
@@ -521,31 +521,31 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
             </div>
             <div className="relative z-10 flex-1 flex flex-col lg:justify-end p-3 sm:p-6 pt-0 lg:pt-6">
               <div className="hidden lg:block mb-3 sm:mb-4">
-                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-white/85">
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-foreground/85">
                   Your code
                 </div>
-                <div className="mt-1 text-base sm:text-xl md:text-3xl font-light tracking-tight text-white truncate">
+                <div className="mt-1 text-base sm:text-xl md:text-3xl font-light tracking-tight text-foreground truncate">
                   {code || "—"}
                 </div>
               </div>
-              <div className="hidden lg:grid grid-cols-[auto_1fr_auto] gap-x-3 gap-y-2.5 text-[12.5px] text-white items-center">
-                <span className="text-white/85">Signups</span>
-                <span className="text-white/70 truncate">Total people joined</span>
-                <span className="text-white text-right font-medium tabular-nums">{signups}</span>
+              <div className="hidden lg:grid grid-cols-[auto_1fr_auto] gap-x-3 gap-y-2.5 text-[12.5px] text-foreground items-center">
+                <span className="text-foreground/85">Signups</span>
+                <span className="text-foreground/70 truncate">Total people joined</span>
+                <span className="text-foreground text-right font-medium tabular-nums">{signups}</span>
 
-                <span className="text-white/85">Pending</span>
-                <span className="text-white/70 truncate">Awaiting first upgrade</span>
-                <span className="text-white text-right font-medium tabular-nums">{pendingCount}</span>
+                <span className="text-foreground/85">Pending</span>
+                <span className="text-foreground/70 truncate">Awaiting first upgrade</span>
+                <span className="text-foreground text-right font-medium tabular-nums">{pendingCount}</span>
 
-                <span className="text-white/85">Available</span>
-                <span className="text-white/70 truncate">Ready to withdraw</span>
-                <span className="text-white text-right font-medium tabular-nums">${available.toFixed(2)}</span>
+                <span className="text-foreground/85">Available</span>
+                <span className="text-foreground/70 truncate">Ready to withdraw</span>
+                <span className="text-foreground text-right font-medium tabular-nums">${available.toFixed(2)}</span>
               </div>
             </div>
           </div>
 
           {/* Ways to share */}
-          <div className="order-4 lg:order-none col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 relative overflow-hidden rounded-2xl bg-black min-h-[240px] flex flex-col">
+          <div className="order-4 lg:order-none col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1 relative overflow-hidden rounded-2xl bg-background min-h-[240px] flex flex-col">
             <BgVideo src={VIDEO_SHARE} />
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/85" />
             <div className="relative z-10 p-5 md:p-6">
@@ -561,14 +561,14 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
           <div className="order-5 lg:order-none col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-2 pf-noise-overlay relative overflow-hidden rounded-2xl bg-[#324444] p-5 md:p-6">
             <SectionLabel align="start">Your link</SectionLabel>
             <div className="mt-4 flex items-center gap-3">
-              <div className="flex-1 min-w-0 text-[14px] text-white whitespace-nowrap overflow-hidden text-ellipsis leading-[1.45]">
+              <div className="flex-1 min-w-0 text-[14px] text-foreground whitespace-nowrap overflow-hidden text-ellipsis leading-[1.45]">
                 {shortLink}
               </div>
               <button
                 type="button"
                 aria-label="Copy referral link"
                 onClick={() => void copyLink()}
-                className="lg-liquid-glass shrink-0 h-9 w-9 rounded-full flex items-center justify-center text-white"
+                className="lg-liquid-glass shrink-0 h-9 w-9 rounded-full flex items-center justify-center text-foreground"
               >
                 {justCopied ? (
                   <Check className="h-4 w-4" strokeWidth={2.2} />
@@ -577,7 +577,7 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
                 )}
               </button>
             </div>
-            <p className="mt-5 text-[12px] leading-[1.6] text-white">
+            <p className="mt-5 text-[12px] leading-[1.6] text-foreground">
               This is your personal referral link. Anyone who signs up through it is permanently
               linked to your account.
             </p>
@@ -586,27 +586,27 @@ function DesktopHero({ onShareClick }: { onShareClick?: () => void }) {
           {/* How it works */}
           <div className="hidden lg:block lg:col-start-2 lg:row-start-1 pf-noise-overlay relative overflow-hidden rounded-2xl bg-[#324444] p-4 md:p-6">
             <SectionLabel align="start">How it works</SectionLabel>
-            <p className="mt-3 text-[12.5px] leading-[1.6] text-white">
-              Earn <span className="font-semibold text-white">{COMMISSION_PCT}% cash</span> from
+            <p className="mt-3 text-[12.5px] leading-[1.6] text-foreground">
+              Earn <span className="font-semibold text-foreground">{COMMISSION_PCT}% cash</span> from
               every subscription paid by anyone who joins through your link — for life.
             </p>
-            <ol className="mt-4 space-y-3 text-[13px] leading-[1.6] text-white">
+            <ol className="mt-4 space-y-3 text-[13px] leading-[1.6] text-foreground">
               <li className="flex gap-3">
-                <span className="shrink-0 w-6 text-white/80 font-mono text-[12px] tabular-nums mt-0.5">01</span>
+                <span className="shrink-0 w-6 text-foreground/80 font-mono text-[12px] tabular-nums mt-0.5">01</span>
                 <span>Share your referral link.</span>
               </li>
               <li className="flex gap-3">
-                <span className="shrink-0 w-6 text-white/80 font-mono text-[12px] tabular-nums mt-0.5">02</span>
+                <span className="shrink-0 w-6 text-foreground/80 font-mono text-[12px] tabular-nums mt-0.5">02</span>
                 <span>They sign up and upgrade.</span>
               </li>
               <li className="flex gap-3">
-                <span className="shrink-0 w-6 text-white/80 font-mono text-[12px] tabular-nums mt-0.5">03</span>
+                <span className="shrink-0 w-6 text-foreground/80 font-mono text-[12px] tabular-nums mt-0.5">03</span>
                 <span>
                   You earn <span className="font-semibold">{COMMISSION_PCT}%</span>, credited to your balance.
                 </span>
               </li>
               <li className="flex gap-3">
-                <span className="shrink-0 w-6 text-white/80 font-mono text-[12px] tabular-nums mt-0.5">04</span>
+                <span className="shrink-0 w-6 text-foreground/80 font-mono text-[12px] tabular-nums mt-0.5">04</span>
                 <span>
                   Withdraw once you reach <span className="font-semibold">${MIN_PAYOUT}</span>.
                 </span>

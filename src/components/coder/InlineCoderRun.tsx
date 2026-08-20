@@ -595,9 +595,9 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
 
 
   return (
-    <div className="theme-fixed coder-fixed my-4 w-full rounded-2xl border border-white/10 bg-neutral-950/80 shadow-lg overflow-hidden">
+    <div className="theme-fixed coder-fixed my-4 w-full rounded-2xl border border-foreground/10 bg-neutral-950/80 shadow-lg overflow-hidden">
       {/* Header */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-white/10 px-4 py-2.5">
+      <div className="flex flex-wrap items-center gap-2 border-b border-foreground/10 px-4 py-2.5">
         <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10">
           {status === "running" ? (
             <Loader2 className="h-4 w-4 animate-spin text-primary" />
@@ -608,8 +608,8 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
           )}
         </div>
         <div className="min-w-[140px] flex-1">
-          <div className="truncate text-sm font-semibold text-white">Megsy Coder</div>
-          <div className="truncate text-[11px] text-white/60">
+          <div className="truncate text-sm font-semibold text-foreground">Megsy Coder</div>
+          <div className="truncate text-[11px] text-foreground/60">
             {status === "running"
               ? runningLabel
               : status === "done"
@@ -646,46 +646,46 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
           </Button>
         )}
         {status === "done" && files.size > 0 && (
-          <Button size="sm" variant="ghost" onClick={() => setStudioOpen(true)} className="h-7 text-xs text-white/80">
+          <Button size="sm" variant="ghost" onClick={() => setStudioOpen(true)} className="h-7 text-xs text-foreground/80">
             <Pencil className="h-3.5 w-3.5 mr-1" />
             Studio
           </Button>
         )}
         {status === "done" && files.size > 0 && (
-          <Button size="sm" variant="ghost" onClick={handlePreview} disabled={publishing} className="h-7 text-xs text-white/80">
+          <Button size="sm" variant="ghost" onClick={handlePreview} disabled={publishing} className="h-7 text-xs text-foreground/80">
             {publishing ? <Loader2 className="h-3.5 w-3.5 mr-1 animate-spin" /> : <ExternalLink className="h-3.5 w-3.5 mr-1" />}
             {publishing ? "Publishing…" : publishedId ? "Update site" : "Publish"}
           </Button>
         )}
         {status === "done" && files.size > 0 && canUndo && (
-          <Button aria-label="Undo last change" size="sm" variant="ghost" onClick={handleUndo} className="h-7 text-xs text-white/80" title="Undo last change">
+          <Button aria-label="Undo last change" size="sm" variant="ghost" onClick={handleUndo} className="h-7 text-xs text-foreground/80" title="Undo last change">
             <Undo2 className="h-3.5 w-3.5" />
           </Button>
         )}
         {status === "done" && files.size > 0 && (
-          <Button aria-label="Download project as ZIP" size="sm" variant="ghost" onClick={() => downloadProjectZip(projectFiles)} className="h-7 text-xs text-white/80" title="Download ZIP">
+          <Button aria-label="Download project as ZIP" size="sm" variant="ghost" onClick={() => downloadProjectZip(projectFiles)} className="h-7 text-xs text-foreground/80" title="Download ZIP">
             <Download className="h-3.5 w-3.5" />
           </Button>
         )}
         {status === "done" && files.size > 0 && previousFiles && previousFiles.length > 0 && (
-          <Button aria-label="View changes vs previous run" size="sm" variant="ghost" onClick={() => setDiffOpen(true)} className="h-7 text-xs text-white/80" title="View diff vs previous run">
+          <Button aria-label="View changes vs previous run" size="sm" variant="ghost" onClick={() => setDiffOpen(true)} className="h-7 text-xs text-foreground/80" title="View diff vs previous run">
             <GitCompare className="h-3.5 w-3.5" />
           </Button>
         )}
         {status === "done" && files.size > 0 && (
-          <Button aria-label="Open in StackBlitz" size="sm" variant="ghost" onClick={() => openInStackBlitz(projectFiles, prompt.slice(0, 40) || "megsy-project")} className="h-7 text-xs text-white/80" title="Open in StackBlitz (real Vite build)">
+          <Button aria-label="Open in StackBlitz" size="sm" variant="ghost" onClick={() => openInStackBlitz(projectFiles, prompt.slice(0, 40) || "megsy-project")} className="h-7 text-xs text-foreground/80" title="Open in StackBlitz (real Vite build)">
             <Zap className="h-3.5 w-3.5" />
           </Button>
         )}
         {status === "done" && files.size > 0 && (
-          <Button aria-label="Push project to GitHub" size="sm" variant="ghost" onClick={() => pushProjectToGithub(projectFiles, prompt.slice(0, 40) || "megsy-project")} className="h-7 text-xs text-white/80" title="Push to GitHub">
+          <Button aria-label="Push project to GitHub" size="sm" variant="ghost" onClick={() => pushProjectToGithub(projectFiles, prompt.slice(0, 40) || "megsy-project")} className="h-7 text-xs text-foreground/80" title="Push to GitHub">
             <Github className="h-3.5 w-3.5" />
           </Button>
         )}
 
 
         <Button aria-label={collapsed ? "Expand run" : "Collapse run"} variant="ghost" size="icon" className="h-7 w-7" onClick={() => setCollapsed((c) => !c)}>
-          <ChevronDown className={cn("h-4 w-4 text-white/70 transition-transform", collapsed && "-rotate-90")} />
+          <ChevronDown className={cn("h-4 w-4 text-foreground/70 transition-transform", collapsed && "-rotate-90")} />
         </Button>
         <Button
           aria-label={status === "running" ? "Stop and close run" : "Close run"}
@@ -705,7 +705,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
             onClose();
           }}
         >
-          <X className="h-4 w-4 text-white/70" />
+          <X className="h-4 w-4 text-foreground/70" />
         </Button>
       </div>
 
@@ -713,22 +713,22 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
         <>
           {/* Integration prompts */}
           {integrations.length > 0 && (
-            <div className="flex flex-wrap gap-2 border-b border-white/10 p-3">
+            <div className="flex flex-wrap gap-2 border-b border-foreground/10 p-3">
               {integrations.map((ig) => (
                 <div
                   key={ig.kind}
-                  className="flex min-w-[240px] flex-1 items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3"
+                  className="flex min-w-[240px] flex-1 items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-3"
                 >
                   {ig.kind === "github" ? (
-                    <Github className="h-5 w-5 text-white/80" />
+                    <Github className="h-5 w-5 text-foreground/80" />
                   ) : (
                     <Database className="h-5 w-5 text-emerald-400" />
                   )}
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs font-medium text-white capitalize">
+                    <div className="text-xs font-medium text-foreground capitalize">
                       Connect {ig.kind === "github" ? "GitHub" : "Supabase"}
                     </div>
-                    <div className="text-[10px] text-white/60 truncate">{ig.reason}</div>
+                    <div className="text-[10px] text-foreground/60 truncate">{ig.reason}</div>
                   </div>
                   {ig.state === "pending" ? (
                     <>
@@ -753,7 +753,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                       <Button
                         size="sm"
                         variant="ghost"
-                        className="h-7 text-xs text-white/70"
+                        className="h-7 text-xs text-foreground/70"
                         onClick={() => updateIntegration(ig.kind, "skipped")}
                       >
                         Skip
@@ -765,7 +765,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                         "text-[10px] px-2 py-0.5 rounded-full",
                         ig.state === "connected"
                           ? "bg-emerald-500/20 text-emerald-300"
-                          : "bg-white/10 text-white/50",
+                          : "bg-foreground/10 text-foreground/50",
                       )}
                     >
                       {ig.state === "connected" ? "✓ Connected" : "Skipped"}
@@ -777,7 +777,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
           )}
 
           {/* Tabs */}
-          <div className="flex gap-1 border-b border-white/10 px-2 py-1.5">
+          <div className="flex gap-1 border-b border-foreground/10 px-2 py-1.5">
             {(
               [
                 { id: "plan", icon: ListTodo, label: "Plan", count: todos.length },
@@ -794,14 +794,14 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                 className={cn(
                   "inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors",
                   tab === t.id
-                    ? "bg-primary/20 text-white"
-                    : "text-white/60 hover:bg-white/5",
+                    ? "bg-primary/20 text-foreground"
+                    : "text-foreground/60 hover:bg-foreground/5",
                 )}
               >
                 <t.icon className="h-3.5 w-3.5" />
                 {t.label}
                 {t.count > 0 && (
-                  <span className="rounded-full bg-white/10 px-1.5 text-[10px]">{t.count}</span>
+                  <span className="rounded-full bg-foreground/10 px-1.5 text-[10px]">{t.count}</span>
                 )}
               </button>
             ))}
@@ -812,7 +812,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
             {tab === "plan" && (
               <div className="h-full max-h-[420px] overflow-y-auto p-4">
                 {todos.length === 0 ? (
-                  <div className="text-sm text-white/50">
+                  <div className="text-sm text-foreground/50">
                     {status === "running" ? "Preparing plan…" : "No plan"}
                   </div>
                 ) : (
@@ -820,17 +820,17 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                     {todos.map((t) => (
                       <li
                         key={t.id}
-                        className="flex items-start gap-2.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                        className="flex items-start gap-2.5 rounded-lg border border-foreground/10 bg-foreground/5 px-3 py-2"
                       >
                         <span
                           className={cn(
                             "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded",
-                            t.done ? "bg-emerald-500 text-white" : "border border-white/30",
+                            t.done ? "bg-emerald-500 text-foreground" : "border border-foreground/30",
                           )}
                         >
                           {t.done && <Check className="h-3 w-3" />}
                         </span>
-                        <span className={cn("text-sm text-white", t.done && "text-white/40 line-through")}>
+                        <span className={cn("text-sm text-foreground", t.done && "text-foreground/40 line-through")}>
                           {t.title}
                         </span>
                       </li>
@@ -842,9 +842,9 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
 
             {tab === "files" && (
               <div className="flex h-full max-h-[420px]">
-                <div className="w-52 shrink-0 overflow-y-auto border-r border-white/10 p-2">
+                <div className="w-52 shrink-0 overflow-y-auto border-r border-foreground/10 p-2">
                   {fileList.length === 0 && (
-                    <div className="p-2 text-xs text-white/50">No files yet…</div>
+                    <div className="p-2 text-xs text-foreground/50">No files yet…</div>
                   )}
                   {fileList.map((path) => (
                     <button
@@ -853,31 +853,31 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                       className={cn(
                         "block w-full truncate rounded px-2 py-1 text-left text-xs",
                         selectedFile === path
-                          ? "bg-primary/20 text-white"
-                          : "text-white/70 hover:bg-white/5",
+                          ? "bg-primary/20 text-foreground"
+                          : "text-foreground/70 hover:bg-foreground/5",
                       )}
                     >
                       {path}
                     </button>
                   ))}
                 </div>
-                <div className="flex-1 overflow-auto bg-black/40">
+                <div className="flex-1 overflow-auto bg-background/40">
                   {selectedFile ? (
                     <div className="min-h-full">
-                      <div className="sticky top-0 z-10 flex items-center justify-end gap-1 border-b border-white/10 bg-black/70 px-2 py-1 backdrop-blur">
-                        <button onClick={copyAllFiles} className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] text-white/70 hover:bg-white/10">
+                      <div className="sticky top-0 z-10 flex items-center justify-end gap-1 border-b border-foreground/10 bg-background/70 px-2 py-1 backdrop-blur">
+                        <button onClick={copyAllFiles} className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] text-foreground/70 hover:bg-foreground/10">
                           <Copy className="h-3 w-3" /> Copy all
                         </button>
-                        <button onClick={downloadProjectJson} className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] text-white/70 hover:bg-white/10">
+                        <button onClick={downloadProjectJson} className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] text-foreground/70 hover:bg-foreground/10">
                           <Download className="h-3 w-3" /> JSON
                         </button>
                       </div>
-                      <pre className="p-3 text-xs leading-relaxed text-white/90">
+                      <pre className="p-3 text-xs leading-relaxed text-foreground/90">
                         <code>{files.get(selectedFile)}</code>
                       </pre>
                     </div>
                   ) : (
-                    <div className="p-4 text-xs text-white/50">Choose a file</div>
+                    <div className="p-4 text-xs text-foreground/50">Choose a file</div>
                   )}
                 </div>
               </div>
@@ -886,26 +886,26 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
             {tab === "assets" && (
               <div className="h-full max-h-[420px] overflow-y-auto p-3">
                 {assets.length === 0 ? (
-                  <div className="text-sm text-white/50">
+                  <div className="text-sm text-foreground/50">
                     {status === "running"
                       ? "Media is generated after the build finishes."
                       : "This project needs no generated media."}
                   </div>
                 ) : (
                   <>
-                    <div className="mb-3 flex items-center justify-between text-[11px] text-white/60">
+                    <div className="mb-3 flex items-center justify-between text-[11px] text-foreground/60">
                       <span>
                         {assetPhase === "running" ? "Generating media…" : "Media used in the site"}
                       </span>
-                      <span className="rounded-full bg-white/10 px-2 py-0.5">
+                      <span className="rounded-full bg-foreground/10 px-2 py-0.5">
                         {estimateAssetCredits(assets.filter((a) => a.status === "done"))} credits used ·{" "}
                         {estimateAssetCredits(assets)} total
                       </span>
                     </div>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {assets.map((a) => (
-                        <div key={a.id} className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
-                          <div className="flex aspect-video items-center justify-center bg-black/40">
+                        <div key={a.id} className="overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5">
+                          <div className="flex aspect-video items-center justify-center bg-background/40">
                             {a.status === "done" && a.url ? (
                               a.kind === "video" ? (
                                 <video src={a.url} className="h-full w-full object-cover" muted loop playsInline />
@@ -915,19 +915,19 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                             ) : a.status === "error" ? (
                               <span className="px-2 text-center text-[10px] text-red-300">{a.error}</span>
                             ) : (
-                              <Loader2 className="h-4 w-4 animate-spin text-white/50" />
+                              <Loader2 className="h-4 w-4 animate-spin text-foreground/50" />
                             )}
                           </div>
                           <div className="p-2">
-                            <div className="truncate text-[11px] text-white/80" title={a.prompt}>{a.prompt}</div>
+                            <div className="truncate text-[11px] text-foreground/80" title={a.prompt}>{a.prompt}</div>
                             <div className="mt-1 flex items-center justify-between">
-                              <span className="text-[10px] text-white/45">
+                              <span className="text-[10px] text-foreground/45">
                                 {a.kind === "video" ? "Video" : "Image"} · {a.credits} credits
                               </span>
                               <button
                                 onClick={() => regenerateAsset(a.id)}
                                 disabled={a.status === "running"}
-                                className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] text-white/70 hover:bg-white/10 disabled:opacity-40"
+                                className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] text-foreground/70 hover:bg-foreground/10 disabled:opacity-40"
                               >
                                 <RefreshCw className={cn("h-3 w-3", a.status === "running" && "animate-spin")} />
                                 Redo
@@ -944,8 +944,8 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
 
 
             {tab === "logs" && (
-              <div className="h-full max-h-[420px] overflow-y-auto bg-black p-3 font-mono text-xs text-emerald-300">
-                {bash.length === 0 && <div className="text-white/40">No commands yet…</div>}
+              <div className="h-full max-h-[420px] overflow-y-auto bg-background p-3 font-mono text-xs text-emerald-300">
+                {bash.length === 0 && <div className="text-foreground/40">No commands yet…</div>}
                 {bash.map((b, i) => (
                   <div key={i} className="mb-2">
                     <div className={cn("font-semibold", b.ok ? "text-cyan-300" : "text-red-400")}>
@@ -958,7 +958,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
             )}
 
             {tab === "notes" && (
-              <div className="h-full max-h-[420px] overflow-y-auto bg-black/60 p-3 text-xs leading-relaxed text-white/80 whitespace-pre-wrap">
+              <div className="h-full max-h-[420px] overflow-y-auto bg-background/60 p-3 text-xs leading-relaxed text-foreground/80 whitespace-pre-wrap">
                 {notes || (status === "running" ? "Waiting for coder notes…" : "No notes")}
               </div>
             )}

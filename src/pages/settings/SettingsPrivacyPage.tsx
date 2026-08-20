@@ -185,7 +185,7 @@ export default function SettingsPrivacyPage() {
   }
 
   return (
-    <div className="min-h-[100dvh] bg-black text-[#EDE4D8] font-sans">
+    <div className="min-h-[100dvh] bg-background text-[#EDE4D8] font-sans">
       <style>{mobileCss}</style>
       <div className="privacy-root">
         {/* Topbar */}

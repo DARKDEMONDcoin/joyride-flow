@@ -98,7 +98,7 @@ export default function MobileAuthIntro({
   return (
     <div
       dir={"ltr"}
-      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#02040c] text-white"
+      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#02040c] text-foreground"
       style={{ fontFamily: 'Inter, -apple-system, "SF Pro Text", system-ui, sans-serif', touchAction: "manipulation" }}
     >
       {/* Hero video */}
@@ -130,7 +130,7 @@ export default function MobileAuthIntro({
       >
         {/* Title */}
         <h1
-          className="text-center text-white"
+          className="text-center text-foreground"
           style={{
             fontFamily: '"ITC Garamond Std Narrow", "Playfair Display", Garamond, serif',
             fontWeight: 300,
@@ -149,7 +149,7 @@ export default function MobileAuthIntro({
 
         {/* Subtitle */}
         <p
-          className="mt-4 text-center whitespace-pre-line text-white"
+          className="mt-4 text-center whitespace-pre-line text-foreground"
           style={{
             fontFamily: 'Inter, sans-serif',
             fontSize: "14px",
@@ -172,7 +172,7 @@ export default function MobileAuthIntro({
             >
               <div className="flex items-center gap-2.5 rounded-xl border border-red-400/25 bg-red-500/10 px-3.5 py-3 backdrop-blur-md">
                 <AlertCircle className="h-4 w-4 shrink-0 text-red-300" />
-                <p className="text-[13px] leading-[18px] text-white/90">{error}</p>
+                <p className="text-[13px] leading-[18px] text-foreground/90">{error}</p>
               </div>
             </motion.div>
           )}
@@ -227,7 +227,7 @@ export default function MobileAuthIntro({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="w-full h-full flex items-center justify-center gap-2 text-white active:scale-[0.985]"
+                  className="w-full h-full flex items-center justify-center gap-2 text-foreground active:scale-[0.985]"
                   style={{ fontSize: "15px", fontWeight: 500, letterSpacing: "0.1px", touchAction: "manipulation" }}
                 >
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -253,7 +253,7 @@ export default function MobileAuthIntro({
                     onChange={(e) => setEmail?.(e.target.value)}
                     disabled={showPasswordField}
                     autoFocus
-                    className="w-full bg-transparent outline-none text-[15px] text-white placeholder:text-white/40 disabled:opacity-70"
+                    className="w-full bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/40 disabled:opacity-70"
                     dir="ltr"
                   />
                 </motion.div>
@@ -288,13 +288,13 @@ export default function MobileAuthIntro({
                     value={password}
                     onChange={(e) => setPassword?.(e.target.value)}
                     autoFocus
-                    className="flex-1 bg-transparent outline-none text-[15px] text-white placeholder:text-white/40"
+                    className="flex-1 bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/40"
                     dir="ltr"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword?.(!showPassword)}
-                    className="text-white/50 hover:text-white/80 transition-colors"
+                    className="text-foreground/50 hover:text-foreground/80 transition-colors"
                     aria-label="toggle password"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -304,7 +304,7 @@ export default function MobileAuthIntro({
                   <button
                     type="button"
                     onClick={onForgotPassword}
-                    className="text-[12px] text-white/60 hover:text-white/85 underline underline-offset-4 decoration-white/25 transition-colors"
+                    className="text-[12px] text-foreground/60 hover:text-foreground/85 underline underline-offset-4 decoration-white/25 transition-colors"
                   >
                     {t.forgot}
                   </button>
@@ -327,7 +327,7 @@ export default function MobileAuthIntro({
                 className={`w-full rounded-full flex items-center justify-center gap-2 active:scale-[0.985] transition-colors duration-300 disabled:opacity-50 overflow-hidden ${
                   primaryReady
                     ? "theme-fixed bg-white text-[#0b0d12] border border-white"
-                    : "bg-transparent text-white border border-white/30"
+                    : "bg-transparent text-foreground border border-foreground/30"
                 }`}
                 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px", touchAction: "manipulation" }}
               >

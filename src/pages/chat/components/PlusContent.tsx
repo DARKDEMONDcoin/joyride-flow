@@ -771,7 +771,7 @@ const PlusTimer = (p: PlusContentProps) => (
           <button
             key={m}
             onClick={() => p.setTimerInputMin(m)}
-            className={`py-2 rounded-xl text-[12.5px] font-semibold transition-colors ${p.timerInputMin === m ? "bg-emerald-600 text-white" : "liquid-glass-hover text-foreground/85"}`}
+            className={`py-2 rounded-xl text-[12.5px] font-semibold transition-colors ${p.timerInputMin === m ? "bg-emerald-600 text-foreground" : "liquid-glass-hover text-foreground/85"}`}
           >
             {m}m
           </button>
@@ -806,7 +806,7 @@ const PlusTimer = (p: PlusContentProps) => (
           p.setPlusMenuOpen(false);
           setTimeout(() => p.scrollToBottom(), 100);
         }}
-        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-white text-[13px] font-semibold hover:bg-emerald-500 transition-colors"
+        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-600 text-foreground text-[13px] font-semibold hover:bg-emerald-500 transition-colors"
       >
         <Play className="w-4 h-4" fill="currentColor" /> Start session
       </button>

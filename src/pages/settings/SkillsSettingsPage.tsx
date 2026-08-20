@@ -531,7 +531,7 @@ function SkillCardIndigo({
               className="h-1.5 w-1.5 rounded-full"
               style={{ backgroundColor: enabled ? indigo : "var(--overlay-white-20)" }}
             />
-            <p className="text-[14px] font-semibold text-white truncate" style={heading}>
+            <p className="text-[14px] font-semibold text-foreground truncate" style={heading}>
               {skill.name}
             </p>
           </div>

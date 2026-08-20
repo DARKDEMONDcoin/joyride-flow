@@ -115,7 +115,7 @@ export default function CapabilitiesPage() {
         <span
           className={[
             "shrink-0 grid place-items-center w-[22px] h-[22px] rounded-full border transition-colors",
-            selected ? "border-[#4C8BF5] bg-[#4C8BF5]" : "border-white/25 bg-transparent",
+            selected ? "border-[#4C8BF5] bg-[#4C8BF5]" : "border-foreground/25 bg-transparent",
           ].join(" ")}
           aria-hidden
         >
@@ -143,7 +143,7 @@ export default function CapabilitiesPage() {
 
   return (
     <div
-      className="min-h-[100dvh] bg-black text-[#EDE4D8]"
+      className="min-h-[100dvh] bg-background text-[#EDE4D8]"
       style={{
         fontFamily:
           '"Neue Haas Unica","Helvetica Now Display",-apple-system,"SF Pro Display",Inter,"Segoe UI",Roboto,sans-serif',

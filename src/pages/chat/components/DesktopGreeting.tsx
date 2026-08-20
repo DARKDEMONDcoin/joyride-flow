@@ -63,7 +63,7 @@ export const DesktopGreeting = (_: DesktopGreetingProps) => {
             <p
               data-greeting
               dir="ltr"
-              className="max-w-4xl text-center text-[42px] font-semibold leading-[1.06] text-white drop-shadow-[0_0_28px_rgba(96,165,250,0.28)] lg:text-[58px]"
+              className="max-w-4xl text-center text-[42px] font-semibold leading-[1.06] text-foreground drop-shadow-[0_0_28px_rgba(96,165,250,0.28)] lg:text-[58px]"
               style={{ fontFamily: "'Instrument Serif', 'Fraunces', ui-serif, Georgia, serif" }}
             >
               {tagline}

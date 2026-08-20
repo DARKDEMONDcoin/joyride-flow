@@ -63,7 +63,7 @@ export const GlassSheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <Vaul.Overlay
     ref={ref}
-    className={cn("fixed inset-0 z-overlay bg-black/60", className)}
+    className={cn("fixed inset-0 z-overlay bg-background/60", className)}
     {...props}
   />
 ));
@@ -82,7 +82,7 @@ export const GlassSheetContent = React.forwardRef<HTMLDivElement, GlassSheetCont
   ) => {
     return (
       <Vaul.Portal>
-        <Vaul.Overlay className={cn("fixed inset-0 z-overlay bg-black/60", overlayClassName)} />
+        <Vaul.Overlay className={cn("fixed inset-0 z-overlay bg-background/60", overlayClassName)} />
         <Vaul.Content
           ref={ref}
           className={cn(

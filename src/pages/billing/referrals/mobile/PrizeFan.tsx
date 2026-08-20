@@ -62,7 +62,7 @@ function Face({
       />
 
       {/* brand star watermark */}
-      <MegsyStar className="pointer-events-none absolute -bottom-3 -left-2 h-16 w-16 opacity-[0.16] text-black" />
+      <MegsyStar className="pointer-events-none absolute -bottom-3 -left-2 h-16 w-16 opacity-[0.16] text-background" />
 
       {/* brand lockup */}
       <div className="relative flex items-center gap-1.5">

@@ -401,7 +401,7 @@ const AnimatedInput = ({
               {!value && displayedPlaceholder && (
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 flex items-start px-1 pt-2 text-[15.5px] md:text-sm text-white/90 leading-relaxed overflow-hidden"
+                  className="pointer-events-none absolute inset-0 flex items-start px-1 pt-2 text-[15.5px] md:text-sm text-foreground/90 leading-relaxed overflow-hidden"
                 >
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -436,7 +436,7 @@ const AnimatedInput = ({
                 data-bwignore="true"
                 data-form-type="other"
                 name="chat-message"
-                className="relative w-full bg-transparent border-none outline-none resize-none text-[15.5px] md:text-sm text-white !text-white py-1.5 px-1 leading-relaxed md:py-2 font-medium"
+                className="relative w-full bg-transparent border-none outline-none resize-none text-[15.5px] md:text-sm text-foreground !text-foreground py-1.5 px-1 leading-relaxed md:py-2 font-medium"
                 style={{ minHeight: "38px" }}
               />
             </div>
@@ -459,7 +459,7 @@ const AnimatedInput = ({
               }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 420, damping: 24 }}
-              className="animated-plus-btn shrink-0 inline-flex w-9 h-9 items-center justify-center rounded-full border-0 outline-none text-white/70 hover:text-white transition-colors"
+              className="animated-plus-btn shrink-0 inline-flex w-9 h-9 items-center justify-center rounded-full border-0 outline-none text-foreground/70 hover:text-foreground transition-colors"
               style={{ boxShadow: "none", background: "transparent", border: 0 }}
               aria-label={uiT("openTools")}
               data-plus-trigger
@@ -493,7 +493,7 @@ const AnimatedInput = ({
                   transition={{ type: "spring", stiffness: 380, damping: 22 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={onCancel}
-                  className="theme-fixed shrink-0 w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-destructive text-white shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:opacity-90 transition-opacity"
+                  className="theme-fixed shrink-0 w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-destructive text-foreground shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:opacity-90 transition-opacity"
                   aria-label={uiT("stopGeneration")}
                 >
                   <Square className="w-3 h-3" fill="currentColor" />
@@ -509,7 +509,7 @@ const AnimatedInput = ({
                   onClick={handleSendWithSlash}
                   disabled={disabled || !value.trim()}
                   data-testid="mobile-composer-send"
-                  className="theme-fixed shrink-0 w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-white text-black shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="theme-fixed shrink-0 w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-white text-background shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                   style={{ backgroundColor: "#ffffff", color: "#000000" }}
                   aria-label={uiT("sendMessage")}
                 >

@@ -13,7 +13,7 @@ const SEARCH_TOOL_PATTERN = /(search|browse|fetch_url|web|serp|scrape)/i;
  * Compact, collapsible card that surfaces a single tool invocation
  * (name / args / result / status). Designed to feel native to Megsy —
  * it uses the same tokens as other in-message cards (bg-muted/40,
- * border-white/10, rounded-2xl) and stays collapsed by default.
+ * border-foreground/10, rounded-2xl) and stays collapsed by default.
  *
  * The data comes from the SSE tool_event stream persisted onto
  * `message.toolParts`. This mirrors what assistant-ui's ToolPrimitive
@@ -51,13 +51,13 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
       className={`mt-2 mb-2 rounded-2xl border overflow-hidden text-[13px] backdrop-blur-sm ${
         needsApproval
           ? "border-amber-400/40 bg-amber-500/5 shadow-[0_0_0_1px_rgba(251,191,36,0.15)]"
-          : "border-white/10 bg-muted/40"
+          : "border-foreground/10 bg-muted/40"
       }`}
     >
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center gap-2 px-3 py-2 hover:bg-white/5 transition-colors text-left"
+        className="w-full flex items-center gap-2 px-3 py-2 hover:bg-foreground/5 transition-colors text-left"
         aria-expanded={open}
       >
         <Wrench className="w-3.5 h-3.5 text-muted-foreground shrink-0" strokeWidth={1.8} />
@@ -97,7 +97,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
                 metadata: { tool: part.name },
               });
             }}
-            className="px-2 py-1 rounded-md text-muted-foreground hover:bg-white/5"
+            className="px-2 py-1 rounded-md text-muted-foreground hover:bg-foreground/5"
           >
             Reject
           </button>
@@ -119,13 +119,13 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
       )}
 
       {open && !needsApproval && (
-        <div className="px-3 pb-3 pt-1 space-y-2 border-t border-white/5">
+        <div className="px-3 pb-3 pt-1 space-y-2 border-t border-foreground/5">
           {part.args !== undefined && (
             <details open>
               <summary className="text-[11px] uppercase tracking-wide text-muted-foreground cursor-pointer">
                 Input
               </summary>
-              <pre className="mt-1 text-[12px] text-foreground/80 whitespace-pre-wrap break-words bg-black/20 rounded-lg p-2 max-h-48 overflow-auto">
+              <pre className="mt-1 text-[12px] text-foreground/80 whitespace-pre-wrap break-words bg-background/20 rounded-lg p-2 max-h-48 overflow-auto">
                 {safeStringify(part.args)}
               </pre>
             </details>
@@ -138,7 +138,7 @@ export function ToolCard({ part, userId }: { part: ToolPart; userId?: string | n
               {SEARCH_TOOL_PATTERN.test(part.name) && (
                 <SourcesList sources={extractSources(part.result)} />
               )}
-              <pre className="mt-1 text-[12px] text-foreground/80 whitespace-pre-wrap break-words bg-black/20 rounded-lg p-2 max-h-64 overflow-auto">
+              <pre className="mt-1 text-[12px] text-foreground/80 whitespace-pre-wrap break-words bg-background/20 rounded-lg p-2 max-h-64 overflow-auto">
                 {safeStringify(part.result)}
               </pre>
             </details>

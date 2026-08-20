@@ -417,24 +417,24 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
   };
 
   const modal = useMemo(() => (
-    <div className="theme-fixed coder-fixed fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
-      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-white/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
+    <div className="theme-fixed coder-fixed fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+      <div className="w-full h-full sm:w-[min(1200px,96vw)] sm:h-[min(820px,92vh)] bg-[#0b0b0f] border border-foreground/10 rounded-none sm:rounded-2xl overflow-hidden flex flex-col shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between px-3 sm:px-4 h-12 border-b border-white/10 bg-black/40">
+        <div className="flex items-center justify-between px-3 sm:px-4 h-12 border-b border-foreground/10 bg-background/40">
           <div className="flex items-center gap-2 min-w-0">
             <div className="w-2 h-2 rounded-full bg-red-500" />
             <div className="w-2 h-2 rounded-full bg-yellow-500" />
             <div className="w-2 h-2 rounded-full bg-green-500" />
-            <span className="ml-2 text-[13px] font-semibold text-white truncate">Megsy Coder Studio</span>
+            <span className="ml-2 text-[13px] font-semibold text-foreground truncate">Megsy Coder Studio</span>
           </div>
-          <button aria-label="Close studio" onClick={requestClose} className="p-1.5 rounded-lg hover:bg-white/10 text-white/70 hover:text-white">
+          <button aria-label="Close studio" onClick={requestClose} className="p-1.5 rounded-lg hover:bg-foreground/10 text-foreground/70 hover:text-foreground">
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Tabs (hidden in filesOnly mode) */}
         {!filesOnly && (
-          <div className="flex items-center gap-1 px-2 sm:px-3 h-11 border-b border-white/10 bg-black/20 overflow-x-auto">
+          <div className="flex items-center gap-1 px-2 sm:px-3 h-11 border-b border-foreground/10 bg-background/20 overflow-x-auto">
             {([
               { id: "files", label: "Files", icon: FolderTree },
               { id: "preview", label: "Preview", icon: Eye },
@@ -446,7 +446,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                 key={t.id}
                 onClick={() => setTab(t.id)}
                 className={`inline-flex items-center gap-1.5 px-3 h-8 rounded-lg text-[12.5px] font-medium whitespace-nowrap transition-colors ${
-                  tab === t.id ? "bg-white text-black" : "text-white/70 hover:bg-white/10"
+                  tab === t.id ? "bg-white text-background" : "text-foreground/70 hover:bg-foreground/10"
                 }`}
               >
                 <t.icon className="w-3.5 h-3.5" />
@@ -460,11 +460,11 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
         <div className="flex-1 min-h-0 overflow-hidden">
           {tab === "preview" && (
             <div className="h-full flex flex-col bg-[#050506]">
-              <div className="flex items-center justify-between px-3 h-9 border-b border-white/10">
-                <span className="text-[12px] text-white/60">Live preview — reflects saved files</span>
+              <div className="flex items-center justify-between px-3 h-9 border-b border-foreground/10">
+                <span className="text-[12px] text-foreground/60">Live preview — reflects saved files</span>
                 <button
                   onClick={() => { clearRuntimeLogs(); setPreviewKey((k) => k + 1); }}
-                  className="inline-flex items-center gap-1.5 px-2 h-7 rounded-md text-[12px] text-white/70 hover:bg-white/10"
+                  className="inline-flex items-center gap-1.5 px-2 h-7 rounded-md text-[12px] text-foreground/70 hover:bg-foreground/10"
                 >
                   <RefreshCw className="w-3.5 h-3.5" /> Refresh
                 </button>
@@ -478,7 +478,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                   className="flex-1 w-full bg-white"
                 />
               ) : (
-                <div className="flex-1 grid place-items-center text-[12.5px] text-white/50 p-6 text-center">
+                <div className="flex-1 grid place-items-center text-[12.5px] text-foreground/50 p-6 text-center">
                   No runnable entry found yet. Add an index.html or a React entry file.
                 </div>
               )}
@@ -490,7 +490,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                     </span>
                     <button
                       onClick={clearRuntimeLogs}
-                      className="text-[11.5px] text-red-200/70 hover:text-red-100 px-2 h-6 rounded-md hover:bg-white/10"
+                      className="text-[11.5px] text-red-200/70 hover:text-red-100 px-2 h-6 rounded-md hover:bg-foreground/10"
                     >
                       Clear
                     </button>
@@ -510,17 +510,17 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
           )}
           {tab === "files" && (
             <div className="h-full flex">
-              <aside className="w-56 sm:w-64 shrink-0 border-l border-white/10 bg-black/30 flex flex-col">
-                <div className="flex items-center justify-between px-3 h-9 border-b border-white/10">
-                  <span className="text-[11px] uppercase tracking-wider text-white/50">Files</span>
+              <aside className="w-56 sm:w-64 shrink-0 border-l border-foreground/10 bg-background/30 flex flex-col">
+                <div className="flex items-center justify-between px-3 h-9 border-b border-foreground/10">
+                  <span className="text-[11px] uppercase tracking-wider text-foreground/50">Files</span>
                   <div className="flex items-center gap-1">
-                    <button onClick={newFile} className="p-1 rounded hover:bg-white/10 text-white/70" title="New">
+                    <button onClick={newFile} className="p-1 rounded hover:bg-foreground/10 text-foreground/70" title="New">
                       <Plus className="w-3.5 h-3.5" />
                     </button>
-                    <button onClick={renameCurrent} className="p-1 rounded hover:bg-white/10 text-white/70" title="Rename">
+                    <button onClick={renameCurrent} className="p-1 rounded hover:bg-foreground/10 text-foreground/70" title="Rename">
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
-                    <button onClick={deleteCurrent} className="p-1 rounded hover:bg-white/10 text-white/70" title="Delete">
+                    <button onClick={deleteCurrent} className="p-1 rounded hover:bg-foreground/10 text-foreground/70" title="Delete">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -531,7 +531,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                       key={f.path}
                       onClick={() => setSelected(f.path)}
                       className={`w-full text-right px-3 py-1.5 truncate ${
-                        selected === f.path ? "bg-white/10 text-white" : "text-white/70 hover:bg-white/5"
+                        selected === f.path ? "bg-foreground/10 text-foreground" : "text-foreground/70 hover:bg-foreground/5"
                       }`}
                       dir="ltr"
                     >
@@ -539,24 +539,24 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                     </button>
                   ))}
                   {!fs.files.length && (
-                    <div className="px-3 py-4 text-[12px] text-white/40">No files</div>
+                    <div className="px-3 py-4 text-[12px] text-foreground/40">No files</div>
                   )}
                 </div>
               </aside>
               <section className="flex-1 flex flex-col min-w-0">
-                <div className="flex items-center justify-between px-3 h-9 border-b border-white/10">
-                  <span className="text-[12px] text-white/60 truncate" dir="ltr">{selected || "—"}</span>
+                <div className="flex items-center justify-between px-3 h-9 border-b border-foreground/10">
+                  <span className="text-[12px] text-foreground/60 truncate" dir="ltr">{selected || "—"}</span>
                   <button
                     onClick={saveFile}
                     disabled={!dirty}
-                    className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[11.5px] font-medium bg-white text-black disabled:opacity-40"
+                    className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md text-[11.5px] font-medium bg-white text-background disabled:opacity-40"
                   >
                     <Save className="w-3.5 h-3.5" /> Save
                   </button>
                 </div>
                 <div className="flex-1 min-h-0">
                   {selected ? (
-                    <Suspense fallback={<div className="p-3 text-xs text-white/50">Loading editor…</div>}>
+                    <Suspense fallback={<div className="p-3 text-xs text-foreground/50">Loading editor…</div>}>
                       <MonacoEditor
                         height="100%"
                         theme="vs-dark"
@@ -575,7 +575,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                       />
                     </Suspense>
                   ) : (
-                    <div className="p-4 text-xs text-white/50">Choose a file to start editing…</div>
+                    <div className="p-4 text-xs text-foreground/50">Choose a file to start editing…</div>
                   )}
                 </div>
               </section>
@@ -591,7 +591,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                     className={
                       h.kind === "in" ? "text-emerald-400" :
                       h.kind === "err" ? "text-red-400" :
-                      h.kind === "sys" ? "text-white/40" : "text-white/85"
+                      h.kind === "sys" ? "text-foreground/40" : "text-foreground/85"
                     }
                     style={{ whiteSpace: "pre-wrap" }}
                   >
@@ -601,7 +601,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
               </div>
               <form
                 onSubmit={(e) => { e.preventDefault(); const c = cmd; setCmd(""); void runCommand(c); }}
-                className="flex items-center gap-2 border-t border-white/10 px-3 h-11 bg-black"
+                className="flex items-center gap-2 border-t border-foreground/10 px-3 h-11 bg-background"
                 dir="ltr"
               >
                 <span className="text-emerald-400 font-mono text-[12.5px]">{fs.cwd} $</span>
@@ -610,7 +610,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                   onChange={(e) => setCmd(e.target.value)}
                   autoFocus
                   spellCheck={false}
-                  className="flex-1 bg-transparent outline-none text-white/90 font-mono text-[12.5px]"
+                  className="flex-1 bg-transparent outline-none text-foreground/90 font-mono text-[12.5px]"
                   placeholder="Type a command… (help)"
                 />
               </form>
@@ -619,8 +619,8 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
 
           {tab === "python" && (
             <div className="h-full flex flex-col">
-              <div className="flex items-center justify-between px-3 h-10 border-b border-white/10 bg-black/40">
-                <div className="flex items-center gap-2 text-[12px] text-white/70">
+              <div className="flex items-center justify-between px-3 h-10 border-b border-foreground/10 bg-background/40">
+                <div className="flex items-center gap-2 text-[12px] text-foreground/70">
                   <FileCode2 className="w-3.5 h-3.5" />
                   Python 3 (Pyodide) — runs in the browser
                   {pyReady === "loading" && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
@@ -629,7 +629,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                 <button
                   onClick={runPython}
                   disabled={pyRunning}
-                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-md text-[12px] font-semibold bg-emerald-500 text-black disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-md text-[12px] font-semibold bg-emerald-500 text-background disabled:opacity-50"
                 >
                   {pyRunning ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Play className="w-3.5 h-3.5" fill="currentColor" />}
                   Run
@@ -641,11 +641,11 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                   onChange={(e) => setPyCode(e.target.value)}
                   spellCheck={false}
                   dir="ltr"
-                  className="w-full h-full bg-[#0b0b0f] text-white/90 font-mono text-[12.5px] leading-relaxed p-3 outline-none resize-none border-b border-white/10"
+                  className="w-full h-full bg-[#0b0b0f] text-foreground/90 font-mono text-[12.5px] leading-relaxed p-3 outline-none resize-none border-b border-foreground/10"
                 />
                 <pre
                   dir="ltr"
-                  className="w-full h-full overflow-auto bg-black/60 text-white/80 font-mono text-[12px] leading-relaxed p-3 whitespace-pre-wrap"
+                  className="w-full h-full overflow-auto bg-background/60 text-foreground/80 font-mono text-[12px] leading-relaxed p-3 whitespace-pre-wrap"
                 >{pyOut || "// Press Run to see results"}</pre>
               </div>
             </div>
@@ -654,40 +654,40 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
           {tab === "integrations" && (
             <div className="h-full overflow-y-auto p-6">
               <div className="max-w-2xl mx-auto space-y-4">
-                <h3 className="text-white text-lg font-bold">Connect external tools</h3>
-                <p className="text-white/60 text-[13px]">
+                <h3 className="text-foreground text-lg font-bold">Connect external tools</h3>
+                <p className="text-foreground/60 text-[13px]">
                   Connect GitHub to push code, or Supabase to run the database — or skip and start right away.
                   The AI can also skip the integration automatically if not needed for this project.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
                     onClick={() => setConnectorsOpen(true)}
-                    className="flex items-center gap-3 p-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 text-right transition"
+                    className="flex items-center gap-3 p-4 rounded-2xl border border-foreground/15 bg-foreground/5 hover:bg-foreground/10 text-right transition"
                   >
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white text-black">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white text-background">
                       <Github className="w-5 h-5" />
                     </span>
                     <span className="flex-1 min-w-0">
-                      <span className="block text-white text-[14px] font-semibold">Connect GitHub</span>
-                      <span className="block text-white/60 text-[12px]">Push code and manage repos</span>
+                      <span className="block text-foreground text-[14px] font-semibold">Connect GitHub</span>
+                      <span className="block text-foreground/60 text-[12px]">Push code and manage repos</span>
                     </span>
                   </button>
                   <button
                     onClick={() => setConnectorsOpen(true)}
-                    className="flex items-center gap-3 p-4 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 text-right transition"
+                    className="flex items-center gap-3 p-4 rounded-2xl border border-foreground/15 bg-foreground/5 hover:bg-foreground/10 text-right transition"
                   >
-                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500 text-black font-black">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-emerald-500 text-background font-black">
                       S
                     </span>
                     <span className="flex-1 min-w-0">
-                      <span className="block text-white text-[14px] font-semibold">Connect Supabase</span>
-                      <span className="block text-white/60 text-[12px]">Database, auth, and storage</span>
+                      <span className="block text-foreground text-[14px] font-semibold">Connect Supabase</span>
+                      <span className="block text-foreground/60 text-[12px]">Database, auth, and storage</span>
                     </span>
                   </button>
                 </div>
                 <button
                   onClick={() => { toast.success("Skipped — you can continue without connecting"); setTab("files"); }}
-                  className="w-full inline-flex items-center justify-center gap-2 h-11 rounded-2xl border border-white/15 bg-transparent hover:bg-white/5 text-white/80 text-[13px] font-medium"
+                  className="w-full inline-flex items-center justify-center gap-2 h-11 rounded-2xl border border-foreground/15 bg-transparent hover:bg-foreground/5 text-foreground/80 text-[13px] font-medium"
                 >
                   <SkipForward className="w-4 h-4" /> Skip and start now
                 </button>

@@ -608,7 +608,7 @@ const AppSidebar = ({
               }}
             >
               <span
-                className="shrink-0 transition-colors duration-200 group-hover:text-white"
+                className="shrink-0 transition-colors duration-200 group-hover:text-foreground"
                 style={{ color: active ? "var(--overlay-white-100)" : "var(--overlay-white-70)" }}
               >
                 <Icon size={17} strokeWidth={2} />
@@ -644,7 +644,7 @@ const AppSidebar = ({
               aria-expanded={moreOpen}
             >
               <span
-                className="shrink-0 transition-colors duration-200 group-hover:text-white"
+                className="shrink-0 transition-colors duration-200 group-hover:text-foreground"
                 style={{ color: moreOpen ? "var(--overlay-white-100)" : "var(--overlay-white-70)" }}
               >
                 <ChevronDown
@@ -697,7 +697,7 @@ const AppSidebar = ({
                         }}
                       >
                         <span
-                          className="shrink-0 transition-colors duration-200 group-hover:text-white"
+                          className="shrink-0 transition-colors duration-200 group-hover:text-foreground"
                           style={{ color: active ? "var(--overlay-white-100)" : "var(--overlay-white-70)" }}
                         >
                           <Icon size={17} strokeWidth={2} />
@@ -1306,7 +1306,7 @@ const AppSidebar = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.12, ease: [0.32, 0.72, 0, 1] }}
-              className="fixed inset-0 z-popover bg-black/55 cursor-pointer"
+              className="fixed inset-0 z-popover bg-background/55 cursor-pointer"
               onClick={onClose}
               onTouchStart={onClose}
             />

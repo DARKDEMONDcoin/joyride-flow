@@ -274,7 +274,7 @@ const CodePreviewModal = ({ code, lang, onClose, files, initialPath }: CodePrevi
           {mode === "preview" ? (
             <iframe
               ref={iframeRef}
-              className="flex-1 w-full bg-black"
+              className="flex-1 w-full bg-background"
               sandbox="allow-scripts allow-same-origin"
               title="Code preview"
             />

@@ -77,7 +77,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar-
       style={{ background: "transparent", border: 0, boxShadow: "none" }}
     >
       <Mic
-        className={`w-[20px] h-[20px] transition-colors ${listening ? "text-primary" : "text-white/70"}`}
+        className={`w-[20px] h-[20px] transition-colors ${listening ? "text-primary" : "text-foreground/70"}`}
         strokeWidth={1.9}
       />
     </button>

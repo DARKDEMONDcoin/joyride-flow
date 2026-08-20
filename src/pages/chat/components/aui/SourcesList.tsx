@@ -66,7 +66,7 @@ export function SourcesList({ sources }: { sources: SourceItem[] }) {
           href={s.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-start gap-2 rounded-xl border border-white/10 bg-background/40 p-2 hover:bg-white/5 transition-colors text-[12px]"
+          className="group flex items-start gap-2 rounded-xl border border-foreground/10 bg-background/40 p-2 hover:bg-foreground/5 transition-colors text-[12px]"
         >
           <img decoding="async"
             src={s.favicon}

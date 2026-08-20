@@ -84,14 +84,14 @@ export default function DocsClarifyCard({ reason, questions, ui, onSubmit, busy 
 
   if (submitted) {
     return (
-      <div className="my-3 rounded-2xl border border-white/10 bg-neutral-900/60 p-4 text-sm text-neutral-300">
+      <div className="my-3 rounded-2xl border border-foreground/10 bg-neutral-900/60 p-4 text-sm text-neutral-300">
         {ui?.thinking || "Preparing your document…"}
       </div>
     );
   }
 
   return (
-    <div className="my-3 rounded-2xl border border-white/10 bg-gradient-to-b from-neutral-900/80 to-neutral-950/80 p-4 md:p-5 shadow-xl">
+    <div className="my-3 rounded-2xl border border-foreground/10 bg-gradient-to-b from-neutral-900/80 to-neutral-950/80 p-4 md:p-5 shadow-xl">
       <div className="mb-3 flex items-center justify-between gap-3">
         <div className="min-w-0">
           <div className="text-[11px] font-medium uppercase tracking-wider text-amber-400/80">
@@ -106,7 +106,7 @@ export default function DocsClarifyCard({ reason, questions, ui, onSubmit, busy 
         </div>
       </div>
 
-      <div className="mb-4 h-1 w-full overflow-hidden rounded-full bg-white/5">
+      <div className="mb-4 h-1 w-full overflow-hidden rounded-full bg-foreground/5">
         <div
           className="h-full rounded-full bg-gradient-to-r from-amber-400 to-orange-500 transition-[width] duration-300"
           style={{ width: `${Math.round(progress * 100)}%` }}
@@ -171,7 +171,7 @@ function QuestionField({
 }) {
   const baseInput =
     "w-full rounded-lg border bg-neutral-950/60 px-3 py-2 text-sm text-neutral-100 placeholder:text-neutral-500 outline-none transition focus:border-amber-400/60 focus:ring-2 focus:ring-amber-400/20";
-  const borderCls = error ? "border-red-500/60" : "border-white/10";
+  const borderCls = error ? "border-red-500/60" : "border-foreground/10";
 
   return (
     <label className="block">
@@ -182,7 +182,7 @@ function QuestionField({
             Required
           </span>
         ) : (
-          <span className="rounded bg-white/5 px-1.5 py-0.5 text-[10px] font-medium text-neutral-400">
+          <span className="rounded bg-foreground/5 px-1.5 py-0.5 text-[10px] font-medium text-neutral-400">
             Optional
           </span>
         )}
@@ -208,7 +208,7 @@ function QuestionField({
               className={`rounded-full border px-3 py-1.5 text-xs transition ${
                 value === opt
                   ? "border-amber-400/60 bg-amber-400/10 text-amber-200"
-                  : "border-white/10 bg-white/5 text-neutral-300 hover:border-white/20"
+                  : "border-foreground/10 bg-foreground/5 text-neutral-300 hover:border-foreground/20"
               }`}
             >
               {opt}
@@ -233,7 +233,7 @@ function QuestionField({
                 className={`rounded-full border px-3 py-1.5 text-xs transition ${
                   isOn
                     ? "border-amber-400/60 bg-amber-400/10 text-amber-200"
-                    : "border-white/10 bg-white/5 text-neutral-300 hover:border-white/20"
+                    : "border-foreground/10 bg-foreground/5 text-neutral-300 hover:border-foreground/20"
                 }`}
               >
                 {opt}

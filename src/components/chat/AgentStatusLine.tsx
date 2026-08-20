@@ -157,7 +157,7 @@ const AgentStatusLine = ({ searchStatus, toolActivity, userText }: AgentStatusLi
             (isError ? "bg-destructive" : "bg-emerald-500")
           }
         >
-          <Check className="w-2 h-2 text-white" strokeWidth={3} />
+          <Check className="w-2 h-2 text-foreground" strokeWidth={3} />
         </span>
       </span>
     );
@@ -196,7 +196,7 @@ const AgentStatusLine = ({ searchStatus, toolActivity, userText }: AgentStatusLi
                 className={
                   shimmer
                     ? "ai-shimmer text-[13px] font-medium motion-reduce:animate-none"
-                    : "text-[13px] font-medium text-foreground/70 md:text-white/80"
+                    : "text-[13px] font-medium text-foreground/70 md:text-foreground/80"
                 }
               >
                 {label}
@@ -245,7 +245,7 @@ const Dots = () => (
     {[0, 1, 2].map((i) => (
       <span
         key={i}
-        className="w-1 h-1 rounded-full bg-foreground/40 md:bg-white/70 animate-pulse"
+        className="w-1 h-1 rounded-full bg-foreground/40 md:bg-foreground/70 animate-pulse"
         style={{ animationDelay: `${i * 120}ms` }}
       />
     ))}
@@ -260,7 +260,7 @@ const ToolIcon = ({
   muted?: boolean;
 }) => {
   const [failed, setFailed] = useState(false);
-  if (!meta) return <Wrench className="w-4 h-4 text-foreground/70 md:text-white/80" />;
+  if (!meta) return <Wrench className="w-4 h-4 text-foreground/70 md:text-foreground/80" />;
   if (meta.slug && !failed) {
     return (
       <img loading="lazy" decoding="async"
@@ -276,7 +276,7 @@ const ToolIcon = ({
     <Comp
       className={
         "w-4 h-4 " +
-        (muted ? "text-foreground/50 md:text-white/60" : "text-foreground/80 md:text-white/90")
+        (muted ? "text-foreground/50 md:text-foreground/60" : "text-foreground/80 md:text-foreground/90")
       }
     />
   );

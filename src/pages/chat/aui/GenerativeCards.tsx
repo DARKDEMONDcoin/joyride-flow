@@ -31,7 +31,7 @@ function isUISpec(x: unknown): x is UISpec {
 
 function Shell({ icon: Icon, title, children }: { icon: typeof BarChart3; title?: string; children: React.ReactNode }) {
   return (
-    <div className="my-2 rounded-2xl border border-white/10 bg-muted/40 p-3">
+    <div className="my-2 rounded-2xl border border-foreground/10 bg-muted/40 p-3">
       {title && (
         <div className="mb-2 flex items-center gap-2 text-xs opacity-80">
           <Icon className="h-3.5 w-3.5" />
@@ -74,7 +74,7 @@ function Tbl({ spec }: { spec: TableSpec }) {
           </thead>
           <tbody>
             {spec.rows.map((row, i) => (
-              <tr key={i} className="border-t border-white/5">
+              <tr key={i} className="border-t border-foreground/5">
                 {row.map((cell, j) => (
                   <td key={j} className="py-1 px-2">{String(cell)}</td>
                 ))}
@@ -100,7 +100,7 @@ function Bar({ spec }: { spec: BarSpec }) {
                 <span>{d.label}</span>
                 <span className="tabular-nums">{d.value}</span>
               </div>
-              <div className="mt-1 h-1.5 rounded-full bg-white/10 overflow-hidden">
+              <div className="mt-1 h-1.5 rounded-full bg-foreground/10 overflow-hidden">
                 <div className="h-full bg-primary/70" style={{ width: `${pct}%` }} />
               </div>
             </li>
@@ -146,7 +146,7 @@ const UiCardToolUI = makeAssistantToolUI<Record<string, unknown>, unknown>({
       return renderSpec((candidate as { spec: UISpec }).spec);
     }
     return (
-      <div className="my-2 rounded-2xl border border-white/10 bg-muted/40 p-3">
+      <div className="my-2 rounded-2xl border border-foreground/10 bg-muted/40 p-3">
         <pre dir="ltr" className="text-[11px] opacity-80 overflow-auto max-h-56">
           {JSON.stringify(candidate ?? {}, null, 2)}
         </pre>

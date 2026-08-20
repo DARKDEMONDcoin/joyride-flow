@@ -91,12 +91,12 @@ export default function MediaResultCard({
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black px-3 py-1.5 text-[12px] text-white/80 w-fit"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-[12px] text-foreground/80 w-fit"
               >
                 <motion.span
                   animate={{ rotate: 360, scale: [1, 1.15, 1] }}
                   transition={{ rotate: { duration: 3, repeat: Infinity, ease: "linear" }, scale: { duration: 1.2, repeat: Infinity } }}
-                  className="text-white"
+                  className="text-foreground"
                 >
                   <MegsyStar className="w-4 h-4" />
                 </motion.span>
@@ -140,7 +140,7 @@ export default function MediaResultCard({
                 {r.status === "done" && r.url ? (
                   r.type === "music" ? (
                     <div className="relative w-full h-full flex flex-col items-center justify-center gap-3 px-4 py-3 bg-gradient-to-br from-fuchsia-600/70 via-purple-700/60 to-indigo-800/70 rounded-2xl">
-                      <div className="text-[13px] font-semibold text-white/95 line-clamp-2 text-center drop-shadow">
+                      <div className="text-[13px] font-semibold text-foreground/95 line-clamp-2 text-center drop-shadow">
                         {r.title || "Your song"}
                       </div>
                       <audio
@@ -236,7 +236,7 @@ export default function MediaResultCard({
                 controls
                 playsInline
                 preload="metadata"
-                className="w-full rounded-xl bg-black"
+                className="w-full rounded-xl bg-background"
               />
             </>
           ) : mergeStatus === "merging" ? (
@@ -365,7 +365,7 @@ function GlassDownload({ onClick }: { onClick: () => void }) {
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.25 }}
-      className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium text-white shadow-lg backdrop-blur-xl bg-black/35 hover:bg-black/50 border border-white/15 transition-colors"
+      className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium text-foreground shadow-lg backdrop-blur-xl bg-background/35 hover:bg-background/50 border border-foreground/15 transition-colors"
       aria-label="Download"
     >
       <Download className="w-3.5 h-3.5" />

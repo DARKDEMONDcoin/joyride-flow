@@ -559,7 +559,7 @@ const MarkdownRenderer = ({
             src={src}
             alt={alt || ""}
             loading="lazy"
-            className="my-3 max-w-full h-auto rounded-xl border border-white/10 shadow-lg"
+            className="my-3 max-w-full h-auto rounded-xl border border-foreground/10 shadow-lg"
           />
         ) : null,
       video: ({ src, ...props }: any) => (
@@ -567,12 +567,12 @@ const MarkdownRenderer = ({
           src={src}
           controls
           playsInline
-          className="my-3 w-full max-w-full rounded-xl border border-white/10 shadow-lg bg-black"
+          className="my-3 w-full max-w-full rounded-xl border border-foreground/10 shadow-lg bg-background"
           {...props}
         />
       ),
       iframe: ({ src, title, ...props }: any) => (
-        <div className="my-3 relative w-full aspect-video overflow-hidden rounded-xl border border-white/10 shadow-lg bg-black">
+        <div className="my-3 relative w-full aspect-video overflow-hidden rounded-xl border border-foreground/10 shadow-lg bg-background">
           <iframe
             src={src}
             title={title || "embedded content"}
@@ -680,7 +680,7 @@ const renderTextWithMentions = (text: string) => {
   const parts = text.split(/(@[A-Za-z0-9_]+)/g);
   return parts.map((p, i) =>
     p.startsWith("@") ? (
-      <span key={i} className="px-1 rounded bg-white/25 font-semibold">
+      <span key={i} className="px-1 rounded bg-foreground/25 font-semibold">
         {p}
       </span>
     ) : (
@@ -734,13 +734,13 @@ const UserMarkdown = ({
         const isBlock = className?.startsWith("language-");
         if (isBlock) {
           return (
-            <pre className="my-2 p-2 rounded-lg bg-black/25 overflow-x-auto text-[12px] leading-relaxed">
+            <pre className="my-2 p-2 rounded-lg bg-background/25 overflow-x-auto text-[12px] leading-relaxed">
               <code {...props}>{children}</code>
             </pre>
           );
         }
         return (
-          <code className="px-1 py-0.5 rounded bg-black/20 text-[12px] font-mono" {...props}>
+          <code className="px-1 py-0.5 rounded bg-background/20 text-[12px] font-mono" {...props}>
             {children}
           </code>
         );
@@ -749,7 +749,7 @@ const UserMarkdown = ({
       ul: ({ children }) => <ul className="list-disc ps-5 my-1 space-y-0.5">{children}</ul>,
       ol: ({ children }) => <ol className="list-decimal ps-5 my-1 space-y-0.5">{children}</ol>,
       blockquote: ({ children }) => (
-        <blockquote className="border-s-2 border-white/40 ps-2 my-1 opacity-90">
+        <blockquote className="border-s-2 border-foreground/40 ps-2 my-1 opacity-90">
           {children}
         </blockquote>
       ),
@@ -1468,7 +1468,7 @@ const ChatMessage = ({
                       controls
                       playsInline
                       preload="metadata"
-                      className="w-full max-w-[28rem] rounded-xl bg-black border border-border/40"
+                      className="w-full max-w-[28rem] rounded-xl bg-background border border-border/40"
                     />
                   ))}
               </div>
@@ -1532,14 +1532,14 @@ const ChatMessage = ({
                   onClick={openProjectPreview}
                   className="group inline-flex items-center gap-3 flex-1 rounded-2xl border border-border/60 bg-gradient-to-br from-surface-1 to-surface-3 px-4 py-3 text-left shadow-sm hover:shadow-md hover:border-[var(--megsy-blue)]/60 transition-all"
                 >
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[var(--megsy-blue)]/20 text-[var(--megsy-blue)] group-hover:bg-[var(--megsy-blue)] group-hover:text-white transition-colors">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[var(--megsy-blue)]/20 text-[var(--megsy-blue)] group-hover:bg-[var(--megsy-blue)] group-hover:text-foreground transition-colors">
                     <Play className="w-4 h-4" fill="currentColor" />
                   </span>
                   <span className="flex-1 min-w-0">
-                    <span className="block text-[13px] font-bold text-white">
+                    <span className="block text-[13px] font-bold text-foreground">
                       Project preview
                     </span>
-                    <span className="block text-[11px] text-white/60 truncate">
+                    <span className="block text-[11px] text-foreground/60 truncate">
                       {projectFiles.length} files · Click to run and browse
                     </span>
                   </span>
@@ -1549,12 +1549,12 @@ const ChatMessage = ({
                   onClick={() => setStudioOpen(true)}
                   className="group inline-flex items-center gap-3 flex-1 rounded-2xl border border-border/60 bg-gradient-to-br from-surface-1 to-surface-3 px-4 py-3 text-left shadow-sm hover:shadow-md hover:border-emerald-400/60 transition-all"
                 >
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-background transition-colors">
                     <FolderTree className="w-4 h-4" />
                   </span>
                   <span className="flex-1 min-w-0">
-                    <span className="block text-[13px] font-bold text-white">Files</span>
-                    <span className="block text-[11px] text-white/60 truncate">
+                    <span className="block text-[13px] font-bold text-foreground">Files</span>
+                    <span className="block text-[11px] text-foreground/60 truncate">
                       {projectFiles.length} files · Browse and edit
                     </span>
                   </span>

@@ -146,7 +146,7 @@ export function ChatOptionsDropdown(props: ChatOptionsDropdownProps) {
             aria-label={tx("Chat options")}
             className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[14px] font-black text-brand-parchment bg-surface-1 border-2 border-surface-4 active:translate-x-[2px] active:translate-y-[2px] transition-all"
           >
-            <MoreHorizontal className="w-[18px] h-[18px] text-white" color="#ffffff" strokeWidth={2.6} />
+            <MoreHorizontal className="w-[18px] h-[18px] text-foreground" color="#ffffff" strokeWidth={2.6} />
           </button>
         ) : (
           <button

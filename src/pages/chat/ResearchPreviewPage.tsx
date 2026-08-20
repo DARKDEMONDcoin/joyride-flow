@@ -424,7 +424,7 @@ const ResearchPreviewPage = () => {
                 goBackOr(navigate, "/chat");
               }
             }}
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-white/15 dark:bg-background/80 dark:hover:bg-background/95"
+            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-foreground/15 dark:bg-background/80 dark:hover:bg-background/95"
             aria-label="Back to conversation"
           >
             <ArrowLeft className={`h-[18px] w-[18px] ${""}`} />
@@ -434,7 +434,7 @@ const ResearchPreviewPage = () => {
             <Sheet open={tocOpen} onOpenChange={setTocOpen}>
               <SheetTrigger asChild>
                 <button
-                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-white/15 dark:bg-background/80 dark:hover:bg-background/95"
+                  className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-foreground/15 dark:bg-background/80 dark:hover:bg-background/95"
                   aria-label={"Contents"}
                 >
                   <List className="h-[18px] w-[18px]" />
@@ -442,7 +442,7 @@ const ResearchPreviewPage = () => {
               </SheetTrigger>
               <SheetContent
                 side="bottom"
-                className="mx-auto flex max-h-[62dvh] w-full max-w-[39rem] flex-col overflow-hidden rounded-t-[2rem] border border-white/40 bg-white/30 px-6 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-3 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)] sm:max-w-lg"
+                className="mx-auto flex max-h-[62dvh] w-full max-w-[39rem] flex-col overflow-hidden rounded-t-[2rem] border border-foreground/40 bg-foreground/30 px-6 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-3 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-foreground/10 dark:bg-foreground/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)] sm:max-w-lg"
                 dir={"ltr"}
               >
                 <div className="mx-auto mb-6 h-1 w-11 shrink-0 rounded-full bg-foreground/25" />
@@ -486,7 +486,7 @@ const ResearchPreviewPage = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
-                className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-white/15 dark:bg-background/80 dark:hover:bg-background/95"
+                className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-background/90 text-foreground shadow-lg ring-1 ring-black/5 backdrop-blur-xl transition hover:bg-background dark:border-foreground/15 dark:bg-background/80 dark:hover:bg-background/95"
                 aria-label={"Options"}
               >
                 <MoreHorizontal className="h-[18px] w-[18px]" />
@@ -495,25 +495,25 @@ const ResearchPreviewPage = () => {
             <DropdownMenuContent
               align={"end"}
               sideOffset={10}
-              className="w-60 overflow-hidden rounded-2xl border border-white/40 bg-white/30 p-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)]"
+              className="w-60 overflow-hidden rounded-2xl border border-foreground/40 bg-foreground/30 p-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_var(--overlay-white-60)] backdrop-blur-2xl backdrop-saturate-150 dark:border-foreground/10 dark:bg-foreground/10 dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_var(--overlay-white-08)]"
             >
               <DropdownMenuItem
                 onClick={handleCopy}
-                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-white/40 dark:focus:bg-white/15"
+                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-foreground/40 dark:focus:bg-foreground/15"
               >
                 <ClipboardCheck className="h-[18px] w-[18px]" />
                 <span>{"Copy text"}</span>
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={handleNativeShare}
-                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-white/40 dark:focus:bg-white/15"
+                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-foreground/40 dark:focus:bg-foreground/15"
               >
                 <Send className="h-[18px] w-[18px]" />
                 <span>{"Send to friends"}</span>
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={handleDriveUpload}
-                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-white/40 dark:focus:bg-white/15"
+                className="gap-3 rounded-xl px-3 py-2.5 text-[14px] text-foreground focus:bg-foreground/40 dark:focus:bg-foreground/15"
               >
                 <SiGoogledrive className="h-[18px] w-[18px]" color="#FBBC04" />
                 <span>{"Upload to Google Drive"}</span>

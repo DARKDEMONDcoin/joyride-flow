@@ -23,7 +23,7 @@ const SlidesPreviewPage = () => {
 
   if (notFound) {
     return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center gap-4 bg-black text-white">
+      <div className="fixed inset-0 flex flex-col items-center justify-center gap-4 bg-background text-foreground">
         <p className="text-sm opacity-80">Preview not available. Please regenerate the deck.</p>
         <button
           onClick={() => navigate("/")}
@@ -37,7 +37,7 @@ const SlidesPreviewPage = () => {
   }
 
   if (!deck) {
-    return <div className="fixed inset-0 bg-black" />;
+    return <div className="fixed inset-0 bg-background" />;
   }
 
   return <SlidesDeckCard deck={deck} hideCard autoOpen onClose={handleClose} />;

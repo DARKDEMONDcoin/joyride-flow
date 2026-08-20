@@ -8,7 +8,7 @@ export default function SettingsSupportPage() {
   const goBack = () => navigate("/settings");
 
   return (
-    <div className="min-h-screen w-full bg-black text-[#f5f5f5]" style={{ fontFamily: '"DM Sans", "Inter", system-ui, sans-serif' }}>
+    <div className="min-h-screen w-full bg-background text-[#f5f5f5]" style={{ fontFamily: '"DM Sans", "Inter", system-ui, sans-serif' }}>
       <div className="mx-auto w-full max-w-md px-6 py-8">
         {/* Top bar */}
         <div className="mb-8 flex items-center">
@@ -111,7 +111,7 @@ function SupportCard({
           <span className="text-base font-medium text-[#f5f5f5]">{label}</span>
           {badge && (
             <span
-              className="rounded-md bg-[#f5f5f5] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-black"
+              className="rounded-md bg-[#f5f5f5] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-background"
               style={{ fontFamily: '"Space Grotesk", "Inter", system-ui, sans-serif' }}
             >
               {badge}

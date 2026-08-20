@@ -50,19 +50,19 @@ export default function MoonshotHero() {
       </div>
 
       <h2
-        className="mt-2 flex items-center justify-center gap-2 text-center text-[23px] leading-tight text-white"
+        className="mt-2 flex items-center justify-center gap-2 text-center text-[23px] leading-tight text-foreground"
         style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontWeight: 400 }}
       >
-        <MegsyStar className="h-4 w-4 text-white/70" />
+        <MegsyStar className="h-4 w-4 text-foreground/70" />
         Share Megsy, earn forever
       </h2>
-      <p className="mt-1.5 text-center text-[13px] text-white/55">
+      <p className="mt-1.5 text-center text-[13px] text-foreground/55">
         {CREDITS_PER_SIGNUP} credits each on sign-up · {COMMISSION_PCT}% of every payment they make
       </p>
 
       <button
         onClick={() => shareLink()}
-        className="mx-auto mt-6 flex w-full max-w-[300px] items-center justify-center gap-2 rounded-full bg-white py-3 text-[15px] font-semibold text-black transition active:scale-[0.97]"
+        className="mx-auto mt-6 flex w-full max-w-[300px] items-center justify-center gap-2 rounded-full bg-white py-3 text-[15px] font-semibold text-background transition active:scale-[0.97]"
       >
         <Share2 className="h-[17px] w-[17px]" strokeWidth={2} />
         Invite friends
@@ -72,18 +72,18 @@ export default function MoonshotHero() {
       {code && (
         <button
           onClick={() => copyLink()}
-          className="mx-auto mt-3 flex items-center gap-2 rounded-full px-4 py-2 text-[13px] text-white/80 transition active:scale-[0.97]"
+          className="mx-auto mt-3 flex items-center gap-2 rounded-full px-4 py-2 text-[13px] text-foreground/80 transition active:scale-[0.97]"
           style={{
             background: "hsl(0 0% 100% / 0.06)",
             border: "1px solid hsl(0 0% 100% / 0.09)",
           }}
         >
-          <span className="text-white/45">Your code</span>
-          <span className="font-mono tracking-[0.12em] text-white">{code}</span>
+          <span className="text-foreground/45">Your code</span>
+          <span className="font-mono tracking-[0.12em] text-foreground">{code}</span>
           {justCopied ? (
             <Check className="h-3.5 w-3.5 text-emerald-400" strokeWidth={2.2} />
           ) : (
-            <Copy className="h-3.5 w-3.5 text-white/50" strokeWidth={2} />
+            <Copy className="h-3.5 w-3.5 text-foreground/50" strokeWidth={2} />
           )}
         </button>
       )}
@@ -95,8 +95,8 @@ export default function MoonshotHero() {
       >
         {stats.map((s) => (
           <div key={s.label} className="px-1 py-3 text-center" style={{ background: "#0b0b0b" }}>
-            <p className="text-[15px] font-semibold text-white">{s.value}</p>
-            <p className="mt-0.5 text-[10.5px] text-white/50">{s.label}</p>
+            <p className="text-[15px] font-semibold text-foreground">{s.value}</p>
+            <p className="mt-0.5 text-[10.5px] text-foreground/50">{s.label}</p>
           </div>
         ))}
       </div>
@@ -110,13 +110,13 @@ export default function MoonshotHero() {
         }}
       >
         <div className="flex items-center gap-2">
-          <Wallet className="h-4 w-4 text-white/60" strokeWidth={1.8} />
-          <p className="flex-1 text-[13px] text-white/80">
+          <Wallet className="h-4 w-4 text-foreground/60" strokeWidth={1.8} />
+          <p className="flex-1 text-[13px] text-foreground/80">
             {(available ?? 0) >= MIN_PAYOUT
               ? "You can withdraw now"
               : `$${Math.max(0, MIN_PAYOUT - (available ?? 0)).toFixed(2)} more to unlock withdrawal`}
           </p>
-          <span className="text-[12px] text-white/45">min ${MIN_PAYOUT}</span>
+          <span className="text-[12px] text-foreground/45">min ${MIN_PAYOUT}</span>
         </div>
         <div
           className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full"
@@ -143,12 +143,12 @@ export default function MoonshotHero() {
         ].map((step, i) => (
           <div key={step} className="flex items-start gap-3">
             <span
-              className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full text-[11px] font-semibold text-black"
+              className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full text-[11px] font-semibold text-background"
               style={{ background: "rgba(255,255,255,0.88)" }}
             >
               {i + 1}
             </span>
-            <p className="text-[13.5px] leading-snug text-white/70">{step}</p>
+            <p className="text-[13.5px] leading-snug text-foreground/70">{step}</p>
           </div>
         ))}
       </div>
@@ -168,11 +168,11 @@ export default function MoonshotHero() {
                 className="grid h-10 w-10 shrink-0 place-items-center rounded-xl"
                 style={{ background: "hsl(0 0% 100% / 0.08)" }}
               >
-                <t.icon className="h-[19px] w-[19px] text-white/90" strokeWidth={1.7} />
+                <t.icon className="h-[19px] w-[19px] text-foreground/90" strokeWidth={1.7} />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[15px] leading-snug text-white">{t.title}</p>
-                <p className="mt-0.5 flex items-center gap-1 text-[12px] text-white/55">
+                <p className="text-[15px] leading-snug text-foreground">{t.title}</p>
+                <p className="mt-0.5 flex items-center gap-1 text-[12px] text-foreground/55">
                   <Coins className="h-3.5 w-3.5" strokeWidth={1.8} />
                   {t.reward} · {t.count} done
                 </p>
@@ -180,7 +180,7 @@ export default function MoonshotHero() {
             </div>
             <button
               onClick={() => shareLink()}
-              className="mt-3.5 w-full rounded-full bg-white py-2.5 text-[14.5px] font-semibold text-black transition active:scale-[0.98]"
+              className="mt-3.5 w-full rounded-full bg-white py-2.5 text-[14.5px] font-semibold text-background transition active:scale-[0.98]"
             >
               Invite
             </button>

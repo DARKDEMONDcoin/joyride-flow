@@ -322,7 +322,7 @@ export default function ComposerModelMenu({
                   }}
                   className="tier-menu-card z-[9999] flex flex-col overflow-y-auto overscroll-contain rounded-[26px] p-1.5"
                 >
-                  <div className="px-3 pb-1.5 pt-2 text-[11px] font-medium tracking-wide text-white/35">
+                  <div className="px-3 pb-1.5 pt-2 text-[11px] font-medium tracking-wide text-foreground/35">
                     Choose a model
                   </div>
 
@@ -360,24 +360,24 @@ export default function ComposerModelMenu({
                           <span className="flex items-center gap-1.5">
                             <span
                               className={`truncate text-[14px] leading-tight ${
-                                active ? "font-semibold text-white" : "font-medium text-white/90"
+                                active ? "font-semibold text-foreground" : "font-medium text-foreground/90"
                               }`}
                             >
                               {item.label}
                             </span>
                             {item.premium && (
-                              <span className="shrink-0 rounded-md bg-white/[0.07] px-1.5 py-[2px] text-[9px] font-semibold leading-none text-white/50">
+                              <span className="shrink-0 rounded-md bg-white/[0.07] px-1.5 py-[2px] text-[9px] font-semibold leading-none text-foreground/50">
                                 Pro
                               </span>
                             )}
                           </span>
-                          <span className="mt-[3px] block truncate text-[11px] leading-snug text-white/35">
+                          <span className="mt-[3px] block truncate text-[11px] leading-snug text-foreground/35">
                             {item.desc}
                           </span>
                         </span>
                         <span className="flex h-5 w-5 shrink-0 items-center justify-center">
                           {locked ? (
-                            <Lock className="h-3.5 w-3.5 text-white/30" />
+                            <Lock className="h-3.5 w-3.5 text-foreground/30" />
                           ) : active ? (
                             <Check className="h-[17px] w-[17px] text-primary" strokeWidth={2.8} />
                           ) : null}
@@ -738,7 +738,7 @@ export default function ComposerModelMenu({
                     WebkitBackdropFilter: "none",
                     boxShadow: "none",
                   }}
-                  className="z-[9999] rounded-2xl p-2 text-white overflow-y-auto overscroll-contain unified-menu-surface scrollbar-thin"
+                  className="z-[9999] rounded-2xl p-2 text-foreground overflow-y-auto overscroll-contain unified-menu-surface scrollbar-thin"
                 >
 
                   {settingsPanel && (
@@ -746,7 +746,7 @@ export default function ComposerModelMenu({
                       <button
                         type="button"
                         onClick={() => setView(view === "settings" ? "models" : "settings")}
-                        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold text-white/90 bg-white/[0.06] hover:bg-white/[0.09] transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11.5px] font-semibold text-foreground/90 bg-white/[0.06] hover:bg-white/[0.09] transition-colors"
                         aria-label={view === "settings" ? "Back to models" : "Open model settings"}
                       >
                         {view === "settings" ? (
@@ -805,7 +805,7 @@ export default function ComposerModelMenu({
                         >
                           {groupedMediaOptions.map((group) => (
                             <div key={group.provider}>
-                              <div className="px-2.5 pb-1 text-[10px] font-black uppercase tracking-wider text-white/45">
+                              <div className="px-2.5 pb-1 text-[10px] font-black uppercase tracking-wider text-foreground/45">
                                 {group.label}
                               </div>
                               <div className="flex flex-col gap-1">
@@ -826,7 +826,7 @@ export default function ComposerModelMenu({
                                         toast.success(`Selected: ${choice.name}`);
                                         onOpenChange(false);
                                       }}
-                                      className={`group relative flex w-full items-center gap-2.5 rounded-ios-md px-3 py-2.5 text-left transition-colors border border-transparent text-white/90 hover:text-white ${active ? "bg-white/[0.035]" : "bg-transparent hover:bg-white/[0.02]"}`}
+                                      className={`group relative flex w-full items-center gap-2.5 rounded-ios-md px-3 py-2.5 text-left transition-colors border border-transparent text-foreground/90 hover:text-foreground ${active ? "bg-white/[0.035]" : "bg-transparent hover:bg-white/[0.02]"}`}
                                     >
                                       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-transparent">
                                         <BrandIcon name={choice.name} provider={choice.provider} size={28} />
@@ -834,16 +834,16 @@ export default function ComposerModelMenu({
                                           (choice.thumbnail ? (
                                             <img loading="lazy" decoding="async" src={choice.thumbnail} alt="" className="h-full w-full object-cover" />
                                           ) : mode === "video" ? (
-                                            <VideoIcon className="h-4 w-4 text-white/80" />
+                                            <VideoIcon className="h-4 w-4 text-foreground/80" />
                                           ) : (
-                                            <ImageIcon className="h-4 w-4 text-white/80" />
+                                            <ImageIcon className="h-4 w-4 text-foreground/80" />
                                           ))}
                                       </span>
-                                      <span className="min-w-0 flex-1 truncate text-[13px] font-semibold leading-tight tracking-tight text-white">
+                                      <span className="min-w-0 flex-1 truncate text-[13px] font-semibold leading-tight tracking-tight text-foreground">
                                         {choice.name}
                                       </span>
                                       {locked ? (
-                                        <Lock className="h-3.5 w-3.5 shrink-0 text-white/55" />
+                                        <Lock className="h-3.5 w-3.5 shrink-0 text-foreground/55" />
                                       ) : active ? (
                                         <span className={`${glassModelMenu.checkDot} h-4 w-4`}>
                                           <Check className="h-2.5 w-2.5" strokeWidth={3} />
@@ -879,19 +879,19 @@ export default function ComposerModelMenu({
                               toast.success(`Selected: ${item.label}`);
                               onOpenChange(false);
                             }}
-                            className={`group relative flex w-full items-center gap-3 rounded-ios-md px-3 py-2.5 text-left transition-colors border border-transparent text-white/90 hover:text-white ${active ? "bg-white/[0.035]" : "bg-transparent hover:bg-white/[0.02]"}`}
+                            className={`group relative flex w-full items-center gap-3 rounded-ios-md px-3 py-2.5 text-left transition-colors border border-transparent text-foreground/90 hover:text-foreground ${active ? "bg-white/[0.035]" : "bg-transparent hover:bg-white/[0.02]"}`}
                           >
                             <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-transparent">
                               <ComposerModelIcon brand={item.brand} />
                             </span>
                             <span className="min-w-0 flex-1">
-                              <span className="block text-[13px] font-semibold leading-tight truncate tracking-tight text-white">
+                              <span className="block text-[13px] font-semibold leading-tight truncate tracking-tight text-foreground">
                                 {item.label}
                               </span>
                             </span>
                             <span className="shrink-0 w-5 flex items-center justify-end">
                               {locked ? (
-                                <Lock className="h-4 w-4 text-white/55" />
+                                <Lock className="h-4 w-4 text-foreground/55" />
                               ) : active ? (
                                 <span className={`${glassModelMenu.checkDot} h-5 w-5`}>
                                   <Check className="h-3 w-3" strokeWidth={3} />

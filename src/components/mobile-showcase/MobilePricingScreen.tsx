@@ -123,7 +123,7 @@ export default function MobilePricingScreen({
         <MobileSidebarButton
           onClick={() => onMenuClick?.()}
           ariaLabel="Menu"
-          className={isLight ? "!text-black" : "!text-white"}
+          className={isLight ? "!text-background" : "!text-foreground"}
         />
       </header>
 

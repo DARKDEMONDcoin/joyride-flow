@@ -40,7 +40,7 @@ const TopBar = ({ onBack }: { onBack: () => void }) => (
     <button
       onClick={onBack}
       aria-label={authT("back")}
-      className="mt-4 w-9 h-9 rounded-full grid place-items-center text-white/85 active:scale-95 transition-transform"
+      className="mt-4 w-9 h-9 rounded-full grid place-items-center text-foreground/85 active:scale-95 transition-transform"
       style={{
         background: "var(--overlay-white-06)",
         border: "1px solid var(--overlay-white-12)",
@@ -57,7 +57,7 @@ const TopBar = ({ onBack }: { onBack: () => void }) => (
 const Spinner = ({ dark = false }: { dark?: boolean }) => (
   <span
     className={`w-4 h-4 border-2 rounded-full animate-spin ${
-      dark ? "border-[#0b0d12] border-t-transparent" : "border-white/70 border-t-transparent"
+      dark ? "border-[#0b0d12] border-t-transparent" : "border-foreground/70 border-t-transparent"
     }`}
   />
 );
@@ -128,7 +128,7 @@ export default function MobileAuthExtras(p: Props) {
 
   return (
     <div
-      className="relative min-h-[100dvh] w-full overflow-hidden text-white bg-background"
+      className="relative min-h-[100dvh] w-full overflow-hidden text-foreground bg-background"
       style={{ fontFamily: FONT_SANS }}
     >
       <div
@@ -154,7 +154,7 @@ export default function MobileAuthExtras(p: Props) {
           <div className="flex-1 flex flex-col justify-center px-6">
             <div className="w-full max-w-sm mx-auto mb-8 text-center">
               <h1
-                className="text-white"
+                className="text-foreground"
                 style={{
                   fontFamily: FONT_SERIF,
                   fontWeight: 300,
@@ -220,7 +220,7 @@ export default function MobileAuthExtras(p: Props) {
                       }}
                       onPaste={(e) => p.onOtpPaste(e, i)}
                       autoFocus={i === 0}
-                      className="auth-input-white w-11 text-center text-[19px] font-semibold rounded-2xl !text-white outline-none transition-colors focus:border-white/40"
+                      className="auth-input-white w-11 text-center text-[19px] font-semibold rounded-2xl !text-foreground outline-none transition-colors focus:border-foreground/40"
                       style={{ ...fieldStyle, height: 56 }}
                     />
                   ))}
@@ -239,12 +239,12 @@ export default function MobileAuthExtras(p: Props) {
                     value={p.newPassword}
                     onChange={(e) => p.setNewPassword(e.target.value)}
                     autoFocus
-                      className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-white placeholder:!text-white/40"
+                      className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/40"
                   />
                   <button
                     type="button"
                     onClick={() => p.setShowNewPassword(!p.showNewPassword)}
-                    className="text-white/50 hover:text-white/80 transition-colors"
+                    className="text-foreground/50 hover:text-foreground/80 transition-colors"
                     aria-label="toggle password"
                   >
                     {p.showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -261,7 +261,7 @@ export default function MobileAuthExtras(p: Props) {
                     type="email"
                     value={p.email}
                     disabled
-                    className="auth-input-white w-full bg-transparent outline-none text-[15px] !text-white/70"
+                    className="auth-input-white w-full bg-transparent outline-none text-[15px] !text-foreground/70"
                   />
                 </div>
               )}
@@ -273,7 +273,7 @@ export default function MobileAuthExtras(p: Props) {
                   className={`w-full h-[52px] rounded-full flex items-center justify-center gap-2 active:scale-[0.985] transition-colors duration-300 disabled:opacity-50 ${
                     hasTypedValue
                       ? "theme-fixed bg-white text-[#0b0d12] border border-white"
-                      : "bg-transparent text-white border border-white/30"
+                      : "bg-transparent text-foreground border border-foreground/30"
                   }`}
                   style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "0.1px" }}
                 >
@@ -299,7 +299,7 @@ export default function MobileAuthExtras(p: Props) {
                       type="button"
                       onClick={p.onResendOtp}
                       disabled={p.isSubmitting}
-                      className="text-[13px] text-white/85 underline underline-offset-4 decoration-white/25 disabled:opacity-50"
+                      className="text-[13px] text-foreground/85 underline underline-offset-4 decoration-white/25 disabled:opacity-50"
                     >
                       {authT("resendCode")}
                     </button>

@@ -156,16 +156,16 @@ const baseMd = {
   blockquote: ({ node: _n, ...p }: any) => (
     <blockquote
       dir="auto"
-      className="my-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5 font-serif text-[16px] italic sm:text-lg"
+      className="my-6 rounded-2xl border border-foreground/10 bg-white/[0.02] p-5 font-serif text-[16px] italic sm:text-lg"
       style={{ color: CREAM }}
       {...p}
     />
   ),
   table: ({ node: _n, ...p }: any) => (
     <div className="my-6 -mx-2 overflow-x-auto sm:mx-0">
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-[#1a1a1a]">
+      <div className="overflow-hidden rounded-xl border border-foreground/10 bg-[#1a1a1a]">
         <table
-          className="min-w-full border-collapse text-[14.5px] [&_tbody_tr]:border-t [&_tbody_tr]:border-white/5"
+          className="min-w-full border-collapse text-[14.5px] [&_tbody_tr]:border-t [&_tbody_tr]:border-foreground/5"
           {...p}
         />
       </div>
@@ -183,19 +183,19 @@ const baseMd = {
   td: ({ node: _n, ...p }: any) => (
     <td dir="auto" className="px-4 py-3 align-top text-[14.5px] leading-[1.65] text-gray-400" {...p} />
   ),
-  hr: () => <hr className="my-8 border-white/10" />,
+  hr: () => <hr className="my-8 border-foreground/10" />,
   code: ({ inline, className, children, ...p }: any) => {
     const text = String(children ?? "");
     const isInline = inline ?? (!/^language-/.test(className || "") && !text.includes("\n"));
     if (isInline) {
       return (
-        <code className="rounded bg-white/5 px-1.5 py-0.5 font-mono text-[0.88em]" style={{ color: CREAM }} {...p}>
+        <code className="rounded bg-foreground/5 px-1.5 py-0.5 font-mono text-[0.88em]" style={{ color: CREAM }} {...p}>
           {children}
         </code>
       );
     }
     return (
-      <pre className="my-5 overflow-x-auto rounded-xl border border-white/10 bg-[#0a0a0a] p-4">
+      <pre className="my-5 overflow-x-auto rounded-xl border border-foreground/10 bg-[#0a0a0a] p-4">
         <code className={`font-mono text-[13px] leading-[1.65] text-gray-300 ${className || ""}`} {...p}>
           {children}
         </code>
@@ -284,7 +284,7 @@ const ResearchLandingTemplate = ({
   }, [sectionEntries]);
 
   return (
-    <div className="bg-black" style={{ fontFamily: almaraiStack, color: CREAM_ALT }}>
+    <div className="bg-background" style={{ fontFamily: almaraiStack, color: CREAM_ALT }}>
       {/* ---------------- HERO (compact) ---------------- */}
       <section className="p-3 pt-16 sm:p-5 sm:pt-20 md:p-6 md:pt-24">
         <div className="relative h-[38dvh] min-h-[240px] w-full overflow-hidden rounded-2xl md:rounded-[2rem]">
@@ -324,14 +324,14 @@ const ResearchLandingTemplate = ({
               className="flex flex-wrap items-center gap-1.5 text-[10.5px] sm:text-[11px]"
               style={{ color: CREAM_ALT }}
             >
-              <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
+              <span className="rounded-full border border-foreground/15 bg-background/40 px-2.5 py-1 backdrop-blur">
                 {wordCount.toLocaleString()} {"words"}
               </span>
-              <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
+              <span className="rounded-full border border-foreground/15 bg-background/40 px-2.5 py-1 backdrop-blur">
                 {readMins} {"min read"}
               </span>
               {sources.length > 0 && (
-                <span className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 backdrop-blur">
+                <span className="rounded-full border border-foreground/15 bg-background/40 px-2.5 py-1 backdrop-blur">
                   {sources.length} {"sources"}
                 </span>
               )}
@@ -405,7 +405,7 @@ const ResearchLandingTemplate = ({
                   <div className="text-xs font-bold uppercase tracking-[0.28em]" style={{ color: CREAM }}>
                     {"Sources"}
                   </div>
-                  <div className="h-px flex-1 bg-white/10" />
+                  <div className="h-px flex-1 bg-foreground/10" />
                   <div className="text-xs text-gray-500">{sources.length}</div>
                 </div>
                 <ol className="grid gap-2 sm:grid-cols-2">
@@ -415,10 +415,10 @@ const ResearchLandingTemplate = ({
                         href={u}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-start gap-3 rounded-xl border border-white/10 bg-[#101010] p-3.5 transition hover:border-white/25 hover:bg-[#161616]"
+                        className="group flex items-start gap-3 rounded-xl border border-foreground/10 bg-[#101010] p-3.5 transition hover:border-foreground/25 hover:bg-[#161616]"
                       >
                         <span
-                          className="mt-0.5 flex h-6 min-w-6 items-center justify-center rounded-md bg-white/5 font-mono text-[11px] font-bold"
+                          className="mt-0.5 flex h-6 min-w-6 items-center justify-center rounded-md bg-foreground/5 font-mono text-[11px] font-bold"
                           style={{ color: CREAM }}
                         >
                           {String(idx + 1).padStart(2, "0")}
@@ -432,7 +432,7 @@ const ResearchLandingTemplate = ({
                           </span>
                           <span className="mt-0.5 block truncate text-[11px] text-gray-500">{u}</span>
                         </span>
-                        <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 text-gray-500 transition group-hover:text-white" />
+                        <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 text-gray-500 transition group-hover:text-foreground" />
                       </a>
                     </li>
                   ))}
