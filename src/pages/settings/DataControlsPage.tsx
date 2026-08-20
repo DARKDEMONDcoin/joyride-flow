@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Image, Video, FileText, Globe, Share2, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { useUserLang } from "@/hooks/useUserLang";
+import { useUserLang } from "@/lib/authI18n";
 import { SubShell, SubSection, SubRowList, SubRow } from "@/components/settings/SubShell";
 
 type Counts = { images: number; videos: number; files: number; sites: number; shared: number };
