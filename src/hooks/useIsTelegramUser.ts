@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { getCachedUser } from "@/lib/cachedUser";
 
 /**
  * Returns true only if the currently authenticated user is linked to a
@@ -11,7 +12,7 @@ export function useIsTelegramUser(): boolean {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const user = await getCachedUser();
       if (!user) return;
       const { data } = await supabase
         .from("telegram_users")

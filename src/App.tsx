@@ -182,12 +182,20 @@ const App = () => {
                 </PromoBannerProvider>
               </ZoneProvider>
             </BrowserRouter>
-            <Suspense fallback={null}>
-              <Analytics />
-            </Suspense>
-            <Suspense fallback={null}>
-              <SpeedInsights />
-            </Suspense>
+            {/* Vercel's beacons only exist when the app is served by Vercel.
+                On the Lovable host both scripts 404 on every page load, so we
+                mount them only where they can actually resolve. */}
+            {typeof window !== "undefined" &&
+            window.location.hostname.endsWith(".vercel.app") ? (
+              <>
+                <Suspense fallback={null}>
+                  <Analytics />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <SpeedInsights />
+                </Suspense>
+              </>
+            ) : null}
           </ErrorBoundary>
         </TooltipProvider>
       </QueryClientProvider>

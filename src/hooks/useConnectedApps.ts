@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { getCachedUser } from "@/lib/cachedUser";
 import { integrations, type Integration } from "@/lib/integrationsData";
 
 export interface ConnectedApp {
@@ -22,7 +23,7 @@ export function useConnectedApps() {
 
     (async () => {
       try {
-        const { data: auth } = await supabase.auth.getUser();
+        const auth = { user: await getCachedUser() };
         const user = auth?.user;
         if (!user) return;
 
