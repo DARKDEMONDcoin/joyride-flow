@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { getCachedUser } from "@/lib/cachedUser";
 import {
   setActiveWorkspaceId,
   hydrateActiveWorkspaceFromDB,
@@ -32,9 +33,7 @@ export function useWorkspaces() {
   const [loading, setLoading] = useState(true);
 
   const refresh = useCallback(async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const user = await getCachedUser();
     if (!user) {
       setLoading(false);
       return;
@@ -87,9 +86,7 @@ export function useWorkspaces() {
     setActiveIdState(id);
     // Persist + bust caches + notify all subscribers (sidebar, pages).
     setActiveWorkspaceId(id);
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const user = await getCachedUser();
     if (user) {
       await supabase
         .from("profiles")
