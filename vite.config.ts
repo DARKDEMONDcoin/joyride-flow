@@ -433,11 +433,11 @@ export default defineConfig({
             return "lobehub-core";
           }
 
-          // lucide-react must stay in a shared "icons" chunk. Removing this
-          // rule causes routes with many icons (e.g. chat messages) to inline
-          // ~500 KB of icons into their own chunk. Shared chunk = downloaded
-          // once, cached across routes.
-          if (id.includes("lucide-react")) return "icons";
+          // lucide-react: do NOT force every icon into one shared chunk.
+          // The barrel pulls ~580 KB and, because the app shell imports a few
+          // icons, that whole chunk was downloaded before first paint. Letting
+          // Rollup split it means each route chunk carries only the handful of
+          // icon modules it actually renders.
 
 
           if (
