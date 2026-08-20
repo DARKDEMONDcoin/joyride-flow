@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { getOwnProfile } from "@/lib/ownProfile";
 
 export type ActiveAccount = {
   kind: "personal" | "workspace";
