@@ -10,7 +10,6 @@ import {
   Database,
   PanelBottom,
   Puzzle,
-  Cable,
   Plug,
   UserRound,
   Moon,
@@ -97,7 +96,6 @@ const ManusSettingsMobile = () => {
     { icon: Database, label: isAr ? "ضوابط البيانات" : "Data controls", path: "/settings/data" },
     { icon: PanelBottom, label: isAr ? "متصفح السحابة" : "Cloud browser", path: "/settings/capabilities" },
     { icon: Puzzle, label: isAr ? "المهارات" : "Skills", path: "/settings/skills" },
-    { icon: Cable, label: isAr ? "الموصلات" : "Connectors", path: "/settings/mcp" },
     { icon: Plug, label: isAr ? "التكاملات" : "Integrations", path: "/chat?integrations=1" },
   ];
 

@@ -1,7 +1,7 @@
 /** @doc Browse and manage installed skills. */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ArrowLeft, ArrowUp, Pencil, Trash2, X, Plus, Paperclip, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowUp, Pencil, Trash2, X, Plus, Paperclip, Loader2, Sparkles, Search, SlidersHorizontal, ShieldCheck, ChevronRight, MoreHorizontal } from "lucide-react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -16,7 +16,7 @@ import MegsyStar from "@/components/files/MegsyStar";
 import { getActiveWorkspaceId } from "@/lib/activeWorkspace";
 import { SubShell, SubSection, SubCard, SubStatStrip } from "@/components/settings/SubShell";
 import { cn } from "@/lib/utils";
-import { SkillsHeroGlassCard, SkillsAddMenu } from "./components/SkillsExtras";
+import { SkillsAddMenu } from "./components/SkillsExtras";
 
 import { sanitizeErrorMessage } from "@/lib/sanitizeError";
 type DraftSkill = Partial<Skill> & {
@@ -55,7 +55,8 @@ export default function SkillsSettingsPage() {
   const [saving, setSaving] = useState(false);
   const [importing, setImporting] = useState(false);
   const [triggerInput, setTriggerInput] = useState("");
-  const [tab, setTab] = useState<"mine" | "library">("mine");
+  const [query, setQuery] = useState("");
+  const [onlyEnabled, setOnlyEnabled] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Open the designer when arriving with a seed prompt from /settings/skills/new
@@ -264,17 +265,15 @@ export default function SkillsSettingsPage() {
   }
 
   // ===== List view =====
-  const enabledCount = mySkills.filter((s) => s.is_enabled !== false).length;
-  const totalCount = mySkills.length;
-
-  const INDIGO = "#4f46e5";
-  const INDIGO_DEEP = "#1e1e5a";
-  const INK_SOFT = "rgba(255,255,255,0.55)";
-  const INK_MUTE = "rgba(255,255,255,0.38)";
-  const CARD_BG = "rgba(20,20,50,0.55)";
-  const CARD_BORDER = "var(--overlay-white-06)";
-  const HEADING = { fontFamily: "'Space Grotesk', system-ui, sans-serif" };
-  const BODY = { fontFamily: "'DM Sans', system-ui, sans-serif" };
+  const filtered = mySkills.filter((s) => {
+    const q = query.trim().toLowerCase();
+    if (!q) return true;
+    return (
+      s.name.toLowerCase().includes(q) ||
+      (s.description || "").toLowerCase().includes(q)
+    );
+  });
+  const visible = onlyEnabled ? filtered.filter((s) => s.is_enabled !== false) : filtered;
 
   return (
     <SubShell
@@ -284,6 +283,12 @@ export default function SkillsSettingsPage() {
         <SkillsAddMenu
           onCreateWithMegsy={() => navigate("/settings/skills/new")}
           onCreateFromFiles={(f) => handleImportZip(f)}
+          onFromLibrary={() => navigate("/settings/skills/library")}
+          onFromGithub={(url) =>
+            navigate("/settings/skills/new", {
+              state: { seed: `Build a skill from this GitHub repository: ${url}` },
+            })
+          }
         />
       }
     >
@@ -298,192 +303,191 @@ export default function SkillsSettingsPage() {
         }}
       />
 
-      {/* Hero glass card — matches Kimi design */}
-      <div className="pt-4">
-        <SkillsHeroGlassCard
-          onTry={() => navigate("/settings/skills/new")}
-        />
+      {/* Search + filter */}
+      <div className="flex items-center gap-2 pt-1">
+        <div className="flex-1 flex items-center gap-2 h-11 px-4 rounded-full bg-muted/60 border border-border">
+          <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search"
+            className="flex-1 min-w-0 bg-transparent outline-none text-[14px] text-foreground placeholder:text-muted-foreground"
+          />
+        </div>
+        <button
+          onClick={() => setOnlyEnabled((v) => !v)}
+          aria-label="Filter enabled skills"
+          className={cn(
+            "shrink-0 w-11 h-11 rounded-full grid place-items-center border transition-colors",
+            onlyEnabled
+              ? "bg-primary text-primary-foreground border-transparent"
+              : "bg-muted/60 text-foreground border-border",
+          )}
+        >
+          <SlidersHorizontal className="w-4 h-4" />
+        </button>
       </div>
 
+      {/* Official library row */}
+      <button
+        onClick={() => navigate("/settings/skills/library")}
+        className="w-full flex items-center gap-3 px-4 h-[58px] rounded-2xl bg-card border border-border text-left transition-colors hover:bg-muted/50"
+      >
+        <ShieldCheck className="w-[18px] h-[18px] text-muted-foreground shrink-0" />
+        <span className="flex-1 text-[15px] font-medium text-card-foreground">
+          Official library
+        </span>
+        <span className="text-[12px] text-muted-foreground">{librarySkills.length}</span>
+        <ChevronRight className="w-4 h-4 text-muted-foreground" />
+      </button>
 
-      <div className="pt-1" style={BODY}>
-
-
-        {/* Segmented tabs */}
-        <div
-          className="mb-4 inline-flex items-center gap-1 p-1 rounded-full"
-          style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}
-        >
-          {[
-            { id: "mine" as const, label: "My skills", count: mySkills.length },
-            { id: "library" as const, label: "Library", count: librarySkills.length },
-          ].map((t) => {
-            const active = tab === t.id;
-            return (
-              <button
-                key={t.id}
-                onClick={() => setTab(t.id)}
-                className="flex items-center gap-2 px-4 h-8 text-[12.5px] font-semibold rounded-full transition-all"
-                style={{
-                  ...HEADING,
-                  backgroundColor: active ? INDIGO : "transparent",
-                  color: active ? "#fff" : INK_SOFT,
-                }}
-              >
-                <span>{t.label}</span>
-                <span
-                  className="min-w-[18px] h-[18px] inline-flex items-center justify-center text-[10px] font-bold px-1.5 rounded-full"
-                  style={{
-                    backgroundColor: active ? "var(--overlay-white-20)" : "var(--overlay-white-06)",
-                    color: active ? "#fff" : INK_MUTE,
-                  }}
-                >
-                  {t.count}
-                </span>
-              </button>
-            );
-          })}
+      {/* My skills */}
+      {loading ? (
+        <div className="flex items-center justify-center py-16 rounded-2xl bg-card border border-border">
+          <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
         </div>
-
-        {/* Masonry-style list */}
-        {tab === "mine" ? (
-          loading ? (
-            <div
-              className="flex items-center justify-center py-16 rounded-3xl"
-              style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}
-            >
-              <Loader2 className="w-5 h-5 animate-spin" style={{ color: INK_SOFT }} />
-            </div>
-          ) : mySkills.length === 0 ? (
-            <div
-              className="text-center py-14 px-6 rounded-3xl"
-              style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}
-            >
-              <p className="text-[15px] font-semibold text-white" style={HEADING}>
-                No skills yet
-              </p>
-              <p className="text-[12.5px] mt-2 max-w-sm mx-auto leading-relaxed" style={{ color: INK_SOFT }}>
-                Create your first expert, or browse the library for starters.
-              </p>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-                <button
-                  onClick={() => navigate("/settings/skills/new")}
-                  className="inline-flex items-center gap-1.5 h-9 px-4 rounded-full text-[12.5px] font-semibold text-white hover:brightness-110 transition"
-                  style={{ backgroundColor: INDIGO, ...HEADING }}
-                >
-                  <Plus className="w-3.5 h-3.5" /> Create skill
-                </button>
-                <button
-                  onClick={() => setTab("library")}
-                  className="inline-flex items-center gap-1.5 h-9 px-4 rounded-full text-[12.5px] font-medium text-white/85 hover:bg-white/[0.06] transition"
-                  style={{ border: `1px solid ${CARD_BORDER}` }}
-                >
-                  Browse library
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="columns-1 sm:columns-2 gap-3 [column-fill:_balance]">
-              {mySkills.map((s) => (
-                <div key={s.id} className="mb-3 break-inside-avoid">
-                  <SkillCardIndigo
-                    skill={s}
-                    onEdit={() => startEdit(s)}
-                    onDelete={() => handleDelete(s.id)}
-                    onToggle={(v) => toggleEnabled(s, v)}
-                    indigo={INDIGO}
-                    cardBg={CARD_BG}
-                    cardBorder={CARD_BORDER}
-                    inkSoft={INK_SOFT}
-                    inkMute={INK_MUTE}
-                    heading={HEADING}
-                  />
-                </div>
-              ))}
-            </div>
-          )
-        ) : librarySkills.length === 0 ? (
-          <div
-            className="text-center py-14 rounded-3xl"
-            style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}
-          >
-            <p className="text-[15px] font-semibold text-white" style={HEADING}>
-              The library is empty
-            </p>
-            <p className="text-[12.5px] mt-2" style={{ color: INK_SOFT }}>
-              Check back later for curated skills.
-            </p>
-          </div>
-        ) : (
-          <div className="columns-1 sm:columns-2 gap-3 [column-fill:_balance]">
-            {librarySkills.map((s) => {
-              const exists = mySkills.some((m) => m.name === s.name);
-              return (
-                <div
-                  key={s.id}
-                  className="mb-3 break-inside-avoid rounded-2xl p-4"
-                  style={{ backgroundColor: CARD_BG, border: `1px solid ${CARD_BORDER}` }}
-                >
-                  <p className="text-[14px] font-semibold text-white" style={HEADING}>
-                    {s.name}
-                  </p>
-                  {s.description && (
-                    <p
-                      className="text-[12.5px] line-clamp-3 mt-1.5 leading-snug"
-                      style={{ color: INK_SOFT }}
-                    >
-                      {s.description}
-                    </p>
-                  )}
-                  <button
-                    disabled={exists}
-                    onClick={() => handleAddFromLibrary(s)}
-                    className="mt-3 w-full inline-flex items-center justify-center gap-1 h-8 px-3 rounded-full text-[12px] font-semibold transition"
-                    style={{
-                      ...HEADING,
-                      backgroundColor: exists ? "transparent" : INDIGO,
-                      color: exists ? INK_MUTE : "#fff",
-                      border: exists ? `1px solid ${CARD_BORDER}` : "none",
-                      cursor: exists ? "not-allowed" : "pointer",
-                    }}
-                  >
-                    {exists ? "Added" : "Add to roster"}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Inspiration */}
-        <div className="mt-8">
-          <p
-            className="text-[10.5px] font-semibold uppercase tracking-[0.18em] mb-3"
-            style={{ color: INK_MUTE, ...HEADING }}
-          >
-            Inspiration
+      ) : visible.length === 0 ? (
+        <div className="text-center py-14 px-6 rounded-2xl bg-card border border-border">
+          <p className="text-[15px] font-semibold text-card-foreground">No skills yet</p>
+          <p className="text-[12.5px] mt-2 text-muted-foreground">
+            Create your first expert, or add one from the official library.
           </p>
-          <div className="flex flex-wrap gap-2">
-            {SUGGESTIONS.slice(0, 6).map((s) => (
-              <button
-                key={s}
-                onClick={() => navigate("/settings/skills/new", { state: { seed: s } })}
-                className="inline-flex items-center gap-1.5 px-3 h-8 rounded-full text-[12.5px] transition-colors hover:text-white"
-                style={{
-                  color: INK_SOFT,
-                  border: `1px solid ${CARD_BORDER}`,
-                  backgroundColor: "rgba(255,255,255,0.02)",
-                }}
-              >
-                <Sparkles className="w-3 h-3" style={{ color: INDIGO }} /> {s}
-              </button>
-            ))}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            <button
+              onClick={() => navigate("/settings/skills/new")}
+              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-full text-[13px] font-semibold bg-primary text-primary-foreground"
+            >
+              <Plus className="w-3.5 h-3.5" /> Create skill
+            </button>
+            <button
+              onClick={() => navigate("/settings/skills/library")}
+              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-full text-[13px] font-medium border border-border text-foreground"
+            >
+              Official library
+            </button>
           </div>
+        </div>
+      ) : (
+        <div className="space-y-3">
+          {visible.map((s) => (
+            <SkillRowCard
+              key={s.id}
+              skill={s}
+              onEdit={() => startEdit(s)}
+              onDelete={() => handleDelete(s.id)}
+              onToggle={(v) => toggleEnabled(s, v)}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Inspiration */}
+      <div className="pt-2">
+        <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] mb-3 text-muted-foreground">
+          Inspiration
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {SUGGESTIONS.slice(0, 6).map((s) => (
+            <button
+              key={s}
+              onClick={() => navigate("/settings/skills/new", { state: { seed: s } })}
+              className="inline-flex items-center gap-1.5 px-3 h-8 rounded-full text-[12.5px] border border-border text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Sparkles className="w-3 h-3 text-primary" /> {s}
+            </button>
+          ))}
         </div>
       </div>
     </SubShell>
   );
 }
+
+function SkillRowCard({
+  skill,
+  onEdit,
+  onDelete,
+  onToggle,
+}: {
+  skill: Skill;
+  onEdit: () => void;
+  onDelete: () => void;
+  onToggle: (v: boolean) => void;
+}) {
+  const [menu, setMenu] = useState(false);
+  const enabled = skill.is_enabled !== false;
+  const updated = (skill as unknown as { updated_at?: string; created_at?: string });
+  const dateStr = updated.updated_at || updated.created_at;
+  const formatted = dateStr
+    ? new Date(dateStr).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : null;
+
+  return (
+    <div className="rounded-2xl bg-card border border-border overflow-hidden">
+      <div className="px-4 pt-4 pb-3">
+        <div className="flex items-start gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-[15px] font-semibold text-card-foreground truncate">
+              {skill.name}
+            </p>
+            {skill.description && (
+              <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground line-clamp-2">
+                {skill.description}
+              </p>
+            )}
+          </div>
+          <Switch checked={enabled} onCheckedChange={onToggle} className="mt-0.5 shrink-0" />
+        </div>
+      </div>
+      <div className="flex items-center gap-2 px-4 h-11 border-t border-border">
+        <ShieldCheck className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+        <span className="text-[12px] text-muted-foreground truncate">
+          {skill.source === "system" ? "Official" : "Custom"}
+          {formatted ? ` \u2022 Updated ${formatted}` : ""}
+        </span>
+        <span className="flex-1" />
+        <div className="relative">
+          <button
+            aria-label="Skill actions"
+            onClick={() => setMenu((v) => !v)}
+            className="w-8 h-8 -mr-2 rounded-full grid place-items-center text-muted-foreground hover:bg-muted transition-colors"
+          >
+            <MoreHorizontal className="w-4 h-4" />
+          </button>
+          {menu && (
+            <>
+              <div className="fixed inset-0 z-40" onClick={() => setMenu(false)} />
+              <div className="absolute bottom-9 right-0 z-50 min-w-[150px] rounded-xl bg-popover text-popover-foreground border border-border shadow-lg overflow-hidden">
+                <button
+                  onClick={() => {
+                    setMenu(false);
+                    onEdit();
+                  }}
+                  className="w-full flex items-center gap-2 px-3 h-10 text-[13px] hover:bg-muted transition-colors"
+                >
+                  <Pencil className="w-3.5 h-3.5" /> Edit
+                </button>
+                <button
+                  onClick={() => {
+                    setMenu(false);
+                    onDelete();
+                  }}
+                  className="w-full flex items-center gap-2 px-3 h-10 text-[13px] text-destructive hover:bg-muted transition-colors"
+                >
+                  <Trash2 className="w-3.5 h-3.5" /> Delete
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 function SkillCardIndigo({
   skill,

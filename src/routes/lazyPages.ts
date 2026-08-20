@@ -74,6 +74,7 @@ export const SystemStatusPage = lazy(() => import("@/pages/settings/SystemStatus
 export const SwitchAccountPage = lazy(() => import("@/pages/settings/SwitchAccountPage"));
 export const SkillsSettingsPage = lazy(() => import("@/pages/settings/SkillsSettingsPage"));
 export const SkillsNewPage = lazy(() => import("@/pages/settings/SkillsNewPage"));
+export const SkillsLibraryPage = lazy(() => import("@/pages/settings/SkillsLibraryPage"));
 
 /* ── Marketing / legal ────────────────────────────────────────── */
 export const PricingPage = lazy(() => import("@/pages/marketing/PricingPage"));
