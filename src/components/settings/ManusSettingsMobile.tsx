@@ -10,17 +10,12 @@ import {
   PanelBottom,
   Puzzle,
   Plug,
-  UserRound,
-  Moon,
-  Sun,
-  Contrast,
-  Check,
   Heart,
+  UserRound,
   HelpCircle,
   Asterisk,
   LogOut,
-  ChevronsUpDown,
-  Coins,
+  Gem,
   Gift,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -28,13 +23,6 @@ import { useActiveAccount } from "@/hooks/useActiveAccount";
 import { useCredits } from "@/hooks/useCredits";
 import { t as authT, useUserLang } from "@/lib/authI18n";
 import { goBackOr } from "@/lib/navigation";
-import { getAppearance, setAppearance, type Appearance } from "@/lib/appTheme";
-
-const THEME_OPTIONS = [
-  { id: "system" as Appearance, en: "Follow system", ar: "Follow system", icon: Contrast },
-  { id: "light" as Appearance, en: "Light mode", ar: "Light mode", icon: Sun },
-  { id: "dark" as Appearance, en: "Dark mode", ar: "Dark mode", icon: Moon },
-];
 
 type Row = {
   icon: React.ComponentType<{ className?: string }>;
@@ -64,8 +52,7 @@ const ManusSettingsMobile = () => {
   const isAr = lang === "ar" || lang === "ar-eg" || lang === "he" || lang === "fa";
   const { plan, credits } = useCredits();
   const [userEmail, setUserEmail] = useState("");
-  const [themeMenu, setThemeMenu] = useState(false);
-  const [appearance, setAppearanceState] = useState<Appearance>(() => getAppearance());
+  const [logoutOpen, setLogoutOpen] = useState(false);
 
   const userName = account.name || userEmail.split("@")[0] || "User";
 
@@ -92,7 +79,7 @@ const ManusSettingsMobile = () => {
     { icon: Lightbulb, label: "Knowledge", path: "/settings/memory" },
     { icon: Bell, label: "Notifications", path: "/notifications" },
     { icon: Database, label: "Data controls", path: "/settings/data" },
-    { icon: PanelBottom, label: "Cloud browser", path: "/settings/capabilities" },
+    { icon: PanelBottom, label: "Cloud browser", path: "/settings/cloud-browser" },
     { icon: Puzzle, label: "Skills", path: "/settings/skills" },
     { icon: Plug, label: "Integrations", path: "/chat?integrations=1" },
   ];
@@ -103,13 +90,6 @@ const ManusSettingsMobile = () => {
 
   const accountRows: Row[] = [
     { icon: UserRound, label: "Account", path: "/settings/profile/edit" },
-    {
-      icon: Moon,
-      label: "Appearance",
-      trailing: THEME_OPTIONS.find((o) => o.id === appearance)?.["en"],
-      onClick: () => setThemeMenu(true),
-      chevron: "stepper",
-    },
   ];
 
   const linkRows: Row[] = [
@@ -134,9 +114,7 @@ const ManusSettingsMobile = () => {
         <Icon className="ms-row-icon" />
         <span className="ms-row-label">{row.label}</span>
         {row.trailing && <span className="ms-row-trailing">{row.trailing}</span>}
-        {row.chevron === "stepper" ? (
-          <ChevronsUpDown className="ms-row-chev" />
-        ) : row.chevron === "none" ? null : row.external ? (
+        {row.chevron === "none" ? null : row.external ? (
           <span className="ms-row-chev ms-row-ext">↗</span>
         ) : (
           <Chevron className="ms-row-chev" />
@@ -179,7 +157,7 @@ const ManusSettingsMobile = () => {
               </button>
             </div>
             <button type="button" className="ms-row ms-row-div" onClick={() => navigate("/usage")}>
-              <Coins className="ms-row-icon" />
+              <Gem className="ms-row-icon" />
               <span className="ms-row-label">{"Credits"}</span>
               <span className="ms-row-trailing">{credits ?? 0}</span>
               {isAr ? <ChevronLeft className="ms-row-chev" /> : <ChevronRight className="ms-row-chev" />}
@@ -193,7 +171,7 @@ const ManusSettingsMobile = () => {
           <section className="ms-card">{linkRows.map(renderRow)}</section>
 
           <section className="ms-card">
-            <button type="button" className="ms-row" onClick={handleLogout}>
+            <button type="button" className="ms-row" onClick={() => setLogoutOpen(true)}>
               <LogOut className="ms-row-icon" />
               <span className="ms-row-label">{"Log out"}</span>
             </button>
@@ -202,31 +180,25 @@ const ManusSettingsMobile = () => {
           <div className="ms-spacer" />
         </div>
 
-        {themeMenu && (
-          <div className="ms-menu-scrim" role="presentation" onClick={() => setThemeMenu(false)}>
-            <div className="ms-menu" role="menu" onClick={(e) => e.stopPropagation()}>
-              {THEME_OPTIONS.map((o) => {
-                const OIcon = o.icon;
-                const active = o.id === appearance;
-                return (
-                  <button
-                    key={o.id}
-                    type="button"
-                    role="menuitemradio"
-                    aria-checked={active}
-                    className={`ms-menu-item${active ? " is-active" : ""}`}
-                    onClick={() => {
-                      setAppearance(o.id);
-                      setAppearanceState(o.id);
-                      setThemeMenu(false);
-                    }}
-                  >
-                    <OIcon className="ms-menu-icon" />
-                    <span className="ms-menu-label">{isAr ? o.ar : o.en}</span>
-                    {active && <Check className="ms-menu-check" />}
-                  </button>
-                );
-              })}
+        {logoutOpen && (
+          <div className="ms-confirm-scrim" role="presentation" onClick={() => setLogoutOpen(false)}>
+            <div
+              className="ms-confirm"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Log out"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="ms-confirm-title">Log out?</h3>
+              <p className="ms-confirm-body">You'll need to sign in again to use Megsy.</p>
+              <div className="ms-confirm-actions">
+                <button type="button" className="ms-confirm-btn" onClick={() => setLogoutOpen(false)}>
+                  Cancel
+                </button>
+                <button type="button" className="ms-confirm-btn ms-confirm-btn-primary" onClick={handleLogout}>
+                  Log out
+                </button>
+              </div>
             </div>
           </div>
         )}
