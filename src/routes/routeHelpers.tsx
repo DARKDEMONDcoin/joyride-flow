@@ -302,38 +302,15 @@ export const DodoReturnRedirect = () => {
   return null;
 };
 
-// Module-level auth cache so navigating between protected routes doesn't
-// flash a blank screen while ProtectedRoute remounts and re-checks session.
-let cachedAuthState: { authenticated: boolean; resolved: boolean } = {
-  authenticated: false,
-  resolved: false,
-};
-const authListeners = new Set<(s: { authenticated: boolean; resolved: boolean }) => void>();
-let authBootstrapped = false;
-
-const bootstrapAuth = () => {
-  if (authBootstrapped) return;
-  authBootstrapped = true;
-  supabase.auth.onAuthStateChange((_event, session) => {
-    cachedAuthState = { authenticated: !!session, resolved: true };
-    authListeners.forEach((cb) => cb(cachedAuthState));
-  });
-  supabase.auth.getSession().then(({ data: { session } }) => {
-    cachedAuthState = { authenticated: !!session, resolved: true };
-    authListeners.forEach((cb) => cb(cachedAuthState));
-  });
-};
-
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   bootstrapAuth();
-  const [state, setState] = useState(cachedAuthState);
+  const [state, setState] = useState(getAuthState);
 
   useEffect(() => {
-    setState(cachedAuthState);
-    const cb = (s: typeof cachedAuthState) => setState(s);
-    authListeners.add(cb);
+    setState(getAuthState());
+    const unsubscribe = subscribeAuthState(setState);
     return () => {
-      authListeners.delete(cb);
+      unsubscribe();
     };
   }, []);
 
@@ -347,18 +324,7 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 // Root route: every visitor (guest or signed-in) goes straight into the app.
 export const RootRoute = ({ authedElement }: { authedElement: React.ReactNode }) => {
   bootstrapAuth();
-  const [state, setState] = useState(cachedAuthState);
-  useEffect(() => {
-    setState(cachedAuthState);
-    const cb = (s: typeof cachedAuthState) => setState(s);
-    authListeners.add(cb);
-    return () => {
-      authListeners.delete(cb);
-    };
-  }, []);
-
   void authedElement;
-  void state;
   // Every visitor (guest or signed-in) lands in the app, so redirect
   // immediately instead of holding a blank frame until the session resolves.
   return <Navigate to="/chat" replace />;
