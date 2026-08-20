@@ -24,17 +24,6 @@ import {
   Coins,
   Gift,
 } from "lucide-react";
-import {
-  KeyRound,
-  Wallet,
-  ShieldCheck,
-  Store,
-  Sparkles,
-  Languages,
-  Lock,
-  LifeBuoy,
-  Activity,
-} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useActiveAccount } from "@/hooks/useActiveAccount";
 import { useCredits } from "@/hooks/useCredits";
@@ -112,12 +101,6 @@ const ManusSettingsMobile = () => {
 
   const advancedRows: Row[] = [
     { icon: Gift, label: isAr ? "الإحالات" : "Referrals", path: "/settings/referrals" },
-    { icon: Sparkles, label: isAr ? "تخصيص الذكاء" : "AI personalization", path: "/settings/ai-personalization" },
-    { icon: Store, label: isAr ? "المتجر" : "Marketplace", path: "/settings/marketplace" },
-    { icon: KeyRound, label: isAr ? "مفاتيح API" : "API keys", path: "/settings/api-keys" },
-    { icon: Wallet, label: isAr ? "الاستهلاك والتكلفة" : "Usage & cost", path: "/settings/costs" },
-    { icon: ShieldCheck, label: isAr ? "الموافقات" : "Approvals", path: "/settings/approvals" },
-    { icon: Activity, label: isAr ? "حالة النظام" : "System status", path: "/settings/system-status" },
   ];
 
   const accountRows: Row[] = [
@@ -132,9 +115,6 @@ const ManusSettingsMobile = () => {
   ];
 
   const linkRows: Row[] = [
-    { icon: Languages, label: isAr ? "اللغة" : "Language", path: "/settings/language" },
-    { icon: Lock, label: isAr ? "الأمان" : "Security", path: "/settings/security" },
-    { icon: LifeBuoy, label: isAr ? "الدعم" : "Help & support", path: "/settings/support" },
     { icon: Heart, label: isAr ? "قيّم هذا التطبيق" : "Rate this app", external: true, onClick: () => window.open("https://www.trustpilot.com/review/megsyai.com", "_blank", "noopener") },
     { icon: HelpCircle, label: isAr ? "الحصول على مساعدة" : "Get help", external: true, onClick: () => window.open("https://help.megsyai.com", "_blank", "noopener") },
     { icon: Asterisk, label: isAr ? "الإصدار" : "Version", trailing: APP_VERSION, chevron: "none" },
